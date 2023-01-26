@@ -1,5 +1,4 @@
 from typing import List
-from termcolor import colored
 import numpy as np
 
 
