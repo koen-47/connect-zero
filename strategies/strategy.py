@@ -63,13 +63,14 @@ class RLStrategy(Strategy, ABC):
 
 
 class AlphaBetaPruningStrategy(Strategy, ABC):
-    def __init__(self, depth):
+    def __init__(self, player_id, depth):
         super().__init__()
+        self.player_id = player_id
         self.depth = depth
 
     def calculate_move(self, board: List[List[int]]):
-        # return self.start_minimax_2(board, 3, 1)
-        return self.start_minimax_1(board)
+        return self.start_minimax_2(board, self.depth, self.player_id)
+        # return self.start_minimax_1(board)
 
     def start_minimax_1(self, board: List[List[int]]):
         valid_moves = get_valid_moves(board)
@@ -80,9 +81,11 @@ class AlphaBetaPruningStrategy(Strategy, ABC):
         alpha = float("-inf")
         beta = float("inf")
 
+        perspective = 2 if self.player_id == 1 else 1
+        # print(self.player_id)
         for move in valid_moves:
-            next_board = drop(copy.deepcopy(board), 1, move)
-            score = self.minimax(next_board, self.depth, alpha, beta, 2)
+            next_board = drop(copy.deepcopy(board), self.player_id, move)
+            score = self.minimax(next_board, self.depth, alpha, beta, perspective)
 
             # print(f"move: {move}, score: {score}")
             # print(move)
@@ -96,7 +99,8 @@ class AlphaBetaPruningStrategy(Strategy, ABC):
         valid_moves = get_valid_moves(board)
         # print(f"{player_id}, {depth}, {check_win(board)}, {reward_funcs.sequence_count_reward(board)}, {board}")
         if depth == 0 or check_win(board) != -1:
-            reward = reward_funcs.sequence_count_reward(board)
+            # print(player_id)
+            reward = reward_funcs.sequence_count_reward(board, player_id)
             # print(f"player_id: {player_id}, reward: {reward}, board: {board}")
             return reward
 
@@ -167,7 +171,7 @@ class AlphaBetaPruningStrategy(Strategy, ABC):
         validMoves = get_valid_moves(board)
         # check to see if game over
         if depth == 0 or len(validMoves) == 0 or check_win(board):
-            return reward_funcs.sequence_count_reward(board)
+            return reward_funcs.sequence_count_reward(board, opponent)
 
         # validMoves = get_valid_moves(board)
         # beta = b
@@ -187,7 +191,7 @@ class AlphaBetaPruningStrategy(Strategy, ABC):
     def maximizeAlpha(self, board, depth, a, b, player, opponent):
         validMoves = get_valid_moves(board)
         if depth == 0 or len(validMoves) == 0 or check_win(board):
-            return reward_funcs.sequence_count_reward(board)
+            return reward_funcs.sequence_count_reward(board, player)
 
         # alpha = a
         # if end of tree, evaluate scores

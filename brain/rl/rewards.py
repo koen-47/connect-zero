@@ -13,7 +13,7 @@ def constant_reward(player_id: int, game_status: int):
     return 0.5
 
 
-def sequence_count_reward(board: List[List[int]]):
+def sequence_count_reward(board: List[List[int]], player_id: int):
     def count_sequences(player_id: int):
         height = len(board)
         width = len(board[0])
@@ -68,4 +68,4 @@ def sequence_count_reward(board: List[List[int]]):
     p1_reward = seq_counts_p1[2] * 10000 + seq_counts_p1[1] * 100 + seq_counts_p1[0] * 10
     p2_reward = seq_counts_p2[2] * 10000 + seq_counts_p2[1] * 100 + seq_counts_p2[0] * 10
 
-    return p1_reward - p2_reward
+    return p1_reward - p2_reward if player_id == 1 else p2_reward - p1_reward

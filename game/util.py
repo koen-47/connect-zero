@@ -37,34 +37,35 @@ def check_win(board_state: List[List[int]]):
                     return 2
 
     for i in range(height):
-        for j in range(width):
-            if (j + 3) < width:
-                if board_state[i][j] == 1 and board_state[i][j + 1] == 1 and board_state[i][j + 2] == \
-                        1 and board_state[i][j + 3] == 1:
-                    return 1
-                if board_state[i][j] == 2 and board_state[i][j + 1] == 2 and board_state[i][j + 2] == \
-                        2 and board_state[i][j + 3] == 2:
-                    return 2
+        for j in range(width - 3):
+            if board_state[i][j] == 1 and board_state[i][j + 1] == 1 and board_state[i][j + 2] == \
+                    1 and board_state[i][j + 3] == 1:
+                return 1
+            if board_state[i][j] == 2 and board_state[i][j + 1] == 2 and board_state[i][j + 2] == \
+                    2 and board_state[i][j + 3] == 2:
+                return 2
 
-    for i in range(height):
-        for j in range(width):
-            if (i - 3) < height and (j + 3) < width:
-                if board_state[i][j] == 1 and board_state[i - 1][j + 1] == 1 and board_state[i - 2] \
-                        [j + 2] == 1 and board_state[i - 3][j + 3] == 1:
-                    return 1
-                if board_state[i][j] == 2 and board_state[i - 1][j + 1] == 2 and board_state[i - 2] \
-                        [j + 2] == 2 and board_state[i - 3][j + 3] == 2:
-                    return 2
+    for i in range(height - 3):
+        for j in (range(width - 3, width)):
+            if board_state[i][j] == 1 and board_state[i + 1][j - 1] == 1 and board_state[i + 2] \
+                    [j - 2] == 1 and board_state[i + 3][j - 3] == 1:
+                # print("1 diagonal right-left")
+                return 1
+            if board_state[i][j] == 2 and board_state[i + 1][j - 1] == 2 and board_state[i + 2] \
+                    [j - 2] == 2 and board_state[i + 3][j - 3] == 2:
+                # print("2 diagonal right-left")
+                return 2
 
-    for i in range(height):
-        for j in range(width):
-            if (i - 3) < height and (j - 3) < width:
-                if board_state[i][j] == 1 and board_state[i - 1][j - 1] == 1 and \
-                        board_state[i - 2][j - 2] == 1 and board_state[i - 3][j - 3] == 1:
-                    return 1
-                if board_state[i][j] == 2 and board_state[i - 1][j - 1] == 2 and \
-                        board_state[i - 2][j - 2] == 2 and board_state[i - 3][j - 3] == 2:
-                    return 2
+    for i in range(height - 3):
+        for j in range(width - 3):
+            if board_state[i][j] == 1 and board_state[i + 1][j + 1] == 1 and \
+                    board_state[i + 2][j + 2] == 1 and board_state[i + 3][j + 3] == 1:
+                # print("1 diagonal left-right")
+                return 1
+            if board_state[i][j] == 2 and board_state[i + 1][j + 1] == 2 and \
+                    board_state[i + 2][j + 2] == 2 and board_state[i + 3][j + 3] == 2:
+                # print("2 diagonal left-right")
+                return 2
 
     if len(get_valid_moves(board_state)) == 0:
         return 0
