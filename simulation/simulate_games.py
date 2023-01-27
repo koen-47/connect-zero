@@ -20,6 +20,9 @@ def simulate_games(num_games: int):
     for i in range(num_games):
         game.reset()
 
+        if i % 100 == 0:
+            print(i)
+
         turn_num = 1
         p1_strategy = AlphaBetaPruningStrategy(player_id=1, depth=3)
         p2_strategy = AlphaBetaPruningStrategy(player_id=2, depth=3)
@@ -69,5 +72,5 @@ def read_training_data(file_path: str):
     print(json.loads(df["board_state"].iloc[0]))
 
 
-# training_date = simulate_games(100)
+# training_date = simulate_games(200000)
 # save_training_date_to_file(training_date)
