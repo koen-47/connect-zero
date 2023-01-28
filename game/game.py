@@ -9,7 +9,7 @@ class Game:
     def play_manual(self):
         turn = 1
         player = Player(1, strategy="manual")
-        cpu = Player(2, strategy="rl")
+        cpu = Player(2, strategy="classification")
         while not self.is_game_over():
             print(f"Turn {turn}")
             player.move(self.board)

@@ -10,6 +10,8 @@ from game.board import Board
 import brain.rl.rewards as reward_funcs
 from models.cnn.cnn_dqn_2 import CNN_DQN_2
 from models.cnn.cnn_dqn_1 import CNN_DQN_1
+from brain.classification.train_classifier import Classifier1
+from brain.classification.train_test_data import split_board_state
 from game.util import drop, check_win, get_valid_moves, is_valid_move
 
 
@@ -53,6 +55,28 @@ class RLStrategy(Strategy, ABC):
     def calculate_move(self, board: List[List[int]]):
         available_actions = self.get_valid_moves(board)
         state = torch.tensor(board, dtype=torch.float, device="cpu").unsqueeze(dim=0).unsqueeze(dim=0)
+
+        with torch.no_grad():
+            r_actions = self.model(state)[0, :]
+            state_action_values = [r_actions[action] for action in available_actions]
+            argmax_action = np.argmax(state_action_values)
+            greedy_action = available_actions[argmax_action]
+            return greedy_action
+
+
+class ClassificationStrategy(Strategy, ABC):
+    def __init__(self):
+        super(ClassificationStrategy, self).__init__()
+        self.model = Classifier1()
+        self.model.load_state_dict(torch.load("../brain/classification/connect_4.pth"), strict=False)
+        self.model.eval()
+
+    def calculate_move(self, board: List[List[int]]):
+        available_actions = self.get_valid_moves(board)
+        board = np.array(board).flatten()
+        channel_p1 = np.where(board == 2, 0, board).reshape((6, 7))
+        channel_p2 = np.where(board == 1, 0, board).reshape((6, 7))
+        state = torch.tensor(np.array([channel_p1, channel_p2], dtype=np.float32)).unsqueeze(dim=0)
 
         with torch.no_grad():
             r_actions = self.model(state)[0, :]

@@ -7,7 +7,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from train_test_data import split_train_val_set
+from .train_test_data import split_train_val_set
 
 
 class Classifier1(nn.Module):
@@ -33,19 +33,19 @@ class Classifier1(nn.Module):
         x = F.relu(self.conv6(x))
         x = x.view(x.size(0), -1)
         x = F.relu(self.fc1(x))
-        return torch.tanh(self.value(x))
+        # return torch.tanh(self.value(x))
         # return F.tanh(self.value(x)), F.softmax(self.policy(x), dim=-1)
-        # return F.log_softmax(self.policy(x), dim=-1)
-
-
-train_data, val_data = split_train_val_set(1)
-train_loader = DataLoader(train_data, batch_size=256, shuffle=True)
-val_loader = DataLoader(val_data, batch_size=256, shuffle=True)
-PATH = './connect_4.pth'
+        return F.log_softmax(self.policy(x), dim=-1)
 
 
 def train(num_epochs):
+    train_data, val_data = split_train_val_set(1)
+    train_loader = DataLoader(train_data, batch_size=256, shuffle=True)
+    val_loader = DataLoader(val_data, batch_size=256, shuffle=True)
+    PATH = './connect_4.pth'
+
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    print(device)
 
     criterion1 = nn.MSELoss()
 
@@ -76,8 +76,6 @@ def train(num_epochs):
     print('Finished Training')
     torch.save(model.state_dict(), PATH)
 
-
-def test():
     correct = 0
     total = 0
     model = Classifier1()
@@ -95,6 +93,5 @@ def test():
 
     print(f'Accuracy: {100 * correct // total}%')
 
-
-train(num_epochs=10)
+# train(num_epochs=10)
 # test()

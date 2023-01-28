@@ -1,4 +1,4 @@
-from strategies.strategy import RandomStrategy, ManualStrategy, RLStrategy, AlphaBetaPruningStrategy
+from strategies.strategy import RandomStrategy, ManualStrategy, RLStrategy, AlphaBetaPruningStrategy, ClassificationStrategy
 
 
 class Player:
@@ -11,7 +11,9 @@ class Player:
         elif strategy == "rl":
             self.strategy = RLStrategy()
         elif strategy == "alpha_beta":
-            self.strategy = AlphaBetaPruningStrategy()
+            self.strategy = AlphaBetaPruningStrategy(player_id=id, depth=3)
+        elif strategy == "classification":
+            self.strategy = ClassificationStrategy()
 
     def move(self, board):
         col = self.strategy.calculate_move(board.board)
