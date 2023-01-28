@@ -21,8 +21,14 @@ class Connect4Dataset(Dataset):
         channel_p1, channel_p2 = split_board_state(self.data["board_state"][item])
         board_state = torch.tensor(np.array([channel_p1, channel_p2], dtype=np.float32))
         result = torch.tensor([self.data["result"][item]], dtype=torch.float32)
-        optimal_move = torch.tensor(self.data["optimal_move"][item])
-        return board_state, result
+        optimal_move = torch.tensor(np.array(self.data["optimal_move"][item]), dtype=torch.long)
+
+        # optimal_move = np.zeros(7)
+        # optimal_move[self.data["optimal_move"][item]] = 1
+        # optimal_move = torch.tensor(np.array(optimal_move), dtype=torch.float32)
+        # print(optimal_move)
+
+        return board_state, optimal_move
 
 
 def process_data(file_path: str):

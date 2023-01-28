@@ -41,7 +41,7 @@ class CNNStrategy:
         self.game = game.Game()
         self.memory = ReplayMemory()
 
-        self.opponent_strat = AlphaBetaPruningStrategy(depth=0)
+        self.opponent_strat = AlphaBetaPruningStrategy(1, depth=0)
 
     def select_action(self, board: List[List[int]], available_actions, steps_done=None, training=True):
         state = torch.tensor(board, dtype=torch.float, device=self.device).unsqueeze(dim=0).unsqueeze(dim=0)
