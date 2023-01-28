@@ -33,9 +33,9 @@ class Classifier1(nn.Module):
         x = F.relu(self.conv6(x))
         x = x.view(x.size(0), -1)
         x = F.relu(self.fc1(x))
-        return torch.tanh(self.value(x))
+        # return torch.tanh(self.value(x))
         # return F.tanh(self.value(x)), F.softmax(self.policy(x), dim=-1)
-        # return F.log_softmax(self.policy(x), dim=-1)
+        return F.log_softmax(self.policy(x), dim=-1)
 
 
 train_data, val_data = split_train_val_set(1)
@@ -46,8 +46,10 @@ PATH = './connect_4.pth'
 
 def train(num_epochs):
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+    print(device)
 
     criterion1 = nn.MSELoss()
+    criterion2 = nn.NLLLoss()
 
     model = Classifier1().to(device)
     optimizer = optim.Adam(model.parameters(), lr=0.00001)
@@ -56,14 +58,14 @@ def train(num_epochs):
     for epoch in range(num_epochs):  # loop over the dataset multiple times
         running_loss = 0.0
         for i, data in enumerate(train_loader, 0):
-            board_state, result = data
+            board_state, optimal_move = data
             board_state = board_state.to(device)
-            result = result.to(device)
+            optimal_move = optimal_move.to(device)
 
             optimizer.zero_grad()
 
-            output_result = model(board_state).to(device)
-            loss = criterion1(output_result, result)
+            output_optimal_move = model(board_state).to(device)
+            loss = criterion2(output_optimal_move, optimal_move)
 
             loss.backward()
             optimizer.step()
@@ -96,5 +98,5 @@ def test():
     print(f'Accuracy: {100 * correct // total}%')
 
 
-train(num_epochs=10)
-# test()
+# train(num_epochs=35)
+test()
