@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 import numpy as np
@@ -14,25 +15,34 @@ class Classifier1(nn.Module):
     def __init__(self):
         super(Classifier1, self).__init__()
         self.conv1 = nn.Conv2d(2, 64, kernel_size=(3, 3), padding=1)
+        self.bn1 = nn.BatchNorm2d(64)
         self.conv2 = nn.Conv2d(64, 64, kernel_size=(3, 3), padding=1)
+        self.bn2 = nn.BatchNorm2d(64)
         self.conv3 = nn.Conv2d(64, 64, kernel_size=(3, 3), padding=1)
+        self.bn3 = nn.BatchNorm2d(64)
         self.conv4 = nn.Conv2d(64, 64, kernel_size=(3, 3), padding=1)
+        self.bn4 = nn.BatchNorm2d(64)
         self.conv5 = nn.Conv2d(64, 64, kernel_size=(3, 3), padding=1)
+        self.bn5 = nn.BatchNorm2d(64)
         self.conv6 = nn.Conv2d(64, 64, kernel_size=(3, 3), padding=1)
+        self.bn6 = nn.BatchNorm2d(64)
         self.conv7 = nn.Conv2d(64, 3, kernel_size=(1, 1))
-        self.fc1 = nn.Linear(2688, 64)
+        self.bn7 = nn.BatchNorm2d(3)
+        self.fc1 = nn.Linear(126, 64)
+        self.bn8 = nn.BatchNorm1d(64)
         self.value = nn.Linear(64, 1)
         self.policy = nn.Linear(64, 7)
 
     def forward(self, x):
-        x = F.relu(self.conv1(x))
-        x = F.relu(self.conv2(x))
-        x = F.relu(self.conv3(x))
-        x = F.relu(self.conv4(x))
-        x = F.relu(self.conv5(x))
-        x = F.relu(self.conv6(x))
+        x = F.relu(self.bn1(self.conv1(x)))
+        x = F.relu(self.bn2(self.conv2(x)))
+        x = F.relu(self.bn3(self.conv3(x)))
+        x = F.relu(self.bn4(self.conv4(x)))
+        x = F.relu(self.bn5(self.conv5(x)))
+        x = F.relu(self.bn6(self.conv6(x)))
+        x = F.relu(self.bn7(self.conv7(x)))
         x = x.view(x.size(0), -1)
-        x = F.relu(self.fc1(x))
+        x = F.relu(self.bn8(self.fc1(x)))
         # return torch.tanh(self.value(x))
         # return F.tanh(self.value(x)), F.softmax(self.policy(x), dim=-1)
         return F.log_softmax(self.policy(x), dim=-1)
@@ -43,6 +53,12 @@ def train_model(player_id, num_epochs):
     train_loader = DataLoader(train_data, batch_size=256, shuffle=True)
     val_loader = DataLoader(val_data, batch_size=256, shuffle=True)
     PATH = f'./classification_model_p{player_id}.pth'
+
+    logging.basicConfig(filename=f"classification_model_p{player_id}.log",
+                        filemode='w+',
+                        format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                        datefmt='%H:%M:%S',
+                        level=logging.DEBUG)
 
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     print(device)
@@ -92,11 +108,13 @@ def train_model(player_id, num_epochs):
             val_total += val_optimal_move.size(0)
             val_running_acc += (val_predicted == val_optimal_move).sum().item()
 
-        print(f'[{epoch + 1}]   '
-              f'train_loss: {train_running_loss / len(train_loader):.3f}, '
-              f'train_acc: {train_running_acc / train_total:.3f}, '
-              f'val_loss: {val_running_loss / len(val_loader):.3f}, '
-              f'val_acc: {val_running_acc / val_total:.3f}')
+        info = f'[{epoch + 1}]  ' \
+               f'train_loss: {train_running_loss / len(train_loader):.3f}, ' \
+               f'train_acc: {train_running_acc / train_total:.3f}, ' \
+               f'val_loss: {val_running_loss / len(val_loader):.3f}, ' \
+               f'val_acc: {val_running_acc / val_total:.3f}'
+        logging.debug(info)
+        print(info)
 
     torch.save(model.state_dict(), PATH)
 
@@ -113,5 +131,5 @@ def train_model(player_id, num_epochs):
     # print(f'accuracy: {100 * correct // total}%')
 
 
-train_model(player_id=2, num_epochs=10)
+train_model(player_id=1, num_epochs=10)
 
