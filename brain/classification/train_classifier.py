@@ -38,13 +38,12 @@ class Classifier1(nn.Module):
         return F.log_softmax(self.policy(x), dim=-1)
 
 
-train_data, val_data = split_train_val_set(1)
-train_loader = DataLoader(train_data, batch_size=256, shuffle=True)
-val_loader = DataLoader(val_data, batch_size=256, shuffle=True)
-PATH = './connect_4.pth'
+def train_model(player_id, num_epochs):
+    train_data, val_data = split_train_val_set(player_id)
+    train_loader = DataLoader(train_data, batch_size=256, shuffle=True)
+    val_loader = DataLoader(val_data, batch_size=256, shuffle=True)
+    PATH = f'./classification_model_p{player_id}.pth'
 
-
-def train(num_epochs):
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
     print(device)
 
@@ -54,10 +53,12 @@ def train(num_epochs):
     model = Classifier1().to(device)
     optimizer = optim.Adam(model.parameters(), lr=0.00001)
 
-    loss_interval = 500
-    for epoch in range(num_epochs):  # loop over the dataset multiple times
-        running_loss = 0.0
+    for epoch in range(num_epochs):
+        train_running_loss = 0.0
+        train_running_acc = 0.0
+        train_total = 0
         for i, data in enumerate(train_loader, 0):
+            model.train()
             board_state, optimal_move = data
             board_state = board_state.to(device)
             optimal_move = optimal_move.to(device)
@@ -65,38 +66,52 @@ def train(num_epochs):
             optimizer.zero_grad()
 
             output_optimal_move = model(board_state).to(device)
-            loss = criterion2(output_optimal_move, optimal_move)
+            train_loss = criterion2(output_optimal_move, optimal_move)
 
-            loss.backward()
+            train_loss.backward()
             optimizer.step()
 
-            running_loss += loss.item()
-            if i % loss_interval == loss_interval - 1:
-                print(f'[{epoch + 1}, {i + 1:5d}] loss: {running_loss / loss_interval:.3f}')
-                running_loss = 0.0
+            train_running_loss += train_loss.item()
+            _, train_predicted = torch.max(output_optimal_move.data, 1)
+            train_total += optimal_move.size(0)
+            train_running_acc += (train_predicted == optimal_move).sum().item()
 
-    print('Finished Training')
+        model.eval()
+        val_running_loss = 0.0
+        val_running_acc = 0.0
+        val_total = 0
+        for j, val_data in enumerate(val_loader, 0):
+            val_board_state, val_optimal_move = val_data
+            val_board_state = val_board_state.to(device)
+            val_optimal_move = val_optimal_move.to(device)
+            val_output = model(val_board_state).to(device)
+            val_loss = criterion2(val_output, val_optimal_move)
+
+            val_running_loss += val_loss.item()
+            _, val_predicted = torch.max(val_output.data, 1)
+            val_total += val_optimal_move.size(0)
+            val_running_acc += (val_predicted == val_optimal_move).sum().item()
+
+        print(f'[{epoch + 1}]   '
+              f'train_loss: {train_running_loss / len(train_loader):.3f}, '
+              f'train_acc: {train_running_acc / train_total:.3f}, '
+              f'val_loss: {val_running_loss / len(val_loader):.3f}, '
+              f'val_acc: {val_running_acc / val_total:.3f}')
+
     torch.save(model.state_dict(), PATH)
 
-
-def test():
-    correct = 0
-    total = 0
-    model = Classifier1()
-    model.load_state_dict(torch.load(PATH))
-    # since we're not training, we don't need to calculate the gradients for our outputs
-    with torch.no_grad():
-        for data in val_loader:
-            images, labels = data
-            # calculate outputs by running images through the network
-            outputs = model(images)
-            # the class with the highest energy is what we choose as prediction
-            _, predicted = torch.max(outputs.data, 1)
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-
-    print(f'Accuracy: {100 * correct // total}%')
+    # correct = 0
+    # total = 0
+    # with torch.no_grad():
+    #     for data in val_loader:
+    #         images, labels = data
+    #         outputs = model(images)
+    #         _, predicted = torch.max(outputs.data, 1)
+    #         total += labels.size(0)
+    #         correct += (predicted == labels).sum().item()
+    #
+    # print(f'accuracy: {100 * correct // total}%')
 
 
-# train(num_epochs=35)
-test()
+train_model(player_id=2, num_epochs=10)
+
