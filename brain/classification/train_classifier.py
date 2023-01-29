@@ -56,7 +56,7 @@ def train_model(player_id, num_epochs):
 
     logging.basicConfig(filename=f"classification_model_p{player_id}.log",
                         filemode='w+',
-                        format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                        format='%(asctime)sgi %(name)s %(levelname)s %(message)s',
                         datefmt='%H:%M:%S',
                         level=logging.DEBUG)
 
