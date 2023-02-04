@@ -11,11 +11,13 @@ class Player:
         elif strategy == "rl":
             self.strategy = RLStrategy()
         elif strategy == "alpha_beta":
-            self.strategy = AlphaBetaPruningStrategy(player_id=id, depth=3)
+            perspective = 1 if id == 2 else 2
+            self.strategy = AlphaBetaPruningStrategy(player_id=perspective, depth=3)
         elif strategy == "classification":
             self.strategy = ClassificationStrategy()
 
     def move(self, board):
         col = self.strategy.calculate_move(board.board)
+        print(f"player {self.id}, col: {col}")
         board.drop(self.id, col)
 

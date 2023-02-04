@@ -9,10 +9,11 @@ class Game:
     def play_manual(self):
         turn = 1
         player = Player(1, strategy="manual")
-        cpu = Player(2, strategy="classification")
+        cpu = Player(2, strategy="alpha_beta")
         while not self.is_game_over():
             print(f"Turn {turn}")
             player.move(self.board)
+            print(self.board.to_string())
             if self.board.check_win() == 1:
                 break
             cpu.move(self.board)

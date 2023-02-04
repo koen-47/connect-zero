@@ -8,13 +8,13 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from train_test_data import split_train_val_set
+from .train_test_data import split_train_val_set
 
 
 class Classifier1(nn.Module):
     def __init__(self):
         super(Classifier1, self).__init__()
-        self.conv1 = nn.Conv2d(2, 16, kernel_size=(3, 3), padding=1)
+        self.conv1 = nn.Conv2d(1, 16, kernel_size=(3, 3), padding=1)
         self.bn1 = nn.BatchNorm2d(16)
         self.conv2 = nn.Conv2d(16, 32, kernel_size=(3, 3), padding=1)
         self.bn2 = nn.BatchNorm2d(32)
@@ -28,14 +28,12 @@ class Classifier1(nn.Module):
         self.bn6 = nn.BatchNorm2d(512)
         self.conv7 = nn.Conv2d(512, 1024, kernel_size=(3, 3), padding=1)
         self.bn7 = nn.BatchNorm2d(1024)
-        # self.conv7 = nn.Conv2d(512, 3, kernel_size=(1, 1))
-        # self.bn7 = nn.BatchNorm2d(3)
         self.fc1 = nn.Linear(43008, 1024)
-        self.bn8 = nn.BatchNorm1d(1024)
+        # self.bn8 = nn.BatchNorm1d(1024)
         self.fc2 = nn.Linear(1024, 1024)
-        self.bn9 = nn.BatchNorm1d(1024)
+        # self.bn9 = nn.BatchNorm1d(1024)
         self.fc3 = nn.Linear(1024, 1024)
-        self.bn10 = nn.BatchNorm1d(1024)
+        # self.bn10 = nn.BatchNorm1d(1024)
         self.value = nn.Linear(1024, 1)
         self.policy = nn.Linear(1024, 7)
 
@@ -48,12 +46,12 @@ class Classifier1(nn.Module):
         x = F.leaky_relu(self.bn6(self.conv6(x)))
         x = F.leaky_relu(self.bn7(self.conv7(x)))
         x = x.view(x.size(0), -1)
-        x = F.leaky_relu(self.bn8(self.fc1(x)))
-        x = F.leaky_relu(self.bn9(self.fc2(x)))
-        x = F.leaky_relu(self.bn10(self.fc3(x)))
+        x = F.leaky_relu(self.fc1(x))
+        x = F.leaky_relu(self.fc2(x))
+        x = F.leaky_relu(self.fc3(x))
         # return torch.tanh(self.value(x))
-        # return F.tanh(self.value(x)), F.softmax(self.policy(x), dim=-1)
-        return F.log_softmax(self.policy(x), dim=-1)
+        return F.softmax(self.policy(x), dim=-1), torch.tanh(self.value(x))
+        # return F.log_softmax(self.policy(x), dim=-1)
 
 
 def train_model(player_id, num_epochs):
@@ -139,5 +137,5 @@ def train_model(player_id, num_epochs):
     # print(f'accuracy: {100 * correct // total}%')
 
 
-train_model(player_id=1, num_epochs=10)
+# train_model(player_id=1, num_epochs=10)
 

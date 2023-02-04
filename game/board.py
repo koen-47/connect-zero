@@ -42,7 +42,7 @@ class Board:
                         return 2
 
         for i in range(self.num_rows):
-            for j in range(self.num_cols-3):
+            for j in range(self.num_cols - 3):
                 if self.board[i][j] == 1 and self.board[i][j + 1] == 1 and self.board[i][j + 2] == \
                         1 and self.board[i][j + 3] == 1:
                     return 1
@@ -50,19 +50,21 @@ class Board:
                         2 and self.board[i][j + 3] == 2:
                     return 2
 
-        for i in range(self.num_rows-3):
-            for j in (range(self.num_cols-3, self.num_cols)):
+        for i in range(self.num_rows - 3):
+            for j in range(self.num_cols - 4, self.num_cols):
                 if self.board[i][j] == 1 and self.board[i + 1][j - 1] == 1 and self.board[i + 2] \
                         [j - 2] == 1 and self.board[i + 3][j - 3] == 1:
                     # print("1 diagonal right-left")
                     return 1
+                # print(f"[{self.board[i][j]}, {self.board[i + 1][j - 1]}, {self.board[i + 2][j - 2]}, {self.board[i
+                # + 3][j - 3]}]")
                 if self.board[i][j] == 2 and self.board[i + 1][j - 1] == 2 and self.board[i + 2] \
                         [j - 2] == 2 and self.board[i + 3][j - 3] == 2:
                     # print("2 diagonal right-left")
                     return 2
 
-        for i in range(self.num_rows-3):
-            for j in range(self.num_cols-3):
+        for i in range(self.num_rows - 3):
+            for j in range(self.num_cols - 3):
                 if self.board[i][j] == 1 and self.board[i + 1][j + 1] == 1 and \
                         self.board[i + 2][j + 2] == 1 and self.board[i + 3][j + 3] == 1:
                     # print("1 diagonal left-right")

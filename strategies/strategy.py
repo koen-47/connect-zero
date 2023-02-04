@@ -46,8 +46,8 @@ class ManualStrategy(Strategy, ABC):
 
 class RLStrategy(Strategy, ABC):
     def __init__(self):
-        self.model = CNN_DQN_2(7)
-        self.model.load_state_dict(torch.load("../models/saved/dqn_cnn_11.pth"), strict=False)
+        self.model = Classifier1()
+        self.model.load_state_dict(torch.load("../models/saved/dqn_cnn_v2_1.pth"), strict=False)
         self.model.eval()
 
         super().__init__()
@@ -57,7 +57,7 @@ class RLStrategy(Strategy, ABC):
         state = torch.tensor(board, dtype=torch.float, device="cpu").unsqueeze(dim=0).unsqueeze(dim=0)
 
         with torch.no_grad():
-            r_actions = self.model(state)[0, :]
+            r_actions = self.model(state)[0].to("cpu").squeeze()
             state_action_values = [r_actions[action] for action in available_actions]
             argmax_action = np.argmax(state_action_values)
             greedy_action = available_actions[argmax_action]
@@ -175,10 +175,14 @@ class AlphaBetaPruningStrategy(Strategy, ABC):
         alpha = float("-inf")
         beta = float("inf")
 
+        # print(f"player: {player}")
+
         if player == 1:
             opponent = 2
         else:
             opponent = 1
+
+        # print(f"opponent: {opponent}")
 
         # go through all of those boards
         for move in validMoves:
@@ -186,45 +190,64 @@ class AlphaBetaPruningStrategy(Strategy, ABC):
             tempBoard = drop(copy.deepcopy(board), player, move)
             # call min on that new board
             boardScore = self.minimizeBeta(tempBoard, depth - 1, alpha, beta, player, opponent)
+            # print(f"move: {move}, score: {boardScore}")
+
             if boardScore > bestScore:
                 bestScore = boardScore
                 bestMove = move
+        # print(f"best_move: {bestMove}, best_score: {bestScore}")
         return bestMove
 
     def minimizeBeta(self, board, depth, a, b, player, opponent):
-        validMoves = get_valid_moves(board)
-        # check to see if game over
-        if depth == 0 or len(validMoves) == 0 or check_win(board):
-            return reward_funcs.sequence_count_reward(board, opponent)
+        validMoves = []
+        for col in range(7):
+            # if column col is a legal move...
+            if is_valid_move(board, col):
+                # make the move in column col for curr_player
+                temp = drop(copy.deepcopy(board), player, col)
+                validMoves.append(col)
 
-        # validMoves = get_valid_moves(board)
-        # beta = b
+        # check to see if game over
+        if depth == 0 or len(validMoves) == 0 or check_win(board) != -1:
+            # print(player)
+            return reward_funcs.sequence_count_reward(board, player)
+
+        validMoves = get_valid_moves(board)
+        beta = b
 
         # if end of tree evaluate scores
         for move in validMoves:
             boardScore = float("inf")
             # else continue down tree as long as ab conditions met
-            if a < b:
+            if a < beta:
                 tempBoard = drop(copy.deepcopy(board), opponent, move)
-                boardScore = self.maximizeAlpha(tempBoard, depth - 1, a, b, player, opponent)
+                boardScore = self.maximizeAlpha(tempBoard, depth - 1, a, beta, player, opponent)
 
-            if boardScore < b:
-                b = boardScore
-        return b
+            if boardScore < beta:
+                beta = boardScore
+        return beta
 
     def maximizeAlpha(self, board, depth, a, b, player, opponent):
-        validMoves = get_valid_moves(board)
-        if depth == 0 or len(validMoves) == 0 or check_win(board):
+        validMoves = []
+        for col in range(7):
+            # if column col is a legal move...
+            if is_valid_move(board, col):
+                # make the move in column col for curr_player
+                temp = drop(copy.deepcopy(board), player, col)
+                validMoves.append(col)
+
+        if depth == 0 or len(validMoves) == 0 or check_win(board) != -1:
+            # print(player)
             return reward_funcs.sequence_count_reward(board, player)
 
-        # alpha = a
+        alpha = a
         # if end of tree, evaluate scores
         for move in validMoves:
             boardScore = float("-inf")
-            if a < b:
+            if alpha < b:
                 tempBoard = drop(copy.deepcopy(board), player, move)
-                boardScore = self.minimizeBeta(tempBoard, depth - 1, a, b, player, opponent)
+                boardScore = self.minimizeBeta(tempBoard, depth - 1, alpha, b, player, opponent)
 
-            if boardScore > a:
-                a = boardScore
-        return a
+            if boardScore > alpha:
+                alpha = boardScore
+        return alpha

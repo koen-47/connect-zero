@@ -8,9 +8,10 @@ from torch.utils.data import DataLoader, Dataset, random_split
 
 
 class Connect4Dataset(Dataset):
-    def __init__(self, csv_file, transform=None, label_transform=None):
+    def __init__(self, csv_file, num_channels=1, transform=None, label_transform=None):
         data = pd.read_csv(csv_file)
         self.data = data[["board_state", "optimal_move", "result"]].copy()
+        self.num_channels = num_channels
         self.transform = transform
         self.label_transform = label_transform
 
@@ -18,17 +19,13 @@ class Connect4Dataset(Dataset):
         return len(self.data)
 
     def __getitem__(self, item):
-        channel_p1, channel_p2 = split_board_state(self.data["board_state"][item])
-        board_state = torch.tensor(np.array([channel_p1, channel_p2], dtype=np.float32))
-        result = torch.tensor([self.data["result"][item]], dtype=torch.float32)
-        optimal_move = torch.tensor(np.array(self.data["optimal_move"][item]), dtype=torch.long)
-
-        # optimal_move = np.zeros(7)
-        # optimal_move[self.data["optimal_move"][item]] = 1
-        # optimal_move = torch.tensor(np.array(optimal_move), dtype=torch.float32)
-        # print(optimal_move)
-
-        return board_state, optimal_move
+        board = torch.tensor(np.array(json.loads(self.data["board"][item]), dtype=np.float32))
+        if self.num_channels == 2:
+            channel_p1, channel_p2 = split_board_state(self.data["board"][item])
+            board = torch.tensor(np.array([channel_p1, channel_p2], dtype=np.float32))
+        policy = torch.tensor(np.array(self.data["policy"][item]))
+        value = torch.tensor([self.data["value"][item]], dtype=torch.float32)
+        return board, policy, value
 
 
 def process_data(file_path: str):
@@ -54,8 +51,8 @@ def process_data(file_path: str):
     processed_data_p2.to_csv("../../data/classification/processed_p2_game_data.csv")
 
 
-def split_train_val_set(player_id: int):
-    dataset = Connect4Dataset(csv_file=f"../../data/classification/processed_p{player_id}_game_data.csv")
+def split_train_val_set(csv_path: str):
+    dataset = Connect4Dataset(csv_file=csv_path)
     train_size = int(0.8 * len(dataset))
     val_size = len(dataset) - train_size
     train_data, val_data = torch.utils.data.random_split(dataset, [train_size, val_size])

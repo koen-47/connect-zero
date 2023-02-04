@@ -62,10 +62,27 @@ def sequence_count_reward(board: List[List[int]], player_id: int):
         count_sequence_of_length(4)
         return seq_counts
 
-    seq_counts_p1 = count_sequences(1)
-    seq_counts_p2 = count_sequences(2)
+    if player_id == 1:
+        opponent_id = 2
+    else:
+        opponent_id = 1
+
+    seq_counts_p1 = count_sequences(player_id)
+    seq_counts_p2 = count_sequences(opponent_id)
+
+    # if seq_counts_p2[2] > 0:
+    #     return float("-inf")
+    # if seq_counts_p1[2] > 0:
+    #     return float("inf")
+
+    # print(seq_counts_p1)
+    # print(seq_counts_p2)
+    # print(board)
 
     p1_reward = seq_counts_p1[2] * 10000 + seq_counts_p1[1] * 100 + seq_counts_p1[0] * 10
     p2_reward = seq_counts_p2[2] * 10000 + seq_counts_p2[1] * 100 + seq_counts_p2[0] * 10
 
-    return p1_reward - p2_reward if player_id == 1 else p2_reward - p1_reward
+    # print(f"final: {p1_reward - p2_reward}, p1_reward: {p1_reward}, p2_reward: {p2_reward}")
+
+    # return p1_reward - p2_reward if player_id == 1 else p2_reward - p1_reward
+    return p1_reward - p2_reward

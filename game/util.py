@@ -46,7 +46,7 @@ def check_win(board_state: List[List[int]]):
                 return 2
 
     for i in range(height - 3):
-        for j in (range(width - 3, width)):
+        for j in (range(width - 4, width)):
             if board_state[i][j] == 1 and board_state[i + 1][j - 1] == 1 and board_state[i + 2] \
                     [j - 2] == 1 and board_state[i + 3][j - 3] == 1:
                 # print("1 diagonal right-left")

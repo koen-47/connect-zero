@@ -116,6 +116,13 @@ class TestBoardComplete(unittest.TestCase):
         print(numpy.array(board.board))
         self.assertEqual(-1, game_status)
 
+    def test_realistic_5(self):
+        board = Board(6, 7, board=board_presets["realistic"][4])
+        game_status = board.check_win()
+        print(game_status)
+        print(numpy.array(board.board))
+        self.assertEqual(2, game_status)
+
 
 class TestBoardSequential(unittest.TestCase):
     def setUp(self) -> None:
