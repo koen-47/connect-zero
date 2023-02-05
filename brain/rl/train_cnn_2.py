@@ -173,6 +173,7 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
             if game.board.check_win() == 2:
                 win_model_2 += 1
                 break
+        print(np.array(game.board.board))
 
     for i in range(halftime):
         game.reset()
@@ -215,7 +216,7 @@ def load_initial_data(file_path: str):
 
 def learn():
     num_iterations = 128
-    num_episodes = 100
+    num_episodes = 10
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = Classifier1()
@@ -227,14 +228,14 @@ def learn():
     # win_rate, moves_taken = win_rate_test(model, device)
     # print(f"win_rate: {win_rate:.2f}, moves_taken: {moves_taken:.3f}")
 
-    arena(Classifier1(), model, device=device)
+    # arena(Classifier1(), model, device=device)
 
     print("Starting self-play part...")
     for i in range(num_iterations):
         examples = execute_episode(num_episodes)
         random.shuffle(examples)
         model_new = train(model, examples, num_epochs=10)
-        model = arena(model, model_new, device=device, num_games=100, win_threshold=0.55)
+        model = arena(model, model_new, device=device, num_games=1000, win_threshold=0.55)
         torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_1.pth")
 
         # if i % 5 == 0:
