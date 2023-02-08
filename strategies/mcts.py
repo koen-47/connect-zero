@@ -1,4 +1,5 @@
 import copy
+from typing import List
 
 import numpy as np
 import torch
@@ -7,6 +8,7 @@ import math
 from brain.classification.train_classifier import Classifier1
 from game.board import Board
 from game.game import Game
+import game.util as util
 
 
 class MCTS:
@@ -27,33 +29,36 @@ class MCTS:
         self.Es = {}
         self.Vs = {}
 
-    def get_action_probability(self, board: Board, player_id: int, temp=1):
+    def get_action_probability(self, board: List[List[int]], player_id: int, temp=1):
         for i in range(self.num_sims):
-            self.search(board, player_id)
+            self.search(copy.deepcopy(board), player_id)
 
-        state = np.array2string(np.array(board.board))
-        print(state)
-        print(self.Nsa)
-        counts = [self.Nsa[(state, action)] if (state, action) in self.Nsa else 0 for action in range(board.num_cols)]
+        state = np.array2string(np.array(board))
+        # print(state)
+        # print(self.Nsa)
+        counts = [self.Nsa[(state, action)] if (state, action) in self.Nsa else 0 for action in range(7)]
 
         if temp == 0:
             best_actions = np.array(np.argwhere(counts == np.max(counts))).flatten()
             best_action = np.random.choice(best_actions)
             probs = [0] * len(counts)
             probs[best_action] = 1
+            print(probs)
             return probs
 
-        print(counts)
+        # print(counts)
+        # print(self.Qsa)
         counts = [x ** (1. / temp) for x in counts]
         counts_sum = float(sum(counts))
         probs = [x / counts_sum for x in counts]
+        print(probs)
         return probs
 
-    def search(self, board: Board, next_player_id: int):
-        state = np.array2string(np.array(board.board))
+    def search(self, board: List[List[int]], next_player_id: int):
+        state = np.array2string(np.array(board))
 
         if state not in self.Es:
-            self.Es[state] = board.check_win()
+            self.Es[state] = util.check_win(board)
         if self.Es[state] != -1:
             if self.Es[state] == 1:
                 return 2
@@ -62,10 +67,12 @@ class MCTS:
             return 0
 
         if state not in self.Ps:
-            tensor_state = torch.tensor(np.array(board.board), dtype=torch.float32).unsqueeze(dim=0).unsqueeze(dim=0)
+            tensor_state = torch.tensor(np.array(board), dtype=torch.float32).unsqueeze(dim=0).unsqueeze(dim=0)
             self.Ps[state], value = self.model(tensor_state)
             self.Ps[state] = self.Ps[state].detach().numpy().flatten()
-            valid_moves = np.where(np.array(board.board[0]) > 0, 0, 1)
+            value = value.detach().numpy().flatten()[0]
+            # print(value)
+            valid_moves = np.where(np.array(board[0]) > 0, 0, 1)
             self.Ps[state] = self.Ps[state] * valid_moves
             sum_Ps_s = np.sum(self.Ps[state])
             if sum_Ps_s > 0:
@@ -82,7 +89,7 @@ class MCTS:
         current_best = -float("inf")
         best_action = -1
 
-        for action in range(board.num_cols):
+        for action in range(7):
             if valid_moves[action]:
                 if (state, action) in self.Qsa:
                     u = self.Qsa[(state, action)] + self.cpuct * self.Ps[state][action] * math.sqrt(self.Ns[state]) \
@@ -99,12 +106,12 @@ class MCTS:
                     best_action = action
 
         action = best_action
-        board.drop(next_player_id, action)
-        next_player_id = 2 if next_player_id == 1 else 1
+        next_state = util.drop(board, 1, action)
+        # next_player_id = 2 if next_player_id == 1 else 1
 
         # print(np.array(board.board))
 
-        value = self.search(copy.deepcopy(board), next_player_id)
+        value = self.search(next_state, 1)
 
         if (state, action) in self.Qsa:
             self.Qsa[(state, action)] = (self.Nsa[(state, action)] * self.Qsa[(state, action)] + value) / \

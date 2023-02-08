@@ -11,7 +11,7 @@ def drop(board_state: List[List[int]], player: int, col: int):
             break
 
     board_state[i - 1][col] = player
-    return copy.deepcopy(board_state)
+    return board_state.copy()
 
 
 def get_valid_moves(board_state: List[List[int]]):
