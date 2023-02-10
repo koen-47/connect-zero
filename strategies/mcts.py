@@ -16,8 +16,7 @@ class MCTS:
     Code for this class was adapted from https://github.com/suragnair/alpha-zero-general/blob/master/MCTS.py
     """
 
-    def __init__(self, game, model, player_id, num_sims=25, cpuct=1):
-        self.game = game
+    def __init__(self, model, player_id, num_sims=25, cpuct=1):
         self.model = Classifier1()
         self.player_id = player_id
         self.num_sims = num_sims
@@ -43,7 +42,7 @@ class MCTS:
             best_action = np.random.choice(best_actions)
             probs = [0] * len(counts)
             probs[best_action] = 1
-            print(probs)
+            # print(f"{player_id}: {probs}")
             return probs
 
         # print(counts)
@@ -51,7 +50,6 @@ class MCTS:
         counts = [x ** (1. / temp) for x in counts]
         counts_sum = float(sum(counts))
         probs = [x / counts_sum for x in counts]
-        print(probs)
         return probs
 
     def search(self, board: List[List[int]], next_player_id: int):
@@ -83,6 +81,7 @@ class MCTS:
 
             self.Vs[state] = valid_moves
             self.Ns[state] = 0
+            # print("leaf node encountered")
             return -value
 
         valid_moves = self.Vs[state]
@@ -106,12 +105,12 @@ class MCTS:
                     best_action = action
 
         action = best_action
-        next_state = util.drop(board, 1, action)
-        # next_player_id = 2 if next_player_id == 1 else 1
+        next_state = util.drop(board, next_player_id, action)
+        next_player_id = 2 if next_player_id == 1 else 1
 
-        # print(np.array(board.board))
+        # print(np.array(board))
 
-        value = self.search(next_state, 1)
+        value = self.search(next_state, next_player_id)
 
         if (state, action) in self.Qsa:
             self.Qsa[(state, action)] = (self.Nsa[(state, action)] * self.Qsa[(state, action)] + value) / \
@@ -123,3 +122,49 @@ class MCTS:
 
         self.Ns[state] += 1
         return -value
+
+
+def execute_episode_mcts(num_games: int, num_sims: int = 25):
+    game = Game()
+    wins = [0, 0, 0]
+    examples = []
+    for i in range(num_games):
+        game.reset()
+
+        # if i % 100 == 0:
+        #     print(i)
+
+        turn_num = 1
+        p1_strategy = MCTS(model=None, player_id=1, num_sims=num_sims)
+        p2_strategy = MCTS(model=None, player_id=2, num_sims=num_sims)
+        local_training_data = []
+        while not game.is_game_over():
+            p1_move_enc = p1_strategy.get_action_probability(game.board.board, 1, temp=0)
+            p1_state = copy.deepcopy(game.board.board)
+            game.board.drop(1, np.argmax(p1_move_enc))
+            local_training_data.append((p1_state, p1_move_enc))
+
+            game_status = game.board.check_win()
+            if game_status != -1:
+                break
+
+            p2_move_enc = p2_strategy.get_action_probability(game.board.board, 2, temp=0)
+            p2_state = copy.deepcopy(game.board.board)
+            game.board.drop(2, np.argmax(p2_move_enc))
+            local_training_data.append((p2_state, p2_move_enc))
+            turn_num += 1
+
+        game_status = game.board.check_win()
+        if game_status == 2:
+            wins[2] += 1
+        elif game_status == 0:
+            wins[1] += 1
+        elif game_status == 1:
+            wins[0] += 1
+        for data in local_training_data:
+            data = data + (-1 if game_status == 2 else game_status,)
+            examples.append(data)
+        # print(np.array(game.board.board))
+
+    print(wins)
+    return examples
