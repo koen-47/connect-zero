@@ -6,14 +6,10 @@ import torch
 from abc import ABC, abstractmethod
 import numpy as np
 
-from game.board import Board
 import brain.rl.rewards as reward_funcs
-from models.cnn.cnn_dqn_2 import CNN_DQN_2
-from models.cnn.cnn_dqn_1 import CNN_DQN_1
 from brain.classification.train_classifier import Classifier1
-from brain.classification.train_test_data import split_board_state
 from game.util import drop, check_win, get_valid_moves, is_valid_move
-
+from mcts import MCTS
 
 class Strategy:
     def __init__(self):
@@ -41,7 +37,7 @@ class ManualStrategy(Strategy, ABC):
         super().__init__()
 
     def calculate_move(self, board: List[List[int]]):
-        return int(input("Enter a column to drop: "))-1
+        return int(input("Enter a column to drop: ")) - 1
 
 
 class RLStrategy(Strategy, ABC):
@@ -84,6 +80,20 @@ class ClassificationStrategy(Strategy, ABC):
             argmax_action = np.argmax(state_action_values)
             greedy_action = available_actions[argmax_action]
             return greedy_action
+
+
+class MCTSStrategy(Strategy, ABC):
+    def __init__(self, player_id):
+        super(MCTSStrategy, self).__init__()
+        self.player_id = player_id
+        self.model = Classifier1()
+        self.model.load_state_dict(torch.load("../models/saved/dqn_cnn_v2_3.pth"))
+        self.model.eval()
+        self.mcts = MCTS(model=self.model, player_id=player_id)
+
+    def calculate_move(self, board: List[List[int]]):
+        action = self.mcts.get_action_probability(board, player_id=self.player_id, temp=0, device="cpu")
+        return np.argmax(action)
 
 
 class AlphaBetaPruningStrategy(Strategy, ABC):

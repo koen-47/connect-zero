@@ -2,7 +2,7 @@ import unittest
 import numpy as np
 
 from game.game import Game
-from strategies.mcts import MCTS, execute_episode_mcts
+from mcts import MCTS, execute_episode_mcts
 
 
 class TestMCTS(unittest.TestCase):

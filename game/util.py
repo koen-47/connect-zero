@@ -74,3 +74,38 @@ def check_win(board_state: List[List[int]]):
 
 def is_valid_move(board_state: List[List[int]], col: int):
     return board_state[0][col] == 0
+
+
+
+def win_rate_test(model, device):
+    game = Game()
+    model = model.to(device)
+
+    win_moves_taken_list = []
+    win = []
+    opponent_strat = AlphaBetaPruningStrategy(player_id=2, depth=3)
+
+    for i in range(100):
+        game.reset()
+        win_moves_taken = 0
+
+        while not game.is_game_over():
+            state_1 = game.board.board
+            action = opponent_strat.calculate_move(state_1)
+            game.board.drop(1, action)
+
+            if game.board.check_win() == 1:
+                break
+
+            action = select_action(game.board, model, device=device)
+            game.board.drop(2, action)
+            win_moves_taken += 1
+
+            if game.board.check_win() == 2:
+                win_moves_taken_list.append(win_moves_taken)
+                win.append(1)
+                break
+
+    game.reset()
+    num_moves_taken = len(win_moves_taken_list) if len(win_moves_taken_list) > 0 else 1
+    return sum(win) / 100, sum(win_moves_taken_list) / num_moves_taken

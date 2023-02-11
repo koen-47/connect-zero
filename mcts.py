@@ -1,13 +1,12 @@
 import copy
 from typing import List
+import tqdm
 
 import numpy as np
 import torch
 import math
 
 from brain.classification.train_classifier import Classifier1
-from game.board import Board
-from game.game import Game
 import game.util as util
 
 
@@ -17,7 +16,7 @@ class MCTS:
     """
 
     def __init__(self, model, player_id, num_sims=25, cpuct=1):
-        self.model = Classifier1()
+        self.model = model
         self.player_id = player_id
         self.num_sims = num_sims
         self.cpuct = cpuct
@@ -28,9 +27,9 @@ class MCTS:
         self.Es = {}
         self.Vs = {}
 
-    def get_action_probability(self, board: List[List[int]], player_id: int, temp=1):
+    def get_action_probability(self, board: List[List[int]], player_id: int, temp=1, device="cuda"):
         for i in range(self.num_sims):
-            self.search(copy.deepcopy(board), player_id)
+            self.search(copy.deepcopy(board), player_id, device=device)
 
         state = np.array2string(np.array(board))
         # print(state)
@@ -52,7 +51,7 @@ class MCTS:
         probs = [x / counts_sum for x in counts]
         return probs
 
-    def search(self, board: List[List[int]], next_player_id: int):
+    def search(self, board: List[List[int]], next_player_id: int, device):
         state = np.array2string(np.array(board))
 
         if state not in self.Es:
@@ -66,9 +65,10 @@ class MCTS:
 
         if state not in self.Ps:
             tensor_state = torch.tensor(np.array(board), dtype=torch.float32).unsqueeze(dim=0).unsqueeze(dim=0)
+            tensor_state = tensor_state.to(device)
             self.Ps[state], value = self.model(tensor_state)
-            self.Ps[state] = self.Ps[state].detach().numpy().flatten()
-            value = value.detach().numpy().flatten()[0]
+            self.Ps[state] = self.Ps[state].detach().cpu().numpy().flatten()
+            value = value.detach().cpu().numpy().flatten()[0]
             # print(value)
             valid_moves = np.where(np.array(board[0]) > 0, 0, 1)
             self.Ps[state] = self.Ps[state] * valid_moves
@@ -110,7 +110,7 @@ class MCTS:
 
         # print(np.array(board))
 
-        value = self.search(next_state, next_player_id)
+        value = self.search(next_state, next_player_id, device=device)
 
         if (state, action) in self.Qsa:
             self.Qsa[(state, action)] = (self.Nsa[(state, action)] * self.Qsa[(state, action)] + value) / \
@@ -124,47 +124,47 @@ class MCTS:
         return -value
 
 
-def execute_episode_mcts(num_games: int, num_sims: int = 25):
-    game = Game()
-    wins = [0, 0, 0]
-    examples = []
-    for i in range(num_games):
-        game.reset()
-
-        # if i % 100 == 0:
-        #     print(i)
-
-        turn_num = 1
-        p1_strategy = MCTS(model=None, player_id=1, num_sims=num_sims)
-        p2_strategy = MCTS(model=None, player_id=2, num_sims=num_sims)
-        local_training_data = []
-        while not game.is_game_over():
-            p1_move_enc = p1_strategy.get_action_probability(game.board.board, 1, temp=0)
-            p1_state = copy.deepcopy(game.board.board)
-            game.board.drop(1, np.argmax(p1_move_enc))
-            local_training_data.append((p1_state, p1_move_enc))
-
-            game_status = game.board.check_win()
-            if game_status != -1:
-                break
-
-            p2_move_enc = p2_strategy.get_action_probability(game.board.board, 2, temp=0)
-            p2_state = copy.deepcopy(game.board.board)
-            game.board.drop(2, np.argmax(p2_move_enc))
-            local_training_data.append((p2_state, p2_move_enc))
-            turn_num += 1
-
-        game_status = game.board.check_win()
-        if game_status == 2:
-            wins[2] += 1
-        elif game_status == 0:
-            wins[1] += 1
-        elif game_status == 1:
-            wins[0] += 1
-        for data in local_training_data:
-            data = data + (-1 if game_status == 2 else game_status,)
-            examples.append(data)
-        # print(np.array(game.board.board))
-
-    print(wins)
-    return examples
+# def execute_episode_mcts(num_games: int, num_sims: int = 25):
+#     game = Game()
+#     wins = [0, 0, 0]
+#     examples = []
+#     for i in range(num_games):
+#         game.reset()
+#
+#         # if i % 100 == 0:
+#         #     print(i)
+#
+#         turn_num = 1
+#         p1_strategy = MCTS(model=None, player_id=1, num_sims=num_sims)
+#         p2_strategy = MCTS(model=None, player_id=2, num_sims=num_sims)
+#         local_training_data = []
+#         while not game.is_game_over():
+#             p1_move_enc = p1_strategy.get_action_probability(game.board.board, 1, temp=0)
+#             p1_state = copy.deepcopy(game.board.board)
+#             game.board.drop(1, np.argmax(p1_move_enc))
+#             local_training_data.append((p1_state, p1_move_enc))
+#
+#             game_status = game.board.check_win()
+#             if game_status != -1:
+#                 break
+#
+#             p2_move_enc = p2_strategy.get_action_probability(game.board.board, 2, temp=0)
+#             p2_state = copy.deepcopy(game.board.board)
+#             game.board.drop(2, np.argmax(p2_move_enc))
+#             local_training_data.append((p2_state, p2_move_enc))
+#             turn_num += 1
+#
+#         game_status = game.board.check_win()
+#         if game_status == 2:
+#             wins[2] += 1
+#         elif game_status == 0:
+#             wins[1] += 1
+#         elif game_status == 1:
+#             wins[0] += 1
+#         for data in local_training_data:
+#             data = data + (-1 if game_status == 2 else game_status,)
+#             examples.append(data)
+#         # print(np.array(game.board.board))
+#
+#     print(wins)
+#     return examples

@@ -29,7 +29,7 @@ class Classifier1(nn.Module):
         self.conv7 = nn.Conv2d(512, 1024, kernel_size=(3, 3), padding=1)
         self.bn7 = nn.BatchNorm2d(1024)
         self.fc1 = nn.Linear(43008, 1024)
-        # self.bn8 = nn.BatchNorm1d(1024)
+        self.bn8 = nn.BatchNorm1d(1024)
         self.fc2 = nn.Linear(1024, 1024)
         # self.bn9 = nn.BatchNorm1d(1024)
         self.fc3 = nn.Linear(1024, 1024)

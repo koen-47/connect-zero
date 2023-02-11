@@ -12,6 +12,7 @@ data/classification/processed_p2_game_data.csv
 
 models/saved/dqn_cnn_v2_1.pth
 models/saved/dqn_cnn_v2_2.pth
+models/saved/dqn_cnn_v2_3.pth
 
 # User-specific stuff
 .idea/**/workspace.xml

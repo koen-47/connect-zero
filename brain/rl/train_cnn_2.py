@@ -1,4 +1,3 @@
-import ast
 import copy
 import csv
 import json
@@ -7,32 +6,28 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
-from torch.utils.data import DataLoader
+from tqdm import tqdm
 
 from game.game import Game
-from strategies.strategy import AlphaBetaPruningStrategy, RandomStrategy
 from brain.classification.train_classifier import Classifier1
-from brain.classification.train_test_data import split_train_val_set
-from strategies.mcts import MCTS
+from mcts import MCTS
 
 
-def execute_episode(num_games: int):
+def execute_episode(num_games: int, model):
     game = Game()
-    wins = [0, 0, 0]
     examples = []
-    for i in range(num_games):
+
+    sum_moves_taken = 0
+    for i in tqdm(range(num_games)):
         game.reset()
 
-        # if i % 100 == 0:
-        #     print(i)
-
         turn_num = 1
-        p1_strategy = MCTS(model=None, player_id=1)
-        p2_strategy = MCTS(model=None, player_id=2)
+        p1_strategy = MCTS(model=model, player_id=1)
+        p2_strategy = MCTS(model=model, player_id=2)
         local_training_data = []
         while not game.is_game_over():
             p1_move_enc = p1_strategy.get_action_probability(game.board.board, 1, temp=0)
-            p1_state = copy.deepcopy(game.board.board)
+            p1_state = game.board.board
             game.board.drop(1, np.argmax(p1_move_enc))
             local_training_data.append((p1_state, p1_move_enc))
 
@@ -41,21 +36,21 @@ def execute_episode(num_games: int):
                 break
 
             p2_move_enc = p2_strategy.get_action_probability(game.board.board, 2, temp=0)
-            p2_state = copy.deepcopy(game.board.board)
+            p2_state = game.board.board
             game.board.drop(2, np.argmax(p2_move_enc))
             local_training_data.append((p2_state, p2_move_enc))
             turn_num += 1
 
+        if i % 20 == 19:
+            print(f"\nSAMPLE FINISHED GAME:\n {np.array(game.board.board)}")
+
+        sum_moves_taken += turn_num
         game_status = game.board.check_win()
-        if game_status == 2:
-            wins[2] += 1
-        elif game_status == 0:
-            wins[1] += 1
-        elif game_status == 1:
-            wins[0] += 1
         for data in local_training_data:
             data = data + (-1 if game_status == 2 else game_status,)
             examples.append(data)
+    print(f"FINISHED GENERATING SELF-PLAY EXAMPLES")
+    print(f"    - Avg. turns per game: {sum_moves_taken / num_games}")
     return examples
 
 
@@ -93,7 +88,7 @@ def train(model, examples, num_epochs=10):
             total_loss.backward()
             optimizer.step()
 
-    print(f"Average loss: {sum_loss / count_loss:.3f}")
+    print(f"AVG. LOSS: {sum_loss / count_loss:.3f}")
     return model
 
 
@@ -109,45 +104,9 @@ def select_action(board, model, device):
         return greedy_action
 
 
-def select_action_mcts(board, model, device):
-    pass
-
-
-def win_rate_test(model, device):
-    game = Game()
-    model = model.to(device)
-
-    win_moves_taken_list = []
-    win = []
-    opponent_strat = AlphaBetaPruningStrategy(player_id=2, depth=3)
-
-    for i in range(100):
-        game.reset()
-        win_moves_taken = 0
-
-        while not game.is_game_over():
-            state_1 = game.board.board
-            action = opponent_strat.calculate_move(state_1)
-            game.board.drop(1, action)
-
-            if game.board.check_win() == 1:
-                break
-
-            action = select_action(game.board, model, device=device)
-            game.board.drop(2, action)
-            win_moves_taken += 1
-
-            if game.board.check_win() == 2:
-                win_moves_taken_list.append(win_moves_taken)
-                win.append(1)
-                break
-
-    game.reset()
-    num_moves_taken = len(win_moves_taken_list) if len(win_moves_taken_list) > 0 else 1
-    return sum(win) / 100, sum(win_moves_taken_list) / num_moves_taken
-
-
 def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
+    print("PITTING MODELS AGAINST EACH OTHER")
+
     game = Game()
     model_1 = model_1.to(device)
     model_2 = model_2.to(device)
@@ -156,49 +115,69 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
     win_model_2 = 0
     num_draws = 0
 
-    halftime = int(num_games - (num_games/2))
-    for i in range(halftime):
+    halftime = int(num_games - (num_games / 2))
+    mcts_model_1 = MCTS(model=model_1, player_id=1)
+    mcts_model_2 = MCTS(model=model_2, player_id=2)
+    for i in (range(halftime)):
         game.reset()
 
         while not game.is_game_over():
-            action = select_action(game.board, model_1, device=device)
-            game.board.drop(1, action)
+            action = mcts_model_1.get_action_probability(game.board.board, player_id=1, temp=0)
+            game.board.drop(1, np.argmax(action))
 
-            if game.board.check_win() == 1:
+            game_status = game.board.check_win()
+            if game_status == 1:
                 win_model_1 += 1
                 break
+            if game_status == 0:
+                num_draws += 1
+                break
 
-            action = select_action(game.board, model_2, device=device)
-            game.board.drop(2, action)
+            action = mcts_model_2.get_action_probability(game.board.board, player_id=2, temp=0)
+            game.board.drop(2, np.argmax(action))
 
-            if game.board.check_win() == 2:
+            game_status = game.board.check_win()
+            if game_status == 2:
                 win_model_2 += 1
                 break
-        # print(np.array(game.board.board))
+            if game_status == 0:
+                num_draws += 1
+                break
 
-    for i in range(halftime):
+    for i in (range(halftime)):
         game.reset()
 
         while not game.is_game_over():
-            action = select_action(game.board, model_2, device=device)
-            game.board.drop(1, action)
+            action = mcts_model_2.get_action_probability(game.board.board, player_id=1, temp=0)
+            game.board.drop(1, np.argmax(action))
 
-            if game.board.check_win() == 1:
+            game_status = game.board.check_win()
+            if game_status == 1:
                 win_model_2 += 1
                 break
+            if game_status == 0:
+                num_draws += 1
+                break
 
-            action = select_action(game.board, model_1, device=device)
-            game.board.drop(2, action)
+            action = mcts_model_1.get_action_probability(game.board.board, player_id=2, temp=0)
+            game.board.drop(2, np.argmax(action))
 
-            if game.board.check_win() == 2:
+            game_status = game.board.check_win()
+            if game_status == 2:
                 win_model_1 += 1
+                break
+            if game_status == 0:
+                num_draws += 1
                 break
 
     # print(wins)
-    if (win_model_2 / num_games) > win_threshold:
-        print(f"Accepting new model... Win rate: {win_model_2 / num_games}")
+    win_rate_model_1 = win_model_1 / num_games
+    win_rate_model_2 = win_model_2 / num_games
+    print(f"RESULTS => M1_WINS/DRAWS/M2_WINS: {win_rate_model_1}/{num_draws / num_games}/{win_rate_model_2}")
+    if win_rate_model_2 >= win_threshold:
+        print(f"ACCEPTING NEW MODEL")
         return model_2
-    print(f"Rejecting new model... Win rate: {win_model_1 / num_games}")
+    print(f"REJECTING NEW MODEL")
     return model_1
 
 
@@ -220,28 +199,23 @@ def learn():
     num_episodes = 100
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = Classifier1()
+    print(f"DEVICE: {device}")
 
-    print("Starting supervised part...")
+    model = Classifier1().to(device)
+
+    print("INITIATING SUPERVISED LEARNING")
     initial_data = load_initial_data("../../data/classification/raw_game_data_v2.csv")
     model = train(model, initial_data, num_epochs=10)
 
-    # win_rate, moves_taken = win_rate_test(model, device)
-    # print(f"win_rate: {win_rate:.2f}, moves_taken: {moves_taken:.3f}")
+    # model = arena(Classifier1(), model, device=device)
 
-    # arena(Classifier1(), model, device=device)
-
-    print("Starting self-play part...")
+    print("INITIATING SELF-PLAY")
     for i in range(num_iterations):
-        examples = execute_episode(num_episodes)
+        examples = execute_episode(num_episodes, model=model)
         random.shuffle(examples)
         model_new = train(model, examples, num_epochs=10)
         model = arena(model, model_new, device=device, num_games=40, win_threshold=0.55)
-        torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_2.pth")
-
-        # if i % 5 == 0:
-        #     win_rate, moves_taken = win_rate_test(model, device)
-        #     print(f"win_rate: {win_rate:.3f}, moves_taken: {moves_taken:.3f}")
+        torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_3.pth")
 
 
 learn()
