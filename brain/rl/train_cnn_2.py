@@ -69,6 +69,7 @@ def train(model, examples, num_epochs=10):
         sum_total_loss = 0.0
         sum_policy_acc = 0.0
         sum_value_loss = 0.0
+        total_policy_acc = 0
 
         batch_size = 256
         batch_count = max(1, int(len(examples) / batch_size))
@@ -86,6 +87,7 @@ def train(model, examples, num_epochs=10):
 
             sum_total_loss += total_loss.item()
             sum_value_loss += loss_value.item()
+            total_policy_acc += out_move.size(0)
             sum_policy_acc += (torch.sum(torch.argmax(target_move, dim=1) == torch.argmax(out_move, dim=1))).item()
 
             optimizer.zero_grad()
@@ -94,7 +96,7 @@ def train(model, examples, num_epochs=10):
         print(f"  EPOCH {epoch+1}) "
               f"AVG. TOTAL LOSS: {sum_total_loss / batch_count:.3f}, "
               f"AVG. VALUE LOSS: {sum_value_loss / batch_count:.3f}, "
-              f"AVG. POLICY ACC.: {sum_policy_acc / batch_count:.3f}")
+              f"AVG. POLICY ACC.: {sum_policy_acc / total_policy_acc:.3f}")
     return model
 
 
