@@ -76,6 +76,7 @@ class MCTS:
             if sum_Ps_s > 0:
                 self.Ps[state] /= sum_Ps_s
             else:
+                print("asdf")
                 self.Ps[state] = self.Ps[state] + valid_moves
                 self.Ps[state] /= np.sum(self.Ps[state])
 

@@ -41,8 +41,8 @@ def execute_episode(num_games: int, model):
             local_training_data.append((p2_state, p2_move_enc))
             turn_num += 1
 
-        if i % 20 == 19:
-            print(f"\nSAMPLE FINISHED GAME:\n {np.array(game.board.board)}")
+        # if i % 20 == 19:
+        #     print(f"\nSAMPLE FINISHED GAME:\n {np.array(game.board.board)}")
 
         sum_moves_taken += turn_num
         game_status = game.board.check_win()
@@ -63,10 +63,12 @@ def train(model, examples, num_epochs=10):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
 
-    sum_loss = 0.0
-    count_loss = 0.0
     for epoch in range(num_epochs):
         model.train()
+
+        sum_total_loss = 0.0
+        sum_policy_acc = 0.0
+        sum_value_loss = 0.0
 
         batch_size = 256
         batch_count = max(1, int(len(examples) / batch_size))
@@ -81,14 +83,18 @@ def train(model, examples, num_epochs=10):
             loss_move = criterion1(target_move, out_move)
             loss_value = criterion2(target_value, out_value)
             total_loss = loss_move + loss_value
-            sum_loss += total_loss.item()
-            count_loss += 1
+
+            sum_total_loss += total_loss.item()
+            sum_value_loss += loss_value.item()
+            sum_policy_acc += (torch.sum(torch.argmax(target_move, dim=1) == torch.argmax(out_move, dim=1))).item()
 
             optimizer.zero_grad()
             total_loss.backward()
             optimizer.step()
-
-    print(f"AVG. LOSS: {sum_loss / count_loss:.3f}")
+        print(f"  EPOCH {epoch+1}) "
+              f"AVG. TOTAL LOSS: {sum_total_loss / batch_count:.3f}, "
+              f"AVG. VALUE LOSS: {sum_value_loss / batch_count:.3f}, "
+              f"AVG. POLICY ACC.: {sum_policy_acc / batch_count:.3f}")
     return model
 
 
@@ -118,7 +124,9 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
     halftime = int(num_games - (num_games / 2))
     mcts_model_1 = MCTS(model=model_1, player_id=1)
     mcts_model_2 = MCTS(model=model_2, player_id=2)
-    for i in (range(halftime)):
+
+    print("STARTING FIRST HALF")
+    for i in tqdm(range(halftime)):
         game.reset()
 
         while not game.is_game_over():
@@ -144,7 +152,8 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
                 num_draws += 1
                 break
 
-    for i in (range(halftime)):
+    print("STARTING SECOND HALF")
+    for i in tqdm(range(halftime)):
         game.reset()
 
         while not game.is_game_over():
