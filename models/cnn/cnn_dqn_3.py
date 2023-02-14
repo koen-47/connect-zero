@@ -59,9 +59,9 @@ class ValueHead(nn.Module):
 class PolicyHead(nn.Module):
     def __init__(self, in_size, kernel_size=(1, 1), padding=0):
         super().__init__()
-        self.conv1 = nn.Conv2d(in_size, 2, kernel_size=(1, 1), padding=padding)
-        self.bn2d_1 = nn.BatchNorm2d(2)
-        self.policy = nn.Linear(144, 7)
+        self.conv1 = nn.Conv2d(in_size, 1, kernel_size=(2, 2), padding=padding)
+        self.bn2d_1 = nn.BatchNorm2d(1)
+        self.policy = nn.Linear(56, 7)
 
     def forward(self, x):
         x = F.relu(self.bn2d_1(self.conv1(x)))
