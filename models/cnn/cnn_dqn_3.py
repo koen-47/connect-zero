@@ -12,8 +12,8 @@ class DQN_CNN_3(nn.Module):
         self.layers = nn.ModuleList()
         for i in range(num_res_blocks):
             self.layers.append(ResidualBlock(num_channels, num_channels, num_channels, kernel_size=(3, 3), padding=1))
-        self.policy_head = PolicyHead(num_channels, kernel_size=(3, 3), padding=1)
-        self.value_head = ValueHead(num_channels, fc_size=256, kernel_size=(3, 3), padding=1)
+        self.policy_head = PolicyHead(num_channels, kernel_size=(1, 1), padding=1)
+        self.value_head = ValueHead(num_channels, fc_size=256, kernel_size=(1, 1), padding=1)
 
     def forward(self, x):
         x = F.relu(self.bn2d_1(self.conv1(x)))
@@ -42,9 +42,9 @@ class ResidualBlock(nn.Module):
 class ValueHead(nn.Module):
     def __init__(self, in_size, fc_size, kernel_size=(1, 1), padding=0):
         super().__init__()
-        self.conv1 = nn.Conv2d(in_size, 1, kernel_size=kernel_size, padding=padding)
+        self.conv1 = nn.Conv2d(in_size, 1, kernel_size=(1, 1), padding=padding)
         self.bn2d_1 = nn.BatchNorm2d(1)
-        self.fc1 = nn.Linear(42, fc_size)
+        self.fc1 = nn.Linear(72, fc_size)
         self.fc2 = nn.Linear(fc_size, fc_size)
         self.value = nn.Linear(fc_size, 1)
 
@@ -59,9 +59,9 @@ class ValueHead(nn.Module):
 class PolicyHead(nn.Module):
     def __init__(self, in_size, kernel_size=(1, 1), padding=0):
         super().__init__()
-        self.conv1 = nn.Conv2d(in_size, 2, kernel_size=kernel_size, padding=padding)
+        self.conv1 = nn.Conv2d(in_size, 2, kernel_size=(1, 1), padding=padding)
         self.bn2d_1 = nn.BatchNorm2d(2)
-        self.policy = nn.Linear(84, 7)
+        self.policy = nn.Linear(144, 7)
 
     def forward(self, x):
         x = F.relu(self.bn2d_1(self.conv1(x)))

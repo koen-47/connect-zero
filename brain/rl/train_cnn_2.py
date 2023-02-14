@@ -220,9 +220,9 @@ def learn():
     # print(sum(p.numel() for p in model.parameters() if p.requires_grad))
     # print(sum(p.numel() for p in Classifier1().parameters() if p.requires_grad))
 
-    # print("INITIATING SUPERVISED LEARNING")
-    # initial_data = load_initial_data("../../data/classification/raw_game_data_v2.csv")
-    # model = train(model, initial_data, num_epochs=10)
+    print("INITIATING SUPERVISED LEARNING")
+    initial_data = load_initial_data("../../data/classification/raw_game_data_v2.csv")
+    model = train(model, initial_data, num_epochs=10)
 
     # model = arena(DQN_CNN_3(), model, device=device)
 
