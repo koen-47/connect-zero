@@ -11,6 +11,7 @@ from tqdm import tqdm
 from game.game import Game
 from brain.classification.train_classifier import Classifier1
 from mcts import MCTS
+from models.cnn.cnn_dqn_3 import DQN_CNN_3
 
 
 def execute_episode(num_games: int, model):
@@ -67,8 +68,9 @@ def train(model, examples, num_epochs=10):
         model.train()
 
         sum_total_loss = 0.0
-        sum_policy_acc = 0.0
         sum_value_loss = 0.0
+        sum_policy_loss = 0.0
+        sum_policy_acc = 0.0
         total_policy_acc = 0
 
         batch_size = 256
@@ -86,6 +88,7 @@ def train(model, examples, num_epochs=10):
             total_loss = loss_move + loss_value
 
             sum_total_loss += total_loss.item()
+            sum_policy_loss += loss_move.item()
             sum_value_loss += loss_value.item()
             total_policy_acc += out_move.size(0)
             sum_policy_acc += (torch.sum(torch.argmax(target_move, dim=1) == torch.argmax(out_move, dim=1))).item()
@@ -96,6 +99,7 @@ def train(model, examples, num_epochs=10):
         print(f"  EPOCH {epoch+1}) "
               f"AVG. TOTAL LOSS: {sum_total_loss / batch_count:.3f}, "
               f"AVG. VALUE LOSS: {sum_value_loss / batch_count:.3f}, "
+              f"AVG. POLICY LOSS: {sum_policy_loss / batch_count:.3f}, "
               f"AVG. POLICY ACC.: {sum_policy_acc / total_policy_acc:.3f}")
     return model
 
@@ -212,13 +216,15 @@ def learn():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(f"DEVICE: {device}")
 
-    model = Classifier1().to(device)
+    model = DQN_CNN_3(num_channels=128, num_res_blocks=20, kernel_size=(3, 3), padding=1).to(device)
+    print(sum(p.numel() for p in model.parameters() if p.requires_grad))
+    print(sum(p.numel() for p in Classifier1().parameters() if p.requires_grad))
 
     print("INITIATING SUPERVISED LEARNING")
     initial_data = load_initial_data("../../data/classification/raw_game_data_v2.csv")
     model = train(model, initial_data, num_epochs=10)
 
-    # model = arena(Classifier1(), model, device=device)
+    # model = arena(DQN_CNN_3(), model, device=device)
 
     print("INITIATING SELF-PLAY")
     for i in range(num_iterations):
