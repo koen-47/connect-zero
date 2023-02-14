@@ -42,8 +42,8 @@ def execute_episode(num_games: int, model):
             local_training_data.append((p2_state, p2_move_enc))
             turn_num += 1
 
-        if i % 20 == 19:
-            print(f"\nSAMPLE FINISHED GAME:\n {np.array(game.board.board)}")
+        # if i % 20 == 19:
+        #     print(f"\nSAMPLE FINISHED GAME:\n {np.array(game.board.board)}")
 
         sum_moves_taken += turn_num
         game_status = game.board.check_win()
@@ -217,17 +217,18 @@ def learn():
     print(f"DEVICE: {device}")
 
     model = DQN_CNN_3(num_channels=256, num_res_blocks=20, kernel_size=(3, 3), padding=1).to(device)
-    print(sum(p.numel() for p in model.parameters() if p.requires_grad))
-    print(sum(p.numel() for p in Classifier1().parameters() if p.requires_grad))
+    # print(sum(p.numel() for p in model.parameters() if p.requires_grad))
+    # print(sum(p.numel() for p in Classifier1().parameters() if p.requires_grad))
 
-    print("INITIATING SUPERVISED LEARNING")
-    initial_data = load_initial_data("../../data/classification/raw_game_data_v2.csv")
-    model = train(model, initial_data, num_epochs=10)
+    # print("INITIATING SUPERVISED LEARNING")
+    # initial_data = load_initial_data("../../data/classification/raw_game_data_v2.csv")
+    # model = train(model, initial_data, num_epochs=10)
 
     # model = arena(DQN_CNN_3(), model, device=device)
 
     print("INITIATING SELF-PLAY")
-    for i in range(num_iterations):
+    for i in range(1, num_iterations + 1):
+        print(f"ITERATION: {i}")
         examples = execute_episode(num_episodes, model=model)
         random.shuffle(examples)
         model_new = train(model, examples, num_epochs=10)

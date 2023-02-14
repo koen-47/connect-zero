@@ -17,7 +17,7 @@ class DQN_CNN_3(nn.Module):
 
     def forward(self, x):
         x = F.relu(self.bn2d_1(self.conv1(x)))
-        for layer in self.layers:
+        for layer in self.layers[:-1]:
             x = F.relu(layer(x))
         return self.policy_head(x), self.value_head(x)
 
