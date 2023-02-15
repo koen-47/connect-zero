@@ -28,7 +28,7 @@ def execute_episode(num_games: int, model):
         local_training_data = []
         while not game.is_game_over():
             p1_move_enc = p1_strategy.get_action_probability(game.board.board, 1, temp=0)
-            p1_state = game.board.board
+            p1_state = copy.deepcopy(game.board.board)
             game.board.drop(1, np.argmax(p1_move_enc))
             local_training_data.append((p1_state, p1_move_enc))
 
@@ -37,7 +37,7 @@ def execute_episode(num_games: int, model):
                 break
 
             p2_move_enc = p2_strategy.get_action_probability(game.board.board, 2, temp=0)
-            p2_state = game.board.board
+            p2_state = copy.deepcopy(game.board.board)
             game.board.drop(2, np.argmax(p2_move_enc))
             local_training_data.append((p2_state, p2_move_enc))
             turn_num += 1
@@ -49,6 +49,7 @@ def execute_episode(num_games: int, model):
         game_status = game.board.check_win()
         for data in local_training_data:
             data = data + (-1 if game_status == 2 else game_status,)
+            # print(data)
             examples.append(data)
     print(f"FINISHED GENERATING SELF-PLAY EXAMPLES")
     print(f"    - Avg. turns per game: {sum_moves_taken / num_games}")
