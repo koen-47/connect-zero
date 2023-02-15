@@ -73,7 +73,7 @@ def train(model, examples, num_epochs=10):
         sum_policy_acc = 0.0
         total_policy_acc = 0
 
-        batch_size = 256
+        batch_size = 64
         batch_count = max(1, int(len(examples) / batch_size))
         for i in range(batch_count):
             sample_ids = np.random.randint(len(examples), size=batch_size)
