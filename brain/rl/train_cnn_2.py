@@ -27,8 +27,8 @@ def execute_episode(num_games: int, model):
         p2_strategy = MCTS(model=model, player_id=2)
         local_training_data = []
         while not game.is_game_over():
-            p1_move_enc = p1_strategy.get_action_probability(game.board.board, 1, temp=0)
             p1_state = copy.deepcopy(game.board.board)
+            p1_move_enc = p1_strategy.get_action_probability(p1_state, 1, temp=0)
             game.board.drop(1, np.argmax(p1_move_enc))
             local_training_data.append((p1_state, p1_move_enc))
 
@@ -36,8 +36,8 @@ def execute_episode(num_games: int, model):
             if game_status != -1:
                 break
 
-            p2_move_enc = p2_strategy.get_action_probability(game.board.board, 2, temp=0)
             p2_state = copy.deepcopy(game.board.board)
+            p2_move_enc = p2_strategy.get_action_probability(p2_state, 2, temp=0)
             game.board.drop(2, np.argmax(p2_move_enc))
             local_training_data.append((p2_state, p2_move_enc))
             turn_num += 1

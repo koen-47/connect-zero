@@ -8,6 +8,7 @@ import numpy as np
 
 import brain.rl.rewards as reward_funcs
 from brain.classification.train_classifier import Classifier1
+from models.cnn.cnn_dqn_3 import DQN_CNN_3
 from game.util import drop, check_win, get_valid_moves, is_valid_move
 from mcts import MCTS
 
@@ -86,7 +87,7 @@ class MCTSStrategy(Strategy, ABC):
     def __init__(self, player_id):
         super(MCTSStrategy, self).__init__()
         self.player_id = player_id
-        self.model = Classifier1()
+        self.model = DQN_CNN_3(num_channels=256, num_res_blocks=20, kernel_size=(3, 3), padding=1)
         self.model.load_state_dict(torch.load("../models/saved/dqn_cnn_v2_3.pth"))
         self.model.eval()
         self.mcts = MCTS(model=self.model, player_id=player_id)
