@@ -29,7 +29,7 @@ class MCTS:
 
     def get_action_probability(self, board: List[List[int]], player_id: int, temp=1, device="cuda"):
         for i in range(self.num_sims):
-            self.search(copy.deepcopy(board), player_id, device=device)
+            self.search(copy.deepcopy(board), player_id, is_root=True, device=device)
 
         state = np.array2string(np.array(board))
         # print(state)
@@ -51,7 +51,7 @@ class MCTS:
         probs = [x / counts_sum for x in counts]
         return probs
 
-    def search(self, board: List[List[int]], next_player_id: int, device):
+    def search(self, board: List[List[int]], next_player_id: int, is_root: bool, device):
         state = np.array2string(np.array(board))
 
         if state not in self.Es:
@@ -76,7 +76,7 @@ class MCTS:
             if sum_Ps_s > 0:
                 self.Ps[state] /= sum_Ps_s
             else:
-                print("asdf")
+                # print("asdf")
                 self.Ps[state] = self.Ps[state] + valid_moves
                 self.Ps[state] /= np.sum(self.Ps[state])
 
@@ -89,14 +89,26 @@ class MCTS:
         current_best = -float("inf")
         best_action = -1
 
+        e = 0.25
+        if is_root and e > 0:
+            noise = np.random.dirichlet([0.03] * len(valid_moves))
+
+        i = -1
         for action in range(7):
             if valid_moves[action]:
+                i += 1
                 if (state, action) in self.Qsa:
-                    u = self.Qsa[(state, action)] + self.cpuct * self.Ps[state][action] * math.sqrt(self.Ns[state]) \
+                    p = self.Ps[state][action]
+                    if is_root and e > 0:
+                        p = (1 - e) * p + e * noise[i]
+                    u = self.Qsa[(state, action)] + self.cpuct * p * math.sqrt(self.Ns[state]) \
                         / (1 + self.Nsa[(state, action)])
                 else:
                     # print(self.Ps[state])
-                    u = self.cpuct * self.Ps[state][action] * math.sqrt(self.Ns[state] + 1e-8)
+                    p = self.Ps[state][action]
+                    if is_root and e > 0:
+                        p = (1 - e) * p + e * noise[i]
+                    u = self.cpuct * p * math.sqrt(self.Ns[state] + 1e-8)
                     # print(u)
 
                 # print(u)
@@ -111,7 +123,7 @@ class MCTS:
 
         # print(np.array(board))
 
-        value = self.search(next_state, next_player_id, device=device)
+        value = self.search(next_state, next_player_id, is_root=False, device=device)
 
         if (state, action) in self.Qsa:
             self.Qsa[(state, action)] = (self.Nsa[(state, action)] * self.Qsa[(state, action)] + value) / \
