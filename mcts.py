@@ -27,9 +27,9 @@ class MCTS:
         self.Es = {}
         self.Vs = {}
 
-    def get_action_probability(self, board: List[List[int]], player_id: int, temp=1, device="cuda"):
+    def get_action_probability(self, board: List[List[int]], player_id: int, e: float, temp=1, device="cuda"):
         for i in range(self.num_sims):
-            self.search(copy.deepcopy(board), player_id, is_root=True, device=device)
+            self.search(copy.deepcopy(board), player_id, is_root=True, e=e, device=device)
 
         state = np.array2string(np.array(board))
         # print(state)
@@ -51,7 +51,7 @@ class MCTS:
         probs = [x / counts_sum for x in counts]
         return probs
 
-    def search(self, board: List[List[int]], next_player_id: int, is_root: bool, device):
+    def search(self, board: List[List[int]], next_player_id: int, is_root: bool, e: float, device):
         state = np.array2string(np.array(board))
 
         if state not in self.Es:
@@ -89,7 +89,6 @@ class MCTS:
         current_best = -float("inf")
         best_action = -1
 
-        e = 0.25
         if is_root and e > 0:
             noise = np.random.dirichlet([0.03] * len(valid_moves))
 
@@ -123,7 +122,7 @@ class MCTS:
 
         # print(np.array(board))
 
-        value = self.search(next_state, next_player_id, is_root=False, device=device)
+        value = self.search(next_state, next_player_id, is_root=False, e=e, device=device)
 
         if (state, action) in self.Qsa:
             self.Qsa[(state, action)] = (self.Nsa[(state, action)] * self.Qsa[(state, action)] + value) / \

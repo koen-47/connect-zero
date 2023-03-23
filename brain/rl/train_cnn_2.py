@@ -29,7 +29,7 @@ def execute_episode(num_games: int, model):
         while not game.is_game_over():
             temp = int(turn_num <= 15)
             p1_state = copy.deepcopy(game.board.board)
-            p1_move_enc = p1_strategy.get_action_probability(p1_state, 1, temp=temp)
+            p1_move_enc = p1_strategy.get_action_probability(p1_state, 1, temp=temp, e=0.25)
             game.board.drop(1, np.argmax(p1_move_enc))
             local_training_data.append((p1_state, p1_move_enc))
 
@@ -38,7 +38,7 @@ def execute_episode(num_games: int, model):
                 break
 
             p2_state = copy.deepcopy(game.board.board)
-            p2_move_enc = p2_strategy.get_action_probability(p2_state, 2, temp=temp)
+            p2_move_enc = p2_strategy.get_action_probability(p2_state, 2, temp=temp, e=0.25)
             game.board.drop(2, np.argmax(p2_move_enc))
             local_training_data.append((p2_state, p2_move_enc))
             turn_num += 1
@@ -138,7 +138,7 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
         game.reset()
 
         while not game.is_game_over():
-            action = mcts_model_1.get_action_probability(game.board.board, player_id=1, temp=0)
+            action = mcts_model_1.get_action_probability(game.board.board, player_id=1, temp=0, e=0.25)
             game.board.drop(1, np.argmax(action))
 
             game_status = game.board.check_win()
@@ -149,7 +149,7 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
                 num_draws += 1
                 break
 
-            action = mcts_model_2.get_action_probability(game.board.board, player_id=2, temp=0)
+            action = mcts_model_2.get_action_probability(game.board.board, player_id=2, temp=0, e=0.25)
             game.board.drop(2, np.argmax(action))
 
             game_status = game.board.check_win()
@@ -165,7 +165,7 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
         game.reset()
 
         while not game.is_game_over():
-            action = mcts_model_2.get_action_probability(game.board.board, player_id=1, temp=0)
+            action = mcts_model_2.get_action_probability(game.board.board, player_id=1, temp=0, e=0.25)
             game.board.drop(1, np.argmax(action))
 
             game_status = game.board.check_win()
@@ -176,7 +176,7 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
                 num_draws += 1
                 break
 
-            action = mcts_model_1.get_action_probability(game.board.board, player_id=2, temp=0)
+            action = mcts_model_1.get_action_probability(game.board.board, player_id=2, temp=0, e=0.25)
             game.board.drop(2, np.argmax(action))
 
             game_status = game.board.check_win()
@@ -235,7 +235,7 @@ def learn():
         random.shuffle(examples)
         model_new = train(model, examples, num_epochs=10)
         model = arena(model, model_new, device=device, num_games=40, win_threshold=0.55)
-        torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_3.pth")
+        torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_5.pth")
 
 
 learn()

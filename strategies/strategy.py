@@ -93,7 +93,7 @@ class MCTSStrategy(Strategy, ABC):
         self.mcts = MCTS(model=self.model, player_id=player_id)
 
     def calculate_move(self, board: List[List[int]]):
-        action = self.mcts.get_action_probability(board, player_id=self.player_id, temp=0, device="cpu")
+        action = self.mcts.get_action_probability(board, player_id=self.player_id, temp=0, e=0, device="cpu")
         return np.argmax(action)
 
 
