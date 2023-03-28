@@ -88,7 +88,7 @@ class MCTSStrategy(Strategy, ABC):
         super(MCTSStrategy, self).__init__()
         self.player_id = player_id
         self.model = DQN_CNN_3(num_channels=256, num_res_blocks=20, kernel_size=(3, 3), padding=1)
-        self.model.load_state_dict(torch.load("../models/saved/dqn_cnn_v2_3.pth"))
+        self.model.load_state_dict(torch.load("../models/saved/dqn_cnn_v2_6.pth"))
         self.model.eval()
         self.mcts = MCTS(model=self.model, player_id=player_id)
 

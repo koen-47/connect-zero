@@ -68,6 +68,7 @@ class MCTS:
             tensor_state = tensor_state.to(device)
             self.Ps[state], value = self.model(tensor_state)
             self.Ps[state] = self.Ps[state].detach().cpu().numpy().flatten()
+            # print(self.Ps[state])
             value = value.detach().cpu().numpy().flatten()[0]
             # print(value)
             valid_moves = np.where(np.array(board[0]) > 0, 0, 1)

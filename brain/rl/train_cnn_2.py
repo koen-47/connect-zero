@@ -27,7 +27,7 @@ def execute_episode(num_games: int, model):
         p2_strategy = MCTS(model=model, player_id=2)
         local_training_data = []
         while not game.is_game_over():
-            temp = int(turn_num <= 15)
+            temp = int(turn_num <= 11)
             p1_state = copy.deepcopy(game.board.board)
             p1_move_enc = p1_strategy.get_action_probability(p1_state, 1, temp=temp, e=0.25)
             game.board.drop(1, np.argmax(p1_move_enc))
@@ -233,9 +233,9 @@ def learn():
         print(f"ITERATION: {i}")
         examples = execute_episode(num_episodes, model=model)
         random.shuffle(examples)
-        model_new = train(model, examples, num_epochs=10)
+        model_new = train(copy.deepcopy(model), examples, num_epochs=10)
         model = arena(model, model_new, device=device, num_games=40, win_threshold=0.55)
-        torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_5.pth")
+        torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_6.pth")
 
 
 learn()
