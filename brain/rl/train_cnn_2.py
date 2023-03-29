@@ -58,7 +58,7 @@ def execute_episode(num_games: int, model):
 
 
 def train(model, examples, num_epochs=10):
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+    optimizer = optim.Adam(model.parameters(), lr=0.00001)
 
     criterion1 = nn.CrossEntropyLoss()
     criterion2 = nn.MSELoss()
@@ -160,6 +160,10 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
                 num_draws += 1
                 break
 
+        if i % 1 == 0:
+            print(f"{np.array(game.board.board)}")
+
+
     print("STARTING SECOND HALF")
     for i in tqdm(range(halftime)):
         game.reset()
@@ -186,6 +190,9 @@ def arena(model_1, model_2, device, num_games=100, win_threshold=0.55):
             if game_status == 0:
                 num_draws += 1
                 break
+
+        if i % 1 == 0:
+            print(f"{np.array(game.board.board)}")
 
     # print(wins)
     win_rate_model_1 = win_model_1 / num_games
@@ -233,9 +240,15 @@ def learn():
         print(f"ITERATION: {i}")
         examples = execute_episode(num_episodes, model=model)
         random.shuffle(examples)
-        model_new = train(copy.deepcopy(model), examples, num_epochs=10)
+        model_new = train(model, examples, num_epochs=10)
+        # model_new = train(copy.deepcopy(model), examples, num_epochs=10)
         model = arena(model, model_new, device=device, num_games=40, win_threshold=0.55)
         torch.save(model.state_dict(), "../../models/saved/dqn_cnn_v2_6.pth")
 
+        # REMEMBER
+        # removed copy.deepcopy() from model for var model_new (line 243, 244)
+        # changed cpuct from 1.0 to 4.0
+        # changed dirichlet noise from 0.3 to 1.0
+        # suggestion: decrease lr
 
 learn()

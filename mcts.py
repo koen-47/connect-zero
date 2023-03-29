@@ -15,7 +15,7 @@ class MCTS:
     Code for this class was adapted from https://github.com/suragnair/alpha-zero-general/blob/master/MCTS.py
     """
 
-    def __init__(self, model, player_id, num_sims=25, cpuct=1):
+    def __init__(self, model, player_id, num_sims=25, cpuct=4.):
         self.model = model
         self.player_id = player_id
         self.num_sims = num_sims
@@ -91,7 +91,7 @@ class MCTS:
         best_action = -1
 
         if is_root and e > 0:
-            noise = np.random.dirichlet([0.03] * len(valid_moves))
+            noise = np.random.dirichlet([1.] * len(valid_moves))
 
         i = -1
         for action in range(7):
