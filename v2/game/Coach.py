@@ -69,7 +69,7 @@ class Coach:
 
             pmcts = MCTS(self.game, self.pnet, self.device)
 
-            self.nnet = self.nnet.train_on_examples(trainExamples)
+            self.nnet = self.nnet.train_on_examples(trainExamples, lr=0.0001)
             nmcts = MCTS(self.game, self.nnet, self.device)
 
             player1 = Player(1, strategy=AlphaZeroStrategy(mcts=pmcts))
@@ -84,13 +84,15 @@ class Coach:
             else:
                 print("Rejecting new model")
                 self.nnet = copy.deepcopy(self.pnet)
-            torch.save(self.nnet.state_dict(), "models/saved/resnet_1.pth")
+            torch.save(self.nnet.state_dict(), "../models/saved/resnet_1.pth")
 
+
+# print(torch.cuda.is_available())
 
 g = Game()
 nnet = ResNet(num_channels=128, num_res_blocks=20)
-coach = Coach(game=g, nnet=nnet, num_its=10, num_eps=1)
-coach.learn(num_games=40)
+coach = Coach(game=g, nnet=nnet, num_its=80, num_eps=500)
+coach.learn(num_games=100)
 
 # episode = coach.execute_episode()
 # nnet.train_on_examples(episode)

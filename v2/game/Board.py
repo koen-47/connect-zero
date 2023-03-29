@@ -4,7 +4,7 @@ import numpy as np
 
 class Board:
     def __init__(self, height=6, width=7, state=None):
-        self.state = np.zeros([height, width], dtype=np.int) if state is None else state
+        self.state = np.zeros([height, width], dtype=int) if state is None else state
         self.height = height
         self.width = width
 

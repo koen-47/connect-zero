@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/game/Arena.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Arena.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/game/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/game/Coach.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Coach.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/game/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/models/pytorch/ResNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/pytorch/ResNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +31,17 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2KsjwodGSVu6oojXVHlmSQCco0V" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/koenk/PycharmProjects/connect-zero/data/classification&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\koenk\PycharmProjects\connect-zero\data\classification" />
@@ -120,34 +123,30 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in TestMCTS.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestPlayGame.TestPlayGame.test_play_manual" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v1/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/v1/tests/TestMCTS.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;TestPlayGame.TestPlayGame.test_play_manual&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.Coach" />
       <item itemvalue="Python.train_cnn_2" />
-      <item itemvalue="Python tests.Python tests for v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1" />
-      <item itemvalue="Python tests.Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" />
-      <item itemvalue="Python tests.Python tests in TestMCTS.py" />
+      <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Coach" />
+        <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual" />
         <item itemvalue="Python.train_cnn_2" />
-        <item itemvalue="Python tests.Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" />
-        <item itemvalue="Python tests.Python tests for v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1" />
-        <item itemvalue="Python tests.Python tests in TestMCTS.py" />
       </list>
     </recent_temporary>
   </component>
@@ -172,5 +171,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
