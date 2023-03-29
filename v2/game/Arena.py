@@ -26,7 +26,7 @@ class Arena:
         #     print(game.get_valid_moves(board))
         #     print(board)
         #
-        print(board)
+        print(game.display(board))
         return current_player * game.get_game_ended(board, current_player)
 
     def play_games(self, num_games=100):

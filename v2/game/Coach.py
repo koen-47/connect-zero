@@ -49,6 +49,7 @@ class Coach:
             r = self.game.get_game_ended(board, self.curPlayer)
 
             if r != 0:
+                print(self.game.display(board))
                 return [(x[0], x[2], r * ((-1) ** (x[1] != self.curPlayer))) for x in trainExamples]
 
     def learn(self, num_games=40, win_threshold=0.55):
@@ -88,7 +89,7 @@ class Coach:
 
 g = Game()
 nnet = ResNet(num_channels=128, num_res_blocks=20)
-coach = Coach(game=g, nnet=nnet, num_its=10, num_eps=60)
+coach = Coach(game=g, nnet=nnet, num_its=10, num_eps=1)
 coach.learn(num_games=40)
 
 # episode = coach.execute_episode()

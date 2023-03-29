@@ -65,11 +65,10 @@ class ResNet(nn.Module):
                 optimizer.zero_grad()
                 total_loss.backward()
                 optimizer.step()
-            print(f"  EPOCH {epoch + 1}) "
-                  f"AVG. TOTAL LOSS: {sum_total_loss / batch_count:.3f}, "
-                  f"AVG. VALUE LOSS: {sum_value_loss / batch_count:.3f}, "
-                  f"AVG. POLICY LOSS: {sum_policy_loss / batch_count:.3f}, "
-                  f"AVG. POLICY ACC.: {sum_policy_acc / total_policy_acc:.3f}")
+            print(f"Epoch {epoch + 1}) "
+                  f"total loss: {sum_total_loss / batch_count:.3f}, "
+                  f"value loss: {sum_value_loss / batch_count:.3f}, "
+                  f"policy acc.: {sum_policy_acc / total_policy_acc:.3f}")
         return copy.deepcopy(self)
 
 

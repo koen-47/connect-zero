@@ -1,4 +1,5 @@
 import numpy
+from termcolor import colored
 
 from v2.strategy.MCTSStrategy.MCTSStrategy import MCTSStrategy
 from .Board import Board
@@ -47,6 +48,18 @@ class Game:
     def get_string_representation(self, board):
         return numpy.array2string(board)
 
+    def display(self, board):
+        board_str = "\n"
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                cell_str = "- "
+                if board[i][j] == 1:
+                    cell_str = colored("X ", "red")
+                elif board[i][j] == -1:
+                    cell_str = colored("O ", "yellow")
+                board_str += cell_str
+            board_str += "\n"
+        return board_str
 
 # game = Game()
 # game.play()
