@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/v1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/classification/classification_model_p1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/classification/classification_model_p2.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/classification/connect_4.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/classification/train_classifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/classification/train_test_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/rl/replay_memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/rl/rewards.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/rl/train_cnn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/brain/rl/train_cnn_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/data/classification/raw_game_data_v2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/game/board.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/game/game.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/game/player.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/game/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/example/train_connect4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game/board.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game/dqn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game/game.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game/nn_strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game/player.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game/replay_memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game/strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game_v2/board.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game_v2/dqn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game_v2/nn_strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/legacy/game_v2/replay_memory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/mcts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/cnn/cnn_dqn_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/cnn/cnn_dqn_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/cnn/cnn_dqn_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_1.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_10.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_11.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_2.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_3.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_4.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_5.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_6.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_7.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_8.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_9.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/models/saved/dqn_cnn_v2_6.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/strategies/strategy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/tests/TestBoard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/tests/TestMCTS.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/tests/TestPlayGame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/tests/TestRewardFunctions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1/tests/board_presets/presets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/classification/classification_model_p1.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/classification/classification_model_p2.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/classification/connect_4.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/classification/train_classifier.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/classification/train_test_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/rl/replay_memory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/rl/rewards.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/rl/train_cnn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brain/rl/train_cnn_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/classification/raw_game_data_v2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/board.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/player.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/example/train_connect4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game/board.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game/dqn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game/game.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game/nn_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game/player.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game/replay_memory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game/strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game_v2/board.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game_v2/dqn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game_v2/nn_strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/legacy/game_v2/replay_memory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mcts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/cnn/cnn_dqn_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/cnn/cnn_dqn_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/cnn/cnn_dqn_3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_1.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_10.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_11.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_2.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_3.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_4.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_5.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_6.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_7.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_8.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_9.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/saved/dqn_cnn_v2_6.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulation/simulate_games.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/strategies/strategy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestBoard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestMCTS.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestPlayGame.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestRewardFunctions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/board_presets/presets.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KsjwodGSVu6oojXVHlmSQCco0V" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/koenk/PycharmProjects/connect-zero/data/classification&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\koenk\PycharmProjects\connect-zero\data\classification" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\koenk\PycharmProjects\connect-zero" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Coach">
+    <configuration name="Coach" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/game" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/v2/game/Coach.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train_cnn_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/brain/rl" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brain/rl/train_cnn_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="true" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v1/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v1/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;v1.tests.TestPlayGame.TestPlayGame.test_play_manual&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in TestMCTS.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v1/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/v1/tests/TestMCTS.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Coach" />
+      <item itemvalue="Python.train_cnn_2" />
+      <item itemvalue="Python tests.Python tests for v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1" />
+      <item itemvalue="Python tests.Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" />
+      <item itemvalue="Python tests.Python tests in TestMCTS.py" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Coach" />
+        <item itemvalue="Python.train_cnn_2" />
+        <item itemvalue="Python tests.Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" />
+        <item itemvalue="Python tests.Python tests for v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1" />
+        <item itemvalue="Python tests.Python tests in TestMCTS.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="" />
+      <created>1674770425987</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674770425987</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

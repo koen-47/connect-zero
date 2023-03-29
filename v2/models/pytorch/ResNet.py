@@ -1,0 +1,120 @@
+import copy
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import numpy as np
+
+
+class ResNet(nn.Module):
+    def __init__(self, num_channels, num_res_blocks, kernel_size=(3, 3), padding=1):
+        super(ResNet, self).__init__()
+        self.conv1 = nn.Conv2d(1, num_channels, kernel_size=kernel_size, padding=padding)
+        self.bn2d_1 = nn.BatchNorm2d(num_channels)
+        self.layers = nn.ModuleList()
+        for i in range(num_res_blocks):
+            self.layers.append(ResidualBlock(num_channels, num_channels, num_channels, kernel_size=(3, 3), padding=1))
+        self.policy_head = PolicyHead(num_channels, kernel_size=(1, 1), padding=1)
+        self.value_head = ValueHead(num_channels, fc_size=256, kernel_size=(1, 1), padding=1)
+
+    def forward(self, x):
+        x = F.relu(self.bn2d_1(self.conv1(x)))
+        for layer in self.layers[:-1]:
+            x = F.relu(layer(x))
+        return self.policy_head(x), self.value_head(x)
+
+    def train_on_examples(self, examples, num_epochs=10, lr=0.001):
+        optimizer = optim.Adam(self.parameters(), lr=lr)
+
+        criterion1 = nn.CrossEntropyLoss()
+        criterion2 = nn.MSELoss()
+
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        model = self.to(device)
+
+        for epoch in range(num_epochs):
+            model.train()
+
+            sum_total_loss = 0.0
+            sum_value_loss = 0.0
+            sum_policy_loss = 0.0
+            sum_policy_acc = 0.0
+            total_policy_acc = 0
+
+            batch_size = 64
+            batch_count = max(1, int(len(examples) / batch_size))
+            for i in range(batch_count):
+                sample_ids = np.random.randint(len(examples), size=batch_size)
+                boards, move, value = list(zip(*[examples[i] for i in sample_ids]))
+                boards = torch.FloatTensor(np.array(boards).astype(np.float64)).unsqueeze(dim=1).to(device)
+                target_move = torch.FloatTensor(np.array(move)).to(device)
+                target_value = torch.FloatTensor(np.array(value).astype(np.float64)).unsqueeze(dim=1).to(device)
+
+                out_move, out_value = self(boards)
+                loss_move = criterion1(target_move, out_move)
+                loss_value = criterion2(target_value, out_value)
+                total_loss = loss_move + loss_value
+
+                sum_total_loss += total_loss.item()
+                sum_policy_loss += loss_move.item()
+                sum_value_loss += loss_value.item()
+                total_policy_acc += out_move.size(0)
+                sum_policy_acc += (torch.sum(torch.argmax(target_move, dim=1) == torch.argmax(out_move, dim=1))).item()
+
+                optimizer.zero_grad()
+                total_loss.backward()
+                optimizer.step()
+            print(f"  EPOCH {epoch + 1}) "
+                  f"AVG. TOTAL LOSS: {sum_total_loss / batch_count:.3f}, "
+                  f"AVG. VALUE LOSS: {sum_value_loss / batch_count:.3f}, "
+                  f"AVG. POLICY LOSS: {sum_policy_loss / batch_count:.3f}, "
+                  f"AVG. POLICY ACC.: {sum_policy_acc / total_policy_acc:.3f}")
+        return copy.deepcopy(self)
+
+
+class ResidualBlock(nn.Module):
+    def __init__(self, in_size, hidden_size, out_size, kernel_size=(3, 3), padding=0):
+        super().__init__()
+        self.conv1 = nn.Conv2d(in_size, hidden_size, kernel_size=kernel_size, padding=padding)
+        self.conv2 = nn.Conv2d(hidden_size, out_size, kernel_size=kernel_size, padding=padding)
+        self.bn2d_1 = nn.BatchNorm2d(hidden_size)
+        self.bn2d_2 = nn.BatchNorm2d(out_size)
+
+    def conv_block(self, x):
+        x = F.relu(self.bn2d_1(self.conv1(x)))
+        x = F.relu(self.bn2d_2(self.conv2(x)))
+        return x
+
+    def forward(self, x):
+        return x + self.conv_block(x)
+
+
+class ValueHead(nn.Module):
+    def __init__(self, in_size, fc_size, kernel_size=(1, 1), padding=0):
+        super().__init__()
+        self.conv1 = nn.Conv2d(in_size, 1, kernel_size=(1, 1), padding=padding)
+        self.bn2d_1 = nn.BatchNorm2d(1)
+        self.fc1 = nn.Linear(72, fc_size)
+        self.fc2 = nn.Linear(fc_size, fc_size)
+        self.value = nn.Linear(fc_size, 1)
+
+    def forward(self, x):
+        x = F.relu(self.bn2d_1(self.conv1(x)))
+        x = x.view(x.size(0), -1)
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        return torch.tanh(self.value(x))
+
+
+class PolicyHead(nn.Module):
+    def __init__(self, in_size, kernel_size=(1, 1), padding=0):
+        super().__init__()
+        self.conv1 = nn.Conv2d(in_size, 1, kernel_size=(2, 2), padding=padding)
+        self.bn2d_1 = nn.BatchNorm2d(1)
+        self.policy = nn.Linear(56, 7)
+
+    def forward(self, x):
+        x = F.relu(self.bn2d_1(self.conv1(x)))
+        x = x.view(x.size(0), -1)
+        return F.softmax(self.policy(x), dim=-1)
