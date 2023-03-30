@@ -1,9 +1,12 @@
 import copy
+import multiprocessing
 
 import numpy as np
 import torch
 from tqdm import tqdm
+from tqdm.contrib.concurrent import process_map
 from random import shuffle
+from multiprocessing import Process, Manager, Pool
 
 from v2.game.Game import Game
 from v2.game.Player import Player
@@ -52,13 +55,37 @@ class Coach:
                 print(self.game.display(board))
                 return [(x[0], x[2], r * ((-1) ** (x[1] != self.curPlayer))) for x in trainExamples]
 
-    def learn(self, num_games=40, win_threshold=0.55):
+    def parallel(self, num_eps, num_proc):
+        examples = []
+        for _ in tqdm(range(int(num_eps / num_proc)),
+                      desc=f"Self Play (proc_id = {multiprocessing.current_process().name.split('-')[-1]})"):
+            self.mcts = MCTS(self.game, self.nnet, self.device)  # reset search tree
+            examples += self.execute_episode()
+        return examples
+
+    def learn(self, num_games=40, win_threshold=0.55, num_proc=4):
         for i in range(1, self.num_its + 1):
             iterationTrainExamples = []
-            for _ in tqdm(range(self.num_eps), desc="Self Play"):
-                self.mcts = MCTS(self.game, self.nnet, self.device)  # reset search tree
-                iterationTrainExamples += self.execute_episode()
+            pool = Pool(processes=num_proc)
+            for examples in pool.starmap(func=self.parallel, iterable=[(self.num_eps, num_proc,) for _ in
+                                                                       range(int(num_proc))]):
+                for example in examples:
+                    iterationTrainExamples.append(example)
 
+
+            # manager = Manager()
+            # iterationTrainExamples = manager.list()
+            # jobs = []
+            # for _ in range(num_proc):
+            #     process = Process(target=self.parallel, args=(iterationTrainExamples, 3))
+            #     jobs.append(process)
+            #     process.start()
+            #
+            # for j in jobs:
+            #     j.join()
+
+            # print(iterationTrainExamples)
+            print(f"Number of training examples: {len(iterationTrainExamples)}")
             # save the iteration examples to the history
             self.trainExamplesHistory.append(iterationTrainExamples)
 
@@ -89,10 +116,11 @@ class Coach:
 
 # print(torch.cuda.is_available())
 
-g = Game()
-nnet = ResNet(num_channels=128, num_res_blocks=20)
-coach = Coach(game=g, nnet=nnet, num_its=80, num_eps=500)
-coach.learn(num_games=100)
+if __name__ == '__main__':
+    g = Game()
+    nnet = ResNet(num_channels=128, num_res_blocks=20)
+    coach = Coach(game=g, nnet=nnet, num_its=80, num_eps=24)
+    coach.learn(num_games=10)
 
 # episode = coach.execute_episode()
 # nnet.train_on_examples(episode)

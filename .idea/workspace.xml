@@ -4,13 +4,9 @@
     <list default="true" id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/game/Arena.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Arena.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/game/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/game/Coach.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Coach.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +32,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\koenk\PycharmProjects\connect-zero\data\classification" />
@@ -60,9 +55,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\koenk\PycharmProjects\mcts-connect\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/game" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/v2/game/Coach.py" />
@@ -140,6 +135,8 @@
     <list>
       <item itemvalue="Python.Coach" />
       <item itemvalue="Python.train_cnn_2" />
+      <item itemvalue="Python tests.Python tests for v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1" />
+      <item itemvalue="Python tests.Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" />
       <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual" />
     </list>
     <recent_temporary>
@@ -171,6 +168,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
