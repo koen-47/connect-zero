@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2/logs/Logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/game/Arena.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Arena.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/game/Coach.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Coach.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/game/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/pytorch/ResNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/pytorch/ResNet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

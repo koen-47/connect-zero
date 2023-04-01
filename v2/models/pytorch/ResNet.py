@@ -24,7 +24,7 @@ class ResNet(nn.Module):
             x = F.relu(layer(x))
         return self.policy_head(x), self.value_head(x)
 
-    def train_on_examples(self, examples, num_epochs=10, lr=0.001):
+    def train_on_examples(self, examples, num_epochs=10, lr=0.001, logger=None):
         optimizer = optim.Adam(self.parameters(), lr=lr)
 
         criterion1 = nn.CrossEntropyLoss()
@@ -65,10 +65,16 @@ class ResNet(nn.Module):
                 optimizer.zero_grad()
                 total_loss.backward()
                 optimizer.step()
-            print(f"Epoch {epoch + 1}) "
-                  f"total loss: {sum_total_loss / batch_count:.3f}, "
-                  f"value loss: {sum_value_loss / batch_count:.3f}, "
-                  f"policy acc.: {sum_policy_acc / total_policy_acc:.3f}")
+            total_loss = sum_total_loss / batch_count
+            value_loss = sum_value_loss / batch_count
+            policy_acc = sum_policy_acc / total_policy_acc
+            print(f"Epoch {epoch + 1}. "
+                  f"Total loss: {total_loss:.3f}. "
+                  f"Value loss: {value_loss:.3f}. "
+                  f"Policy acc.: {policy_acc:.3f}")
+            logger.log_both(f"(Training) Epoch: {epoch + 1}. Total loss: {total_loss:.3f}. "
+                            f"Value loss: {value_loss:.3f}. Policy loss: {policy_acc:.3f}")
+
         return copy.deepcopy(self)
 
 

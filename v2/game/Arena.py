@@ -8,9 +8,10 @@ from v2.strategy.RandomStrategy import RandomStrategy
 
 
 class Arena:
-    def __init__(self, player_1, player_2):
+    def __init__(self, player_1, player_2, logger=None):
         self.player_1 = player_1
         self.player_2 = player_2
+        self.logger = logger
 
     def play(self):
         game = Game()
@@ -27,14 +28,20 @@ class Arena:
         #     print(game.display(board))
         #
         print(game.display(board))
-        return current_player * game.get_game_ended(board, current_player)
+
+        result = current_player * game.get_game_ended(board, current_player)
+        if self.logger is not None:
+            self.logger.log_it(f"(Arena) Result: {result}")
+            self.logger.log_it(f"{game.display(board, color=False)}")
+
+        return result
 
     def play_games(self, num_games=100):
         num = int(num_games / 2)
         oneWon = 0
         twoWon = 0
         draws = 0
-        for _ in tqdm(range(num), desc="Arena.playGames (1)"):
+        for i in tqdm(range(num), desc="Arena.playGames (1)"):
             gameResult = self.play()
             if gameResult == 1:
                 oneWon += 1
@@ -55,7 +62,6 @@ class Arena:
                 draws += 1
 
         return oneWon, twoWon, draws
-
 
 # player1 = Player(1, strategy=ManualStrategy())
 # player2 = Player(-1, strategy=RandomStrategy())

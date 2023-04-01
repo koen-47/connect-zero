@@ -48,15 +48,15 @@ class Game:
     def get_string_representation(self, board):
         return numpy.array2string(board)
 
-    def display(self, board):
+    def display(self, board, color=True):
         board_str = "\n"
         for i in range(len(board)):
             for j in range(len(board[0])):
                 cell_str = "- "
                 if board[i][j] == 1:
-                    cell_str = colored("X ", "red")
+                    cell_str = colored("X ", "red") if color is True else "X "
                 elif board[i][j] == -1:
-                    cell_str = colored("O ", "yellow")
+                    cell_str = colored("O ", "yellow") if color is True else "O "
                 board_str += cell_str
             board_str += "\n"
         return board_str
