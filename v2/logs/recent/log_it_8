@@ -1,0 +1,29 @@
+2023-04-01 03:55:59,288 Iteration 8
+2023-04-01 03:55:59,291 (Self Play) Episode 1
+2023-04-01 03:56:05,577 
+- X - - - - - 
+- X - - - - - 
+- X - O - - X 
+- O - X O - O 
+O X - X O O O 
+X O O X X X O 
+
+2023-04-01 03:56:05,579 (Self Play) Episode 2
+2023-04-01 03:56:10,282 
+- - - - - - - 
+- - - - - - - 
+- - O - - X - 
+- - X - - X - 
+O O O O - X O 
+X X O X - O X 
+
+2023-04-01 03:56:10,739 (Training) Epoch: 1. Total loss: 2.129. Value loss: 0.280. Policy loss: 0.430
+2023-04-01 03:56:11,215 (Training) Epoch: 2. Total loss: 2.026. Value loss: 0.199. Policy loss: 0.428
+2023-04-01 03:56:11,690 (Training) Epoch: 3. Total loss: 1.978. Value loss: 0.157. Policy loss: 0.443
+2023-04-01 03:56:12,160 (Training) Epoch: 4. Total loss: 1.917. Value loss: 0.095. Policy loss: 0.467
+2023-04-01 03:56:12,634 (Training) Epoch: 5. Total loss: 1.959. Value loss: 0.146. Policy loss: 0.488
+2023-04-01 03:56:13,110 (Training) Epoch: 6. Total loss: 1.905. Value loss: 0.115. Policy loss: 0.518
+2023-04-01 03:56:13,581 (Training) Epoch: 7. Total loss: 1.932. Value loss: 0.129. Policy loss: 0.496
+2023-04-01 03:56:14,054 (Training) Epoch: 8. Total loss: 1.927. Value loss: 0.143. Policy loss: 0.521
+2023-04-01 03:56:14,529 (Training) Epoch: 9. Total loss: 1.890. Value loss: 0.112. Policy loss: 0.520
+2023-04-01 03:56:15,003 (Training) Epoch: 10. Total loss: 1.912. Value loss: 0.133. Policy loss: 0.488

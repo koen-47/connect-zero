@@ -116,8 +116,8 @@ class Coach:
             arena = Arena(player1, player2, logger=self.logger)
             pwins, nwins, draws = arena.play_games(num_games)
 
-            self.logger.log_it(f"Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
-            self.logger.log_sum(f"Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
+            self.logger.log_it(f"(Arena) Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
+            self.logger.log_sum(f"(Arena) Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
             print(f"Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
             if nwins / num_games >= win_threshold:
                 self.logger.log_it("(Arena) Accepting new model.")
@@ -130,7 +130,7 @@ class Coach:
                 print("Rejecting new model")
                 self.nnet = copy.deepcopy(self.pnet)
             torch.save(self.nnet.state_dict(), "../models/saved/resnet_1.pth")
-            self.logger.log_both("")
+            self.logger.log_both("\n")
 
 
 # print(torch.cuda.is_available())

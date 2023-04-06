@@ -1,0 +1,51 @@
+2023-04-01 03:54:50,201 Iteration 5
+2023-04-01 03:54:50,204 (Self Play) Episode 1
+2023-04-01 03:54:53,507 
+- - - - - - - 
+- - - - - - - 
+- - X - - - - 
+- - X - - - - 
+X - X O - O - 
+X O X O O X O 
+
+2023-04-01 03:54:53,509 (Self Play) Episode 2
+2023-04-01 03:55:02,209 
+O X - X - O O 
+X O - X - X O 
+O O X O - O O 
+O X O X - X X 
+X O X X - O X 
+X O O X X X O 
+
+2023-04-01 03:55:02,494 (Training) Epoch: 1. Total loss: 2.370. Value loss: 0.455. Policy loss: 0.394
+2023-04-01 03:55:02,785 (Training) Epoch: 2. Total loss: 2.231. Value loss: 0.326. Policy loss: 0.353
+2023-04-01 03:55:03,090 (Training) Epoch: 3. Total loss: 2.072. Value loss: 0.200. Policy loss: 0.431
+2023-04-01 03:55:03,381 (Training) Epoch: 4. Total loss: 2.047. Value loss: 0.193. Policy loss: 0.431
+2023-04-01 03:55:03,676 (Training) Epoch: 5. Total loss: 1.972. Value loss: 0.104. Policy loss: 0.428
+2023-04-01 03:55:03,973 (Training) Epoch: 6. Total loss: 1.942. Value loss: 0.095. Policy loss: 0.453
+2023-04-01 03:55:04,269 (Training) Epoch: 7. Total loss: 1.981. Value loss: 0.146. Policy loss: 0.453
+2023-04-01 03:55:04,566 (Training) Epoch: 8. Total loss: 1.901. Value loss: 0.099. Policy loss: 0.472
+2023-04-01 03:55:04,858 (Training) Epoch: 9. Total loss: 1.889. Value loss: 0.095. Policy loss: 0.481
+2023-04-01 03:55:05,148 (Training) Epoch: 10. Total loss: 1.893. Value loss: 0.080. Policy loss: 0.472
+2023-04-01 03:55:11,456 (Arena) Result: 1
+2023-04-01 03:55:11,456 
+- - - - - O - 
+X - - - - O - 
+X - - - - O - 
+X O X - - X - 
+X X O O X O O 
+O X O X X X O 
+
+2023-04-01 03:55:17,703 (Arena) Result: -1
+2023-04-01 03:55:17,703 
+X - - - - O X 
+O - - - - O X 
+X - - - - O O 
+O - - - - O X 
+O - O X - X X 
+O - X X - O X 
+
+2023-04-01 03:55:17,704 (Arena) Results (pwins/nwins/draws) => (2, 0, 0)
+2023-04-01 03:55:17,704 (Arena) Rejecting new model.
+2023-04-01 03:55:17,789 
+
