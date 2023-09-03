@@ -32,7 +32,7 @@ class MCTS:
     This class handles the MCTS tree.
     """
 
-    def __init__(self, game, nnet, device, num_sims=25, cpuct=4.0):
+    def __init__(self, game, nnet, device, num_sims=250, cpuct=1.0):
         self.game = game
         self.nnet = nnet.to(device)
         self.num_sims = num_sims

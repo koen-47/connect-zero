@@ -23,7 +23,7 @@ from v2.logs.Logger import Logger
 class Coach:
     def __init__(self, game, num_its=100, num_eps=100, temp_threshold=15):
         self.game = game
-        self.nnet = ResNet(num_channels=128, num_res_blocks=20)
+        self.nnet = ResNet(num_channels=128, num_res_blocks=5)
         self.pnet = copy.deepcopy(self.nnet)
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.mcts = MCTS(self.game, self.nnet, self.device)
@@ -137,8 +137,8 @@ class Coach:
 
 if __name__ == '__main__':
     g = Game()
-    coach = Coach(game=g, num_its=80, num_eps=2)
-    coach.learn(num_games=2, num_proc=2)
+    coach = Coach(game=g, num_its=80, num_eps=100)
+    coach.learn(num_games=40, num_proc=1)
 
 # episode = coach.execute_episode()
 # nnet.train_on_examples(episode)

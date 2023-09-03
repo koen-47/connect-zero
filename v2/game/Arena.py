@@ -25,7 +25,7 @@ class Arena:
             board, current_player = game.get_next_state(board, current_player, action)
 
         #     print(game.get_valid_moves(board))
-        #     print(game.display(board))
+            print(game.display(board))
         #
         print(game.display(board))
 

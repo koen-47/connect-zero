@@ -17,9 +17,9 @@ class TestPlayGame(unittest.TestCase):
     def test_play_manual(self):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        nnet = ResNet(num_channels=128, num_res_blocks=20).to(device)
+        nnet = ResNet(num_channels=128, num_res_blocks=5).to(device)
         nnet.load_state_dict(torch.load("../models/saved/resnet_1.pth"))
-        mcts = MCTS(game=g, nnet=nnet, device=device)
+        mcts = MCTS(game=g, nnet=nnet, device=device, cpuct=1.)
 
         player_1 = Player(1, strategy=ManualStrategy())
         player_2 = Player(-1, strategy=AlphaZeroStrategy(mcts=mcts))

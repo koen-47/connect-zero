@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="">
+    <list default="true" id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/game/Arena.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Arena.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/game/Coach.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Coach.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_1" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_2" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_3" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_4" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_5" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_6" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_7" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_8" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_summary" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_1.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/strategy/RandomStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/RandomStrategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/_C.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/_C.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/_src/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/_src/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/compile/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/compile/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/dim/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/dim/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/dim/batch_tensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/dim/batch_tensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/experimental/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/functorch/experimental/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/_version.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/_version.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_multiarray_tests.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_multiarray_tests.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_multiarray_umath.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_multiarray_umath.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_operand_flag_tests.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_operand_flag_tests.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_rational_tests.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_rational_tests.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_simd.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_simd.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_struct_ufunc_tests.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_struct_ufunc_tests.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_umath_tests.cp38-win_amd64.pyd" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/_umath_tests.cp38-win_amd64.pyd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/include/numpy/npy_math.h" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/include/numpy/npy_math.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/lib/npymath.lib" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/lib/npymath.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_deprecations.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_deprecations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_multiarray.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_multiarray.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_scalarmath.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_scalarmath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_umath.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/core/tests/test_umath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/distutils/ccompiler_opt.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/numpy/distutils/ccompiler_opt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/typing_extensions.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/typing_extensions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +70,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\koenk\PycharmProjects\connect-zero\data\classification" />
@@ -45,7 +83,7 @@
       <recent name="C:\Users\koenk\PycharmProjects\connect-zero" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Coach">
+  <component name="RunManager" selected="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual">
     <configuration name="Coach" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -53,7 +91,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\koenk\PycharmProjects\mcts-connect\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="C:\Users\koenk\PycharmProjects\connect-zero\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/game" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -133,14 +171,12 @@
     <list>
       <item itemvalue="Python.Coach" />
       <item itemvalue="Python.train_cnn_2" />
-      <item itemvalue="Python tests.Python tests for v1.tests.TestMCTS.TestMCTS.test_mcts_episode_1" />
-      <item itemvalue="Python tests.Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" />
       <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Coach" />
         <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual" />
+        <item itemvalue="Python.Coach" />
         <item itemvalue="Python.train_cnn_2" />
       </list>
     </recent_temporary>
@@ -166,5 +202,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
