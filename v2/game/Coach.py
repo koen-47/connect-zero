@@ -12,11 +12,11 @@ from multiprocessing import Process, Manager, Pool
 from v2.game.Game import Game
 from v2.game.Player import Player
 from v2.game.Arena import Arena
-from v2.strategy.AlphaZeroStrategy import AlphaZeroStrategy
+from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2 as AlphaZeroStrategy
 # from models.keras import DQN1
 # from models.keras.DQN1 import Connect4NNet
 from v2.models.pytorch.ResNet import ResNet
-from v2.strategy.AlphaZeroStrategy import MCTS
+from v2.strategy.AlphaZeroStrategyV2 import MCTS
 from v2.logs.Logger import Logger
 
 
@@ -44,7 +44,7 @@ class Coach:
             canonicalBoard = self.game.get_canonical_form(board, self.curPlayer)
             temp = int(episodeStep < self.temp_threshold)
 
-            pi = self.mcts.get_action_prob(canonicalBoard, device=self.device, temp=temp)
+            pi = self.mcts.get_action_prob(canonicalBoard, device=self.device)
             sym = self.game.get_symmetries(canonicalBoard, pi)
             for b, p in sym:
                 trainExamples.append([b, self.curPlayer, p, None])
@@ -129,7 +129,7 @@ class Coach:
                 self.logger.log_sum("(Arena) Rejecting new model.")
                 print("Rejecting new model")
                 self.nnet = copy.deepcopy(self.pnet)
-            torch.save(self.nnet.state_dict(), "../models/saved/resnet_1.pth")
+            torch.save(self.nnet.state_dict(), "../models/saved/resnet_2.pth")
             self.logger.log_both("\n")
 
 

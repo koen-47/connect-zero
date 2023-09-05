@@ -20,9 +20,6 @@ class AlphaZeroStrategy:
 
     def calculate_move(self, canonical_board, player_id):
         pi = self.mcts.get_action_prob(canonical_board, device=self.device, temp=0)
-        # print(pi)
-        # print(game.get_valid_moves(canonicalBoard).astype(int))
-        # print(pi * game.get_valid_moves(canonicalBoard).astype(int))
         action = np.random.choice(len(pi), p=pi)
         return action
 
@@ -58,9 +55,6 @@ class MCTS:
 
         s = self.game.get_string_representation(canonical_board)
         counts = [self.Nsa[(s, a)] if (s, a) in self.Nsa else 0 for a in range(self.game.get_action_size())]
-
-        # print(s)
-        # print([n for n in counts])
 
         if temp == 0:
             bestAs = np.array(np.argwhere(counts == np.max(counts))).flatten()
@@ -99,27 +93,29 @@ class MCTS:
             # terminal node
             return -self.Es[s]
 
-        # print(s)
         if s not in self.Ps:
-            tensor_state = torch.tensor(np.array(canonical_board), dtype=torch.float32).unsqueeze(dim=0).unsqueeze(
-                dim=0).to(device)
+            tensor_state = torch.tensor(np.array(canonical_board), dtype=torch.float32)
+            tensor_state = tensor_state.unsqueeze(dim=0).unsqueeze(dim=0).to(device)
             self.Ps[s], value = self.nnet(tensor_state)
             self.Ps[s] = self.Ps[s].detach().cpu().numpy().flatten()
             v = value.detach().cpu().numpy().flatten()[0]
             valids = self.game.get_valid_moves(canonical_board)
             self.Ps[s] = self.Ps[s] * valids  # masking invalid moves
 
-            sum_Ps_s = np.sum(self.Ps[s])
-            if sum_Ps_s > 0:
-                self.Ps[s] /= sum_Ps_s  # renormalize
-            else:
-                # if all valid moves were masked make all valid moves equally probable
-
-                # NB! All valid moves may be masked if either your NNet architecture is insufficient or you've get overfitting or something else.
-                # If you have got dozens or hundreds of these messages you should pay attention to your NNet and/or training process.
-                log.error("All valid moves were masked, doing a workaround.")
-                self.Ps[s] = self.Ps[s] + valids
-                self.Ps[s] /= np.sum(self.Ps[s])
+            # print(self.Ps[s])
+            # print(valids)
+            # sum_Ps_s = np.sum(self.Ps[s])
+            # if sum_Ps_s > 0:
+            #     self.Ps[s] /= sum_Ps_s  # renormalize
+            # else:
+            #     # if all valid moves were masked make all valid moves equally probable
+            #
+            #     # NB! All valid moves may be masked if either your NNet architecture is insufficient or you've get
+            #     # overfitting or something else. If you have got dozens or hundreds of these messages you should pay
+            #     # attention to your NNet and/or training process.
+            #     log.error("All valid moves were masked, doing a workaround.")
+            #     self.Ps[s] = self.Ps[s] + valids
+            #     self.Ps[s] /= np.sum(self.Ps[s])
 
             self.Vs[s] = valids
             self.Ns[s] = 0
@@ -154,7 +150,6 @@ class MCTS:
         a = best_act
         next_s, next_player = self.game.get_next_state(canonical_board, 1, a)
         next_s = self.game.get_canonical_form(next_s, next_player)
-
         v = self.search(next_s, is_root=False, device=device, dir_alpha=dir_alpha, dir_e=dir_e)
 
         if (s, a) in self.Qsa:
