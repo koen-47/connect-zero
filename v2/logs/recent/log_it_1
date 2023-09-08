@@ -1,101 +1,51 @@
-2023-09-09 00:15:53,667 Iteration 1
-2023-09-09 00:15:53,670 (Self Play) Episode 1
-2023-09-09 00:16:25,740 
-X X - X X - O 
-O O - O O - X 
-X O - X X - O 
-X O X O O - X 
-O X O O X O X 
-X O X O O X X 
-
-2023-09-09 00:16:25,764 (Self Play) Episode 2
-2023-09-09 00:16:47,980 
-O O X X X O O 
-X X O O O X X 
-O O X X X O O 
-X X O O O X X 
-O O O X X O O 
-X X X O O X X 
-
-2023-09-09 00:16:47,989 (Self Play) Episode 3
-2023-09-09 00:17:12,772 
-X X X O X - - 
-O O X X O - - 
-O X O O X - - 
-X O X O X X - 
-O X X O X O O 
-O X O X O O X 
-
-2023-09-09 00:17:12,784 (Self Play) Episode 4
-2023-09-09 00:17:35,878 
-O X X X O O O 
-X X O O X X O 
-X O X X O X X 
-O X X O X O O 
-O O X X O O X 
-X X O O X O O 
-
-2023-09-09 00:17:35,890 (Self Play) Episode 5
-2023-09-09 00:17:52,383 
-- X X - - - - 
-- O O - X - - 
-- X X X X - - 
-- O X O O - - 
-- X O O O - - 
-X X O X O - O 
-
-2023-09-09 00:17:52,393 (Self Play) Episode 6
-2023-09-09 00:18:10,696 
-O O X O O X O 
-O O X X X O X 
-X X X O O X O 
-O O O X X O X 
-X O X O O X O 
-X X O X X X O 
-
-2023-09-09 00:18:10,708 (Self Play) Episode 7
-2023-09-09 00:18:24,651 
-O - O - - - - 
-X X X - - - - 
-X X X - - - - 
-X O O - - - - 
-O O O O X - - 
-X X X O O - O 
-
-2023-09-09 00:18:24,663 (Self Play) Episode 8
-2023-09-09 00:18:45,267 
-X O O X O O O 
+2023-09-09 01:22:20,880 Iteration 1
+2023-09-09 01:22:20,884 (Self Play) Episode 1
+2023-09-09 01:22:37,514 
+O O O X O O O 
+X X X O X X X 
+X O X X O O O 
+O X O O X X X 
+X O X X O O O 
 X O O O X X X 
-O X X O O O X 
-X O O X X X O 
-O X X O O O X 
-X X O O X X X 
 
-2023-09-09 00:18:45,281 (Self Play) Episode 9
-2023-09-09 00:19:03,765 
-O O - - - - - 
-X X - - - X - 
-O O O O - O - 
-X O O O - X X 
-O O X O - X X 
-X X X O - X X 
+2023-09-09 01:22:37,519 (Self Play) Episode 2
+2023-09-09 01:22:54,147 
+O X X O X O O 
+X O X O O X X 
+O O X X X O O 
+X X O O O X X 
+X O X X O O O 
+X O O O X X X 
 
-2023-09-09 00:19:03,781 (Self Play) Episode 10
-2023-09-09 00:19:18,815 
+2023-09-09 01:22:54,400 (Training) Epoch: 1. Total loss: 2.011. Value loss: 0.001. Policy loss: 0.219
+2023-09-09 01:22:54,485 (Training) Epoch: 2. Total loss: 1.990. Value loss: 0.000. Policy loss: 0.320
+2023-09-09 01:22:54,567 (Training) Epoch: 3. Total loss: 1.967. Value loss: 0.000. Policy loss: 0.352
+2023-09-09 01:22:54,649 (Training) Epoch: 4. Total loss: 1.941. Value loss: 0.000. Policy loss: 0.375
+2023-09-09 01:22:54,680 (Training) Epoch: 5. Total loss: 1.887. Value loss: 0.000. Policy loss: 0.547
+2023-09-09 01:22:54,703 (Training) Epoch: 6. Total loss: 1.866. Value loss: 0.000. Policy loss: 0.594
+2023-09-09 01:22:54,728 (Training) Epoch: 7. Total loss: 1.895. Value loss: 0.000. Policy loss: 0.508
+2023-09-09 01:22:54,755 (Training) Epoch: 8. Total loss: 1.851. Value loss: 0.000. Policy loss: 0.570
+2023-09-09 01:22:54,776 (Training) Epoch: 9. Total loss: 1.849. Value loss: 0.000. Policy loss: 0.562
+2023-09-09 01:22:54,799 (Training) Epoch: 10. Total loss: 1.777. Value loss: 0.000. Policy loss: 0.719
+2023-09-09 01:23:05,572 (Arena) Result: -1
+2023-09-09 01:23:05,573 
+- X - - - - - 
+O X - - - - - 
 X X - - - - - 
-O O O - - - - 
-X X X - - - - 
-X X X X - - - 
-O X O O O - - 
-X O O X O O - 
+X O - - - - - 
+O X - - - - - 
+X O O O O - - 
 
-2023-09-09 00:19:18,827 (Self Play) Episode 11
-2023-09-09 00:19:33,805 
+2023-09-09 01:23:20,242 (Arena) Result: 0.0001
+2023-09-09 01:23:20,242 
+O X X O O X O 
+X O O X X O X 
+X X X O O X O 
+X O O X X O X 
+O O X O O X O 
 X X O X X O O 
-O O X O O X X 
-X X O X X O O 
-O X O O O X X 
-X O O X X O O 
-O X X O O X X 
 
-2023-09-09 00:19:33,817 (Self Play) Episode 12
+2023-09-09 01:23:20,244 (Arena) Results (pwins/nwins/draws) => (0, 1, 1)
+2023-09-09 01:23:20,244 (Arena) Rejecting new model.
+2023-09-09 01:23:20,271 
+

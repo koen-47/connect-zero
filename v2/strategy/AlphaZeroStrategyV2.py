@@ -7,11 +7,21 @@ import torch
 class AlphaZeroStrategyV2:
     def __init__(self, mcts):
         self.mcts = mcts
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+    def calculate_move(self, canonical_board, player_id):
+        pi = self.mcts.get_action_prob(canonical_board, device=self.device)
+        action = np.random.choice(len(pi), p=pi)
+        return action
 
 
 class MCTS:
     """
     Adapted from: https://github.com/suragnair/alpha-zero-general/tree/master
+    My improvements include the use of nodes to form the MCTS process (to prevent potentially costly repeated
+    state-action pair lookups) and the addition of Dirichlet noise to the policy vectors to add randomness (as denoted
+    in the paper to  the exploitation-exploration trade-off).
+    NOTE: Dirichlet noise is added during testing.
     """
 
     def __init__(self, game, model, device, num_sims=250, c_puct=1.):
@@ -32,19 +42,16 @@ class MCTS:
 
         node_key = tuple(map(tuple, canonical_board))
         node = self.nodes[node_key]
-        counts = [node.child_visits[a] if node.child_visits[a] != 0 else 0 for a in range(self.n_actions)]
+        counts = [node.child_visits[a] for a in range(self.n_actions)]
 
         if self.temp == 0:
-            bestAs = np.array(np.argwhere(counts == np.max(counts))).flatten()
-            bestA = np.random.choice(bestAs)
-            probs = [0] * len(counts)
-            probs[bestA] = 1
+            probs = np.zeros(self.n_actions)
+            probs[np.argmax(counts)] = 1
             return probs
 
-        counts = [x ** (1. / self.temp) for x in counts]
-        counts_sum = float(sum(counts))
-        probs = [x / counts_sum for x in counts]
-        return probs
+        counts = [c ** (1. / self.temp) for c in counts]
+        probs = np.exp(counts - np.max(counts))
+        return probs / probs.sum(axis=0)
 
     def search(self, board, is_root, device):
         node_key = tuple(map(tuple, board))
