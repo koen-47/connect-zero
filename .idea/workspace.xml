@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="505aefcd-39af-40f9-a879-0a7f5c1ef89a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/game/Coach.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Coach.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/game/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/game/Player.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_it_1" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_it_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_summary" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_summary" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +34,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/koenk/Vrije Universiteit/Master/Year 2/Evolutionary Computing/evoman_framework",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\koenk\PycharmProjects\connect-zero\data\classification" />
@@ -90,38 +93,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train_cnn_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="connect-zero" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/brain/rl" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/brain/rl/train_cnn_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="true" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for TestPlayGame.TestPlayGame.test_play_manual_p2" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v1/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/tests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;v1.tests.TestPlayGame.TestPlayGame.test_play_manual&quot;" />
+      <option name="_new_target" value="&quot;TestPlayGame.TestPlayGame.test_play_manual_p2&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for TestPlayGame.TestPlayGame.test_play_random" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;TestPlayGame.TestPlayGame.test_play_random&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -142,16 +138,17 @@
     <list>
       <item itemvalue="Python.Arena" />
       <item itemvalue="Python.Coach" />
-      <item itemvalue="Python.train_cnn_2" />
-      <item itemvalue="Python tests.Python tests for v1.tests.TestPlayGame.TestPlayGame.test_play_manual" />
+      <item itemvalue="Python tests.Python tests for TestPlayGame.TestPlayGame.test_play_manual_p2" />
+      <item itemvalue="Python tests.Python tests for TestPlayGame.TestPlayGame.test_play_random" />
       <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Coach" />
+        <item itemvalue="Python tests.Python tests for TestPlayGame.TestPlayGame.test_play_manual_p2" />
         <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual" />
+        <item itemvalue="Python tests.Python tests for TestPlayGame.TestPlayGame.test_play_random" />
         <item itemvalue="Python.Arena" />
-        <item itemvalue="Python.train_cnn_2" />
       </list>
     </recent_temporary>
   </component>

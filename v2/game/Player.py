@@ -1,7 +1,7 @@
-
 from v2.strategy.RandomStrategy import RandomStrategy
 from v2.strategy.ManualStrategy import ManualStrategy
 from v2.strategy.AlphaZeroStrategy import AlphaZeroStrategy
+
 
 class Player:
     def __init__(self, id, strategy):
