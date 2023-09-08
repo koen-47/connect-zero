@@ -49,9 +49,10 @@ class MCTS:
             probs[np.argmax(counts)] = 1
             return probs
 
-        counts = [c ** (1. / self.temp) for c in counts]
-        probs = np.exp(counts - np.max(counts))
-        return probs / probs.sum(axis=0)
+        counts = [x ** (1. / self.temp) for x in counts]
+        counts_sum = float(sum(counts))
+        probs = [x / counts_sum for x in counts]
+        return probs
 
     def search(self, board, is_root, device):
         node_key = tuple(map(tuple, board))
@@ -129,4 +130,4 @@ class Node:
     def __compute_ucb_score(self, action, p, c_puct):
         if self.q_values[action] is not None:
             return self.q_values[action] + c_puct * p * math.sqrt(self.n_visits) / (1 + self.child_visits[action])
-        return 0
+        return c_puct * p * math.sqrt(self.n_visits + 1e-8)
