@@ -1,29 +1,1275 @@
-2023-09-09 01:45:54,553 Iteration 1
-2023-09-09 01:45:54,556 (Self Play) Episode 1
-2023-09-09 01:46:16,605 
-- - - - - O - 
-- - X - - O - 
-O - O X X X - 
-X - X X X O - 
-X - O O O X O 
-X - X O O X O 
+2023-09-09 01:48:17,305 Iteration 1
+2023-09-09 01:48:17,307 (Self Play) Episode 1
+2023-09-09 01:48:42,492 
+- - - - - - - 
+- X - - - - - 
+O O O O - - X 
+X O X X - - X 
+X O O O X - O 
+O X X X O O X 
 
-2023-09-09 01:46:16,613 (Self Play) Episode 2
-2023-09-09 01:46:45,591 
-X X O - X O - 
-X O O - O X - 
-X X X - X O X 
-O O X - X O O 
-O O O O X X X 
-O O X X O O X 
+2023-09-09 01:48:42,500 (Self Play) Episode 2
+2023-09-09 01:49:06,426 
+- - X X - - - 
+- - X O - - - 
+- O X O - - - 
+- X X O - - - 
+O O O X - X O 
+O X O O X X X 
 
-2023-09-09 01:46:45,605 (Self Play) Episode 3
-2023-09-09 01:47:10,722 
-- - O O X - X 
-- - X O O - O 
-- - X O O O X 
+2023-09-09 01:49:06,434 (Self Play) Episode 3
+2023-09-09 01:49:11,330 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- O - - - - - 
+X X X X O - O 
+
+2023-09-09 01:49:11,333 (Self Play) Episode 4
+2023-09-09 01:49:43,672 
+- - - - O X - 
+X - - X X O - 
+O - O X O X - 
+X O X O X O - 
+X O X O X O X 
+X X O O X O O 
+
+2023-09-09 01:49:43,683 (Self Play) Episode 5
+2023-09-09 01:50:06,028 
+- - - - X - - 
+- - - O X - - 
+- X O O O - O 
+- O O X X - O 
+- X X O X X O 
 X O O X X X O 
-X X X O O O X 
-X X O O X X O 
 
-2023-09-09 01:47:10,736 (Self Play) Episode 4
+2023-09-09 01:50:06,036 (Self Play) Episode 6
+2023-09-09 01:50:30,272 
+- - - - - - - 
+X - - O - - - 
+O O X X - - O 
+X X O O O O O 
+X X X O X X O 
+X X O O X O X 
+
+2023-09-09 01:50:30,282 (Self Play) Episode 7
+2023-09-09 01:51:02,318 
+- X O X - X - 
+O O X X - O - 
+X O O X - O - 
+O X X X - X - 
+X X O O O X O 
+O X O O X X O 
+
+2023-09-09 01:51:02,329 (Self Play) Episode 8
+2023-09-09 01:51:26,904 
+- X - - - - - 
+- O - X - - - 
+O X O O - - - 
+X O O O - X - 
+O X X O O X X 
+X X O X X O O 
+
+2023-09-09 01:51:26,913 (Self Play) Episode 9
+2023-09-09 01:51:50,992 
+- - - - - - - 
+- - O X - X - 
+X - X X - O - 
+O - O O O X - 
+X - X O O X - 
+O X O O X X O 
+
+2023-09-09 01:51:51,001 (Self Play) Episode 10
+2023-09-09 01:52:26,269 
+X X O X O O O 
+O O O X O X X 
+O O O X O O O 
+X X X O X O X 
+O X X O X O X 
+O X X O X X X 
+
+2023-09-09 01:52:26,279 (Self Play) Episode 11
+2023-09-09 01:52:48,084 
+O - - - - - - 
+X - - - - - - 
+O - X O - - - 
+X O X X O - - 
+X X X O X O - 
+X O X O O O X 
+
+2023-09-09 01:52:48,092 (Self Play) Episode 12
+2023-09-09 01:53:10,280 
+- - - - X - - 
+- - - O O - - 
+O - - X O - - 
+O O - O X - - 
+X X O O X - X 
+X X X O X - O 
+
+2023-09-09 01:53:10,289 (Self Play) Episode 13
+2023-09-09 01:53:42,677 
+X - O - - - O 
+O O X - - - O 
+X X X - - O X 
+X O O X X X X 
+O X O O O X X 
+X X O O X O O 
+
+2023-09-09 01:53:42,688 (Self Play) Episode 14
+2023-09-09 01:53:55,486 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - X X - - 
+- - O O O O - 
+O X X O X X - 
+
+2023-09-09 01:53:55,491 (Self Play) Episode 15
+2023-09-09 01:54:13,133 
+- - - - - - - 
+- - - X - X - 
+- - - O - X - 
+- O - O - X - 
+- O - O - X O 
+- O X X X O X 
+
+2023-09-09 01:54:13,141 (Self Play) Episode 16
+2023-09-09 01:54:32,761 
+- - - - - - - 
+X - O - - - - 
+O X X - - - - 
+O X O - - - - 
+O X X - - - - 
+X X O - X O O 
+
+2023-09-09 01:54:32,769 (Self Play) Episode 17
+2023-09-09 01:55:00,102 
+- O - X O - - 
+- X - O X - - 
+- X O O X - - 
+- O X X O - - 
+X O O O X - - 
+X O O O X X X 
+
+2023-09-09 01:55:00,112 (Self Play) Episode 18
+2023-09-09 01:55:13,198 
+- - - - - - - 
+- - - - - - - 
+- - - - X - - 
+O - O - X - - 
+X - X - X - - 
+O O O X X - O 
+
+2023-09-09 01:55:13,204 (Self Play) Episode 19
+2023-09-09 01:55:37,501 
+- - - O O - - 
+- - - X X - - 
+X - - O X - X 
+O - - O O - X 
+O O - X O - X 
+O X - X O X X 
+
+2023-09-09 01:55:37,511 (Self Play) Episode 20
+2023-09-09 01:56:14,049 
+- - X O - X - 
+- O X X X O O 
+X X O O X X O 
+X O O X O O O 
+X O X O O X X 
+X O X X O X O 
+
+2023-09-09 01:56:14,063 (Self Play) Episode 21
+2023-09-09 01:56:37,415 
+- - - - - O - 
+- - O - - X - 
+- X O - - X - 
+X X X O - X - 
+O O X X O O O 
+X O O O X X X 
+
+2023-09-09 01:56:37,425 (Self Play) Episode 22
+2023-09-09 01:57:03,606 
+- - - - - - - 
+- O - - X - O 
+O X - - O - O 
+X X X - O O X 
+O X O X X O X 
+O O X O X X X 
+
+2023-09-09 01:57:03,615 (Self Play) Episode 23
+2023-09-09 01:57:11,288 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- X - - - - - 
+- O - - - O - 
+X X X X - O O 
+
+2023-09-09 01:57:11,292 (Self Play) Episode 24
+2023-09-09 01:57:36,130 
+- - - - - O - 
+- - - - - X O 
+X - - - - X X 
+O - - - X O O 
+X - O X O O O 
+X X X O X O X 
+
+2023-09-09 01:57:36,138 (Self Play) Episode 25
+2023-09-09 01:58:01,268 
+X - X - - - - 
+X - O - - - - 
+O - X - - - - 
+X X O O O O - 
+X O O O X X X 
+X X O X O O O 
+
+2023-09-09 01:58:01,278 (Self Play) Episode 26
+2023-09-09 01:58:19,311 
+- - - - - - - 
+- - - - - - - 
+- - X - O X - 
+- O O X X O - 
+O X O X X X - 
+O O X O X O X 
+
+2023-09-09 01:58:19,320 (Self Play) Episode 27
+2023-09-09 01:58:37,908 
+- - - X - - - 
+- - - X - - - 
+- - X X - - - 
+O - X X - O O 
+X O O O - X O 
+O X X O - X O 
+
+2023-09-09 01:58:37,916 (Self Play) Episode 28
+2023-09-09 01:59:02,834 
+X - - - - - - 
+X O - X - - - 
+O X O X - - - 
+X X O O - - - 
+X O X O O O X 
+X O O X O X O 
+
+2023-09-09 01:59:02,844 (Self Play) Episode 29
+2023-09-09 01:59:32,252 
+O X X O - X X 
+O X O O - X O 
+O O O X - O X 
+X X O O - O X 
+X O X X O X X 
+O O X X X O O 
+
+2023-09-09 01:59:32,263 (Self Play) Episode 30
+2023-09-09 01:59:45,764 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+O O - X X X X 
+O X X O X O O 
+
+2023-09-09 01:59:45,770 (Self Play) Episode 31
+2023-09-09 02:00:01,166 
+- - - - - - - 
+- - - - - - - 
+- - - - O - X 
+- - - - O - X 
+- - - O X O X 
+O X X X O O X 
+
+2023-09-09 02:00:01,172 (Self Play) Episode 32
+2023-09-09 02:00:14,322 
+- - - O - - - 
+- - - O - - - 
+- - - X - - - 
+- - - X - - - 
+X - - O - O - 
+O X X X X O - 
+
+2023-09-09 02:00:14,328 (Self Play) Episode 33
+2023-09-09 02:00:34,214 
+- - - - - - - 
+- - - X - - - 
+O - - O - - - 
+O O X X - - - 
+X X O O - - X 
+X O X O X - O 
+
+2023-09-09 02:00:34,221 (Self Play) Episode 34
+2023-09-09 02:00:48,692 
+- - - - - - - 
+- - X - - - - 
+- - O - - - - 
+- - O - - O O 
+X X X X O X X 
+O X O O X O X 
+
+2023-09-09 02:00:48,698 (Self Play) Episode 35
+2023-09-09 02:01:18,261 
+X O X O - X - 
+X O O O - O - 
+X X O O - O X 
+O O X X X X O 
+X X O O O X X 
+X X O O O X X 
+
+2023-09-09 02:01:18,272 (Self Play) Episode 36
+2023-09-09 02:01:38,078 
+- - - X - - - 
+- - - O - - - 
+- - - O X - - 
+- O O O O X - 
+- X O X X O - 
+- O X X X O X 
+
+2023-09-09 02:01:38,085 (Self Play) Episode 37
+2023-09-09 02:02:09,694 
+O O X O - X X 
+O O X X - X O 
+O X X X - X X 
+X O O O X O O 
+O O X O O X X 
+O X O O X X X 
+
+2023-09-09 02:02:09,705 (Self Play) Episode 38
+2023-09-09 02:02:32,592 
+- X - X - - - 
+- X - X - - - 
+- O - O - X - 
+- O O O O O - 
+- X X O X X O 
+- X O X X O O 
+
+2023-09-09 02:02:32,601 (Self Play) Episode 39
+2023-09-09 02:02:57,423 
+- - - - - X - 
+O X - - - O - 
+O O - - - O - 
+O X - - O X O 
+O X X - X X O 
+X O X - O X X 
+
+2023-09-09 02:02:57,432 (Self Play) Episode 40
+2023-09-09 02:03:22,493 
+- - - X O - - 
+- - - X X - - 
+- - - O O - O 
+X X X X O - X 
+O X O X O O X 
+O O O X X O X 
+
+2023-09-09 02:03:22,504 (Self Play) Episode 41
+2023-09-09 02:03:54,245 
+O X X O O O X 
+X X O O X X O 
+O O O X O X X 
+X X X O O O X 
+O O X O X X X 
+X O O X X O O 
+
+2023-09-09 02:03:54,257 (Self Play) Episode 42
+2023-09-09 02:04:13,032 
+- - - - - - - 
+- X - - - - - 
+O O X - O O - 
+X O O O X X - 
+O O O X X X - 
+O X X O X X - 
+
+2023-09-09 02:04:13,040 (Self Play) Episode 43
+2023-09-09 02:04:46,573 
+O O X - - O - 
+X O X - - X - 
+X X X - - O O 
+O O O O X X O 
+X X O X O X X 
+X O O O X X O 
+
+2023-09-09 02:04:46,585 (Self Play) Episode 44
+2023-09-09 02:05:03,504 
+O - - - - - - 
+O - - X - - - 
+O - - X - - - 
+X - X X - - O 
+X - O X - - O 
+X O X O O - X 
+
+2023-09-09 02:05:03,511 (Self Play) Episode 45
+2023-09-09 02:05:27,960 
+- - - - - - - 
+- - - X - O X 
+- O - O X X O 
+- X - O O X X 
+O X O X X O X 
+O X O X O O X 
+
+2023-09-09 02:05:27,970 (Self Play) Episode 46
+2023-09-09 02:05:41,832 
+- - - - - - - 
+- - - X - - - 
+- - - O O - - 
+- - - X O - - 
+O - X X O O - 
+X O X X O X - 
+
+2023-09-09 02:05:41,838 (Self Play) Episode 47
+2023-09-09 02:06:08,346 
+O - - - - - - 
+X - - O - - - 
+X X X X O - - 
+O O O X O - X 
+X X X O X - O 
+X O X O X O O 
+
+2023-09-09 02:06:08,357 (Self Play) Episode 48
+2023-09-09 02:06:23,749 
+- - - - - - - 
+- - - X - - - 
+- - - O - - - 
+O O O O - - - 
+X X O X - - - 
+X O X O X X - 
+
+2023-09-09 02:06:23,754 (Self Play) Episode 49
+2023-09-09 02:06:32,683 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - X - - - - 
+O O O O - - X 
+X O X X O - X 
+
+2023-09-09 02:06:32,687 (Self Play) Episode 50
+2023-09-09 02:07:05,374 
+O X X X O X X 
+X O O O X O O 
+O X X O O X O 
+X O O X X X O 
+O O O X O O X 
+X X O X X X O 
+
+2023-09-09 02:07:05,387 (Self Play) Episode 51
+2023-09-09 02:07:16,842 
+- - - - - - - 
+- - - - - - - 
+- - - - - O - 
+- - - - - O - 
+X X - - - O - 
+X X O O X O X 
+
+2023-09-09 02:07:16,848 (Self Play) Episode 52
+2023-09-09 02:07:37,379 
+- - - - - - - 
+- - - - - O - 
+O - - - - X X 
+X O O - - X O 
+X O O X - X O 
+X X X O O O X 
+
+2023-09-09 02:07:37,388 (Self Play) Episode 53
+2023-09-09 02:07:51,667 
+- - - - - - - 
+- - - - - - X 
+- - - - - - O 
+- - - O - - O 
+X X X X - O O 
+X X O O O X X 
+
+2023-09-09 02:07:51,674 (Self Play) Episode 54
+2023-09-09 02:08:11,894 
+- - - - X - - 
+- - - X O - - 
+- O X O X - - 
+- X X O O - - 
+- X X O O - O 
+- X O X O - X 
+
+2023-09-09 02:08:11,903 (Self Play) Episode 55
+2023-09-09 02:08:32,860 
+- - - - O - - 
+O - - - O O - 
+X X - - X O - 
+O X - - O X - 
+O X - X O X X 
+O X O X O X X 
+
+2023-09-09 02:08:32,868 (Self Play) Episode 56
+2023-09-09 02:08:53,942 
+- - - - - - - 
+- - - - - - - 
+- - - O O O O 
+- - - X O O X 
+X X O X X X O 
+X O X O X O X 
+
+2023-09-09 02:08:53,952 (Self Play) Episode 57
+2023-09-09 02:09:15,933 
+- - - X O - - 
+O - - O X - - 
+X - - X O - - 
+O - - X O - - 
+X X X X O - - 
+O X O O X X O 
+
+2023-09-09 02:09:15,942 (Self Play) Episode 58
+2023-09-09 02:09:32,727 
+- - - X - - - 
+- - - X - - - 
+- - - O - - - 
+- - O O O O - 
+O X X X O X - 
+X O X O X O X 
+
+2023-09-09 02:09:32,735 (Self Play) Episode 59
+2023-09-09 02:09:40,547 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- O - - - - - 
+- O - - - - - 
+- O - X X X X 
+
+2023-09-09 02:09:40,550 (Self Play) Episode 60
+2023-09-09 02:09:59,645 
+- - - - O - - 
+- - - X O X - 
+- - - O X X - 
+- - - X O O - 
+- - X X O X - 
+O O X X O X O 
+
+2023-09-09 02:09:59,654 (Self Play) Episode 61
+2023-09-09 02:10:25,957 
+- - - - - X - 
+- O O O - O - 
+- X O X - O - 
+X X X O - O - 
+X X O X O X - 
+O O X X O X - 
+
+2023-09-09 02:10:25,967 (Self Play) Episode 62
+2023-09-09 02:10:39,108 
+- - - - - - - 
+- - O - - - - 
+- - O - - - - 
+- - O X - - - 
+- X O X - - - 
+X O X X O O X 
+
+2023-09-09 02:10:39,114 (Self Play) Episode 63
+2023-09-09 02:11:07,998 
+- - - - - - O 
+O O - O X X X 
+O X - X X O X 
+O O - O O O X 
+X X X X O X O 
+O O X X O X X 
+
+2023-09-09 02:11:08,011 (Self Play) Episode 64
+2023-09-09 02:11:32,758 
+- - - - - - O 
+- X - - - - X 
+- O - O - X X 
+- X - O O X O 
+- O - X X O O 
+X X X O O X O 
+
+2023-09-09 02:11:32,769 (Self Play) Episode 65
+2023-09-09 02:11:58,071 
+- X - - - - - 
+- O - O X - - 
+- X O O O - - 
+O O X X X X - 
+X O O X O X - 
+O X X X O X O 
+
+2023-09-09 02:11:58,082 (Self Play) Episode 66
+2023-09-09 02:12:02,336 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- O - - - - - 
+- X X X X O O 
+
+2023-09-09 02:12:02,339 (Self Play) Episode 67
+2023-09-09 02:12:18,174 
+- - - - - - - 
+- - - - - - - 
+X - - - - - - 
+X - - O O O O 
+O X - X O X X 
+X X - O X O O 
+
+2023-09-09 02:12:18,181 (Self Play) Episode 68
+2023-09-09 02:12:23,232 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+X - - - - - X 
+X O O O O - X 
+
+2023-09-09 02:12:23,235 (Self Play) Episode 69
+2023-09-09 02:12:27,787 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - O - - - 
+- X X X X O O 
+
+2023-09-09 02:12:27,789 (Self Play) Episode 70
+2023-09-09 02:12:47,395 
+- - - - - - - 
+- - O - - - - 
+X X X - - - - 
+O X O - - - - 
+O X X X O - - 
+O X X O O X O 
+
+2023-09-09 02:12:47,403 (Self Play) Episode 71
+2023-09-09 02:12:52,065 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- O - - - - - 
+X X X X O - O 
+
+2023-09-09 02:12:52,067 (Self Play) Episode 72
+2023-09-09 02:13:17,775 
+- - X - - - - 
+- O O - - - - 
+O X O X - - - 
+X X O O - - O 
+O O X X O O X 
+O X X X O X X 
+
+2023-09-09 02:13:17,785 (Self Play) Episode 73
+2023-09-09 02:13:39,871 
+- - - - - - - 
+- O - - O - - 
+- X X - X - - 
+- O O X X X - 
+- X O O X O O 
+O X X X O X O 
+
+2023-09-09 02:13:39,880 (Self Play) Episode 74
+2023-09-09 02:14:07,841 
+X - O - - - - 
+X - X - - - O 
+O O X X O - X 
+O X X O X - O 
+O O O X X X O 
+X X X O O X O 
+
+2023-09-09 02:14:07,852 (Self Play) Episode 75
+2023-09-09 02:14:27,792 
+- - - - - - - 
+- - O - - - - 
+- - X X - X - 
+O O O O - X - 
+O O X X O X - 
+X X X O X O O 
+
+2023-09-09 02:14:27,800 (Self Play) Episode 76
+2023-09-09 02:14:59,447 
+- O O X - - - 
+- O O O X - - 
+- X O X O O - 
+O X O O X X - 
+X O X X X O X 
+O X O O X X X 
+
+2023-09-09 02:14:59,459 (Self Play) Episode 77
+2023-09-09 02:15:16,457 
+- - - - - - - 
+- - - - - - X 
+- - X - X - X 
+- - O - O - O 
+- X X - O - X 
+O X X O O O O 
+
+2023-09-09 02:15:16,466 (Self Play) Episode 78
+2023-09-09 02:15:23,847 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+X - - - X - - 
+X O O O O - X 
+
+2023-09-09 02:15:23,851 (Self Play) Episode 79
+2023-09-09 02:15:29,173 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - X - X - - 
+X O O O O - X 
+
+2023-09-09 02:15:29,176 (Self Play) Episode 80
+2023-09-09 02:15:53,076 
+O - - - - - - 
+O O - - - - - 
+X O X - - - - 
+O X X X O - - 
+O X O X X X - 
+O X X O O X - 
+
+2023-09-09 02:15:53,086 (Self Play) Episode 81
+2023-09-09 02:16:07,086 
+- - - - - - - 
+X - - - - X - 
+X - - - - O - 
+O - - - - X - 
+O - - - - X - 
+X O O O O X - 
+
+2023-09-09 02:16:07,093 (Self Play) Episode 82
+2023-09-09 02:16:26,847 
+- - - - - - - 
+- - - - - - - 
+X - X - - X - 
+O - O - - O O 
+O O X X X X O 
+O X X X O O X 
+
+2023-09-09 02:16:26,854 (Self Play) Episode 83
+2023-09-09 02:16:40,258 
+- - - - - - - 
+- - - O - - - 
+- O - X - - - 
+X X X X - - - 
+O O O X - - - 
+X O X O X O - 
+
+2023-09-09 02:16:40,264 (Self Play) Episode 84
+2023-09-09 02:17:16,482 
+X O X O X O X 
+O O X O O X X 
+O O X X O O O 
+X X O O O X X 
+O O X X X O X 
+X X O X X O O 
+
+2023-09-09 02:17:16,496 (Self Play) Episode 85
+2023-09-09 02:17:38,476 
+- - - O - - - 
+- - - X - - - 
+- - - X X O X 
+- - O O O X O 
+O O X O X X X 
+O X X O O X X 
+
+2023-09-09 02:17:38,487 (Self Play) Episode 86
+2023-09-09 02:17:59,954 
+- X - - - - - 
+- O - - - - O 
+- X - - X - X 
+- O - O O - O 
+- O X X X X X 
+O X X X O O O 
+
+2023-09-09 02:17:59,964 (Self Play) Episode 87
+2023-09-09 02:18:19,072 
+- - O - - - - 
+- - O O - - - 
+- - O X - - - 
+X - X X X O - 
+O - X O X X O 
+O X X X O O X 
+
+2023-09-09 02:18:19,081 (Self Play) Episode 88
+2023-09-09 02:18:40,632 
+- - - - X - - 
+- X - - O O - 
+- X - - O O X 
+- O - - O X O 
+- O - - X X X 
+X O O X X X O 
+
+2023-09-09 02:18:40,640 (Self Play) Episode 89
+2023-09-09 02:19:08,770 
+X O - O - O X 
+O X - O - O O 
+X O - X - O O 
+O X - X O X X 
+O X - O X X X 
+O X O O X X X 
+
+2023-09-09 02:19:08,782 (Self Play) Episode 90
+2023-09-09 02:19:13,782 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - O O - 
+O - - X X X X 
+
+2023-09-09 02:19:13,784 (Self Play) Episode 91
+2023-09-09 02:19:46,524 
+- - - - - O - 
+X - - X O O - 
+O O X X X O - 
+X X O O X X - 
+X O X X O O O 
+O X X X O O X 
+
+2023-09-09 02:19:46,536 (Self Play) Episode 92
+2023-09-09 02:20:01,232 
+- - - - - - - 
+- - - - - - - 
+O - - - - - - 
+O - - - - X - 
+X X X X - O - 
+X O O X O X O 
+
+2023-09-09 02:20:01,238 (Self Play) Episode 93
+2023-09-09 02:20:06,201 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+O - - - - - - 
+O O X X X X - 
+
+2023-09-09 02:20:06,204 (Self Play) Episode 94
+2023-09-09 02:20:20,001 
+- - - - - - - 
+- - - - - - - 
+- - X - - - - 
+- - X - - - - 
+O O X X - - - 
+O X X X O O O 
+
+2023-09-09 02:20:20,007 (Self Play) Episode 95
+2023-09-09 02:20:30,698 
+- - - - - - - 
+- - - - - - - 
+- X - - - - - 
+- X - - - - - 
+- O O O O - - 
+X O X X O X - 
+
+2023-09-09 02:20:30,703 (Self Play) Episode 96
+2023-09-09 02:20:52,248 
+- - - - - - - 
+X - O - - - - 
+O O X O - - - 
+O X X X X - - 
+O X X X O O O 
+X X O X O O X 
+
+2023-09-09 02:20:52,256 (Self Play) Episode 97
+2023-09-09 02:20:56,584 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - O - 
+X X X X O O - 
+
+2023-09-09 02:20:56,587 (Self Play) Episode 98
+2023-09-09 02:21:23,438 
+- - - X - - - 
+O - - O - - - 
+X X X X - - - 
+O X O X - - O 
+O O X X - O X 
+O X O O O X X 
+
+2023-09-09 02:21:23,447 (Self Play) Episode 99
+2023-09-09 02:21:40,668 
+- - - - - - - 
+- - - - - - - 
+- - - - X - X 
+O - X X O - O 
+X - X O O - O 
+X X X O O X O 
+
+2023-09-09 02:21:40,675 (Self Play) Episode 100
+2023-09-09 02:22:05,305 
+- - - - - X - 
+- - - - - O - 
+- - - - O O - 
+X X - O O X X 
+X O O X X O O 
+O X O O X X X 
+
+2023-09-09 02:22:06,156 (Training) Epoch: 1. Total loss: 2.727. Value loss: 0.775. Policy loss: 0.188
+2023-09-09 02:22:06,811 (Training) Epoch: 2. Total loss: 2.384. Value loss: 0.440. Policy loss: 0.235
+2023-09-09 02:22:07,445 (Training) Epoch: 3. Total loss: 2.267. Value loss: 0.329. Policy loss: 0.236
+2023-09-09 02:22:08,099 (Training) Epoch: 4. Total loss: 2.229. Value loss: 0.298. Policy loss: 0.253
+2023-09-09 02:22:08,743 (Training) Epoch: 5. Total loss: 2.196. Value loss: 0.271. Policy loss: 0.259
+2023-09-09 02:22:09,401 (Training) Epoch: 6. Total loss: 2.165. Value loss: 0.247. Policy loss: 0.280
+2023-09-09 02:22:10,066 (Training) Epoch: 7. Total loss: 2.137. Value loss: 0.234. Policy loss: 0.317
+2023-09-09 02:22:10,718 (Training) Epoch: 8. Total loss: 2.136. Value loss: 0.235. Policy loss: 0.318
+2023-09-09 02:22:11,378 (Training) Epoch: 9. Total loss: 2.116. Value loss: 0.223. Policy loss: 0.345
+2023-09-09 02:22:12,046 (Training) Epoch: 10. Total loss: 2.096. Value loss: 0.209. Policy loss: 0.353
+2023-09-09 02:22:28,170 (Arena) Result: 1
+2023-09-09 02:22:28,170 
+- - - - - - - 
+- - - - - - - 
+- X - O - O - 
+- O X O - X - 
+- X O X X O - 
+O O X X X O X 
+
+2023-09-09 02:22:41,097 (Arena) Result: 1
+2023-09-09 02:22:41,098 
+- - - - - - - 
+- - - - - - - 
+- X - - - - - 
+- X X - - - - 
+- X O O - O - 
+- X X O O O X 
+
+2023-09-09 02:23:12,941 (Arena) Result: 0.0001
+2023-09-09 02:23:12,941 
+O X X X O O O 
+O X O O X X X 
+O X X X O O O 
+X O O O X X X 
+X O O X O O O 
+X X O X X O X 
+
+2023-09-09 02:23:34,201 (Arena) Result: -1
+2023-09-09 02:23:34,201 
+O - - - - - - 
+X - - - - - - 
+X - - O - - - 
+X O O O X X - 
+O O O X X X O 
+O X X X O O X 
+
+2023-09-09 02:23:41,810 (Arena) Result: 1
+2023-09-09 02:23:41,810 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+O - O X - O - 
+O - X X X X - 
+
+2023-09-09 02:23:50,954 (Arena) Result: 1
+2023-09-09 02:23:50,954 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- O - O - O - 
+O X - X X X X 
+
+2023-09-09 02:24:10,667 (Arena) Result: 1
+2023-09-09 02:24:10,668 
+- - - - - - - 
+- - - - - - - 
+O - O - - - - 
+X X X X O - - 
+O X O O X O X 
+X O O X X O X 
+
+2023-09-09 02:24:37,450 (Arena) Result: -1
+2023-09-09 02:24:37,451 
+- O X O - - X 
+- X O X - X X 
+- X O O - X O 
+X O X O - O X 
+O O X O O O X 
+X O X X O O X 
+
+2023-09-09 02:24:41,619 (Arena) Result: 1
+2023-09-09 02:24:41,619 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - O - - - - 
+X X X X O O - 
+
+2023-09-09 02:24:58,897 (Arena) Result: -1
+2023-09-09 02:24:58,897 
+- - - - - - - 
+- - - - - - - 
+X O - - - - - 
+O X - - - - X 
+X O O O O - X 
+O O X X X O X 
+
+2023-09-09 02:25:22,963 (Arena) Result: 1
+2023-09-09 02:25:22,963 
+- O O - - - - 
+- X X X X - - 
+- O X X O - - 
+- X O O X - - 
+O O O X X O - 
+X X X O X O O 
+
+2023-09-09 02:25:50,673 (Arena) Result: -1
+2023-09-09 02:25:50,673 
+X - X - - - - 
+X X O - - - - 
+O O X - - - - 
+X X O O O O - 
+X X O O O X X 
+O O X X X O O 
+
+2023-09-09 02:25:55,781 (Arena) Result: 1
+2023-09-09 02:25:55,781 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+O - O - - - X 
+O X X X X - O 
+
+2023-09-09 02:26:20,091 (Arena) Result: -1
+2023-09-09 02:26:20,092 
+- - - X - - - 
+X - - X - - - 
+O - O O - - - 
+X - O O - - X 
+X O X O O X O 
+X X O X X O O 
+
+2023-09-09 02:26:39,944 (Arena) Result: -1
+2023-09-09 02:26:39,944 
+- - - - - - - 
+O - X O - - - 
+X - O X - - - 
+X O O X - - - 
+O X X O X - - 
+X O X O O O X 
+
+2023-09-09 02:26:58,708 (Arena) Result: 1
+2023-09-09 02:26:58,708 
+- - - O - - - 
+- - - O - - O 
+- - - O - - O 
+- - O X - X X 
+O - X X X X O 
+X - O X X O X 
+
+2023-09-09 02:27:14,664 (Arena) Result: 1
+2023-09-09 02:27:14,665 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- O - O X - - 
+O X - X X X O 
+O O O X X O X 
+
+2023-09-09 02:27:48,811 (Arena) Result: 0.0001
+2023-09-09 02:27:48,811 
+X X O O O X O 
+X O O X X X O 
+O X X O X O X 
+X X O O X X O 
+O X X X O O O 
+O O X X X O O 
+
+2023-09-09 02:28:09,416 (Arena) Result: 1
+2023-09-09 02:28:09,416 
+- - - - - - - 
+- - - - - X - 
+- - X - X X O 
+- - O - O X O 
+O - X - O X X 
+O X X X O O O 
+
+2023-09-09 02:28:23,509 (Arena) Result: -1
+2023-09-09 02:28:23,509 
+- - - - - - - 
+- - - - - X - 
+- - - X - O - 
+- - - O O X - 
+- - X O O X - 
+O - O X X X O 
+
+2023-09-09 02:28:43,643 (Arena) Result: 1
+2023-09-09 02:28:43,643 
+- - - - - - - 
+- O - - - - - 
+- X O X - - - 
+- X X O - - - 
+X O X X - - O 
+O X O X X O O 
+
+2023-09-09 02:29:05,384 (Arena) Result: -1
+2023-09-09 02:29:05,385 
+- - - O - - - 
+- - O O - - - 
+X O O O - - - 
+O X X X - - - 
+X X O O X - X 
+O X O X X O X 
+
+2023-09-09 02:29:14,162 (Arena) Result: 1
+2023-09-09 02:29:14,162 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - X - O - 
+- O - O - X - 
+- O X X X X O 
+
+2023-09-09 02:29:31,251 (Arena) Result: 1
+2023-09-09 02:29:31,251 
+- - - X - - - 
+- - - X - - - 
+- O - X - - - 
+- X - X - - - 
+O X - O - - O 
+O X O O O X X 
+
+2023-09-09 02:30:06,144 (Arena) Result: -1
+2023-09-09 02:30:06,144 
+O O O O O - X 
+X O X X O - X 
+O X X O O X X 
+X O O X X O O 
+X X X O O X X 
+O X O O O X X 
+
+2023-09-09 02:30:18,215 (Arena) Result: 1
+2023-09-09 02:30:18,216 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- O - X - - - 
+- O - O - - - 
+O X - O - X - 
+
+2023-09-09 02:30:36,815 (Arena) Result: -1
+2023-09-09 02:30:36,815 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- O - X - - X 
+O O O O X X O 
+X X O X O X O 
+
+2023-09-09 02:30:51,054 (Arena) Result: -1
+2023-09-09 02:30:51,054 
+- - - - - - - 
+- - - - - - - 
+- - - - O - - 
+- - - O O - - 
+- O O X X - - 
+X O X X O X X 
+
+2023-09-09 02:31:03,005 (Arena) Result: -1
+2023-09-09 02:31:03,005 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- X - X - - - 
+O O O O - - X 
+O X O X X X O 
+
+2023-09-09 02:31:20,009 (Arena) Result: 1
+2023-09-09 02:31:20,009 
+- - - - - - - 
+- - - - - - - 
+- O - - - - X 
+- X O - - - O 
+- O X X X X O 
+- X O X O X O 
+
+2023-09-09 02:31:51,059 (Arena) Result: 1
+2023-09-09 02:31:51,059 
+X O X O X - X 
+O O X O O X O 
+X X O O X O X 
+O O X X X O X 
+X X O O X O X 
+X X O O O X O 
+
+2023-09-09 02:32:19,065 (Arena) Result: 1
+2023-09-09 02:32:19,065 
+- - X X - - - 
+- X O X - - - 
+O O X X X - - 
+X O X O O X - 
+O O O X O O - 
+O X O X O X X 
+
+2023-09-09 02:32:40,057 (Arena) Result: 1
+2023-09-09 02:32:40,057 
+- - - - - - - 
+- - - O - X - 
+- - - X X O - 
+- - O X X O - 
+X O X O O O - 
+O X X X O X - 
+
+2023-09-09 02:33:00,930 (Arena) Result: -1
+2023-09-09 02:33:00,930 
+- - - - X - - 
+- - - - O - - 
+- - - O X - O 
+- - X X X - O 
+X - O X O - O 
+X - O X X O O 
+
+2023-09-09 02:33:28,563 (Arena) Result: 1
+2023-09-09 02:33:28,564 
+- X - - - O X 
+- X - - - O X 
+O X - - - O X 
+O O - X O X X 
+X O - O X X O 
+O X X O O X O 
+
+2023-09-09 02:33:49,739 (Arena) Result: 1
+2023-09-09 02:33:49,740 
+- O X - - - - 
+- O O - - - - 
+- O X - - - - 
+X X X X - - - 
+O X X X O - O 
+O X O O O X X 
+
+2023-09-09 02:34:06,352 (Arena) Result: 1
+2023-09-09 02:34:06,352 
+- - - - - - - 
+- - - - - - - 
+- X - O - - - 
+- X X X O O - 
+- X O O X X X 
+- X O O O X O 
+
+2023-09-09 02:34:31,577 (Arena) Result: -1
+2023-09-09 02:34:31,578 
+- - - O X - - 
+- - - O X - - 
+- X - X X - O 
+X O - O O O X 
+X X - O O O X 
+X X - O O X O 
+
+2023-09-09 02:34:48,244 (Arena) Result: -1
+2023-09-09 02:34:48,244 
+- - - - - - - 
+- - - - - - - 
+- X - O - - - 
+- X - X - - - 
+O O O O - X O 
+O X X O - X X 
+
+2023-09-09 02:35:07,423 (Arena) Result: 1
+2023-09-09 02:35:07,423 
+- - - - - - - 
+- X - - - - - 
+- X O - - - - 
+- X X X O - - 
+- X O O X O - 
+O O O X O X X 
+
+2023-09-09 02:35:07,423 (Arena) Results (pwins/nwins/draws) => (19, 19, 2)
+2023-09-09 02:35:07,423 (Arena) Rejecting new model.
+2023-09-09 02:35:07,454 
+
