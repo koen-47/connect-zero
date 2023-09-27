@@ -7,6 +7,6 @@ class ManualStrategy(Strategy, ABC):
     def __init__(self):
         super().__init__()
 
-    def calculate_move(self, game, player_id):
+    def calculate_move(self, board):
         return int(input("Enter a column to drop: ")) - 1
 

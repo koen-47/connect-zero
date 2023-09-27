@@ -21,7 +21,6 @@ class Game:
     def get_next_state(self, board, player_id, action):
         b = self.board.clone(state=board)
         b.move(player_id, action)
-        # print(b.state)
         return b.state, -player_id
 
     def get_valid_moves(self, board):

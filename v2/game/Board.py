@@ -58,7 +58,6 @@ class Board:
                 if self.state[i][j] == -1 and self.state[i + 1][j + 1] == -1 and \
                         self.state[i + 2][j + 2] == -1 and self.state[i + 3][j + 3] == -1:
                     return -1
-
         return 0
 
     def clone(self, state):

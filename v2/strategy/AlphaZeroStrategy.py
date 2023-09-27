@@ -18,7 +18,7 @@ class AlphaZeroStrategy:
         self.mcts = mcts
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-    def calculate_move(self, canonical_board, player_id):
+    def calculate_move(self, canonical_board):
         pi = self.mcts.get_action_prob(canonical_board, device=self.device, temp=0)
         action = np.random.choice(len(pi), p=pi)
         return action

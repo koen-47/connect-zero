@@ -9,6 +9,8 @@ class RandomStrategy(Strategy, ABC):
     def __init__(self):
         super().__init__()
 
-    def calculate_move(self, game, player_id):
-        move = random.choice([i for i, move in enumerate(game.get_valid_moves(game.board.state)) if move == True])
+    def calculate_move(self, board):
+        valid_moves = board[0] == 0
+        moves = [i for i, move in enumerate(valid_moves) if move]
+        move = random.choice(moves)
         return move
