@@ -46,4 +46,4 @@ class AlphaZero:
             else:
                 model_2 = copy.deepcopy(model_1)
                 print(f"Rejecting new model...")
-            torch.save(model_2.state_dict(), "./models/saved/resnet_4.pth")
+            torch.save(model_2.state_dict(), "./models/saved/resnet_v1.pth")

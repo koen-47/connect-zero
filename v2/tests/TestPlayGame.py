@@ -69,11 +69,11 @@ class TestPlayGame(unittest.TestCase):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model = DualResidualNetwork(num_channels=64, num_res_blocks=5).to(device)
-        model.load_state_dict(torch.load("../models/saved/resnet_3.pth"))
+        model.load_state_dict(torch.load("../models/saved/resnet_4.pth"))
         mcts = MCTS(game=g, model=model, device=device, c_puct=1.)
 
         player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))
         player_2 = Player(-1, strategy=RandomStrategy())
         evaluator = Evaluator(player_1, player_2)
-        results = evaluator.play_games(100)
+        results = evaluator.play_games(40)
         print(results)
