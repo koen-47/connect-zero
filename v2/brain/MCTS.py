@@ -11,7 +11,7 @@ class MCTS:
     NOTE: Dirichlet noise is added during testing.
     """
 
-    def __init__(self, game, model, device, num_sims=250, c_puct=1.):
+    def __init__(self, game, model, device, num_sims=250, c_puct=1., dir_alpha=1., dir_e=0.25):
         self.game = game
         self.model = model.to(device)
         self.num_sims = num_sims
@@ -19,8 +19,8 @@ class MCTS:
         self.nodes = {}
         self.n_actions = self.game.get_action_size()
 
-        self.dir_alpha = 1.
-        self.dir_e = 0.25
+        self.dir_alpha = dir_alpha
+        self.dir_e = dir_e
 
     def get_action_prob(self, canonical_board, device, temp=1):
         for i in range(self.num_sims):

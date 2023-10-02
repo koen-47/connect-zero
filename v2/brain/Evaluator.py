@@ -18,7 +18,7 @@ class Evaluator:
 
         while status == 0:
             state = game.get_canonical_form(board, player.id)
-            action = player.strategy.calculate_move(state)
+            action = player.strategy.calculate_move(state, player.id)
             board, _ = game.get_next_state(board, player.id, action)
             player = self.player_2 if player.id == self.player_1.id else self.player_1
             status = game.get_game_ended(board, player.id)
@@ -36,8 +36,7 @@ class Evaluator:
 
         results = [0, 0, 0]
         results = play_half(results)
-        # results = np.flip(results)
+        print(results)
         self.player_1, self.player_2 = self.player_2, self.player_1
         results = play_half(results)
-        # return np.flip(results)
         return results

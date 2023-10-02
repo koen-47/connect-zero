@@ -10,7 +10,7 @@ import v1.brain.rl.rewards as reward_funcs
 from v1.brain.classification.train_classifier import Classifier1
 from v1.models.cnn.cnn_dqn_3 import DQN_CNN_3
 from v1.game.util import drop, check_win, get_valid_moves, is_valid_move
-from v1.mcts import MCTS
+# from v1.mcts import MCTS
 
 class Strategy:
     def __init__(self):

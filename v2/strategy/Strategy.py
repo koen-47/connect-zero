@@ -6,5 +6,5 @@ class Strategy:
         pass
 
     @abstractmethod
-    def calculate_move(self, board):
+    def calculate_move(self, board, player_id):
         pass
