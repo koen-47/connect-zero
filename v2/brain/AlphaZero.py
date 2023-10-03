@@ -28,7 +28,7 @@ class AlphaZero:
             self_play = SelfPlay(self.game, logger=self.logger)
             dataset = self_play.play_episodes(model_1, n_episodes=self.n_episodes)
 
-            model_2.train_on_examples(dataset.data, lr=0.0001, logger=self.logger)
+            model_2 = model_2.train_on_examples(dataset.data, lr=0.0001, logger=self.logger)
             mcts_1 = MCTS(self.game, model_1, self.device)
             mcts_2 = MCTS(self.game, model_2, self.device)
 

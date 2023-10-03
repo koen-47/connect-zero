@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1c2e3a-91cf-4f4a-98dc-132750872257" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/v2/strategy/AlphaBetaPruningStrategy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/v2/tests/TestStrategy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1/game/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/game/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v1/strategies/strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v1/strategies/strategy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/brain/Evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/Evaluator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/brain/MCTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/MCTS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/strategy/ManualStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/ManualStrategy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/strategy/RandomStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/RandomStrategy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/strategy/Strategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/Strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/brain/AlphaZero.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/AlphaZero.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,14 +30,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/koenk/Downloads/23/23/code&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/koenk/Downloads/23/23/code",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
-  <component name="RunManager" selected="Python tests.Python tests for TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games">
+}]]></component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/v2/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -56,20 +71,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="connect-zero" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -117,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Python tests for TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games" />
         <item itemvalue="Python tests.Python tests for TestStrategy.TestStrategy.test_alphazero_alphabeta_games" />
         <item itemvalue="Python tests.Python tests for TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy_p1" />
         <item itemvalue="Python tests.Python tests for TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy_p2" />
-        <item itemvalue="Python tests.Python tests for TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy" />
       </list>
     </recent_temporary>
   </component>
