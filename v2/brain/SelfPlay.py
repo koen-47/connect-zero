@@ -20,23 +20,27 @@ class SelfPlay:
     def __init__(self, game, logger):
         self.game = game
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        self.logger = Logger()
+        self.logger = logger
 
     def play_episodes(self, model, n_episodes, temp_threshold=15):
         dataset = Dataset()
         mcts = MCTS(self.game, model, self.device)
 
-        for _ in tqdm(range(n_episodes), desc="Self-play"):
-            reward, n_episode, player = 0, 0, 1
+        for i in tqdm(range(n_episodes), desc="Self-play"):
+            reward, n_turn, player = 0, 0, 1
             board = self.game.get_init_board()
             while reward == 0:
+                self.logger.log(f"(Self-play) Episode {i+1}. Turn {n_turn+1}.", to_iteration=True)
                 state = self.game.get_canonical_form(board, player)
-                temp = int(n_episode < temp_threshold)
+                temp = int(n_turn < temp_threshold)
                 action, probs = mcts.get_action_prob(state, temp=temp, device=self.device)
                 dataset.add(state, probs, player, with_symmetry=True)
                 board, player = self.game.get_next_state(board, player, action)
+                self.logger.log(f"Action: {action}. Policy: {np.round(np.array(probs), decimals=5)}", to_iteration=True)
+                self.logger.log(self.game.display(board, color=False), to_iteration=True)
                 reward = self.game.get_game_ended(board, player)
-                n_episode += 1
+                n_turn += 1
+
 
             dataset.set_rewards(reward, player)
         dataset.data = np.delete(dataset.data, 2, 1)

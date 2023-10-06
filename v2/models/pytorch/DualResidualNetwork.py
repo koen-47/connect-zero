@@ -24,8 +24,8 @@ class DualResidualNetwork(nn.Module):
             x = F.relu(layer(x))
         return self.policy_head(x), self.value_head(x)
 
-    def train_on_examples(self, examples, num_epochs=10, lr=0.001, logger=None):
-        optimizer = optim.Adam(self.parameters(), lr=lr, weight_decay=0.0001)
+    def train_on_examples(self, examples, num_epochs=10, lr=0.001, weight_decay=0.0001, logger=None):
+        optimizer = optim.Adam(self.parameters(), lr=lr, weight_decay=weight_decay)
 
         criterion1 = nn.CrossEntropyLoss()
         criterion2 = nn.MSELoss()
@@ -74,9 +74,8 @@ class DualResidualNetwork(nn.Module):
                   f"Total loss: {total_loss:.3f}. "
                   f"Value loss: {value_loss:.3f}. "
                   f"Policy acc.: {policy_acc:.3f}")
-            # logger.log_both(f"(Training) Epoch: {epoch + 1}. Total loss: {total_loss:.3f}. "
-            #                 f"Value loss: {value_loss:.3f}. Policy loss: {policy_acc:.3f}")
-
+            logger.log(f"(Training) Epoch: {epoch + 1}. Total loss: {total_loss:.3f}. Value loss: {value_loss:.3f}. "
+                       f"Policy loss: {policy_acc:.3f}", to_summary=True, to_iteration=True)
         return copy.deepcopy(self)
 
 

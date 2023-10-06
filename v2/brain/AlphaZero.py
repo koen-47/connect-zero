@@ -24,10 +24,13 @@ class AlphaZero:
         model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=8)
         model_2 = DualResidualNetwork(num_channels=128, num_res_blocks=8)
 
-        for _ in range(self.n_iterations):
+        for i in range(self.n_iterations):
+            self.logger.set_log_it_file(num=i+1, file=f"./logs/recent/log_iteration_{i+1}")
+            self.logger.log(f"Iteration {i+1}", to_summary=True, to_iteration=True)
             self_play = SelfPlay(self.game, logger=self.logger)
             dataset = self_play.play_episodes(model_1, n_episodes=self.n_episodes)
-            print(dataset.data.shape)
+            self.logger.log(f"(Self-play) Number of training examples: {len(dataset.data)}", to_summary=True,
+                            to_iteration=True)
 
             model_2 = model_2.train_on_examples(dataset.data, lr=0.0001, logger=self.logger)
             mcts_1 = MCTS(self.game, model_1, self.device)
@@ -37,14 +40,21 @@ class AlphaZero:
             player_2 = Player(-1, strategy=AlphaZeroStrategy(mcts=mcts_2))
             evaluator = Evaluator(player_1, player_2, logger=self.logger)
             results = evaluator.play_games(self.n_games)
-            print(results)
-
             n_model_2_wins, n_draws, n_model_1_wins = results
             model_2_win_rate = n_model_2_wins / sum(results)
+            print(results)
+
+            self.logger.log(f"(Evaluation) Win rate: {model_2_win_rate}", to_summary=True, to_iteration=True)
+            self.logger.log(f"(Evaluation) Model 1 wins: {n_model_1_wins}. Draws: {n_draws}. "
+                            f"Model 2 wins: {n_model_2_wins}", to_summary=True, to_iteration=True)
+
             if model_2_win_rate >= 0.55:
                 model_1 = copy.deepcopy(model_2)
                 print(f"Accepting new model...")
+                self.logger.log("(Evaluation) Accepting new model...", to_summary=True, to_iteration=True)
             else:
                 model_2 = copy.deepcopy(model_1)
                 print(f"Rejecting new model...")
-            torch.save(model_2.state_dict(), "./models/saved/resnet_v4.pth")
+                self.logger.log("(Evaluation) Rejecting new model...", to_summary=True, to_iteration=True)
+            torch.save(model_2.state_dict(), "./models/saved/resnet_v5.pth")
+            self.logger.log("\n", to_summary=True)

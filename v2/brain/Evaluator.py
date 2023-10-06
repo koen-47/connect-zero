@@ -25,7 +25,10 @@ class Evaluator:
             if display:
                 print(game.display(board))
 
-        return player.id * status
+        result = player.id * status
+        self.logger.log(f"(Evaluation) Result: {result}", to_iteration=True)
+        self.logger.log(f"{game.display(board, color=False)}", to_iteration=True)
+        return result
 
     def play_games(self, n_games):
         def play_half(results):

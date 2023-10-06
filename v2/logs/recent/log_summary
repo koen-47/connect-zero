@@ -1,0 +1,27 @@
+2023-10-07 01:10:31,872 Iteration 1
+2023-10-07 01:13:21,788 (Self-play) Number of training examples: 94
+2023-10-07 01:13:23,169 (Training) Epoch: 1. Total loss: 2.980. Value loss: 0.994. Policy loss: 0.141
+2023-10-07 01:13:23,324 (Training) Epoch: 2. Total loss: 2.833. Value loss: 0.869. Policy loss: 0.281
+2023-10-07 01:13:23,479 (Training) Epoch: 3. Total loss: 2.756. Value loss: 0.793. Policy loss: 0.203
+2023-10-07 01:13:23,552 (Training) Epoch: 4. Total loss: 2.697. Value loss: 0.743. Policy loss: 0.203
+2023-10-07 01:13:23,626 (Training) Epoch: 5. Total loss: 2.608. Value loss: 0.722. Policy loss: 0.312
+2023-10-07 01:13:23,698 (Training) Epoch: 6. Total loss: 2.618. Value loss: 0.683. Policy loss: 0.250
+2023-10-07 01:13:23,773 (Training) Epoch: 7. Total loss: 2.503. Value loss: 0.642. Policy loss: 0.359
+2023-10-07 01:13:23,849 (Training) Epoch: 8. Total loss: 2.482. Value loss: 0.618. Policy loss: 0.359
+2023-10-07 01:13:23,924 (Training) Epoch: 9. Total loss: 2.425. Value loss: 0.562. Policy loss: 0.375
+2023-10-07 01:13:23,999 (Training) Epoch: 10. Total loss: 2.419. Value loss: 0.554. Policy loss: 0.422
+2023-10-07 01:15:12,590 (Evaluation) Win rate: 0.0
+2023-10-07 01:15:12,590 (Evaluation) Model 1 wins: 2. Draws: 0. Model 2 wins: 0
+2023-10-07 01:15:12,619 (Evaluation) Rejecting new model...
+2023-10-07 01:15:12,682 Iteration 2
+2023-10-07 01:18:24,094 (Self-play) Number of training examples: 118
+2023-10-07 01:18:24,211 (Training) Epoch: 1. Total loss: 2.972. Value loss: 0.990. Policy loss: 0.344
+2023-10-07 01:18:24,367 (Training) Epoch: 2. Total loss: 2.799. Value loss: 0.826. Policy loss: 0.312
+2023-10-07 01:18:24,434 (Training) Epoch: 3. Total loss: 2.728. Value loss: 0.762. Policy loss: 0.234
+2023-10-07 01:18:24,506 (Training) Epoch: 4. Total loss: 2.666. Value loss: 0.715. Policy loss: 0.438
+2023-10-07 01:18:24,581 (Training) Epoch: 5. Total loss: 2.601. Value loss: 0.638. Policy loss: 0.281
+2023-10-07 01:18:24,653 (Training) Epoch: 6. Total loss: 2.568. Value loss: 0.637. Policy loss: 0.422
+2023-10-07 01:18:24,721 (Training) Epoch: 7. Total loss: 2.525. Value loss: 0.573. Policy loss: 0.281
+2023-10-07 01:18:24,792 (Training) Epoch: 8. Total loss: 2.468. Value loss: 0.586. Policy loss: 0.531
+2023-10-07 01:18:24,864 (Training) Epoch: 9. Total loss: 2.430. Value loss: 0.510. Policy loss: 0.328
+2023-10-07 01:18:24,934 (Training) Epoch: 10. Total loss: 2.374. Value loss: 0.491. Policy loss: 0.453
