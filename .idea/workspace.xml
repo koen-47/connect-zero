@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df1c2e3a-91cf-4f4a-98dc-132750872257" name="Changes" comment="">
+    <list default="true" id="df1c2e3a-91cf-4f4a-98dc-132750872257" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/brain/AlphaZero.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/AlphaZero.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/brain/MCTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/MCTS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,15 +35,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/koenk/Downloads/23/23/code",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
-  }
-}]]></component>
-  <component name="RunManager" selected="Python.main">
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,7 +90,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy_p2" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,11 +100,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy_p2&quot;" />
+      <option name="_new_target" value="&quot;TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for TestStrategy.TestStrategy.test_alphazero_alphabeta_games" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for TestPlayGame.TestPlayGame.test_play_manual_p1" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -112,17 +114,15 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestStrategy.TestStrategy.test_alphazero_alphabeta_games&quot;" />
+      <option name="_new_target" value="&quot;TestPlayGame.TestPlayGame.test_play_manual_p1&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games" />
+        <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual_p1" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python tests.Python tests for TestPlayGame.TestPlayGame.test_play_alphazero_random_40_games" />
-        <item itemvalue="Python tests.Python tests for TestStrategy.TestStrategy.test_alphazero_alphabeta_games" />
-        <item itemvalue="Python tests.Python tests for TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy_p1" />
-        <item itemvalue="Python tests.Python tests for TestStrategy.TestStrategy.test_alpha_beta_pruning_strategy_p2" />
       </list>
     </recent_temporary>
   </component>
@@ -147,5 +147,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

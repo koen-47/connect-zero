@@ -21,12 +21,13 @@ class AlphaZero:
         self.logger = Logger()
 
     def start(self):
-        model_1 = DualResidualNetwork(num_channels=64, num_res_blocks=5)
-        model_2 = DualResidualNetwork(num_channels=64, num_res_blocks=5)
+        model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=8)
+        model_2 = DualResidualNetwork(num_channels=128, num_res_blocks=8)
 
         for _ in range(self.n_iterations):
             self_play = SelfPlay(self.game, logger=self.logger)
             dataset = self_play.play_episodes(model_1, n_episodes=self.n_episodes)
+            print(dataset.data.shape)
 
             model_2 = model_2.train_on_examples(dataset.data, lr=0.0001, logger=self.logger)
             mcts_1 = MCTS(self.game, model_1, self.device)
@@ -46,4 +47,4 @@ class AlphaZero:
             else:
                 model_2 = copy.deepcopy(model_1)
                 print(f"Rejecting new model...")
-            torch.save(model_2.state_dict(), "./models/saved/resnet_v1.pth")
+            torch.save(model_2.state_dict(), "./models/saved/resnet_v4.pth")

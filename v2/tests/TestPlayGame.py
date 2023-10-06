@@ -20,9 +20,9 @@ class TestPlayGame(unittest.TestCase):
     def test_play_manual_p1(self):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model = DualResidualNetwork(num_channels=64, num_res_blocks=5).to(device)
-        model.load_state_dict(torch.load("../models/saved/resnet_3.pth"))
-        mcts = MCTS(game=g, model=model, device=device, c_puct=1.)
+        model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
+        model.load_state_dict(torch.load("../models/saved/resnet_v4.pth"))
+        mcts = MCTS(game=g, model=model, device=device, c_puct=1., dir_e=0)
 
         player_1 = Player(1, strategy=ManualStrategy())
         player_2 = Player(-1, strategy=AlphaZeroStrategyV2(mcts=mcts))
@@ -32,7 +32,7 @@ class TestPlayGame(unittest.TestCase):
     def test_play_manual_p2(self):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model = DualResidualNetwork(num_channels=64, num_res_blocks=5).to(device)
+        model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
         model.load_state_dict(torch.load("../models/saved/resnet_3.pth"))
         mcts = MCTS(game=g, model=model, device=device, c_puct=1.)
 
@@ -68,12 +68,12 @@ class TestPlayGame(unittest.TestCase):
     def test_play_alphazero_random_40_games(self):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model = DualResidualNetwork(num_channels=64, num_res_blocks=5).to(device)
-        model.load_state_dict(torch.load("../models/saved/resnet_v1.pth"))
-        mcts = MCTS(game=g, model=model, device=device, num_sims=500, c_puct=1., dir_e=0.)
+        model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
+        model.load_state_dict(torch.load("../models/saved/resnet_v3.pth"))
+        mcts = MCTS(game=g, model=model, device=device, num_sims=250, c_puct=1., dir_e=0)
 
         player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))
         player_2 = Player(-1, strategy=RandomStrategy())
         evaluator = Evaluator(player_1, player_2)
-        results = evaluator.play_games(100)
+        results = evaluator.play_games(500)
         print(results)

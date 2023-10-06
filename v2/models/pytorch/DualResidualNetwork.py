@@ -25,7 +25,7 @@ class DualResidualNetwork(nn.Module):
         return self.policy_head(x), self.value_head(x)
 
     def train_on_examples(self, examples, num_epochs=10, lr=0.001, logger=None):
-        optimizer = optim.Adam(self.parameters(), lr=lr)
+        optimizer = optim.Adam(self.parameters(), lr=lr, weight_decay=0.0001)
 
         criterion1 = nn.CrossEntropyLoss()
         criterion2 = nn.MSELoss()
@@ -56,6 +56,8 @@ class DualResidualNetwork(nn.Module):
                 loss_value = criterion2(target_value, out_value)
                 total_loss = loss_move + loss_value
 
+                # print(target_value, out_value, loss_value)
+
                 sum_total_loss += total_loss.item()
                 sum_policy_loss += loss_move.item()
                 sum_value_loss += loss_value.item()
@@ -68,10 +70,10 @@ class DualResidualNetwork(nn.Module):
             total_loss = sum_total_loss / batch_count
             value_loss = sum_value_loss / batch_count
             policy_acc = sum_policy_acc / total_policy_acc
-            # print(f"Epoch {epoch + 1}. "
-            #       f"Total loss: {total_loss:.3f}. "
-            #       f"Value loss: {value_loss:.3f}. "
-            #       f"Policy acc.: {policy_acc:.3f}")
+            print(f"Epoch {epoch + 1}. "
+                  f"Total loss: {total_loss:.3f}. "
+                  f"Value loss: {value_loss:.3f}. "
+                  f"Policy acc.: {policy_acc:.3f}")
             # logger.log_both(f"(Training) Epoch: {epoch + 1}. Total loss: {total_loss:.3f}. "
             #                 f"Value loss: {value_loss:.3f}. Policy loss: {policy_acc:.3f}")
 

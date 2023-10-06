@@ -22,7 +22,7 @@ class MCTS:
         self.dir_alpha = dir_alpha
         self.dir_e = dir_e
 
-    def get_action_prob(self, canonical_board, device, temp=1):
+    def get_action_prob(self, canonical_board, device, temp=0):
         for i in range(self.num_sims):
             self.search(canonical_board, is_root=True, device=device)
 
@@ -54,6 +54,7 @@ class MCTS:
 
         if node.policy is None:
             policy, value = self.__calculate_policy_value(board, device)
+            # print(policy, value)
             node.valid_moves = self.game.get_valid_moves(board)
             node.policy = policy * node.valid_moves
             return -value
