@@ -1,5 +1,6 @@
 import unittest
 
+import numpy as np
 import torch
 
 from v2.game.Game import Game
@@ -53,19 +54,13 @@ class TestPlayGame(unittest.TestCase):
         evaluator = Evaluator(player_1, player_2)
         evaluator.play_game(display=True)
 
-    def test_play_alphazero_random_1_game(self):
-        g = Game()
-        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model = DualResidualNetwork(num_channels=64, num_res_blocks=5).to(device)
-        model.load_state_dict(torch.load("../models/saved/resnet_3.pth"))
-        mcts = MCTS(game=g, model=model, device=device, c_puct=1.)
-
-        player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))
+    def test_play_random_random_games(self):
+        player_1 = Player(1, strategy=RandomStrategy())
         player_2 = Player(-1, strategy=RandomStrategy())
         evaluator = Evaluator(player_1, player_2)
-        evaluator.play_game(display=True)
+        results, states = evaluator.play_games(4, return_states=True)
 
-    def test_play_alphazero_random_40_games(self):
+    def test_play_alphazero_random_1_game(self):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
@@ -75,5 +70,18 @@ class TestPlayGame(unittest.TestCase):
         player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))
         player_2 = Player(-1, strategy=RandomStrategy())
         evaluator = Evaluator(player_1, player_2)
-        results = evaluator.play_games(500)
+        evaluator.play_game(display=True)
+
+    def test_play_alphazero_random_500_games(self):
+        g = Game()
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
+        model.load_state_dict(torch.load("../models/saved/resnet_v4.pth"))
+        mcts = MCTS(game=g, model=model, device=device, num_sims=250, c_puct=1., dir_e=0)
+
+        player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))
+        player_2 = Player(-1, strategy=RandomStrategy())
+        evaluator = Evaluator(player_1, player_2)
+        results, states = evaluator.play_games(6, return_states=True)
         print(results)
+        print([state for state, result in states if result == -1])

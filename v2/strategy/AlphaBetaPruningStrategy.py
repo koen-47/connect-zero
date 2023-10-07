@@ -20,9 +20,7 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
         valid_moves = self.game.get_valid_moves(board)
         valid_moves = np.where(np.array(valid_moves) == 1)[0]
         np.random.shuffle(valid_moves)
-        best_move = valid_moves[0]
 
-        best_score = float("-inf")
         alpha = float("-inf")
         beta = float("inf")
 
@@ -31,13 +29,14 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
         else:
             opponent = 1
 
+        policy = np.zeros(len(board[0]))
         for move in valid_moves:
             next_state, next_player = self.game.get_next_state(board, player, move)
             score = self.minimize_beta(next_state, depth - 1, alpha, beta, player, opponent)
-            if score > best_score:
-                best_score = score
-                best_move = move
-        return best_move
+            policy[move] = score
+        best_move = np.argmax(policy)
+        # print(best_move, policy)
+        return best_move, policy
 
     def minimize_beta(self, board, depth, a, b, player, opponent):
         valid_moves = self.game.get_valid_moves(board)

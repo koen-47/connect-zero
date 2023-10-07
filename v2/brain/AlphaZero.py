@@ -18,14 +18,15 @@ class AlphaZero:
         self.n_iterations = n_iterations
         self.n_episodes = n_episodes
         self.n_games = n_games
-        self.logger = Logger()
+        self.logger = Logger(iteration_path="./logs/recent/log_iteration_1",
+                             summary_path="./logs/recent/log_summary")
 
     def start(self):
         model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=8)
         model_2 = DualResidualNetwork(num_channels=128, num_res_blocks=8)
 
         for i in range(self.n_iterations):
-            self.logger.set_log_it_file(num=i+1, file=f"./logs/recent/log_iteration_{i+1}")
+            self.logger.set_log_iteration_file(num=i + 1, file=f"./logs/recent/log_iteration_{i + 1}")
             self.logger.log(f"Iteration {i+1}", to_summary=True, to_iteration=True)
             self_play = SelfPlay(self.game, logger=self.logger)
             dataset = self_play.play_episodes(model_1, n_episodes=self.n_episodes)

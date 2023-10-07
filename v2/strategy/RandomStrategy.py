@@ -10,7 +10,9 @@ class RandomStrategy(Strategy, ABC):
         super().__init__()
 
     def calculate_move(self, board, player_id):
-        valid_moves = board[0] == 0
-        moves = [i for i, move in enumerate(valid_moves) if move]
+        moves = [i for i, move in enumerate(board[0] == 0) if move]
         move = random.choice(moves)
-        return move
+        policy = np.zeros(len(board[0]))
+        policy[move] = 1
+        # print(policy)
+        return move, policy

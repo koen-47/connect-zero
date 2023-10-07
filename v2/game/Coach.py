@@ -67,7 +67,7 @@ class Coach:
 
     def learn(self, num_games=40, win_threshold=0.55, num_proc=4):
         for i in range(1, self.num_its + 1):
-            self.logger.set_log_it_file(num=i, file=f"../logs/recent/log_it_{i}")
+            self.logger.set_log_iteration_file(num=i, file=f"../logs/recent/log_it_{i}")
             self.logger.log_both(f"Iteration {i}")
             # LESSON: TRY WITHOUT POOL, BUT WITH MANAGER (THE FIRST, OG APPROACH) (i.e., the code that is commented out)
             iterationTrainExamples = []
