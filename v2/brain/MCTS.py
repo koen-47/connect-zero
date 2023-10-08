@@ -29,6 +29,7 @@ class MCTS:
         node_key = tuple(map(tuple, canonical_board))
         node = self.nodes[node_key]
         counts = [node.n_child_visits[a] for a in range(self.n_actions)]
+        print(np.round(np.array(counts) / sum(counts), decimals=3))
 
         if temp == 0:
             probs = np.zeros(self.n_actions)
@@ -54,7 +55,7 @@ class MCTS:
 
         if node.policy is None:
             policy, value = self.__calculate_policy_value(board, device)
-            # print(policy, value)
+            print(np.round(policy, 3), value)
             node.valid_moves = self.game.get_valid_moves(board)
             node.policy = policy * node.valid_moves
             return -value

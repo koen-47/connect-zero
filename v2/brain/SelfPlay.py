@@ -30,7 +30,7 @@ class SelfPlay:
             reward, n_turn, player = 0, 0, 1
             board = self.game.get_init_board()
             while reward == 0:
-                self.logger.log(f"(Self-play) Episode {i+1}. Turn {n_turn+1}.", to_iteration=True)
+                self.logger.log(f"(Self-play) Episode {i + 1}. Turn {n_turn + 1}.", to_iteration=True)
                 state = self.game.get_canonical_form(board, player)
                 temp = int(n_turn < temp_threshold)
                 action, probs = mcts.get_action_prob(state, temp=temp, device=self.device)
@@ -41,9 +41,7 @@ class SelfPlay:
                 reward = self.game.get_game_ended(board, player)
                 n_turn += 1
 
-
             dataset.set_rewards(reward, player)
         dataset.data = np.delete(dataset.data, 2, 1)
         dataset.shuffle()
         return dataset
-

@@ -57,5 +57,5 @@ class AlphaZero:
                 model_2 = copy.deepcopy(model_1)
                 print(f"Rejecting new model...")
                 self.logger.log("(Evaluation) Rejecting new model...", to_summary=True, to_iteration=True)
-            torch.save(model_2.state_dict(), "./models/saved/resnet_v5.pth")
+            torch.save(model_2.state_dict(), "./models/saved/resnet_v8.pth")
             self.logger.log("\n", to_summary=True)

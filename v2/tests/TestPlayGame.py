@@ -22,7 +22,7 @@ class TestPlayGame(unittest.TestCase):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
-        model.load_state_dict(torch.load("../models/saved/resnet_v4.pth"))
+        model.load_state_dict(torch.load("../models/saved/resnet_v7.pth"))
         mcts = MCTS(game=g, model=model, device=device, c_puct=1., dir_e=0)
 
         player_1 = Player(1, strategy=ManualStrategy())

@@ -12,4 +12,5 @@ class AlphaZeroStrategyV2(ABC, Strategy):
 
     def calculate_move(self, board, player_id):
         action, probs = self.mcts.get_action_prob(board, device=self.device)
+        print(action, probs)
         return action, probs
