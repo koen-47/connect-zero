@@ -25,6 +25,7 @@ class SelfPlay:
     def play_episodes(self, model, n_episodes, temp_threshold=15):
         dataset = Dataset()
         mcts = MCTS(self.game, model, self.device)
+        results = [0] * 3
 
         for i in tqdm(range(n_episodes), desc="Self-play"):
             reward, n_turn, player = 0, 0, 1
@@ -40,8 +41,9 @@ class SelfPlay:
                 self.logger.log(self.game.display(board, color=False), to_iteration=True)
                 reward = self.game.get_game_ended(board, player)
                 n_turn += 1
-
+            results[int(np.rint(reward)) + 1] += 1
             dataset.set_rewards(reward, player)
         dataset.data = np.delete(dataset.data, 2, 1)
         dataset.shuffle()
-        return dataset
+        print(results)
+        return dataset, results

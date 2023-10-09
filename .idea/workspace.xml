@@ -8,14 +8,11 @@
       <change beforePath="$PROJECT_DIR$/v2/brain/AlphaZero.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/AlphaZero.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/brain/MCTS.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/MCTS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/brain/SelfPlay.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/SelfPlay.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_summary" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategyV2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/tests/TestExperiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestExperiment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual_p1">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -125,9 +122,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual_p1" />
         <item itemvalue="Python tests.Unittests for TestExperiment.TestExperiment.test_experiment" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -152,6 +149,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
