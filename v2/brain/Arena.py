@@ -3,7 +3,8 @@ from tqdm import tqdm
 from v2.game.Game import Game
 from v2.game.Player import Player
 from v2.strategy.ManualStrategy import ManualStrategy
-from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2
+# from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2
+from v2.strategy.AlphaZeroStrategy import AlphaZeroStrategy
 from v2.strategy.RandomStrategy import RandomStrategy
 
 
@@ -24,9 +25,9 @@ class Arena:
             board, current_player = game.get_next_state(board, current_player, action)
 
         #     print(game.get_valid_moves(board))
-            print(game.display(board))
+        #     print(game.display(board))
 
-        print(game.display(board))
+        # print(game.display(board))
 
         result = current_player * game.get_game_ended(board, current_player)
         if self.logger is not None:

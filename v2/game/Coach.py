@@ -138,8 +138,8 @@ class Coach:
 
 if __name__ == '__main__':
     g = Game()
-    coach = Coach(game=g, num_its=10, num_eps=25)
-    coach.learn(num_games=40, num_proc=1)
+    coach = Coach(game=g, num_its=10, num_eps=1)
+    coach.learn(num_games=1, num_proc=1)
 
 # episode = coach.execute_episode()
 # nnet.train_on_examples(episode)
