@@ -41,6 +41,7 @@ class SelfPlay:
                 self.logger.log(self.game.display(board, color=False), to_iteration=True)
                 reward = self.game.get_game_ended(board, player)
                 n_turn += 1
+            print(reward)
             results[int(np.rint(reward)) + 1] += 1
             dataset.set_rewards(reward, player)
         dataset.data = np.delete(dataset.data, 2, 1)

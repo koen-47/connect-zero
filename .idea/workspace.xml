@@ -5,19 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/brain/AlphaZero.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/AlphaZero.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/brain/SelfPlay.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/SelfPlay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/game/Coach.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Coach.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_3" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_4" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_5" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_6" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_7" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_8" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_9" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_summary" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_v8.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_v8.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +41,28 @@
     <property name="last_opened_file_path" value="D:/OneDrive/Documents/Vrije Universiteit/Evolutionary Computing/ec-assignment-2" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.Coach">
+    <configuration name="Coach" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="connect-zero" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/game" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/v2/game/Coach.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -68,20 +82,6 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for TestPlayGame.TestPlayGame.test_play_alphazero_random_1_game" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="connect-zero" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/v2/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;TestPlayGame.TestPlayGame.test_play_alphazero_random_1_game&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests for TestPlayGame.TestPlayGame.test_play_alphazero_random_500_games" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -128,6 +128,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Coach" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual_p1" />
         <item itemvalue="Python tests.Unittests for TestExperiment.TestExperiment.test_experiment" />
@@ -155,6 +156,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

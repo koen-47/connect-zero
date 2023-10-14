@@ -8,7 +8,8 @@ from random import shuffle
 from v2.game.Game import Game
 from v2.game.Player import Player
 from v2.brain.Arena import Arena
-from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2 as AlphaZeroStrategy
+# from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2 as AlphaZeroStrategy
+from v2.strategy.AlphaZeroStrategy import AlphaZeroStrategy
 # from models.keras import DQN1
 # from models.keras.DQN1 import Connect4NNet
 from v2.models.pytorch.DualResidualNetwork import DualResidualNetwork
@@ -51,10 +52,10 @@ class Coach:
             r = self.game.get_game_ended(board, self.curPlayer)
 
             if r != 0:
-                print(self.game.display(board))
-                print(r)
-                print(self.curPlayer)
-                self.logger.__log_iteration(self.game.display(board, color=False))
+                # print(self.game.display(board))
+                print(f"reward: {r}")
+                # print(self.curPlayer)
+                # self.logger.__log_iteration(self.game.display(board, color=False))
                 return [(x[0], x[2], r * ((-1) ** (x[1] != self.curPlayer))) for x in trainExamples]
 
     def parallel(self, num_eps, num_proc):
@@ -67,8 +68,8 @@ class Coach:
 
     def learn(self, num_games=40, win_threshold=0.55, num_proc=4):
         for i in range(1, self.num_its + 1):
-            self.logger.set_log_iteration_file(num=i, file=f"../logs/recent/log_it_{i}")
-            self.logger.log_both(f"Iteration {i}")
+            # self.logger.set_log_iteration_file(num=i, file=f"../logs/recent/log_it_{i}")
+            # self.logger.log_both(f"Iteration {i}")
             # LESSON: TRY WITHOUT POOL, BUT WITH MANAGER (THE FIRST, OG APPROACH) (i.e., the code that is commented out)
             iterationTrainExamples = []
             # pool = Pool(processes=num_proc)
@@ -91,14 +92,14 @@ class Coach:
 
             for i in tqdm(range(int(self.num_eps)), desc=f"Self Play"):
                 self.mcts = MCTS(self.game, self.nnet, self.device)  # reset search tree
-                self.logger.__log_iteration(f"(Self Play) Episode {i + 1}")
+                # self.logger.__log_iteration(f"(Self Play) Episode {i + 1}")
                 iterationTrainExamples += self.execute_episode()
                 # print(iterationTrainExamples)
                 # print(self.curPlayer)
 
             # print(iterationTrainExamples)
             print(f"Number of training examples: {len(iterationTrainExamples)}")
-            self.logger.__log_summary(f"(Self Play) Number of training examples: {len(iterationTrainExamples)}")
+            # self.logger.__log_summary(f"(Self Play) Number of training examples: {len(iterationTrainExamples)}")
             self.trainExamplesHistory.append(iterationTrainExamples)
 
             trainExamples = []
@@ -116,28 +117,28 @@ class Coach:
             arena = Arena(player1, player2, logger=self.logger)
             pwins, nwins, draws = arena.play_games(num_games)
 
-            self.logger.__log_iteration(f"(Arena) Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
-            self.logger.__log_summary(f"(Arena) Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
+            # self.logger.__log_iteration(f"(Arena) Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
+            # self.logger.__log_summary(f"(Arena) Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
             print(f"Results (pwins/nwins/draws) => ({pwins}, {nwins}, {draws})")
             if nwins / num_games >= win_threshold:
-                self.logger.__log_iteration("(Arena) Accepting new model.")
-                self.logger.__log_summary("(Arena) Accepting new model.")
+                # self.logger.__log_iteration("(Arena) Accepting new model.")
+                # self.logger.__log_summary("(Arena) Accepting new model.")
                 print("Accepting new model!")
                 self.pnet = copy.deepcopy(self.nnet)
             else:
-                self.logger.__log_iteration("(Arena) Rejecting new model.")
-                self.logger.__log_summary("(Arena) Rejecting new model.")
+                # self.logger.__log_iteration("(Arena) Rejecting new model.")
+                # self.logger.__log_summary("(Arena) Rejecting new model.")
                 print("Rejecting new model")
                 self.nnet = copy.deepcopy(self.pnet)
             torch.save(self.nnet.state_dict(), "../models/saved/resnet_2.pth")
-            self.logger.log_both("\n")
+            # self.logger.log_both("\n")
 
 
 # print(torch.cuda.is_available())
 
 if __name__ == '__main__':
     g = Game()
-    coach = Coach(game=g, num_its=1, num_eps=1)
+    coach = Coach(game=g, num_its=10, num_eps=25)
     coach.learn(num_games=40, num_proc=1)
 
 # episode = coach.execute_episode()
