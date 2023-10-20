@@ -1,1 +1,22 @@
-2023-10-14 02:39:29,479 Iteration 1
+2023-10-21 00:40:55,313 Iteration 1
+2023-10-21 00:45:34,545 (Self-play) Number of new training examples: 252
+2023-10-21 00:45:34,546 (Self-play) Number of total training examples: 252
+2023-10-21 00:45:34,546 (Self-play) Model 1 wins: 0. Draws: 0. Model 2 wins: 5
+2023-10-21 00:48:01,987 (Evaluation) Win rate: 1.0
+2023-10-21 00:48:01,987 (Evaluation) Model 1 wins: 0. Draws: 0. Model 2 wins: 2
+2023-10-21 00:48:02,006 (Evaluation) Accepting new model...
+2023-10-21 00:48:02,048 
+
+2023-10-21 00:48:02,051 Iteration 2
+2023-10-21 00:53:19,942 (Self-play) Number of new training examples: 274
+2023-10-21 00:53:19,943 (Self-play) Number of total training examples: 526
+2023-10-21 00:53:19,943 (Self-play) Model 1 wins: 0. Draws: 0. Model 2 wins: 5
+2023-10-21 00:56:03,057 (Evaluation) Win rate: 0.5
+2023-10-21 00:56:03,058 (Evaluation) Model 1 wins: 1. Draws: 0. Model 2 wins: 1
+2023-10-21 00:56:03,076 (Evaluation) Rejecting new model...
+2023-10-21 00:56:03,121 
+
+2023-10-21 00:56:03,122 Iteration 3
+2023-10-21 01:00:55,711 (Self-play) Number of new training examples: 258
+2023-10-21 01:00:55,712 (Self-play) Number of total training examples: 784
+2023-10-21 01:00:55,712 (Self-play) Model 1 wins: 0. Draws: 0. Model 2 wins: 5

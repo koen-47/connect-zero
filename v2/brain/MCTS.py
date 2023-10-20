@@ -58,6 +58,7 @@ class MCTS:
             # print(np.round(policy, 3), value)
             node.valid_moves = self.game.get_valid_moves(board)
             node.policy = policy * node.valid_moves
+            node.n_visits = 0
             return -value
 
         action = node.select(is_root, self.c_puct, self.dir_alpha, self.dir_e)

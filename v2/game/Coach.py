@@ -53,7 +53,7 @@ class Coach:
 
             if r != 0:
                 # print(self.game.display(board))
-                print(f"reward: {r}")
+                # print(f"reward: {r}")
                 # print(self.curPlayer)
                 # self.logger.__log_iteration(self.game.display(board, color=False))
                 return [(x[0], x[2], r * ((-1) ** (x[1] != self.curPlayer))) for x in trainExamples]
@@ -98,7 +98,6 @@ class Coach:
                 # print(self.curPlayer)
 
             # print(iterationTrainExamples)
-            print(f"Number of training examples: {len(iterationTrainExamples)}")
             # self.logger.__log_summary(f"(Self Play) Number of training examples: {len(iterationTrainExamples)}")
             self.trainExamplesHistory.append(iterationTrainExamples)
 
@@ -106,6 +105,7 @@ class Coach:
             for e in self.trainExamplesHistory:
                 trainExamples.extend(e)
             shuffle(trainExamples)
+            print(f"Number of training examples: {len(trainExamples)}")
 
             pmcts = MCTS(self.game, self.pnet, self.device)
 
@@ -138,8 +138,8 @@ class Coach:
 
 if __name__ == '__main__':
     g = Game()
-    coach = Coach(game=g, num_its=100, num_eps=50)
-    coach.learn(num_games=20, num_proc=1)
+    coach = Coach(game=g, num_its=100, num_eps=5)
+    coach.learn(num_games=2, num_proc=1)
 
 # episode = coach.execute_episode()
 # nnet.train_on_examples(episode)

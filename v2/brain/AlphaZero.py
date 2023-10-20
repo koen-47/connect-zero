@@ -24,18 +24,22 @@ class AlphaZero:
     def start(self):
         model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=5)
         model_2 = DualResidualNetwork(num_channels=128, num_res_blocks=5)
+        training_examples = []
 
         for i in range(self.n_iterations):
             self.logger.set_log_iteration_file(num=i + 1, file=f"./logs/recent/log_iteration_{i + 1}")
             self.logger.log(f"Iteration {i+1}", to_summary=True, to_iteration=True)
             self_play = SelfPlay(self.game, logger=self.logger)
             dataset, results = self_play.play_episodes(model_1, n_episodes=self.n_episodes)
-            self.logger.log(f"(Self-play) Number of training examples: {len(dataset.data)}", to_summary=True,
+            training_examples.extend(dataset.data)
+            self.logger.log(f"(Self-play) Number of new training examples: {len(dataset.data)}", to_summary=True,
+                            to_iteration=True)
+            self.logger.log(f"(Self-play) Number of total training examples: {len(training_examples)}", to_summary=True,
                             to_iteration=True)
             self.logger.log(f"(Self-play) Model 1 wins: {results[2]}. Draws: {results[1]}. Model 2 wins: {results[0]}",
                             to_summary=True)
 
-            model_2 = model_2.train_on_examples(dataset.data, lr=0.0001, logger=self.logger)
+            model_2 = model_2.train_on_examples(training_examples, lr=0.0001, logger=self.logger)
             mcts_1 = MCTS(self.game, model_1, self.device)
             mcts_2 = MCTS(self.game, model_2, self.device)
 
