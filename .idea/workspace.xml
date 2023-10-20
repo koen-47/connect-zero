@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df1c2e3a-91cf-4f4a-98dc-132750872257" name="Changes" comment="Changes">
+      <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/brain/Arena.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/Arena.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/Experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/Experiment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_2" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_3" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_4" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_5" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/game/Coach.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/game/Coach.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaZeroStrategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_2.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_2.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/tests/TestExperiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestExperiment.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +45,7 @@
     <property name="last_opened_file_path" value="D:/OneDrive/Documents/Vrije Universiteit/Evolutionary Computing/ec-assignment-2" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Coach">
+  <component name="RunManager" selected="Python tests.Unittests for TestExperiment.TestExperiment.test_experiment">
     <configuration name="Coach" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="connect-zero" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -123,10 +132,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for TestExperiment.TestExperiment.test_experiment" />
         <item itemvalue="Python.Coach" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Unittests for TestPlayGame.TestPlayGame.test_play_manual_p1" />
-        <item itemvalue="Python tests.Unittests for TestExperiment.TestExperiment.test_experiment" />
       </list>
     </recent_temporary>
   </component>
@@ -151,5 +160,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

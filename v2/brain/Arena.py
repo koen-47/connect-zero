@@ -30,9 +30,9 @@ class Arena:
         # print(game.display(board))
 
         result = current_player * game.get_game_ended(board, current_player)
-        if self.logger is not None:
-            self.logger.__log_iteration(f"(Arena) Result: {result}")
-            self.logger.__log_iteration(f"{game.display(board, color=False)}")
+        # if self.logger is not None:
+        #     self.logger.__log_iteration(f"(Arena) Result: {result}")
+        #     self.logger.__log_iteration(f"{game.display(board, color=False)}")
 
         return result
 

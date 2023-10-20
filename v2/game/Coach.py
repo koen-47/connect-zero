@@ -130,7 +130,7 @@ class Coach:
                 # self.logger.__log_summary("(Arena) Rejecting new model.")
                 print("Rejecting new model")
                 self.nnet = copy.deepcopy(self.pnet)
-            torch.save(self.nnet.state_dict(), "../models/saved/resnet_2.pth")
+            torch.save(self.nnet.state_dict(), "../models/saved/resnet_4.pth")
             # self.logger.log_both("\n")
 
 
@@ -138,8 +138,8 @@ class Coach:
 
 if __name__ == '__main__':
     g = Game()
-    coach = Coach(game=g, num_its=10, num_eps=1)
-    coach.learn(num_games=1, num_proc=1)
+    coach = Coach(game=g, num_its=100, num_eps=50)
+    coach.learn(num_games=20, num_proc=1)
 
 # episode = coach.execute_episode()
 # nnet.train_on_examples(episode)
