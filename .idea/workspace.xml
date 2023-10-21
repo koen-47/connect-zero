@@ -5,33 +5,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/connect-zero.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/connect-zero.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/brain/AlphaZero.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/AlphaZero.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/brain/Evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/Evaluator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/experiment/Experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/Experiment.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_2" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_3" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_4" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_5" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_6" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_7" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_alphabeta_7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_10" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_10" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_11" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_11" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_12" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_12" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_13" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_13" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_14" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_14" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_15" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_15" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_16" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_16" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_3" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_4" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_5" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_6" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_6" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_7" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_8" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_8" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_9" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_summary" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_v9.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_v9.pth" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/tests/TestExperiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestExperiment.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,6 +160,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -34,18 +34,20 @@ class Evaluator:
         return result, states
 
     def play_games(self, n_games, return_states=False):
-        def play_half(results, all_states):
-            for _ in tqdm(range(int(n_games/2)), desc="Evaluation"):
+        def play_half(results, all_states, half):
+            for _ in tqdm(range(int(n_games/2)), desc=f"Evaluation ({half})"):
                 result, states = self.play_game()
                 results[int(np.rint(result)) + 1] += 1
-                all_states.append((states, result))
+                all_states.append((half, states, result))
             return results
 
         all_states = []
         results = [0, 0, 0]
-        results = play_half(results, all_states)
+        results = play_half(results, all_states, 1)
+        print(results)
         self.player_1, self.player_2 = self.player_2, self.player_1
-        results = play_half(results, all_states)
+        results = play_half(results, all_states, 2)
+        print(results)
         if return_states:
             return results, all_states
         return results

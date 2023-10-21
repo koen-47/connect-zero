@@ -43,9 +43,10 @@ class Experiment:
                                   to_experiment=True)
 
                 self.__logger.log("Losses")
-                losses = [state for state, result in states if result == -1]
-                for i, loss in enumerate(losses):
+                losses = [(half, state) for half, state, result in states if result == -1]
+                for i, (half, loss) in enumerate(losses):
                     for j, (state, player_id, action, policy) in enumerate(loss):
-                        self.__logger.log(f"Loss: {i + 1}. Turn {j + 1} (player: {player_id})", to_experiment=True)
+                        self.__logger.log(f"Half: {half}. Loss: {i + 1}. Turn {j + 1} (player: {player_id})",
+                                          to_experiment=True)
                         self.__logger.log(f"Action: {action}. Policy: {policy}", to_experiment=True)
                         self.__logger.log(f"{Game().display(state)}", to_experiment=True)

@@ -74,8 +74,8 @@ class DualResidualNetwork(nn.Module):
                   f"Total loss: {total_loss:.3f}. "
                   f"Value loss: {value_loss:.3f}. "
                   f"Policy acc.: {policy_acc:.3f}")
-            # logger.log(f"(Training) Epoch: {epoch + 1}. Total loss: {total_loss:.3f}. Value loss: {value_loss:.3f}. "
-            #            f"Policy loss: {policy_acc:.3f}", to_summary=True, to_iteration=True)
+            logger.log(f"(Training) Epoch: {epoch + 1}. Total loss: {total_loss:.3f}. Value loss: {value_loss:.3f}. "
+                       f"Policy accuracy: {policy_acc:.3f}", to_summary=True, to_iteration=True)
         return copy.deepcopy(self)
 
 
