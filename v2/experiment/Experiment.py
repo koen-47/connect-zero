@@ -24,7 +24,7 @@ class Experiment:
 
     def run(self, n_games, log_losses=True):
         strategies = {"random": RandomStrategy()}
-        for i in range(2, 6):
+        for i in range(2, 11):
             strategies[f"alphabeta_{i}"] = AlphaBetaPruningStrategy(depth=i)
 
         for name, strategy_2 in strategies.items():
