@@ -17,9 +17,9 @@ from v2.logs.Logger import Logger
 class Experiment:
     def __init__(self, model):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model_ = DualResidualNetwork(num_channels=128, num_res_blocks=5).to(device)
+        model_ = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
         model_.load_state_dict(torch.load(model))
-        self.__mcts = MCTS(game=Game(), model=model_, device=device, num_sims=250, c_puct=1., dir_e=0)
+        self.__mcts = MCTS(game=Game(), model=model_, device=device, num_sims=400, c_puct=1., dir_e=0)
         self.__logger = Logger()
 
     def run(self, n_games, log_losses=True):
@@ -37,15 +37,16 @@ class Experiment:
             print(win_rate, results)
 
             if log_losses:
-                self.__logger.set_log_experiment_file(name, f"../experiment/logs/experiment_{name}")
+                self.__logger.set_log_experiment_file(name, f"../experiment/logs/recent/experiment_{name}")
                 self.__logger.log(f"Win rate: {win_rate}", to_experiment=True)
                 self.__logger.log(f"Wins: {n_player_1_wins}. Draws: {n_draws}. Losses: {n_player_2_wins}.\n",
                                   to_experiment=True)
 
                 self.__logger.log("Losses")
-                losses = [state for state, result in states if result == -1]
-                for i, loss in enumerate(losses):
+                losses = [(half, state) for half, state, result in states if result == -1]
+                for i, (half, loss) in enumerate(losses):
                     for j, (state, player_id, action, policy) in enumerate(loss):
-                        self.__logger.log(f"Loss: {i + 1}. Turn {j + 1} (player: {player_id})", to_experiment=True)
+                        self.__logger.log(f"Half: {half}. Loss: {i + 1}. Turn {j + 1} (player: {player_id})",
+                                          to_experiment=True)
                         self.__logger.log(f"Action: {action}. Policy: {policy}", to_experiment=True)
                         self.__logger.log(f"{Game().display(state)}", to_experiment=True)

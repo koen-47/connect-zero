@@ -34,8 +34,9 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
             next_state, next_player = self.game.get_next_state(board, player, move)
             score = self.minimize_beta(next_state, depth - 1, alpha, beta, player, opponent)
             policy[move] = score
-        best_move = np.argmax(policy)
-        # print(best_move, policy)
+        max_value = max(policy)
+        max_indices = [i for i, value in enumerate(policy) if value == max_value]
+        best_move = np.random.choice(max_indices) if len(max_indices) > 1 else max_indices[0]
         return best_move, policy
 
     def minimize_beta(self, board, depth, a, b, player, opponent):

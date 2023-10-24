@@ -130,7 +130,7 @@ class Coach:
                 # self.logger.__log_summary("(Arena) Rejecting new model.")
                 print("Rejecting new model")
                 self.nnet = copy.deepcopy(self.pnet)
-            torch.save(self.nnet.state_dict(), "../models/saved/resnet_4.pth")
+            torch.save(self.nnet.state_dict(), "../models/recent/resnet_4.pth")
             # self.logger.log_both("\n")
 
 

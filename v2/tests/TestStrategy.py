@@ -28,7 +28,7 @@ class TestStrategy(unittest.TestCase):
     def test_alphazero_alphabeta_games(self):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model = DualResidualNetwork(num_channels=64, num_res_blocks=5).to(device)
-        model.load_state_dict(torch.load("../models/saved/resnet_v1.pth"))
+        model.load_state_dict(torch.load("../models/recent/resnet_v1.pth"))
 
         mcts = MCTS(game=Game(), model=model, device=device, c_puct=1.)
         player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))
