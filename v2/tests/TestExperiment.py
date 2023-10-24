@@ -7,3 +7,4 @@ class TestExperiment(unittest.TestCase):
     def test_experiment(self):
         experiment = Experiment("../models/recent/resnet_v9.pth")
         experiment.run(200, log_losses=True)
+

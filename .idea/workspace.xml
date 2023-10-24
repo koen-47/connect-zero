@@ -32,6 +32,7 @@
       <change afterPath="$PROJECT_DIR$/v2/logs/saved/71_iterations/log_iteration_9" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/v2/logs/saved/71_iterations/log_summary" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/v2/brain/AlphaZero.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/AlphaZero.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/brain/Evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/Evaluator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/experiment/Experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/Experiment.py" afterDir="false" />
@@ -80,6 +81,17 @@
       <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_v8.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/recent/resnet_v8.pth" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_v9.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_v9.pth" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/strategy/AlphaBetaPruningStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/strategy/AlphaBetaPruningStrategy.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/v2/brain/Evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/brain/Evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/Experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/Experiment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" beforeDir="false" afterPath="$PROJECT_DIR$/v2/experiment/logs/experiment_random" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_iteration_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/logs/recent/log_summary" beforeDir="false" afterPath="$PROJECT_DIR$/v2/logs/recent/log_summary" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/pytorch/DualResidualNetwork.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/v2/models/saved/resnet_v9.pth" beforeDir="false" afterPath="$PROJECT_DIR$/v2/models/saved/resnet_v9.pth" afterDir="false" />
+>>>>>>> f8b93191e8a5a98a273c2f9b5eebef314165a507
       <change beforePath="$PROJECT_DIR$/v2/tests/TestExperiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestExperiment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestPlayGame.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/v2/tests/TestStrategy.py" beforeDir="false" afterPath="$PROJECT_DIR$/v2/tests/TestStrategy.py" afterDir="false" />
@@ -228,6 +240,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
