@@ -17,7 +17,7 @@ from v2.logs.Logger import Logger
 class Experiment:
     def __init__(self, model):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model_ = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
+        model_ = DualResidualNetwork(num_channels=512, num_res_blocks=5).to(device)
         model_.load_state_dict(torch.load(model))
         self.__mcts = MCTS(game=Game(), model=model_, device=device, num_sims=400, c_puct=1., dir_e=0)
         self.__logger = Logger()

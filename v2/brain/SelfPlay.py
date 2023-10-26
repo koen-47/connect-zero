@@ -25,12 +25,12 @@ class SelfPlay:
 
     def play_episodes(self, model, n_episodes, temp_threshold=15):
         dataset = Dataset()
-        mcts = MCTS(self.game, model, self.device)
         results = [0] * 3
 
         for i in tqdm(range(n_episodes), desc="Self-play"):
             reward, n_turn, player = 0, 0, 1
             board = self.game.get_init_board()
+            mcts = MCTS(self.game, model, self.device)
             while reward == 0:
                 self.logger.log(f"(Self-play) Episode {i + 1}. Turn {n_turn + 1}.", to_iteration=True)
                 state = self.game.get_canonical_form(board, player)

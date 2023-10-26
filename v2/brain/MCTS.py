@@ -11,7 +11,7 @@ class MCTS:
     NOTE: Dirichlet noise is added during testing.
     """
 
-    def __init__(self, game, model, device, num_sims=250, c_puct=1., dir_alpha=1., dir_e=0.25):
+    def __init__(self, game, model, device, num_sims=400, c_puct=1., dir_alpha=1., dir_e=0.25):
         self.game = game
         self.model = model.to(device)
         self.num_sims = num_sims

@@ -22,8 +22,8 @@ class AlphaZero:
                              summary_path="./logs/recent/log_summary")
 
     def start(self):
-        model_1 = DualResidualNetwork(num_channels=512, num_res_blocks=1)
-        model_2 = DualResidualNetwork(num_channels=512, num_res_blocks=1)
+        model_1 = DualResidualNetwork(num_channels=512, num_res_blocks=5)
+        model_2 = DualResidualNetwork(num_channels=512, num_res_blocks=5)
         training_examples = []
 
         for i in range(self.n_iterations):
@@ -63,5 +63,5 @@ class AlphaZero:
                 model_2 = copy.deepcopy(model_1)
                 print(f"Rejecting new model...")
                 self.logger.log("(Evaluation) Rejecting new model...", to_summary=True, to_iteration=True)
-            torch.save(model_2.state_dict(), "./models/recent/resnet_small.pth")
+            torch.save(model_2.state_dict(), "./models/recent/resnet_small_v3.pth")
             self.logger.log("\n", to_summary=True)
