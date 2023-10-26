@@ -5,6 +5,7 @@ from tqdm import tqdm
 from v2.game.Game import Game
 from v2.game.Player import Player
 from v2.brain.Arena import Arena
+from v2.game.Board import Board
 from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2 as AlphaZeroStrategy
 # from models.keras import DQN1
 # from models.keras.DQN1 import Connect4NNet
@@ -41,8 +42,10 @@ class SelfPlay:
                 self.logger.log(f"Action: {action}. Policy: {np.round(np.array(probs), decimals=5)}", to_iteration=True)
                 self.logger.log(self.game.display(board, color=False), to_iteration=True)
                 reward = self.game.get_game_ended(board, player)
+                # if reward != 0:
+                #     print(self.game.display(board))
+                #     print(reward, player, Board(state=board).get_status())
                 n_turn += 1
-            # print(reward)
             results[int(np.rint(reward)) + 1] += 1
             dataset.set_rewards(reward, player)
         dataset.data = np.delete(dataset.data, 2, 1)

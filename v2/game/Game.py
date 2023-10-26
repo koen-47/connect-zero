@@ -31,11 +31,12 @@ class Game:
         status = b.get_status()
         if status is None:
             return 1e-4
-        elif status == player:
-            return 1
-        elif status == -player:
-            return -1
-        return 0
+        # elif status == player:
+        #     return 1
+        # elif status == -player:
+        #     return -1
+        # return 0
+        return status
 
     def get_canonical_form(self, board, player):
         return board * player

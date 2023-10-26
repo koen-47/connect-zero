@@ -22,8 +22,8 @@ class AlphaZero:
                              summary_path="./logs/recent/log_summary")
 
     def start(self):
-        model_1 = DualResidualNetwork(num_channels=512, num_res_blocks=5)
-        model_2 = DualResidualNetwork(num_channels=512, num_res_blocks=5)
+        model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=5)
+        model_2 = copy.deepcopy(model_1)
         training_examples = []
 
         for i in range(self.n_iterations):

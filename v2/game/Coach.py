@@ -52,7 +52,7 @@ class Coach:
             r = self.game.get_game_ended(board, self.curPlayer)
 
             if r != 0:
-                # print(self.game.display(board))
+                print(self.game.display(board))
                 # print(f"reward: {r}")
                 # print(self.curPlayer)
                 # self.logger.__log_iteration(self.game.display(board, color=False))
