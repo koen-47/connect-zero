@@ -41,7 +41,7 @@ class SelfPlay:
                 board, player = self.game.get_next_state(board, player, action)
                 self.logger.log(f"Action: {action}. Policy: {np.round(np.array(probs), decimals=5)}", to_iteration=True)
                 self.logger.log(self.game.display(board, color=False), to_iteration=True)
-                reward = self.game.get_game_ended(board, player)
+                reward = self.game.get_game_ended(board, -player)
                 # if reward != 0:
                 #     print(self.game.display(board))
                 #     print(reward, player, Board(state=board).get_status())
@@ -49,6 +49,7 @@ class SelfPlay:
             results[int(np.rint(reward)) + 1] += 1
             dataset.set_rewards(reward, player)
         dataset.data = np.delete(dataset.data, 2, 1)
+        print(dataset.data)
         dataset.shuffle()
         print(results)
         return dataset, results

@@ -1,7 +1,6 @@
 import numpy
 from termcolor import colored
 
-from v2.strategy.MCTSStrategy.MCTSStrategy import MCTSStrategy
 from .Board import Board
 
 
