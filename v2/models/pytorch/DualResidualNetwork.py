@@ -124,5 +124,4 @@ class PolicyHead(nn.Module):
         x = F.relu(self.bn2d_1(self.conv1(x)))
         x = x.view(x.size(0), -1)
         x = self.policy(x)
-        print(x.shape)
         return F.softmax(x, dim=-1)
