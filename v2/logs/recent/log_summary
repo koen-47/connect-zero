@@ -1,1 +1,20 @@
-2023-11-03 21:47:03,254 Iteration 1
+2023-11-03 22:42:24,423 Iteration 1
+2023-11-03 22:46:18,505 (Self-play) Number of new training examples: 482
+2023-11-03 22:46:18,506 (Self-play) Number of total training examples: 482
+2023-11-03 22:46:18,506 (Self-play) Model 1 wins: 5. Draws: 0. Model 2 wins: 5
+2023-11-03 22:46:20,083 (Training) Epoch: 1. Total loss: 2.864. Value loss: 0.888. Policy accuracy: 0.145
+2023-11-03 22:46:20,286 (Training) Epoch: 2. Total loss: 2.663. Value loss: 0.686. Policy accuracy: 0.154
+2023-11-03 22:46:20,480 (Training) Epoch: 3. Total loss: 2.484. Value loss: 0.507. Policy accuracy: 0.132
+2023-11-03 22:46:20,686 (Training) Epoch: 4. Total loss: 2.343. Value loss: 0.371. Policy accuracy: 0.172
+2023-11-03 22:46:20,879 (Training) Epoch: 5. Total loss: 2.317. Value loss: 0.341. Policy accuracy: 0.152
+2023-11-03 22:46:21,062 (Training) Epoch: 6. Total loss: 2.286. Value loss: 0.309. Policy accuracy: 0.132
+2023-11-03 22:46:21,249 (Training) Epoch: 7. Total loss: 2.244. Value loss: 0.280. Policy accuracy: 0.179
+2023-11-03 22:46:21,435 (Training) Epoch: 8. Total loss: 2.234. Value loss: 0.267. Policy accuracy: 0.163
+2023-11-03 22:46:21,638 (Training) Epoch: 9. Total loss: 2.190. Value loss: 0.230. Policy accuracy: 0.210
+2023-11-03 22:46:21,873 (Training) Epoch: 10. Total loss: 2.134. Value loss: 0.179. Policy accuracy: 0.194
+2023-11-03 22:48:37,699 (Evaluation) Win rate: 1.0
+2023-11-03 22:48:37,699 (Evaluation) Model 1 wins: 0. Draws: 0. Model 2 wins: 4
+2023-11-03 22:48:37,711 (Evaluation) Accepting new model...
+2023-11-03 22:48:37,738 
+
+2023-11-03 22:48:37,741 Iteration 2

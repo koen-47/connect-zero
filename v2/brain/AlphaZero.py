@@ -5,6 +5,7 @@ import torch
 from v2.brain.MCTS import MCTS
 from v2.logs.Logger import Logger
 from v2.models.pytorch.DualResidualNetwork import DualResidualNetwork
+from v2.models.pytorch.DualConvolutionalNetwork import DualConvolutionalNetwork
 from v2.brain.Evaluator import Evaluator
 from v2.brain.SelfPlay import SelfPlay
 from v2.game.Player import Player
@@ -22,7 +23,8 @@ class AlphaZero:
                              summary_path="./logs/recent/log_summary")
 
     def start(self):
-        model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=5)
+        # model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=5)
+        model_1 = DualConvolutionalNetwork(num_channels=64)
         model_2 = copy.deepcopy(model_1)
         training_examples = []
 
@@ -63,5 +65,5 @@ class AlphaZero:
                 model_2 = copy.deepcopy(model_1)
                 print(f"Rejecting new model...")
                 self.logger.log("(Evaluation) Rejecting new model...", to_summary=True, to_iteration=True)
-            torch.save(model_2.state_dict(), "./models/recent/resnet_small_v3.pth")
+            torch.save(model_2.state_dict(), "./models/recent/cnn_v1.pth")
             self.logger.log("\n", to_summary=True)

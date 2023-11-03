@@ -23,6 +23,7 @@ class MCTS:
         self.dir_e = dir_e
 
     def get_action_prob(self, canonical_board, device, temp=0):
+        self.model.eval()
         for i in range(self.num_sims):
             self.search(canonical_board, is_root=True, device=device)
 

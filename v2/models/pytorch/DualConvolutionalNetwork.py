@@ -7,22 +7,37 @@ import torch.optim as optim
 import numpy as np
 
 
-class DualResidualNetwork(nn.Module):
-    def __init__(self, num_channels, num_res_blocks, kernel_size=(3, 3), padding=1):
-        super(DualResidualNetwork, self).__init__()
-        self.conv1 = nn.Conv2d(1, num_channels, kernel_size=kernel_size, padding=padding)
-        self.bn2d_1 = nn.BatchNorm2d(num_channels)
-        self.layers = nn.ModuleList()
-        for i in range(num_res_blocks):
-            self.layers.append(ResidualBlock(num_channels, num_channels, num_channels, kernel_size=(3, 3), padding=1))
-        self.policy_head = PolicyHead(num_channels, kernel_size=(1, 1), padding=1)
-        self.value_head = ValueHead(num_channels, fc_size=256, kernel_size=(1, 1), padding=1)
+class DualConvolutionalNetwork(nn.Module):
+    def __init__(self, num_channels):
+        super(DualConvolutionalNetwork, self).__init__()
+        self.conv1 = nn.Conv2d(1, num_channels, kernel_size=(4, 4), padding=0)
+        self.conv2 = nn.Conv2d(num_channels, num_channels, kernel_size=(2, 2), padding=0)
+        self.conv3 = nn.Conv2d(num_channels, num_channels, kernel_size=(2, 2), padding=0)
+
+        self.bn1 = nn.BatchNorm2d(num_channels)
+        self.bn2 = nn.BatchNorm2d(num_channels)
+        self.bn3 = nn.BatchNorm2d(num_channels)
+
+        self.fc1 = nn.Linear(128, 1024)
+        self.fc_bn1 = nn.BatchNorm1d(1024)
+        self.fc2 = nn.Linear(1024, 512)
+        self.fc_bn2 = nn.BatchNorm1d(512)
+
+        self.policy = nn.Linear(512, 7)
+        self.value = nn.Linear(512, 1)
 
     def forward(self, x):
-        x = F.relu(self.bn2d_1(self.conv1(x)))
-        for layer in self.layers[:-1]:
-            x = F.relu(layer(x))
-        return self.policy_head(x), self.value_head(x)
+        x = F.relu(self.bn1(self.conv1(x)))
+        x = F.relu(self.bn2(self.conv2(x)))
+        x = F.relu(self.bn3(self.conv3(x)))
+
+        x = torch.flatten(x, 1)
+        x = F.dropout(F.relu(self.fc_bn1(self.fc1(x))), p=0.3)
+        x = F.dropout(F.relu(self.fc_bn2(self.fc2(x))), p=0.3)
+
+        policy = self.policy(x)
+        value = self.value(x)
+        return F.softmax(policy, dim=-1), torch.tanh(value)
 
     def train_on_examples(self, examples, num_epochs=10, lr=0.001, weight_decay=0.0001, logger=None):
         optimizer = optim.Adam(self.parameters(), lr=lr, weight_decay=weight_decay)
@@ -77,52 +92,3 @@ class DualResidualNetwork(nn.Module):
             logger.log(f"(Training) Epoch: {epoch + 1}. Total loss: {total_loss:.3f}. Value loss: {value_loss:.3f}. "
                        f"Policy accuracy: {policy_acc:.3f}", to_summary=True, to_iteration=True)
         return copy.deepcopy(self)
-
-
-class ResidualBlock(nn.Module):
-    def __init__(self, in_size, hidden_size, out_size, kernel_size=(3, 3), padding=0):
-        super().__init__()
-        self.conv1 = nn.Conv2d(in_size, hidden_size, kernel_size=kernel_size, padding=padding)
-        self.conv2 = nn.Conv2d(hidden_size, out_size, kernel_size=kernel_size, padding=padding)
-        self.bn2d_1 = nn.BatchNorm2d(hidden_size)
-        self.bn2d_2 = nn.BatchNorm2d(out_size)
-
-    def conv_block(self, x):
-        x = F.relu(self.bn2d_1(self.conv1(x)))
-        x = F.relu(self.bn2d_2(self.conv2(x)))
-        return x
-
-    def forward(self, x):
-        return x + self.conv_block(x)
-
-
-class ValueHead(nn.Module):
-    def __init__(self, in_size, fc_size, kernel_size=(1, 1), padding=0):
-        super().__init__()
-        self.conv1 = nn.Conv2d(in_size, 1, kernel_size=(1, 1), padding=padding)
-        self.bn2d_1 = nn.BatchNorm2d(1)
-        self.fc1 = nn.Linear(72, fc_size)
-        self.fc2 = nn.Linear(fc_size, fc_size)
-        self.value = nn.Linear(fc_size, 1)
-
-    def forward(self, x):
-        x = F.relu(self.bn2d_1(self.conv1(x)))
-        x = x.view(x.size(0), -1)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        return torch.tanh(self.value(x))
-
-
-class PolicyHead(nn.Module):
-    def __init__(self, in_size, kernel_size=(1, 1), padding=0):
-        super().__init__()
-        self.conv1 = nn.Conv2d(in_size, 1, kernel_size=(2, 2), padding=padding)
-        self.bn2d_1 = nn.BatchNorm2d(1)
-        self.policy = nn.Linear(56, 7)
-
-    def forward(self, x):
-        x = F.relu(self.bn2d_1(self.conv1(x)))
-        x = x.view(x.size(0), -1)
-        x = self.policy(x)
-        print(x.shape)
-        return F.softmax(x, dim=-1)
