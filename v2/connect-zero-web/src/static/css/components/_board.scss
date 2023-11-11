@@ -92,17 +92,17 @@
     // }
 
     #board {
-        // height: 100px;
-        // width: 10px !;
+        height: 100px;
+        width: 50px !important;
         top: 250px;
     }
 
     td {
-        // padding: 1px;
+        padding: 10px !important;
         .board-cell {
-            height: 29px !important;
-            width: 29px !important;
-            transform: translate(-50%, -65%) !important;
+            height: 25px !important;
+            width: 25px !important;
+            transform: translate(-50%, -0%) !important;
         }
     }
     
