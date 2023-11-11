@@ -1,0 +1,35 @@
+.player-info-container {
+    display: inline-block;
+    // border: 1px solid black;
+    width: 50%;
+    height: 100%;
+    // padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+    .color {
+        width: 40%;
+        height: 100%;
+        // border: 1px solid black;
+    }
+
+    #color-1 {
+        background-color: _palette(accent-1);
+        margin-left: auto; 
+        margin-right: 0;
+    }
+
+    #color-2 {
+        background-color: _palette(accent-3);
+    }
+
+    #player-id-text-1, #player-type-text-1 {
+        position: relative;
+        right: 70px;
+    }
+
+    #player-id-text-2, #player-type-text-2 {
+        position: relative;
+        left: 90px;
+    }
+}
