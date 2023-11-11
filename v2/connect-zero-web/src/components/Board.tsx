@@ -133,10 +133,10 @@ class Board extends React.Component<IProps, IState> {
                     ))}
                     
                 </table>
-                {/* <div id="board-info-container">
+                <div id="board-info-container">
                     <BoardPlayerInfo playerID={1}/>
                     <BoardPlayerInfo playerID={2}/>
-                </div> */}
+                </div>
             </div>
         )
     }

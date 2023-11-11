@@ -8,8 +8,8 @@
     padding-right: 15px;
     
     .color {
-        width: 40%;
-        height: 100%;
+        width: 60px;
+        height: 60px;
         // border: 1px solid black;
     }
 
@@ -23,13 +23,27 @@
         background-color: _palette(accent-3);
     }
 
-    #player-id-text-1, #player-type-text-1 {
-        position: relative;
-        right: 70px;
+    // #player-id-text-1, #player-type-text-1 {
+    //     position: relative;
+    //     right: 70px;
+    // }
+
+    // #player-id-text-2, #player-type-text-2 {
+    //     position: relative;
+    //     left: 90px;
+    // }
+}
+
+@media (max-width: 600px) {
+    .player-info-container {
+        padding-right: 10px;
+        padding-left: 10px;
     }
 
-    #player-id-text-2, #player-type-text-2 {
-        position: relative;
-        left: 90px;
+    .color {
+        width: 40px !important;
+        height: 40px !important;
     }
+    
+    
 }
