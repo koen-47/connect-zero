@@ -1,9 +1,9 @@
 #board-container {
     position: absolute;
     // border: 1px solid red;
-    height: 20vw;
-    width: 20vw;
-    top: 400px;
+    height: 80%;
+    width: 50%;
+    top: 350px;
     left: 50%; 
     transform: translate(-50%, -50%);
 
@@ -18,17 +18,17 @@
     left: 50%; 
     transform: translate(-50%, -50%);
     height: 100%;
-    width: 100%;
+    // width: 100%;
     // border: 1px solid blue;
 
     td {
-        padding: 0.6vw;
+        padding: 12px;
         text-align: center;
         background-color: _palette(bg-1-darken);
             
         .board-cell {
-            height: 2vw;
-            width: 2vw;
+            height: 40px;
+            width: 40px;
             transform: translate(-50%, -50%);
             top: 50%;
             left: 50%;
@@ -85,16 +85,26 @@
 
 
 
-// @media (max-width: 600px) {
-//     #board {
-//         height: 300px;
-//         width: 400px;
-//         top: 300px;
-//     }
+@media (max-width: 600px) {
+    // #board-container {
+    //     width: 100px;
+    //     height: 100px;
+    // }
 
-//     td.board-cell {
-//         position: relative;
-//         height: 100px;
-//         width: 100px;
-//     }
-// }
+    #board {
+        // height: 100px;
+        // width: 10px !;
+        top: 250px;
+    }
+
+    td {
+        // padding: 1px;
+        .board-cell {
+            height: 29px !important;
+            width: 29px !important;
+            transform: translate(-50%, -65%) !important;
+        }
+    }
+    
+    
+}
