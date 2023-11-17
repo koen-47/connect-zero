@@ -2,11 +2,10 @@
     position: absolute;
     // border: 1px solid red;
     height: 80%;
-    width: 100%;
+    width: 50%;
     top: 350px;
     left: 50%; 
     transform: translate(-50%, -50%);
-
 }
 
 #board {
@@ -104,6 +103,9 @@
             transform: translate(-50%, -0%) !important;
         }
     }
-    
-    
+}
+
+.disabled {
+    opacity: 0.75;
+    pointer-events: none;
 }

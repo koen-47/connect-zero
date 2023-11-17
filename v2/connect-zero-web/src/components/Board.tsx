@@ -2,6 +2,7 @@ import { access } from 'fs';
 import React from 'react';
 
 import BoardPlayerInfo from './BoardPlayerInfo';
+import checkFourAdjacent from "../utils/GameUtils"
 
 interface IProps {
 
@@ -11,7 +12,9 @@ interface IState {
     board: Array<Array<number>>,
     currentColumnHover: number,
     currentPlayer: number,
-    humanID: number
+    humanID: number,
+    isGameOver: boolean,
+    isRequesting: boolean
 }
 
 
@@ -22,12 +25,14 @@ class Board extends React.Component<IProps, IState> {
             board: [[0, 0, 0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 0],
-                    [0, 0, 0, 0, 0, 0, 0]],
+                    [0, 0, 0, -1, 0, 0, 0],
+                    [0, 0, 0, -1, 0, 0, 0],
+                    [0, 0, 0, -1, 0, 0, 0]],
             currentColumnHover: -1,
             currentPlayer: 1,
-            humanID: 1
+            humanID: 1,
+            isGameOver: false,
+            isRequesting: false
         }
     }
 
@@ -83,6 +88,13 @@ class Board extends React.Component<IProps, IState> {
                 break
             }
         }
+
+        const isGameOver = checkFourAdjacent(this.state.board)
+        if (isGameOver) {
+            alert(`Game over! (${isGameOver})`)
+        }
+
+        return isGameOver;
     }
 
     fetchConnectZeroMove(): Promise<any> {
@@ -105,20 +117,27 @@ class Board extends React.Component<IProps, IState> {
     }
 
     playTurn(col: number) {
-        this.playMove(col)
-        
-        console.log(`Sending board...`)
-        console.log(this.state.board)
+        var isGameOver = checkFourAdjacent(this.state.board)
+        if (!isGameOver) {
+            isGameOver = this.playMove(col)
+            this.setState({isGameOver: isGameOver})        
+        }
 
-        this.fetchConnectZeroMove().then((action) => {
-            this.playMove(action)
-        })
+        if (!isGameOver) {
+            console.log(`Sending board...`)
+            console.log(this.state.board)
+            this.setState({isRequesting: true})
+            this.fetchConnectZeroMove().then((action) => {
+                isGameOver = this.playMove(action)
+                this.setState({isRequesting: false, isGameOver: isGameOver})
+            })
+        }
     }
 
     render(): React.ReactNode {
         return (
             <div id="board-container">
-                <table id="board">
+                <table id="board" className={this.state.isRequesting || this.state.isGameOver ? "disabled" : ""}>
                     {[...Array(this.state.board.length)].map((_, i) => (
                         <tr>
                             {[...Array(this.state.board[0].length)].map((_, j) => (
