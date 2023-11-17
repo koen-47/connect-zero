@@ -134,8 +134,8 @@ class Board extends React.Component<IProps, IState> {
                     
                 </table>
                 <div id="board-info-container">
-                    <BoardPlayerInfo playerID={1}/>
-                    <BoardPlayerInfo playerID={2}/>
+                    <BoardPlayerInfo playerID={1} isPlaying={this.state.currentPlayer == 1} humanID={this.state.humanID}/>
+                    <BoardPlayerInfo playerID={2} isPlaying={this.state.currentPlayer == -1} humanID={this.state.currentPlayer}/>
                 </div>
             </div>
         )
