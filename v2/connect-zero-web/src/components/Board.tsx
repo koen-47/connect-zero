@@ -14,7 +14,8 @@ interface IState {
     currentPlayer: number,
     humanID: number,
     isGameOver: boolean,
-    isRequesting: boolean
+    isRequesting: boolean,
+    connectFourIndices: Array<Array<number>>
 }
 
 
@@ -32,7 +33,8 @@ class Board extends React.Component<IProps, IState> {
             currentPlayer: 1,
             humanID: 1,
             isGameOver: false,
-            isRequesting: false
+            isRequesting: false,
+            connectFourIndices: [[]]
         }
     }
 
@@ -68,8 +70,16 @@ class Board extends React.Component<IProps, IState> {
         return "board-cell-no-player"
     }
 
+    getCellGameOverClass(i: number, j: number): string {
+        const containsConnectFour = this.state.connectFourIndices.some(row => row.every((value, index) => value === [i, j][index]))
+        if (containsConnectFour) {
+            return "connect-four"
+        }
+        return "not-connect-four"
+    }
+
     getColumnHighlight(col: number): string {
-        if (this.state.currentColumnHover == col) {
+        if (!this.state.isGameOver && this.state.currentColumnHover == col) {
             if (this.state.currentPlayer == 1) {
                 return "board-cell-highlight-p1"
             }
@@ -89,9 +99,10 @@ class Board extends React.Component<IProps, IState> {
             }
         }
 
-        const isGameOver = checkFourAdjacent(this.state.board)
+        const fourAdjacent = checkFourAdjacent(this.state.board)
+        const isGameOver = fourAdjacent.length == 1 ? false : true
         if (isGameOver) {
-            alert(`Game over! (${isGameOver})`)
+            this.setState({connectFourIndices: fourAdjacent})
         }
 
         return isGameOver;
@@ -117,7 +128,8 @@ class Board extends React.Component<IProps, IState> {
     }
 
     playTurn(col: number) {
-        var isGameOver = checkFourAdjacent(this.state.board)
+        const fourAdjacent = checkFourAdjacent(this.state.board)
+        var isGameOver = fourAdjacent.length == 1 ? false : true
         if (!isGameOver) {
             isGameOver = this.playMove(col)
             this.setState({isGameOver: isGameOver})        
@@ -137,7 +149,7 @@ class Board extends React.Component<IProps, IState> {
     render(): React.ReactNode {
         return (
             <div id="board-container">
-                <table id="board" className={this.state.isRequesting || this.state.isGameOver ? "disabled" : ""}>
+                <table id="board" className={this.state.isRequesting ? "disabled" : ""}>
                     {[...Array(this.state.board.length)].map((_, i) => (
                         <tr>
                             {[...Array(this.state.board[0].length)].map((_, j) => (
@@ -145,16 +157,18 @@ class Board extends React.Component<IProps, IState> {
                                 onMouseEnter={() => this.setState({currentColumnHover: j})}
                                 onMouseLeave={() => this.setState({currentColumnHover: -1})}
                                 onClick={() => this.playTurn(j)}>
-                                    <div className={`board-cell ${this.getCellValueClass(i, j)}`} />
+                                    <div className={`board-cell ${this.getCellValueClass(i, j)} 
+                                    ${this.state.isGameOver && this.getCellGameOverClass(i, j)}`}/>
                                 </td>
                             ))}
                         </tr>
                     ))}
-                    
                 </table>
                 <div id="board-info-container">
-                    <BoardPlayerInfo playerID={1} isPlaying={this.state.currentPlayer == 1} humanID={this.state.humanID}/>
-                    <BoardPlayerInfo playerID={2} isPlaying={this.state.currentPlayer == -1} humanID={this.state.currentPlayer}/>
+                    <BoardPlayerInfo playerID={1} isPlaying={!this.state.isGameOver && this.state.currentPlayer == 1} 
+                    humanID={this.state.humanID}/>
+                    <BoardPlayerInfo playerID={2} isPlaying={!this.state.isGameOver && this.state.currentPlayer == -1} 
+                    humanID={this.state.currentPlayer}/>
                 </div>
             </div>
         )

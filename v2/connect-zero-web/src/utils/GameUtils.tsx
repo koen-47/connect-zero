@@ -1,4 +1,4 @@
-export default function checkFourAdjacent(matrix: any[][]): boolean {
+export default function checkFourAdjacent(matrix: any[][]): Array<Array<number>> {
     const rows = matrix.length;
     const cols = matrix[0].length;
 
@@ -9,7 +9,7 @@ export default function checkFourAdjacent(matrix: any[][]): boolean {
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols - 3; j++) {
             if (checkAdjacent(matrix[i][j], matrix[i][j + 1], matrix[i][j + 2], matrix[i][j + 3])) {
-                return true;
+                return [[i, j], [i, j+1], [i, j+2], [i, j+3]];
             }
         }
     }
@@ -17,7 +17,7 @@ export default function checkFourAdjacent(matrix: any[][]): boolean {
     for (let i = 0; i < rows - 3; i++) {
         for (let j = 0; j < cols; j++) {
             if (checkAdjacent(matrix[i][j], matrix[i + 1][j], matrix[i + 2][j], matrix[i + 3][j])) {
-                return true;
+                return [[i, j], [i+1, j], [i+2, j], [i+3, j]];
             }
         }
     }
@@ -25,7 +25,7 @@ export default function checkFourAdjacent(matrix: any[][]): boolean {
     for (let i = 3; i < rows; i++) {
         for (let j = 0; j < cols - 3; j++) {
             if (checkAdjacent(matrix[i][j], matrix[i - 1][j + 1], matrix[i - 2][j + 2], matrix[i - 3][j + 3])) {
-                return true;
+                return [[i, j], [i-1, j+1], [i-2, j+2], [i-3, j+3]];
             }
         }
     }
@@ -33,10 +33,10 @@ export default function checkFourAdjacent(matrix: any[][]): boolean {
     for (let i = 0; i < rows - 3; i++) {
         for (let j = 0; j < cols - 3; j++) {
             if (checkAdjacent(matrix[i][j], matrix[i + 1][j + 1], matrix[i + 2][j + 2], matrix[i + 3][j + 3])) {
-                return true;
+                return [[i, j], [i+1, j+1], [i+2, j+2], [i+3, j+3]];
             }
         }
     }
 
-    return false;
+    return [[]];
 }
