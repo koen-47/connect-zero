@@ -1,5 +1,7 @@
 import copy
+import json
 
+import numpy as np
 import torch
 
 from v2.brain.MCTS import MCTS
@@ -19,12 +21,14 @@ class AlphaZero:
         self.n_iterations = n_iterations
         self.n_episodes = n_episodes
         self.n_games = n_games
+        self.max_buffer_size = 200000
         self.logger = Logger(iteration_path="./logs/recent/log_iteration_1",
                              summary_path="./logs/recent/log_summary")
 
     def start(self):
-        # model_1 = DualResidualNetwork(num_channels=128, num_res_blocks=5)
-        model_1 = DualConvolutionalNetwork(num_channels=64)
+        version = 3
+        num_channels, num_res_blocks = 64, 4
+        model_1 = DualResidualNetwork(num_channels=num_channels, num_res_blocks=num_res_blocks)
         model_2 = copy.deepcopy(model_1)
         training_examples = []
 
@@ -32,18 +36,25 @@ class AlphaZero:
             self.logger.set_log_iteration_file(num=i + 1, file=f"./logs/recent/log_iteration_{i + 1}")
             self.logger.log(f"Iteration {i+1}", to_summary=True, to_iteration=True)
             self_play = SelfPlay(self.game, logger=self.logger)
-            dataset, results = self_play.play_episodes(model_1, n_episodes=self.n_episodes)
-            training_examples.extend(dataset.data)
-            self.logger.log(f"(Self-play) Number of new training examples: {len(dataset.data)}", to_summary=True,
+            examples, results = self_play.play_episodes(model_1, n_episodes=self.n_episodes)
+            training_examples.extend(examples)
+
+            if len(training_examples) > self.max_buffer_size:
+                training_examples = training_examples[-self.max_buffer_size:]
+
+            with open(f"./data/dataset_v{version}_{num_channels}_{num_res_blocks}.json", "w") as file:
+                json.dump(training_examples, file)
+
+            self.logger.log(f"(Self-play) Number of new training examples: {len(examples)}", to_summary=True,
                             to_iteration=True)
             self.logger.log(f"(Self-play) Number of total training examples: {len(training_examples)}", to_summary=True,
                             to_iteration=True)
             self.logger.log(f"(Self-play) Model 1 wins: {results[2]}. Draws: {results[1]}. Model 2 wins: {results[0]}",
                             to_summary=True)
 
-            model_2 = model_2.train_on_examples(training_examples, lr=0.0001, logger=self.logger)
-            mcts_1 = MCTS(self.game, model_1, self.device)
-            mcts_2 = MCTS(self.game, model_2, self.device)
+            model_2 = model_2.train_on_examples(training_examples, num_epochs=3, lr=0.001, logger=self.logger)
+            mcts_1 = MCTS(self.game, model_1, self.device, c_puct=1.5, dir_e=0.)
+            mcts_2 = MCTS(self.game, model_2, self.device, c_puct=1.5, dir_e=0.)
 
             player_1 = Player(1, strategy=AlphaZeroStrategy(mcts=mcts_1))
             player_2 = Player(-1, strategy=AlphaZeroStrategy(mcts=mcts_2))
@@ -65,5 +76,5 @@ class AlphaZero:
                 model_2 = copy.deepcopy(model_1)
                 print(f"Rejecting new model...")
                 self.logger.log("(Evaluation) Rejecting new model...", to_summary=True, to_iteration=True)
-            torch.save(model_2.state_dict(), "./models/recent/cnn_v1.pth")
+            torch.save(model_2.state_dict(), f"./models/recent/resnet_v{version}_{num_channels}_{num_res_blocks}.pth")
             self.logger.log("\n", to_summary=True)

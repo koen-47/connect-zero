@@ -40,6 +40,8 @@ class Game:
     def get_canonical_form(self, board, player):
         return board * player
 
+        return board * player
+
     def get_symmetries(self, board, pi):
         """Board is left/right board symmetric"""
         return [(board, pi), (board[:, ::-1], pi[::-1])]

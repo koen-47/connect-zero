@@ -25,31 +25,40 @@ class SelfPlay:
         self.dataset = Dataset()
 
     def play_episodes(self, model, n_episodes, temp_threshold=15):
-        dataset = Dataset()
+        examples = []
         results = [0] * 3
 
         for i in tqdm(range(n_episodes), desc="Self-play"):
             reward, n_turn, player = 0, 0, 1
             board = self.game.get_init_board()
-            mcts = MCTS(self.game, model, self.device)
+            mcts = MCTS(self.game, model, self.device, c_puct=1.5, dir_alpha=0.5)
+            episode_examples = []
+
             while reward == 0:
                 self.logger.log(f"(Self-play) Episode {i + 1}. Turn {n_turn + 1}.", to_iteration=True)
                 state = self.game.get_canonical_form(board, player)
                 temp = int(n_turn < temp_threshold)
                 action, probs = mcts.get_action_prob(state, temp=temp, device=self.device)
-                dataset.add(state, probs, player, with_symmetry=True)
+
+                episode_examples += [[state, probs, player, None]]
+                episode_examples += [[np.fliplr(state), np.flip(probs), player, None]]
+
                 board, player = self.game.get_next_state(board, player, action)
-                self.logger.log(f"Action: {action}. Policy: {np.round(np.array(probs), decimals=5)}", to_iteration=True)
+                self.logger.log(f"Action: {action}. Policy: {np.round(np.array(probs), decimals=4)}", to_iteration=True)
                 self.logger.log(self.game.display(board, color=False), to_iteration=True)
-                reward = self.game.get_game_ended(board, -player)
+                reward = self.game.get_game_ended(board, player)
+                n_turn += 1
+
                 # if reward != 0:
                 #     print(self.game.display(board))
                 #     print(reward, player, Board(state=board).get_status())
-                n_turn += 1
+
             results[int(np.rint(reward)) + 1] += 1
-            dataset.set_rewards(reward, player)
-        dataset.data = np.delete(dataset.data, 2, 1)
-        print(dataset.data)
-        dataset.shuffle()
-        print(results)
-        return dataset, results
+            for j, example in enumerate(episode_examples):
+                example[3] = reward if player == example[2] else -reward
+                episode_examples[j] = [example[0].tolist(), example[1].tolist(), example[3]]
+            examples += episode_examples
+
+        # print(examples)
+        print(f"Results from self-play: {results}")
+        return examples, results

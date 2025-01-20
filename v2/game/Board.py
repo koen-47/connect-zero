@@ -19,9 +19,6 @@ class Board:
         return self.state[0] == 0
 
     def get_status(self):
-        if sum(self.get_valid_moves()) == 0:
-            return None
-
         for i in range(self.height):
             for j in range(self.width):
                 if (i + 3) < self.height:
@@ -58,6 +55,10 @@ class Board:
                 if self.state[i][j] == -1 and self.state[i + 1][j + 1] == -1 and \
                         self.state[i + 2][j + 2] == -1 and self.state[i + 3][j + 3] == -1:
                     return -1
+
+        if sum(self.get_valid_moves()) == 0:
+            return None
+
         return 0
 
     def clone(self, state):

@@ -1,20 +1,37 @@
-2023-11-03 22:42:24,423 Iteration 1
-2023-11-03 22:46:18,505 (Self-play) Number of new training examples: 482
-2023-11-03 22:46:18,506 (Self-play) Number of total training examples: 482
-2023-11-03 22:46:18,506 (Self-play) Model 1 wins: 5. Draws: 0. Model 2 wins: 5
-2023-11-03 22:46:20,083 (Training) Epoch: 1. Total loss: 2.864. Value loss: 0.888. Policy accuracy: 0.145
-2023-11-03 22:46:20,286 (Training) Epoch: 2. Total loss: 2.663. Value loss: 0.686. Policy accuracy: 0.154
-2023-11-03 22:46:20,480 (Training) Epoch: 3. Total loss: 2.484. Value loss: 0.507. Policy accuracy: 0.132
-2023-11-03 22:46:20,686 (Training) Epoch: 4. Total loss: 2.343. Value loss: 0.371. Policy accuracy: 0.172
-2023-11-03 22:46:20,879 (Training) Epoch: 5. Total loss: 2.317. Value loss: 0.341. Policy accuracy: 0.152
-2023-11-03 22:46:21,062 (Training) Epoch: 6. Total loss: 2.286. Value loss: 0.309. Policy accuracy: 0.132
-2023-11-03 22:46:21,249 (Training) Epoch: 7. Total loss: 2.244. Value loss: 0.280. Policy accuracy: 0.179
-2023-11-03 22:46:21,435 (Training) Epoch: 8. Total loss: 2.234. Value loss: 0.267. Policy accuracy: 0.163
-2023-11-03 22:46:21,638 (Training) Epoch: 9. Total loss: 2.190. Value loss: 0.230. Policy accuracy: 0.210
-2023-11-03 22:46:21,873 (Training) Epoch: 10. Total loss: 2.134. Value loss: 0.179. Policy accuracy: 0.194
-2023-11-03 22:48:37,699 (Evaluation) Win rate: 1.0
-2023-11-03 22:48:37,699 (Evaluation) Model 1 wins: 0. Draws: 0. Model 2 wins: 4
-2023-11-03 22:48:37,711 (Evaluation) Accepting new model...
-2023-11-03 22:48:37,738 
+2025-01-20 14:40:12,218 Iteration 1
+2025-01-20 15:22:00,060 (Self-play) Number of new training examples: 4832
+2025-01-20 15:22:00,060 (Self-play) Number of total training examples: 4832
+2025-01-20 15:22:00,060 (Self-play) Model 1 wins: 52. Draws: 7. Model 2 wins: 41
+2025-01-20 15:22:03,253 (Training) Epoch: 1. Total loss: 2.510. Value loss: 0.539. Policy accuracy: 0.272
+2025-01-20 15:22:04,045 (Training) Epoch: 2. Total loss: 2.131. Value loss: 0.174. Policy accuracy: 0.280
+2025-01-20 15:22:04,803 (Training) Epoch: 3. Total loss: 2.078. Value loss: 0.133. Policy accuracy: 0.287
+2025-01-20 15:37:34,108 (Evaluation) Win rate: 0.45
+2025-01-20 15:37:34,108 (Evaluation) Model 1 wins: 8. Draws: 3. Model 2 wins: 9
+2025-01-20 15:37:34,117 (Evaluation) Rejecting new model...
+2025-01-20 15:37:34,136 
 
-2023-11-03 22:48:37,741 Iteration 2
+2025-01-20 15:37:34,136 Iteration 2
+2025-01-20 16:59:04,199 (Self-play) Number of new training examples: 4926
+2025-01-20 16:59:04,199 (Self-play) Number of total training examples: 9758
+2025-01-20 16:59:04,200 (Self-play) Model 1 wins: 45. Draws: 7. Model 2 wins: 48
+2025-01-20 16:59:06,426 (Training) Epoch: 1. Total loss: 2.452. Value loss: 0.490. Policy accuracy: 0.276
+2025-01-20 16:59:08,268 (Training) Epoch: 2. Total loss: 2.096. Value loss: 0.152. Policy accuracy: 0.295
+2025-01-20 16:59:09,972 (Training) Epoch: 3. Total loss: 2.022. Value loss: 0.089. Policy accuracy: 0.305
+2025-01-20 17:21:51,624 (Evaluation) Win rate: 0.4
+2025-01-20 17:21:51,625 (Evaluation) Model 1 wins: 12. Draws: 0. Model 2 wins: 8
+2025-01-20 17:21:51,634 (Evaluation) Rejecting new model...
+2025-01-20 17:21:51,648 
+
+2025-01-20 17:21:51,650 Iteration 3
+2025-01-20 18:06:33,598 (Self-play) Number of new training examples: 4956
+2025-01-20 18:06:33,598 (Self-play) Number of total training examples: 14714
+2025-01-20 18:06:33,598 (Self-play) Model 1 wins: 50. Draws: 7. Model 2 wins: 43
+2025-01-20 18:06:36,758 (Training) Epoch: 1. Total loss: 2.413. Value loss: 0.454. Policy accuracy: 0.282
+2025-01-20 18:06:39,123 (Training) Epoch: 2. Total loss: 2.063. Value loss: 0.131. Policy accuracy: 0.314
+2025-01-20 18:06:41,520 (Training) Epoch: 3. Total loss: 2.013. Value loss: 0.097. Policy accuracy: 0.334
+2025-01-20 18:16:04,374 (Evaluation) Win rate: 0.15
+2025-01-20 18:16:04,374 (Evaluation) Model 1 wins: 16. Draws: 1. Model 2 wins: 3
+2025-01-20 18:16:04,382 (Evaluation) Rejecting new model...
+2025-01-20 18:16:04,403 
+
+2025-01-20 18:16:04,404 Iteration 4

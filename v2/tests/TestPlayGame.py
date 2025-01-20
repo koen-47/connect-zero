@@ -7,6 +7,7 @@ from v2.game.Game import Game
 from v2.game.Player import Player
 from v2.brain.Arena import Arena
 from v2.brain.Evaluator import Evaluator
+from v2.models.pytorch.DualConvolutionalNetwork import DualConvolutionalNetwork
 from v2.strategy.ManualStrategy import ManualStrategy
 from v2.strategy.RandomStrategy import RandomStrategy
 from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2
@@ -21,8 +22,8 @@ class TestPlayGame(unittest.TestCase):
     def test_play_manual_p1(self):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model = DualResidualNetwork(num_channels=512, num_res_blocks=1).to(device)
-        model.load_state_dict(torch.load("../models/recent/resnet_small.pth"))
+        model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
+        model.load_state_dict(torch.load("../models/saved/resnet_128_8_71.pth"))
         mcts = MCTS(game=g, model=model, device=device, c_puct=1., dir_e=0)
 
         player_1 = Player(1, strategy=ManualStrategy())
@@ -33,8 +34,9 @@ class TestPlayGame(unittest.TestCase):
     def test_play_manual_p2(self):
         g = Game()
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
-        model.load_state_dict(torch.load("../models/recent/resnet_3.pth"))
+        # model = DualResidualNetwork(num_channels=128, num_res_blocks=8).to(device)
+        model = DualConvolutionalNetwork(num_channels=64).to(device)
+        model.load_state_dict(torch.load("../models/recent/cnn_v1.pth"))
         mcts = MCTS(game=g, model=model, device=device, c_puct=1.)
 
         player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))

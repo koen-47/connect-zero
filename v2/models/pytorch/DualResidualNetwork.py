@@ -25,6 +25,8 @@ class DualResidualNetwork(nn.Module):
         return self.policy_head(x), self.value_head(x)
 
     def train_on_examples(self, examples, num_epochs=10, lr=0.001, weight_decay=0.0001, logger=None):
+        shuffled_examples = copy.deepcopy(examples)
+        np.random.shuffle(shuffled_examples)
         optimizer = optim.Adam(self.parameters(), lr=lr, weight_decay=weight_decay)
 
         criterion1 = nn.CrossEntropyLoss()
@@ -43,10 +45,10 @@ class DualResidualNetwork(nn.Module):
             total_policy_acc = 0
 
             batch_size = 64
-            batch_count = max(1, int(len(examples) / batch_size))
+            batch_count = max(1, int(len(shuffled_examples) / batch_size))
             for i in range(batch_count):
-                sample_ids = np.random.randint(len(examples), size=batch_size)
-                boards, move, value = list(zip(*[examples[i] for i in sample_ids]))
+                sample_ids = np.random.randint(len(shuffled_examples), size=batch_size)
+                boards, move, value = list(zip(*[shuffled_examples[i] for i in sample_ids]))
                 boards = torch.FloatTensor(np.array(boards).astype(np.float64)).unsqueeze(dim=1).to(device)
                 target_move = torch.FloatTensor(np.array(move)).to(device)
                 target_value = torch.FloatTensor(np.array(value).astype(np.float64)).unsqueeze(dim=1).to(device)
@@ -124,5 +126,4 @@ class PolicyHead(nn.Module):
         x = F.relu(self.bn2d_1(self.conv1(x)))
         x = x.view(x.size(0), -1)
         x = self.policy(x)
-        print(x.shape)
         return F.softmax(x, dim=-1)

@@ -27,7 +27,8 @@ class Evaluator:
             if display:
                 print(game.display(board))
 
-        result = player.id * status
+        # result = player.id * status
+        result = status
         if self.logger is not None:
             self.logger.log(f"(Evaluation) Result: {result}", to_iteration=True)
             self.logger.log(f"{game.display(board, color=False)}", to_iteration=True)
@@ -44,10 +45,10 @@ class Evaluator:
         all_states = []
         results = [0, 0, 0]
         results = play_half(results, all_states, 1)
-        print(results)
+        # print(results)
         self.player_1, self.player_2 = self.player_2, self.player_1
         results = play_half(results, all_states, 2)
-        print(results)
+        # print(results)
         if return_states:
             return results, all_states
         return results
