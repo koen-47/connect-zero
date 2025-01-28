@@ -12,7 +12,7 @@ class Evaluator:
 
     def play_game(self, display=False):
         game = Game()
-        board = game.get_init_board()
+        board = game.get_initial_board()
         status = 0
         player = self.player_1
         states = []
@@ -23,7 +23,7 @@ class Evaluator:
             board, _ = game.get_next_state(board, player.id, action)
             states.append((board, player.id, action, policy))
             player = self.player_2 if player.id == self.player_1.id else self.player_1
-            status = game.get_game_ended(board, player.id)
+            status = game.get_game_ended(board)
             if display:
                 print(game.display(board))
 
@@ -45,10 +45,8 @@ class Evaluator:
         all_states = []
         results = [0, 0, 0]
         results = play_half(results, all_states, 1)
-        # print(results)
         self.player_1, self.player_2 = self.player_2, self.player_1
         results = play_half(results, all_states, 2)
-        # print(results)
         if return_states:
             return results, all_states
         return results

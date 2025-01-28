@@ -43,7 +43,7 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
         valid_moves = self.game.get_valid_moves(board)
         valid_moves = np.where(np.array(valid_moves) == 1)[0]
 
-        game_status = self.game.get_game_ended(board, player)
+        game_status = self.game.get_game_ended(board)
         if depth == 0 or len(valid_moves) == 0 or game_status != 0:
             return self.__constant_reward(player, game_status)
 
@@ -64,7 +64,7 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
     def maximize_alpha(self, board, depth, a, b, player, opponent):
         valid_moves = self.game.get_valid_moves(board)
         valid_moves = np.where(np.array(valid_moves) == 1)[0]
-        game_status = self.game.get_game_ended(board, player)
+        game_status = self.game.get_game_ended(board)
         if depth == 0 or len(valid_moves) == 0 or game_status != 0:
             return self.__constant_reward(player, game_status)
 
@@ -88,4 +88,4 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
             return -1
         elif game_status == -1 and player_id == -1:
             return 1
-        return 0.5
+        return 0.

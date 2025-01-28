@@ -9,9 +9,10 @@ from v2.game.Game import Game
 from v2.game.Player import Player
 from v2.models.pytorch.DualResidualNetwork import DualResidualNetwork
 from v2.models.pytorch.DualConvolutionalNetwork import DualConvolutionalNetwork
-from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2
+from v2.strategy.AlphaZeroStrategy import AlphaZeroStrategy
 from v2.strategy.ManualStrategy import ManualStrategy
 from v2.strategy.RandomStrategy import RandomStrategy
+from v2.game.Board import encode_board
 
 
 class TestModel(unittest.TestCase):
@@ -33,22 +34,23 @@ class TestModel(unittest.TestCase):
         print(policy, value)
 
     def test_value_prediction_2(self):
-        board = [[0, 0, 0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0, 0, 0],
-                 [0, 0, 0, 1, 0, 0, 0],
-                 [0, 0, 0, 1, 0, 0, 0],
-                 [0, 0, 0, -1, 0, 0, 0]]
+        board = np.array([[ 0,  0,  0,  0,  0,  0,  0],
+                          [ 0,  0,  0,  0,  0,  0,  0],
+                          [ 1,  0,  0,  0,  0,  0,  0],
+                          [-1, -1, -1,  0,  0,  1,  0],
+                          [ 1,  1, -1,  1,  0, -1,  0],
+                          [ 1, -1,  1, -1, -1,  1,  0]])
+        board = encode_board(board, 1)
 
         device = torch.device("cpu")
-        model = DualConvolutionalNetwork(num_channels=64).to(device)
-        model.load_state_dict(torch.load("../models/recent/cnn_v1.pth"))
+        model = DualResidualNetwork(num_channels=512, num_res_blocks=2).to(device)
+        model.load_state_dict(torch.load("../models/saved/resnet_v1_512_2.pth"))
         model.eval()
 
         tensor_state = torch.tensor(np.array(board), dtype=torch.float32)
-        tensor_state = tensor_state.unsqueeze(dim=0).unsqueeze(dim=0).to(device)
-        _, value = model(tensor_state)
-        print(value)
+        tensor_state = tensor_state.unsqueeze(dim=0).to(device)
+        policy, value = model(tensor_state)
+        print(policy, value)
 
     def test_play_game(self):
         self.play_game(display=True)
@@ -66,7 +68,7 @@ class TestModel(unittest.TestCase):
         player_1 = Player(1, strategy=AlphaZeroStrategyV2(mcts=mcts))
         player_2 = Player(-1, strategy=AlphaZeroStrategyV2(mcts=mcts))
 
-        board = game.get_init_board()
+        board = game.get_initial_board()
         status = 0
         player = player_1
         states = []
@@ -77,7 +79,7 @@ class TestModel(unittest.TestCase):
             board, _ = game.get_next_state(board, player.id, action)
             states.append((board, player.id, action, policy))
             player = player_2 if player.id == player_1.id else player_1
-            status = game.get_game_ended(board, player.id)
+            status = game.get_game_ended(board)
             if display:
                 print(game.display(board))
                 # print(board)

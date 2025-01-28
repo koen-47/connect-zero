@@ -7,11 +7,12 @@ import torch
 from v2.brain.MCTS import MCTS
 from v2.logs.Logger import Logger
 from v2.models.pytorch.DualResidualNetwork import DualResidualNetwork
-from v2.models.pytorch.DualConvolutionalNetwork import DualConvolutionalNetwork
 from v2.brain.Evaluator import Evaluator
 from v2.brain.SelfPlay import SelfPlay
 from v2.game.Player import Player
-from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2 as AlphaZeroStrategy
+from v2.strategy.AlphaZeroStrategy import AlphaZeroStrategy
+from v2.strategy.RandomStrategy import RandomStrategy
+from v2.strategy.AlphaBetaPruningStrategy import AlphaBetaPruningStrategy
 
 
 class AlphaZero:
@@ -21,40 +22,49 @@ class AlphaZero:
         self.n_iterations = n_iterations
         self.n_episodes = n_episodes
         self.n_games = n_games
-        self.max_buffer_size = 200000
         self.logger = Logger(iteration_path="./logs/recent/log_iteration_1",
                              summary_path="./logs/recent/log_summary")
 
     def start(self):
-        version = 3
-        num_channels, num_res_blocks = 64, 4
+        version = 1
+        num_channels, num_res_blocks = 512, 2
         model_1 = DualResidualNetwork(num_channels=num_channels, num_res_blocks=num_res_blocks)
+        model_1.load_state_dict(torch.load("./models/saved/resnet_v2_512_2.pth"))
         model_2 = copy.deepcopy(model_1)
-        training_examples = []
+
+        with open("./data/dataset_v1_512_2.json", "r") as file:
+            training_examples = json.load(file)
 
         for i in range(self.n_iterations):
             self.logger.set_log_iteration_file(num=i + 1, file=f"./logs/recent/log_iteration_{i + 1}")
-            self.logger.log(f"Iteration {i+1}", to_summary=True, to_iteration=True)
+            self.logger.log(f"Iteration {i + 1}", to_summary=True, to_iteration=True)
             self_play = SelfPlay(self.game, logger=self.logger)
             examples, results = self_play.play_episodes(model_1, n_episodes=self.n_episodes)
             training_examples.extend(examples)
 
-            if len(training_examples) > self.max_buffer_size:
-                training_examples = training_examples[-self.max_buffer_size:]
-
             with open(f"./data/dataset_v{version}_{num_channels}_{num_res_blocks}.json", "w") as file:
-                json.dump(training_examples, file)
+                json.dump(list(training_examples), file)
+
+            examples = np.array(training_examples, dtype=object)
+            board_reward_states = list(zip(examples[:, 0], examples[:, 2]))
+            board_reward_states = {str(board): reward for board, reward in board_reward_states}
 
             self.logger.log(f"(Self-play) Number of new training examples: {len(examples)}", to_summary=True,
                             to_iteration=True)
-            self.logger.log(f"(Self-play) Number of total training examples: {len(training_examples)}", to_summary=True,
-                            to_iteration=True)
+            self.logger.log(f"(Self-play) Number of total training examples: {len(training_examples)}",
+                            to_summary=True, to_iteration=True)
+            self.logger.log(f"(Self-play) Number of total unique state-reward pairs: {len(board_reward_states)}",
+                            to_summary=True, to_iteration=True)
             self.logger.log(f"(Self-play) Model 1 wins: {results[2]}. Draws: {results[1]}. Model 2 wins: {results[0]}",
                             to_summary=True)
 
-            model_2 = model_2.train_on_examples(training_examples, num_epochs=3, lr=0.001, logger=self.logger)
-            mcts_1 = MCTS(self.game, model_1, self.device, c_puct=1.5, dir_e=0.)
-            mcts_2 = MCTS(self.game, model_2, self.device, c_puct=1.5, dir_e=0.)
+            model_2.train()
+            model_2 = model_2.train_on_examples(training_examples, num_epochs=10, lr=0.0001, logger=self.logger)
+
+            model_1.eval()
+            model_2.eval()
+            mcts_1 = MCTS(self.game, model_1, self.device, c_puct=2., dir_e=0.)
+            mcts_2 = MCTS(self.game, model_2, self.device, c_puct=2., dir_e=0.)
 
             player_1 = Player(1, strategy=AlphaZeroStrategy(mcts=mcts_1))
             player_2 = Player(-1, strategy=AlphaZeroStrategy(mcts=mcts_2))
@@ -68,13 +78,36 @@ class AlphaZero:
             self.logger.log(f"(Evaluation) Model 1 wins: {n_model_1_wins}. Draws: {n_draws}. "
                             f"Model 2 wins: {n_model_2_wins}", to_summary=True, to_iteration=True)
 
-            if model_2_win_rate >= 0.55:
+            if model_2_win_rate > 0.55:
                 model_1 = copy.deepcopy(model_2)
+                best_mcts = mcts_2
                 print(f"Accepting new model...")
                 self.logger.log("(Evaluation) Accepting new model...", to_summary=True, to_iteration=True)
             else:
                 model_2 = copy.deepcopy(model_1)
+                best_mcts = mcts_1
                 print(f"Rejecting new model...")
                 self.logger.log("(Evaluation) Rejecting new model...", to_summary=True, to_iteration=True)
             torch.save(model_2.state_dict(), f"./models/recent/resnet_v{version}_{num_channels}_{num_res_blocks}.pth")
+
+            player_1 = Player(1, strategy=AlphaZeroStrategy(mcts=best_mcts))
+            player_2 = Player(-1, strategy=RandomStrategy())
+            evaluator = Evaluator(player_1, player_2, logger=self.logger)
+            results = evaluator.play_games(self.n_games)
+            n_random_strategy_wins, n_draws, n_alpha_zero_wins = results
+            win_rate_against_random = n_alpha_zero_wins / sum(results)
+            self.logger.log(f"(Experiment) Win rate (random): {win_rate_against_random}", to_summary=True,
+                            to_iteration=True)
+            print("Win rate (random):", win_rate_against_random)
+
+            depth = 6
+            player_1 = Player(1, strategy=AlphaZeroStrategy(mcts=best_mcts))
+            player_2 = Player(-1, strategy=AlphaBetaPruningStrategy(depth=depth))
+            evaluator = Evaluator(player_1, player_2, logger=self.logger)
+            results = evaluator.play_games(self.n_games)
+            n_alpha_beta_wins, n_draws, n_alpha_zero_wins = results
+            win_rate_against_alpha_beta = n_alpha_zero_wins / sum(results)
+            self.logger.log(f"(Experiment) Win rate (alpha-beta pruning with depth {depth}): "
+                            f"{win_rate_against_alpha_beta}", to_summary=True, to_iteration=True)
+            print(f"Win rate (alpha-beta pruning with depth {depth}):", win_rate_against_alpha_beta)
             self.logger.log("\n", to_summary=True)

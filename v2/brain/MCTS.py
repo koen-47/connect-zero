@@ -1,6 +1,8 @@
 import numpy as np
 import torch
 
+from v2.game.Board import encode_board
+
 
 class MCTS:
     """
@@ -11,7 +13,7 @@ class MCTS:
     NOTE: Dirichlet noise is added during testing.
     """
 
-    def __init__(self, game, model, device, num_sims=400, c_puct=1., dir_alpha=1., dir_e=0.25):
+    def __init__(self, game, model, device, num_sims=50, c_puct=1., dir_alpha=1., dir_e=0.25):
         self.game = game
         self.model = model.to(device)
         self.num_sims = num_sims
@@ -30,7 +32,6 @@ class MCTS:
         node_key = tuple(map(tuple, canonical_board))
         node = self.nodes[node_key]
         counts = [node.n_child_visits[a] for a in range(self.n_actions)]
-        # print(np.round(np.array(counts) / sum(counts), decimals=3))
 
         if temp == 0:
             probs = np.zeros(self.n_actions)
@@ -50,13 +51,12 @@ class MCTS:
         node = self.nodes[node_key]
 
         if node.reward is None:
-            node.reward = self.game.get_game_ended(board, 1)
+            node.reward = self.game.get_game_ended(board)
         if node.is_terminal():
             return -node.reward
 
         if node.policy is None:
             policy, value = self.__calculate_policy_value(board, device)
-            # print(np.round(policy, 3), value)
             node.valid_moves = self.game.get_valid_moves(board)
             node.policy = policy * node.valid_moves
             node.n_visits = 0
@@ -79,10 +79,12 @@ class MCTS:
         return -value
 
     def __calculate_policy_value(self, board, device):
+        board = encode_board(board, 1)
         tensor_state = torch.tensor(np.array(board), dtype=torch.float32)
-        tensor_state = tensor_state.unsqueeze(dim=0).unsqueeze(dim=0).to(device)
+        tensor_state = tensor_state.unsqueeze(dim=0).to(device)
         policy, value = self.model(tensor_state)
         policy = policy.detach().cpu().numpy().flatten()
+        policy = np.exp(policy) / np.sum(np.exp(policy), axis=0)
         value = value.detach().cpu().numpy().flatten()[0]
         return policy, value
 

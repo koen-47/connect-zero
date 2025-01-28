@@ -2,19 +2,8 @@ import numpy as np
 import torch
 from tqdm import tqdm
 
-from v2.game.Game import Game
-from v2.game.Player import Player
-from v2.brain.Arena import Arena
-from v2.game.Board import Board
-from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2 as AlphaZeroStrategy
-# from models.keras import DQN1
-# from models.keras.DQN1 import Connect4NNet
-from v2.models.pytorch.DualResidualNetwork import DualResidualNetwork
-# from v2.strategy.AlphaZeroStrategyV2 import MCTS
 from v2.brain.MCTS import MCTS
-from v2.logs.Logger import Logger
-from v2.brain.Dataset import Dataset
-from v2.brain.Evaluator import Evaluator
+from v2.game.Board import encode_board, Board
 
 
 class SelfPlay:
@@ -22,7 +11,6 @@ class SelfPlay:
         self.game = game
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.logger = logger
-        self.dataset = Dataset()
 
     def play_episodes(self, model, n_episodes, temp_threshold=15):
         examples = []
@@ -30,8 +18,8 @@ class SelfPlay:
 
         for i in tqdm(range(n_episodes), desc="Self-play"):
             reward, n_turn, player = 0, 0, 1
-            board = self.game.get_init_board()
-            mcts = MCTS(self.game, model, self.device, c_puct=1.5, dir_alpha=0.5)
+            board = self.game.get_initial_board()
+            mcts = MCTS(self.game, model, self.device, c_puct=2., dir_alpha=0.5)
             episode_examples = []
 
             while reward == 0:
@@ -40,25 +28,29 @@ class SelfPlay:
                 temp = int(n_turn < temp_threshold)
                 action, probs = mcts.get_action_prob(state, temp=temp, device=self.device)
 
+                state = encode_board(state, player)
                 episode_examples += [[state, probs, player, None]]
-                episode_examples += [[np.fliplr(state), np.flip(probs), player, None]]
+                episode_examples += [[np.flip(state, 2).tolist(), np.flip(probs), player, None]]
 
                 board, player = self.game.get_next_state(board, player, action)
                 self.logger.log(f"Action: {action}. Policy: {np.round(np.array(probs), decimals=4)}", to_iteration=True)
                 self.logger.log(self.game.display(board, color=False), to_iteration=True)
-                reward = self.game.get_game_ended(board, player)
+                reward = self.game.get_game_ended(board)
                 n_turn += 1
-
-                # if reward != 0:
-                #     print(self.game.display(board))
-                #     print(reward, player, Board(state=board).get_status())
 
             results[int(np.rint(reward)) + 1] += 1
             for j, example in enumerate(episode_examples):
                 example[3] = reward if player == example[2] else -reward
-                episode_examples[j] = [example[0].tolist(), example[1].tolist(), example[3]]
+                episode_examples[j] = [example[0], example[1].tolist(), -example[3]]
+
+                # print(np.array(example[0]))
+                # print("REWARD:", example[3])
+
+            # print("=== FINAL STATE ===")
+            # print(np.array(board))
+
             examples += episode_examples
 
-        # print(examples)
         print(f"Results from self-play: {results}")
         return examples, results
+

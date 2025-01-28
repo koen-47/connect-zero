@@ -57,7 +57,7 @@ class Board:
                     return -1
 
         if sum(self.get_valid_moves()) == 0:
-            return None
+            return 1e-4
 
         return 0
 
@@ -79,3 +79,17 @@ class Board:
                 board_str += cell_str
             board_str += "\n"
         return board_str
+
+
+def encode_board(board, player):
+    if player == 1:
+        plane1 = (board == 1).astype(np.float32).tolist()
+        plane2 = (board == -1).astype(np.float32).tolist()
+        plane3 = np.ones_like(board, dtype=np.float32).tolist()
+    else:
+        plane1 = (board == -1).astype(np.float32).tolist()
+        plane2 = (board == 1).astype(np.float32).tolist()
+        plane3 = np.zeros_like(board, dtype=np.float32).tolist()
+
+    planes = np.stack([plane1, plane2, plane3], axis=0).tolist()
+    return list(planes)
