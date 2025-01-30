@@ -12,4 +12,10 @@ combination of deep reinforcement learning and tree search algorithms
 
 ## Methodology
 
-WIP (coming soon)
+[WORK IN PROGRESS]
+
+<div align="center">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./experiment/plots/loss_accuracy_winrate_curves_dark.png">
+    <img alt="" src="./experiment/plots/loss_accuracy_winrate_curves_light.png" />
+</picture>
