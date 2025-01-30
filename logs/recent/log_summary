@@ -840,3 +840,5 @@
 2025-01-30 17:19:34,978 (Self-play) Number of total unique state-reward pairs: 346915
 2025-01-30 17:19:34,978 (Self-play) Model 1 wins: 122. Draws: 14. Model 2 wins: 114
 2025-01-30 17:22:53,203 (Training) Epoch: 1. Total loss: 1.727. Value loss: 0.459. Policy accuracy: 0.711
+2025-01-30 17:24:40,788 (Training) Epoch: 2. Total loss: 1.716. Value loss: 0.451. Policy accuracy: 0.713
+2025-01-30 17:26:29,720 (Training) Epoch: 3. Total loss: 1.711. Value loss: 0.449. Policy accuracy: 0.714

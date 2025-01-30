@@ -106,7 +106,7 @@ class Experiment:
         plt.tight_layout()
         plt.show()
 
-    def plot_result_curves_v2(self, path="./logs/recent", dark_mode=False):
+    def plot_result_curves_v2(self, path="./logs/recent", dark_mode=True):
         results_per_iteration = self.__parse_log_summary_file(path)
         value_losses = [result["value_loss"] for result in results_per_iteration]
         policy_accuracies = [result["policy_accuracy"] for result in results_per_iteration]
@@ -114,7 +114,7 @@ class Experiment:
         win_rates_random = [result["win_rate_random"] for result in results_per_iteration]
         win_rates_alpha_beta = [result["win_rate_alpha_beta"] for result in results_per_iteration]
 
-        matplotlib.rcParams.update({"font.size": 13.5})
+        matplotlib.rcParams.update({"font.size": 12})
         fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
         color = "#0d1117" if not dark_mode else "#F0F6FC"
         patch_width = 1.
