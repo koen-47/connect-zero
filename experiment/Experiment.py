@@ -116,10 +116,12 @@ class Experiment:
         fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
         color = "#0d1117" if not dark_mode else "#F0F6FC"
         patch_width = 1.
+        marker_size = 4
 
         iterations = range(1, len(results_per_iteration) + 1)
-        value_loss_line, = axes[0].plot(iterations, value_losses, label="Value loss", color="#459abd", marker="o")
-        value_y_min, value_y_max = axes[0].get_ylim()
+        value_loss_line, = axes[0].plot(iterations, value_losses, label="Value loss", color="#459abd", marker="o",
+                                        markersize=marker_size)
+        value_y_min, value_y_max = 0, 0.6
         for i, (x, y) in enumerate(zip(iterations, value_losses)):
             patch_color = "#43b97f" if model_acceptances[i] else "#ff4747"
             patch = patches.Rectangle((x - patch_width / 2, value_y_min), patch_width, value_y_max - value_y_min,
@@ -127,18 +129,19 @@ class Experiment:
             axes[0].add_patch(patch)
 
         policy_acc_line, = axes[1].plot(iterations, policy_accuracies, label="Policy accuracy", color="#459abd",
-                                        marker="o")
-        policy_y_min, policy_y_max = axes[1].get_ylim()
+                                        marker="o", markersize=marker_size)
+        policy_y_min, policy_y_max = 0, 100
         for i, (x, y) in enumerate(zip(iterations, policy_accuracies)):
             patch_color = "#43b97f" if model_acceptances[i] else "#ff4747"
             patch = patches.Rectangle((x - patch_width / 2, policy_y_min), patch_width, policy_y_max - policy_y_min,
                                       color=patch_color, alpha=0.3, zorder=0, linewidth=0, edgecolor=None)
             axes[1].add_patch(patch)
 
-        win_rates_random_line, = axes[2].plot(iterations, win_rates_random, label="Random", color="#459abd", marker="o")
+        win_rates_random_line, = axes[2].plot(iterations, win_rates_random, label="Random", color="#459abd", marker="o",
+                                              markersize=marker_size)
         win_rates_alpha_beta_line, = axes[2].plot(iterations, win_rates_alpha_beta, label="Alpha-beta (depth: 5)",
-                                                  color="#d88a1f", marker="o")
-        win_rates_y_min, win_rates_y_max = axes[2].get_ylim()
+                                                  color="#d88a1f", marker="o", markersize=marker_size)
+        win_rates_y_min, win_rates_y_max = 0, 101
         for i, (x, y) in enumerate(zip(iterations, policy_accuracies)):
             patch_color = "#43b97f" if model_acceptances[i] else "#ff4747"
             patch = patches.Rectangle((x - patch_width / 2, win_rates_y_min), patch_width, win_rates_y_max - win_rates_y_min,
@@ -163,12 +166,12 @@ class Experiment:
             ax.set_xlabel("Iteration")
 
         axes[0].legend(handles=[value_loss_line, accepted_patch, rejected_patch], frameon=False, labelcolor=color,
-                       loc="upper center", bbox_to_anchor=(0.5, 1.16), ncol=3)
+                       loc="upper center", bbox_to_anchor=(0.5, 1.2), ncol=2)
         axes[0].set_ylabel("MSE Loss")
         axes[0].set_ylim(value_y_min, value_y_max)
 
         axes[1].legend(handles=[policy_acc_line, accepted_patch, rejected_patch], frameon=False, labelcolor=color,
-                       loc="upper center", bbox_to_anchor=(0.5, 1.16), ncol=3)
+                       loc="upper center", bbox_to_anchor=(0.5, 1.2), ncol=2)
         axes[1].set_ylabel("Accuracy (%)")
         axes[1].set_ylim(policy_y_min, policy_y_max)
 
