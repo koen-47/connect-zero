@@ -190,7 +190,7 @@ class Experiment:
                     losses = re.search("Epoch: 10.*?Value loss: (\d+\.\d+).*?Policy accuracy: (\d+\.\d+)",
                                        current_iteration_log)
                     value_loss = float(losses.group(1))
-                    policy_accuracy = round(float(losses.group(2)) * 100, 1)
+                    policy_accuracy = float(losses.group(2))
                     is_accepted = bool(re.search("Accepting new model...", current_iteration_log) is not None)
 
                     win_rate_random = float(re.search("Win rate \(random\): (\d+\.\d+)", current_iteration_log).group(1))
@@ -198,10 +198,10 @@ class Experiment:
                                                 current_iteration_log).group(1))
                     results_per_iteration.append({
                         "value_loss": value_loss,
-                        "policy_accuracy": policy_accuracy,
+                        "policy_accuracy": round(policy_accuracy * 100, 1),
                         "is_accepted": is_accepted,
-                        "win_rate_random": win_rate_random,
-                        "win_rate_alpha_beta": win_rate_alpha_beta
+                        "win_rate_random": round(win_rate_random * 100),
+                        "win_rate_alpha_beta": round(win_rate_alpha_beta * 100)
                     })
                     current_iteration_log = ""
                 else:

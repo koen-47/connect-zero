@@ -61899,3 +61899,865 @@ O O O X X O O
 - O X X X O - 
 O O O X X O O 
 
+2025-01-30 01:31:28,387 (Self-play) Number of new training examples: 12380
+2025-01-30 01:31:28,387 (Self-play) Number of total training examples: 298102
+2025-01-30 01:31:28,387 (Self-play) Number of total unique state-reward pairs: 214715
+2025-01-30 01:33:25,019 (Training) Epoch: 1. Total loss: 1.895. Value loss: 0.524. Policy accuracy: 0.662
+2025-01-30 01:34:29,879 (Training) Epoch: 2. Total loss: 1.868. Value loss: 0.504. Policy accuracy: 0.667
+2025-01-30 01:35:34,341 (Training) Epoch: 3. Total loss: 1.851. Value loss: 0.488. Policy accuracy: 0.669
+2025-01-30 01:36:40,098 (Training) Epoch: 4. Total loss: 1.832. Value loss: 0.477. Policy accuracy: 0.671
+2025-01-30 01:37:44,352 (Training) Epoch: 5. Total loss: 1.822. Value loss: 0.472. Policy accuracy: 0.675
+2025-01-30 01:38:49,299 (Training) Epoch: 6. Total loss: 1.809. Value loss: 0.464. Policy accuracy: 0.675
+2025-01-30 01:39:53,821 (Training) Epoch: 7. Total loss: 1.798. Value loss: 0.458. Policy accuracy: 0.679
+2025-01-30 01:40:59,052 (Training) Epoch: 8. Total loss: 1.791. Value loss: 0.455. Policy accuracy: 0.681
+2025-01-30 01:42:04,851 (Training) Epoch: 9. Total loss: 1.784. Value loss: 0.449. Policy accuracy: 0.683
+2025-01-30 01:43:09,785 (Training) Epoch: 10. Total loss: 1.779. Value loss: 0.446. Policy accuracy: 0.683
+2025-01-30 01:43:22,127 (Evaluation) Result: 1
+2025-01-30 01:43:22,127 
+O X - X O O - 
+X O - X X O - 
+O O - O O X - 
+X X - X O O X 
+X X - O X X O 
+O O - X X O X 
+
+2025-01-30 01:43:33,821 (Evaluation) Result: -1
+2025-01-30 01:43:33,821 
+O X X X O O - 
+X O O X X O - 
+O X X O O X - 
+X X O X X X - 
+O O X O O O O 
+X O X X O O X 
+
+2025-01-30 01:43:43,718 (Evaluation) Result: -1
+2025-01-30 01:43:43,719 
+O - X O O - O 
+X - X X X - X 
+O O O O O - O 
+X X O X O - X 
+O O X O X O X 
+X X O X X O X 
+
+2025-01-30 01:43:54,436 (Evaluation) Result: -1
+2025-01-30 01:43:54,436 
+O X - O X - O 
+X O - O X - X 
+O X - O X O O 
+X O - X O X X 
+O X O O X X O 
+X O O X X O X 
+
+2025-01-30 01:44:05,525 (Evaluation) Result: -1
+2025-01-30 01:44:05,525 
+O X O X O - O 
+X O O O X - X 
+O X X O X O O 
+X O X X O X X 
+O X O O X X O 
+X O O X X O X 
+
+2025-01-30 01:44:15,641 (Evaluation) Result: -1
+2025-01-30 01:44:15,641 
+O - O X X - O 
+X - X X O - X 
+O - O O O O O 
+X - X X O X X 
+O - O O X X O 
+X - O X X O X 
+
+2025-01-30 01:44:27,288 (Evaluation) Result: 1
+2025-01-30 01:44:27,288 
+X X O X O O - 
+O O X X X O - 
+X X O O O X - 
+O O X X X O X 
+X X O O O X O 
+X O X X X O O 
+
+2025-01-30 01:44:38,986 (Evaluation) Result: -1
+2025-01-30 01:44:38,986 
+O X X X O - O 
+X O O O X - X 
+O X X O X O O 
+X O X X O X X 
+O X O O X X X 
+O O O X X O O 
+
+2025-01-30 01:44:48,790 (Evaluation) Result: -1
+2025-01-30 01:44:48,790 
+O X - O X - O 
+X O - O X - X 
+O X - O X O O 
+X O - X O X X 
+O X O O X X O 
+X O O X X O X 
+
+2025-01-30 01:44:58,186 (Evaluation) Result: -1
+2025-01-30 01:44:58,186 
+O X - O X - O 
+X O - O X - X 
+O X - O X O O 
+X O - X O X X 
+O X O O X X O 
+X O O X X O X 
+
+2025-01-30 01:45:10,746 (Evaluation) Result: 0.0001
+2025-01-30 01:45:10,746 
+X O O X O X X 
+O O X X X O O 
+X X O O O X X 
+O O X X O O O 
+X X O O X X X 
+X O O X X O O 
+
+2025-01-30 01:45:20,472 (Evaluation) Result: -1
+2025-01-30 01:45:20,472 
+O X - X O - O 
+X O - O X - X 
+O X - O X O O 
+X O - X O X X 
+O X O O X X O 
+X O O X X O X 
+
+2025-01-30 01:45:30,559 (Evaluation) Result: -1
+2025-01-30 01:45:30,560 
+O X X O O - O 
+X O O O X - X 
+O X X O X O O 
+X O O X O X X 
+X X O O X X O 
+X O O X X O X 
+
+2025-01-30 01:45:38,967 (Evaluation) Result: -1
+2025-01-30 01:45:38,967 
+- - X - X - - 
+- O O O O - - 
+- X O O O - - 
+- O X X O - - 
+- X X O X X - 
+- X O X X O - 
+
+2025-01-30 01:45:46,422 (Evaluation) Result: -1
+2025-01-30 01:45:46,422 
+- - - X O - - 
+- - - O X - - 
+- X O O O - - 
+- O X X O - - 
+- O X O X X - 
+- X O X X O - 
+
+2025-01-30 01:45:56,722 (Evaluation) Result: -1
+2025-01-30 01:45:56,723 
+- O X X X - O 
+- O X O O - X 
+- X O O X - O 
+- O X X O - X 
+O X O O X X O 
+X O O X X O X 
+
+2025-01-30 01:46:08,887 (Evaluation) Result: -1
+2025-01-30 01:46:08,887 
+O - X X O O X 
+X - O X X O O 
+O - X O O X X 
+X - O X O O O 
+O O X O X X X 
+O X O X X O X 
+
+2025-01-30 01:46:20,732 (Evaluation) Result: 1
+2025-01-30 01:46:20,732 
+X O X X O O - 
+O O O X X O - 
+X X X O O X - 
+O O O X X O X 
+X X X O X X O 
+X O O X X O O 
+
+2025-01-30 01:46:32,097 (Evaluation) Result: -1
+2025-01-30 01:46:32,097 
+X - X X O O X 
+O - O X X O O 
+X - X O O X X 
+O - O X O O O 
+X O X O X X X 
+O X O X X O O 
+
+2025-01-30 01:46:44,988 (Evaluation) Result: 1
+2025-01-30 01:46:44,988 
+- X O X O O X 
+- O X X X O O 
+- X O O O X X 
+X O X X X O O 
+O X O O O X X 
+O X O X X O X 
+
+2025-01-30 01:46:56,790 (Evaluation) Result: 1
+2025-01-30 01:46:56,790 
+- X O X X O O 
+- O X X O O X 
+- X O O X X O 
+X O X X X O X 
+O X O O O X O 
+X X O X X O O 
+
+2025-01-30 01:47:09,149 (Evaluation) Result: 1
+2025-01-30 01:47:09,149 
+- X O X X O X 
+- O X X O O O 
+- X O O X X X 
+X O X X O O O 
+O X O O X X X 
+O X O X X O O 
+
+2025-01-30 01:47:21,286 (Evaluation) Result: 1
+2025-01-30 01:47:21,286 
+- X O X X O X 
+- O X X O O O 
+- X O O X X X 
+X O X X O O O 
+O X O O X X X 
+O X O X X O O 
+
+2025-01-30 01:47:32,470 (Evaluation) Result: 1
+2025-01-30 01:47:32,470 
+- X O X X O X 
+- O X X O O O 
+- X O O X X X 
+X O X X O O O 
+O X O O X X X 
+O X O X X O O 
+
+2025-01-30 01:47:43,730 (Evaluation) Result: 1
+2025-01-30 01:47:43,730 
+- X O X X O O 
+- O X X O O X 
+- X O O X X X 
+X O X X O O O 
+O X O O X X X 
+O X O X X O O 
+
+2025-01-30 01:47:57,213 (Evaluation) Result: -1
+2025-01-30 01:47:57,213 
+X - X O X X O 
+O O O O O X X 
+X X O X X O O 
+O O X O X X X 
+X X O X O O O 
+O O X O O X X 
+
+2025-01-30 01:48:09,582 (Evaluation) Result: -1
+2025-01-30 01:48:09,582 
+X - X O - X X 
+O O O O - X O 
+X X O X - O X 
+O O X O - X O 
+X X O X - O X 
+O O X O - X O 
+
+2025-01-30 01:48:22,221 (Evaluation) Result: -1
+2025-01-30 01:48:22,221 
+X - X O - X O 
+O - O O - X O 
+X O O X - O X 
+O X X O X X O 
+X O O X O O X 
+O X X O X X O 
+
+2025-01-30 01:48:33,198 (Evaluation) Result: -1
+2025-01-30 01:48:33,198 
+X - X O - X O 
+O - O O - X O 
+X O O X - O X 
+O X X O X X O 
+X O O X O O X 
+O X X O X X O 
+
+2025-01-30 01:48:44,460 (Evaluation) Result: 1
+2025-01-30 01:48:44,460 
+X - X O X X O 
+O - O O O X X 
+X X O X X O O 
+O O X O X X X 
+X O O X O O O 
+O X X O X X O 
+
+2025-01-30 01:48:55,735 (Evaluation) Result: 1
+2025-01-30 01:48:55,735 
+X - X O X X O 
+O - O O O X X 
+X X O X X O O 
+O O X O X X X 
+X O O X O O O 
+O X X O X X O 
+
+2025-01-30 01:49:06,752 (Evaluation) Result: 1
+2025-01-30 01:49:06,753 
+X - X O X X O 
+O - O O O X X 
+X X O X X O O 
+O O X O X X X 
+X O O X O O O 
+O X X O X X O 
+
+2025-01-30 01:49:17,817 (Evaluation) Result: 1
+2025-01-30 01:49:17,818 
+X - X O X X O 
+O - O O O X X 
+X X O X X O O 
+O O X O X X X 
+X O O X O O O 
+O X X O X X O 
+
+2025-01-30 01:49:28,700 (Evaluation) Result: 1
+2025-01-30 01:49:28,700 
+X - X O X X O 
+O - O O O X X 
+X X O X X O O 
+O O X O X X X 
+X O O X O O O 
+O X X O X X O 
+
+2025-01-30 01:49:39,729 (Evaluation) Result: 1
+2025-01-30 01:49:39,729 
+O - X O X X O 
+O - O O O X X 
+X X O X X O O 
+O O X O O X X 
+X O O X X O O 
+O X X O X X X 
+
+2025-01-30 01:49:51,643 (Evaluation) Result: -1
+2025-01-30 01:49:51,643 
+X - X O - X X 
+O O O O - X O 
+X X O X - O X 
+O O X O - X O 
+X X O X - O X 
+O O X O - X O 
+
+2025-01-30 01:50:02,396 (Evaluation) Result: -1
+2025-01-30 01:50:02,396 
+X - X O - X X 
+O O O O - X O 
+X X O X - O X 
+O O X O - X O 
+X X O X - O X 
+O O X O - X O 
+
+2025-01-30 01:50:12,899 (Evaluation) Result: -1
+2025-01-30 01:50:12,899 
+X - X O - X X 
+O O O O - X O 
+X X O X - O X 
+O O X O - X O 
+X X O X - O X 
+O O X O - X O 
+
+2025-01-30 01:50:23,381 (Evaluation) Result: -1
+2025-01-30 01:50:23,381 
+X - X O - X X 
+O O O O - X O 
+X X O X - O X 
+O O X O - X O 
+X X O X - O X 
+O O X O - X O 
+
+2025-01-30 01:50:35,972 (Evaluation) Result: -1
+2025-01-30 01:50:35,972 
+O X O O X O - 
+X X X O O X - 
+O O O X X O - 
+X X X O O X O 
+O O O X X O X 
+O X X O X O X 
+
+2025-01-30 01:50:47,981 (Evaluation) Result: -1
+2025-01-30 01:50:47,982 
+O X O O X O - 
+X X X O O X - 
+O O O X X O - 
+X X X O O X O 
+O O O X X O X 
+O X X O X O X 
+
+2025-01-30 01:50:58,449 (Evaluation) Result: -1
+2025-01-30 01:50:58,449 
+X - X O - X X 
+O O O O - X O 
+X X O X - O X 
+O O X O - X O 
+X X O X - O X 
+O O X O - X O 
+
+2025-01-30 01:51:08,279 (Evaluation) Result: -1
+2025-01-30 01:51:08,280 
+X - X O - X - 
+O O O O - X - 
+X X O X - O - 
+O O X O - X - 
+X O O X - O - 
+X O X O - X - 
+
+2025-01-30 01:51:18,992 (Evaluation) Result: -1
+2025-01-30 01:51:18,992 
+- - X O - X - 
+- - O O - X - 
+O - O X - O - 
+X O X O - X - 
+X X O X - O - 
+O O X O O X X 
+
+2025-01-30 01:51:30,365 (Evaluation) Result: -1
+2025-01-30 01:51:30,365 
+X O X O - X X 
+O X O O O X O 
+O O O X X O X 
+X X X O O X O 
+X X O X O O X 
+O O X O O X X 
+
+2025-01-30 01:51:41,160 (Evaluation) Result: -1
+2025-01-30 01:51:41,160 
+X O X O - X X 
+O X O O O X O 
+O O O X X O X 
+X X X O O X O 
+X X O X O O X 
+O O X O O X X 
+
+2025-01-30 01:51:52,486 (Evaluation) Result: -1
+2025-01-30 01:51:52,486 
+X O X O - X X 
+O X O O O X O 
+O O O X X O X 
+X X X O O X O 
+X X O X O O X 
+O O X O O X X 
+
+2025-01-30 01:52:03,510 (Evaluation) Result: -1
+2025-01-30 01:52:03,510 
+O O X O - X O 
+X X O O O X O 
+O O O X X O X 
+X X X O X X O 
+X X O X O O X 
+O O X O O X X 
+
+2025-01-30 01:52:16,864 (Evaluation) Result: -1
+2025-01-30 01:52:16,864 
+X O X O - O X 
+O X X O O X O 
+X O O X X O O 
+O X X O O X O 
+X O O X X O X 
+O X X O X X O 
+
+2025-01-30 01:52:29,705 (Evaluation) Result: -1
+2025-01-30 01:52:29,705 
+X O X O - O X 
+O X X O O X O 
+X O O X X O O 
+O X X O O X O 
+X O O X X O X 
+O X X O X X O 
+
+2025-01-30 01:52:29,708 (Evaluation) Win rate: 0.68
+2025-01-30 01:52:29,708 (Evaluation) Model 1 wins: 15. Draws: 1. Model 2 wins: 34
+2025-01-30 01:52:30,083 (Evaluation) Accepting new model...
+2025-01-30 01:52:31,613 (Evaluation) Result: 1
+2025-01-30 01:52:31,614 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X O O O 
+
+2025-01-30 01:52:33,042 (Evaluation) Result: 1
+2025-01-30 01:52:33,042 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O - O X - O - 
+
+2025-01-30 01:52:34,365 (Evaluation) Result: 1
+2025-01-30 01:52:34,365 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O - - X O O - 
+
+2025-01-30 01:52:35,712 (Evaluation) Result: 1
+2025-01-30 01:52:35,712 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- O - X O - O 
+
+2025-01-30 01:52:38,706 (Evaluation) Result: 1
+2025-01-30 01:52:38,707 
+- X - O - - - 
+- X - X - - - 
+- X - X - - - 
+- X - O - - - 
+- O - X - - - 
+- O O X O - O 
+
+2025-01-30 01:52:40,391 (Evaluation) Result: 1
+2025-01-30 01:52:40,391 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+O - - X - - - 
+O O X X X X O 
+
+2025-01-30 01:52:41,975 (Evaluation) Result: 1
+2025-01-30 01:52:41,975 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- O - X O - O 
+
+2025-01-30 01:52:45,569 (Evaluation) Result: 1
+2025-01-30 01:52:45,569 
+- - - X - - - 
+- - - X - O - 
+- - - X - X - 
+- - - X - X - 
+- - - O - X O 
+- O - X O O O 
+
+2025-01-30 01:52:48,083 (Evaluation) Result: 1
+2025-01-30 01:52:48,083 
+- - - - - - - 
+- - - - - - - 
+- - - X O - - 
+- - - O X - - 
+- - O X X X - 
+- - O X O O X 
+
+2025-01-30 01:52:49,558 (Evaluation) Result: 1
+2025-01-30 01:52:49,558 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O - O X - - O 
+
+2025-01-30 01:52:52,926 (Evaluation) Result: 1
+2025-01-30 01:52:52,926 
+- - - O - - - 
+- - X O - - - 
+- - X X - O - 
+- - X X - X - 
+- - X O - O - 
+- - O X - O - 
+
+2025-01-30 01:52:56,243 (Evaluation) Result: 1
+2025-01-30 01:52:56,243 
+- - - O - - - 
+- - - X - - - 
+- - X X - - - 
+- X O O - - - 
+X O X X - - - 
+O O O X - - - 
+
+2025-01-30 01:52:58,635 (Evaluation) Result: 1
+2025-01-30 01:52:58,635 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - X - O - - 
+- X X X X - - 
+- O O X O O - 
+
+2025-01-30 01:53:00,065 (Evaluation) Result: 1
+2025-01-30 01:53:00,065 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O - O X - O - 
+
+2025-01-30 01:53:03,008 (Evaluation) Result: 1
+2025-01-30 01:53:03,008 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- - X X - - - 
+- O X O - O - 
+- O O X - O - 
+
+2025-01-30 01:53:04,496 (Evaluation) Result: 1
+2025-01-30 01:53:04,496 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O O - X - O - 
+
+2025-01-30 01:53:07,441 (Evaluation) Result: 1
+2025-01-30 01:53:07,441 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- - X X - - - 
+- O X O - - - 
+- O O X O - O 
+
+2025-01-30 01:53:09,432 (Evaluation) Result: 1
+2025-01-30 01:53:09,432 
+- - - - - - - 
+- - - O - - - 
+- - - X - - - 
+- - - O - - - 
+- - - X - O - 
+O - X X X X O 
+
+2025-01-30 01:53:12,267 (Evaluation) Result: 1
+2025-01-30 01:53:12,267 
+- - - - - - - 
+- - - O - - - 
+- - - X - - - 
+- - - X - - - 
+O - X O - - - 
+O X X X X O O 
+
+2025-01-30 01:53:16,175 (Evaluation) Result: 1
+2025-01-30 01:53:16,175 
+- - - - - - - 
+- - - X - - - 
+O - X X - - - 
+X - O O - - - 
+O - X X X X O 
+O - O X O O X 
+
+2025-01-30 01:53:19,071 (Evaluation) Result: 1
+2025-01-30 01:53:19,071 
+- - - - - - - 
+- - - O X - - 
+- - - X X - - 
+- - - X X - - 
+O - - O X - - 
+O - - X O O - 
+
+2025-01-30 01:53:20,845 (Evaluation) Result: 1
+2025-01-30 01:53:20,845 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+O - O X O - - 
+O - X X X X - 
+
+2025-01-30 01:53:22,512 (Evaluation) Result: 1
+2025-01-30 01:53:22,512 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - O - - - 
+- - - X - - O 
+O X X X X - O 
+
+2025-01-30 01:53:24,087 (Evaluation) Result: 1
+2025-01-30 01:53:24,087 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - O - 
+- - - X O O - 
+
+2025-01-30 01:53:25,656 (Evaluation) Result: 1
+2025-01-30 01:53:25,656 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- O - X - - - 
+- O - X O - - 
+
+2025-01-30 01:53:28,287 (Evaluation) Result: 1
+2025-01-30 01:53:28,287 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - O 
+O X O O X O O 
+
+2025-01-30 01:53:30,887 (Evaluation) Result: 1
+2025-01-30 01:53:30,887 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X O O - 
+- O X O X O O 
+
+2025-01-30 01:53:32,366 (Evaluation) Result: 1
+2025-01-30 01:53:32,366 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - O 
+- O O X - - O 
+
+2025-01-30 01:53:33,820 (Evaluation) Result: 1
+2025-01-30 01:53:33,820 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O O O X - O - 
+
+2025-01-30 01:53:35,270 (Evaluation) Result: 1
+2025-01-30 01:53:35,270 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+O - - X - - - 
+O O - X - - O 
+
+2025-01-30 01:53:37,890 (Evaluation) Result: 1
+2025-01-30 01:53:37,890 
+- - - - - - - 
+- - - - - - - 
+- O - O - - - 
+- X - X - - - 
+- O - X O - - 
+O O O X X X X 
+
+2025-01-30 01:53:39,395 (Evaluation) Result: 1
+2025-01-30 01:53:39,396 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- O - X - - - 
+- O O X - - O 
+
+2025-01-30 01:53:43,552 (Evaluation) Result: 1
+2025-01-30 01:53:43,552 
+- - - - - - - 
+- - - X - - - 
+- X X O - - X 
+- O X X - - O 
+O X O X - - O 
+O O X O X - O 
+
+2025-01-30 01:53:47,097 (Evaluation) Result: 1
+2025-01-30 01:53:47,097 
+- X - - - - - 
+- X - O O - - 
+- X - X O - - 
+- X - X X - - 
+- O - O X - - 
+O O - X O - O 
+
+2025-01-30 01:53:49,421 (Evaluation) Result: 1
+2025-01-30 01:53:49,422 
+- - - - - - - 
+- - - - - - - 
+- - - O - - - 
+- - - X O - - 
+- - X X X X - 
+- O O X O O - 
+
+2025-01-30 01:53:51,338 (Evaluation) Result: 1
+2025-01-30 01:53:51,339 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - O X - - - 
+O - X X - - - 
+O - O X - O - 
+
+2025-01-30 01:53:52,826 (Evaluation) Result: 1
+2025-01-30 01:53:52,826 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O - O X - O O 
+
+2025-01-30 01:53:54,763 (Evaluation) Result: 1
+2025-01-30 01:53:54,763 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- - - - - - - 
+- X X X X - - 
+O O O X O O - 
+
+2025-01-30 01:53:56,726 (Evaluation) Result: 1
+2025-01-30 01:53:56,726 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+O - X X - - - 
+O O O X O - - 
+
+2025-01-30 01:53:58,699 (Evaluation) Result: 1
+2025-01-30 01:53:58,699 
+- - - - - - - 
+- - - - - - - 
+X - - X - - - 
+O - - X - - - 
+O - - X - - - 
+O O - X - O - 
+
+2025-01-30 01:54:01,475 (Evaluation) Result: 1
+2025-01-30 01:54:01,475 
+- - - - - - - 
+- - - - - - - 
+- X - O - - - 
+- X X X - - - 
+- O O X - - - 
+O X O O X - O 
+
+2025-01-30 01:54:02,922 (Evaluation) Result: 1
+2025-01-30 01:54:02,922 
+- - - - - - - 
+- - - - - - - 
+- - - X - - - 
+- - - X - - - 
+- - - X - - - 
+O O - X O O - 
+
+2025-01-30 01:54:05,784 (Evaluation) Result: 1
+2025-01-30 01:54:05,784 
+- - - - - - - 
+- - - - - - - 
+- - - O - - - 
+- - X X X X - 
+- - O X X O O 
+- O X O O X O 
+
+2025-01-30 01:54:08,659 (Evaluation) Result: 1
+2025-01-30 01:54:08,659 
+- - - - - - - 
+- - O O - - - 
+- X O X - - - 
+- X X X - - - 
+- O O X - - - 
+O X O O X - - 
+
