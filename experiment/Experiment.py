@@ -1,6 +1,7 @@
 import json
 import re
 
+import matplotlib
 import torch
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
@@ -113,10 +114,11 @@ class Experiment:
         win_rates_random = [result["win_rate_random"] for result in results_per_iteration]
         win_rates_alpha_beta = [result["win_rate_alpha_beta"] for result in results_per_iteration]
 
+        matplotlib.rcParams.update({"font.size": 13.5})
         fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
         color = "#0d1117" if not dark_mode else "#F0F6FC"
         patch_width = 1.
-        marker_size = 4
+        marker_size = 3
 
         iterations = range(1, len(results_per_iteration) + 1)
         value_loss_line, = axes[0].plot(iterations, value_losses, label="Value loss", color="#459abd", marker="o",
@@ -166,17 +168,17 @@ class Experiment:
             ax.set_xlabel("Iteration")
 
         axes[0].legend(handles=[value_loss_line, accepted_patch, rejected_patch], frameon=False, labelcolor=color,
-                       loc="upper center", bbox_to_anchor=(0.5, 1.2), ncol=2)
+                       loc="upper center", bbox_to_anchor=(0.5, 1.3), ncol=2)
         axes[0].set_ylabel("MSE Loss")
         axes[0].set_ylim(value_y_min, value_y_max)
 
         axes[1].legend(handles=[policy_acc_line, accepted_patch, rejected_patch], frameon=False, labelcolor=color,
-                       loc="upper center", bbox_to_anchor=(0.5, 1.2), ncol=2)
+                       loc="upper center", bbox_to_anchor=(0.5, 1.3), ncol=2)
         axes[1].set_ylabel("Accuracy (%)")
         axes[1].set_ylim(policy_y_min, policy_y_max)
 
         axes[2].legend(handles=[win_rates_random_line, win_rates_alpha_beta_line, accepted_patch, rejected_patch],
-                       frameon=False, labelcolor=color, loc="upper center", bbox_to_anchor=(0.5, 1.2), ncol=2)
+                       frameon=False, labelcolor=color, loc="upper center", bbox_to_anchor=(0.5, 1.3), ncol=2)
         axes[2].set_ylabel("Win rate (%)")
         axes[2].set_ylim(win_rates_y_min, win_rates_y_max)
 

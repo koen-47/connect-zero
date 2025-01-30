@@ -835,3 +835,8 @@
 2025-01-30 16:39:32,361 
 
 2025-01-30 16:39:32,374 Iteration 39
+2025-01-30 17:19:34,977 (Self-play) Number of new training examples: 14204
+2025-01-30 17:19:34,978 (Self-play) Number of total training examples: 488254
+2025-01-30 17:19:34,978 (Self-play) Number of total unique state-reward pairs: 346915
+2025-01-30 17:19:34,978 (Self-play) Model 1 wins: 122. Draws: 14. Model 2 wins: 114
+2025-01-30 17:22:53,203 (Training) Epoch: 1. Total loss: 1.727. Value loss: 0.459. Policy accuracy: 0.711

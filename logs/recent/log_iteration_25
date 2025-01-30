@@ -63203,3 +63203,67 @@ O - O X X O O
 - X X X O O - 
 O O X X O O - 
 
+2025-01-30 01:58:51,351 (Evaluation) Result: 1
+2025-01-30 01:58:51,351 
+O X - O - - - 
+X X - X - - - 
+X X - O - - - 
+X X - X - - X 
+O O - X - - O 
+O O - X - - O 
+
+2025-01-30 01:58:56,908 (Evaluation) Result: 1
+2025-01-30 01:58:56,908 
+- X - O - - - 
+- X - X - - - 
+- X O O - - - 
+- X X X - - - 
+- O X X - - O 
+- O O X O - O 
+
+2025-01-30 01:59:04,322 (Evaluation) Result: 1
+2025-01-30 01:59:04,323 
+X X X - X X - 
+O O O - X O - 
+X X O - O X X 
+X X X - X X X 
+O X O - X O O 
+O O O X O O O 
+
+2025-01-30 01:59:07,984 (Evaluation) Result: 1
+2025-01-30 01:59:07,984 
+- - - O - - - 
+- - - X X - - 
+- - - O X - - 
+- - - X X - - 
+- - - O X - - 
+O - - X O O - 
+
+2025-01-30 01:59:12,459 (Evaluation) Result: 1
+2025-01-30 01:59:12,460 
+- - - O - - - 
+- - - X X - - 
+- - - X X - - 
+- - - X X - - 
+- - - O X - - 
+O O - X O O O 
+
+2025-01-30 01:59:17,069 (Evaluation) Result: 1
+2025-01-30 01:59:17,069 
+- - - O - - - 
+- - - O - - - 
+- - X X - - - 
+- - X O - - - 
+- X X X - - O 
+- O X X - - O 
+
+2025-01-30 01:59:22,211 (Evaluation) Result: 1
+2025-01-30 01:59:22,211 
+- - - - - - - 
+- - - O - - - 
+- - - X - X - 
+- O O O - X - 
+X X X X - O - 
+O O X O - X O 
+
+2025-01-30 01:59:22,213 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
