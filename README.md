@@ -47,12 +47,12 @@ tuned manually.
         <th colspan="3">Phase</th>
     </tr>
     <tr>
-        <th><a href="./SelfPlay.py">Self-play</a></th>
-        <th>Evaluation</th>
+        <th><a href="./brain/SelfPlay.py">Self-play</a></th>
+        <th><a href="./brain/Evaluator.py">Evaluation</a></th>
         <th>Experimentation</th>
     </tr>
     <tr>
-        <td rowspan="4">Training loop</td>
+        <td rowspan="4"><a href="./brain/AlphaZero.py">Training loop</a></td>
         <td># iterations</td>
         <td colspan="3">80</td>
     </tr>
@@ -74,7 +74,7 @@ tuned manually.
         <td>-</td>
     </tr>
     <tr>
-        <td rowspan="5">MCTS</td>
+        <td rowspan="5"><a href="./brain/MCTS.py">MCTS</a></td>
         <td># simulations</td>
         <td colspan="3">100</td>
     </tr>
@@ -98,7 +98,7 @@ tuned manually.
         <td colspan="2">0</td>
     </tr>
     <tr>
-        <td rowspan="4">Network</td>
+        <td rowspan="4"><a href="./models/DualResidualNetwork.py">Network</a></td>
         <td>Type</td>
         <td colspan="3">ResNet</td>
     </tr>
@@ -117,7 +117,7 @@ tuned manually.
         <td>-</td>
     </tr>
     <tr>
-        <td rowspan="3">Learning</td>
+        <td rowspan="3"><a href="./models/DualResidualNetwork.py">Learning</a></td>
         <td># epochs</td>
         <td>10</td>
         <td>-</td>
