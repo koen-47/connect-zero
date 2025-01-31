@@ -94,39 +94,3 @@ def encode_board(board, player):
     planes = np.stack([plane1, plane2, plane3], axis=0).tolist()
     return list(planes)
 
-
-def get_status(state):
-    height, width = 6, 7
-    for i in range(height):
-        for j in range(width):
-            if (i + 3) < height:
-                if state[i][j] == 1 and state[i + 1][j] == 1 and state[i + 2][j] == 1 and state[i + 3][j] == 1:
-                    return 1
-                elif state[i][j] == -1 and state[i + 1][j] == -1 and state[i + 2][j] == -1 and state[i + 3][j] == -1:
-                    return -1
-
-    for i in range(height):
-        for j in range(width - 3):
-            if state[i][j] == 1 and state[i][j + 1] == 1 and state[i][j + 2] == 1 and state[i][j + 3] == 1:
-                return 1
-            if state[i][j] == -1 and state[i][j + 1] == -1 and state[i][j + 2] == -1 and state[i][j + 3] == -1:
-                return -1
-
-    for i in range(height - 3):
-        for j in range(width - 4, width):
-            if state[i][j] == 1 and state[i + 1][j - 1] == 1 and state[i + 2][j - 2] == 1 and state[i + 3][j - 3] == 1:
-                return 1
-            if state[i][j] == -1 and state[i + 1][j - 1] == -1 and state[i + 2][j - 2] == -1 and state[i + 3][j - 3] == -1:
-                return -1
-
-    for i in range(height - 3):
-        for j in range(width - 3):
-            if state[i][j] == 1 and state[i + 1][j + 1] == 1 and state[i + 2][j + 2] == 1 and state[i + 3][j + 3] == 1:
-                return 1
-            if state[i][j] == -1 and state[i + 1][j + 1] == -1 and state[i + 2][j + 2] == -1 and state[i + 3][j + 3] == -1:
-                return -1
-
-    if sum(state[0] == 0) == 0:
-        return 1e-4
-
-    return 0

@@ -25,7 +25,16 @@ code for a complete and detailed overview).
 
 #### Input Features
 
+The input consists of a 3 $\times$ 6 $\times$ 7 image. The last two dimensions refer to the size of a Connect Four board (6 $\times$ 7).
+The first input plane corresponds to all pieces belonging to player 1 (1 if there is a piece, 0 otherwise). 
+The second plane is the same, but for player 2.
+The last plane tells which player is about to play (1 if player 1, 0 if player 2).
+
 #### Hyperparameters
+
+The following table shows the hyperparameter setup used, all of which were 
+tuned manually.
+
 <table>
     <tr>
         <th rowspan="2">Category</th>
@@ -38,27 +47,89 @@ code for a complete and detailed overview).
         <th>Experimentation</th>
     </tr>
     <tr>
+        <td rowspan="4">Training loop</td>
+        <td># iterations</td>
+        <td colspan="3">80</td>
+    </tr>
+    <tr>
+        <td># self-play episodes</td>
+        <td>250</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td># evaluation games</td>
+        <td>-</td>
+        <td colspan="2">50</td>
+    </tr>
+    <tr>
+        <td>Model acceptance rate</td>
+        <td>-</td>
+        <td>>0.55</td>
+        <td>-</td>
+    </tr>
+    <tr>
         <td rowspan="5">MCTS</td>
         <td># simulations</td>
-        <td colspan="3" align="center">100</td>
+        <td colspan="3">100</td>
     </tr>
     <tr>
-    </tr>
         <td>Temperature</td>
-        <td>$$
-\mathrm{CE}(p, y) = \begin{cases}
-    -\log(p) & \text{if } y = 1 \\ % & is your "\tab"-like command (it's a tab alignment character)
-    -\log(1-p) & \text{otherwise.}
-\end{cases}
-$$
-</td>
-        <td>0</td>
-        <td>0</td>
+        <td>1 (if # turn < 15) <br> 0 otherwise</td>
+        <td colspan="2">0</td>
+    </tr>
     <tr>
         <td>$c_{puct}$</td>
-        <td colspan="3" align="center">2</td>
+        <td colspan="3">2</td>
     </tr>
-    
+    <tr>
+        <td>Dirichlet $\alpha$</td>
+        <td>0.5</td>
+        <td colspan="2">0</td>
+    </tr>
+    <tr>
+        <td>Dirichlet $\epsilon$</td>
+        <td>0.25</td>
+        <td colspan="2">0</td>
+    </tr>
+    <tr>
+        <td rowspan="4">Network</td>
+        <td>Type</td>
+        <td colspan="3">ResNet</td>
+    </tr>
+    <tr>
+        <td># blocks</td>
+        <td colspan="3">5</td>
+    </tr>
+    <tr>
+        <td># filters</td>
+        <td colspan="3">128</td>
+    </tr>
+    <tr>
+        <td>Dropout probability</td>
+        <td>0.3</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td rowspan="3">Learning</td>
+        <td># epochs</td>
+        <td>10</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>Learning rate</td>
+        <td>10<sup>-3</sup></td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>Weight decay</td>
+        <td>10<sup>-3</sup></td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
 </table>
 
 ### Results
