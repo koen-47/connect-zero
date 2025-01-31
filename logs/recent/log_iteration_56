@@ -70199,3 +70199,10 @@ O X X O - O X
 X O O X O O O 
 X X O X X O O 
 
+2025-01-31 15:26:21,702 (Self-play) Number of new training examples: 14040
+2025-01-31 15:26:21,702 (Self-play) Number of total training examples: 723184
+2025-01-31 15:26:21,702 (Self-play) Number of total unique state-reward pairs: 508704
+2025-01-31 15:31:05,309 (Training) Epoch: 1. Total loss: 1.636. Value loss: 0.434. Policy accuracy: 0.740
+2025-01-31 15:33:42,851 (Training) Epoch: 2. Total loss: 1.630. Value loss: 0.430. Policy accuracy: 0.741
+2025-01-31 15:36:20,466 (Training) Epoch: 3. Total loss: 1.628. Value loss: 0.428. Policy accuracy: 0.741
+2025-01-31 15:38:57,103 (Training) Epoch: 4. Total loss: 1.624. Value loss: 0.427. Policy accuracy: 0.742
