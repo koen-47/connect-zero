@@ -106,7 +106,7 @@ class Experiment:
         plt.tight_layout()
         plt.show()
 
-    def plot_result_curves_v2(self, path="./logs/recent", dark_mode=True):
+    def plot_result_curves_v2(self, path="./logs/recent", dark_mode=False):
         results_per_iteration = self.__parse_log_summary_file(path)
         value_losses = [result["value_loss"] for result in results_per_iteration]
         policy_accuracies = [result["policy_accuracy"] for result in results_per_iteration]
