@@ -27,7 +27,7 @@ code for a complete and detailed overview).
 
 #### Input Features
 
-The input consists of a 3 $\times$ 6 $\times$ 7 tensor. where the last 
+The input consists of a 3 $\times$ 6 $\times$ 7 tensor, where the last 
 two dimensions refer to the 6 $\times$ 7 Connect Four board.
 The three input channels are as follows:
 - The first channel indicates the presence of player 1's pieces (1 for a piece, 0 otherwise).
@@ -47,7 +47,7 @@ tuned manually.
         <th colspan="3">Phase</th>
     </tr>
     <tr>
-        <th>Self-play</th>
+        <th><a href="./SelfPlay.py">Self-play</a></th>
         <th>Evaluation</th>
         <th>Experimentation</th>
     </tr>
