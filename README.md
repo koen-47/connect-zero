@@ -9,6 +9,10 @@ combination of deep reinforcement learning and tree search algorithms
 
 </div>
 
+## Installation
+
+[WORK IN PROGRESS]
+
 
 ## Methodology
 
@@ -19,16 +23,16 @@ While it highlights the key aspects of the approach,
 it is not intended to be exhaustive (please refer to the 
 code for a complete and detailed overview).
 
-[WORK IN PROGRESS]
-
 ### Model Development
 
 #### Input Features
 
-The input consists of a 3 $\times$ 6 $\times$ 7 image. The last two dimensions refer to the size of a Connect Four board (6 $\times$ 7).
-The first input plane corresponds to all pieces belonging to player 1 (1 if there is a piece, 0 otherwise). 
-The second plane is the same, but for player 2.
-The last plane shows which player is about to play (1 if player 1, 0 if player 2).
+The input consists of a 3 $\times$ 6 $\times$ 7 tensor. where the last 
+two dimensions refer to the 6 $\times$ 7 Connect Four board.
+The three input channels are as follows:
+- The first channel indicates the presence of player 1's pieces (1 for a piece, 0 otherwise).
+- The second channel does the same for the pieces belonging to player 2.
+- The third channel represents the current player’s turn, with all values set to 1 if it's player 1's turn and 0 if it's player 2's turn.
 
 #### Hyperparameters
 
@@ -138,6 +142,10 @@ tuned manually.
 
 #### Training
 
+The following plots illustrate the value loss, policy accuracy, 
+and win rate across all iterations, evaluated against both a random 
+and an alpha-beta pruning opponent.
+
 <div align="center">
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./experiment/plots/loss_accuracy_winrate_curves_dark.png">
@@ -145,4 +153,19 @@ tuned manually.
 </picture>
 </div>
 
-#### Experiments
+Notably, the value loss exhibits a choppy pattern, suggesting that 
+the model struggles to generalize as new data is introduced in each 
+iteration. One possible explanation is that the number of MCTS 
+simulations is insufficient for thorough exploration, leading to 
+high-variance training data. Alternatively, the learning rate or 
+number of training epochs might be too low to enable effective 
+convergence.
+
+Despite this, the policy accuracy remains relatively stable, although 
+likely due to the inherent robustness of accuracy as a metric compared to 
+loss. Similarly, the win rate against both opponents tends to stabilize 
+over time, albeit to a lesser extent.
+
+#### Benchmarking
+
+[WORK IN PROGRESS]

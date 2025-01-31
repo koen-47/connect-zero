@@ -1218,3 +1218,16 @@
 2025-01-31 15:36:20,465 (Training) Epoch: 3. Total loss: 1.628. Value loss: 0.428. Policy accuracy: 0.741
 2025-01-31 15:38:57,103 (Training) Epoch: 4. Total loss: 1.624. Value loss: 0.427. Policy accuracy: 0.742
 2025-01-31 15:41:36,265 (Training) Epoch: 5. Total loss: 1.624. Value loss: 0.427. Policy accuracy: 0.742
+2025-01-31 15:44:15,114 (Training) Epoch: 6. Total loss: 1.620. Value loss: 0.425. Policy accuracy: 0.742
+2025-01-31 15:46:51,302 (Training) Epoch: 7. Total loss: 1.620. Value loss: 0.424. Policy accuracy: 0.743
+2025-01-31 15:49:27,977 (Training) Epoch: 8. Total loss: 1.618. Value loss: 0.423. Policy accuracy: 0.743
+2025-01-31 15:52:05,378 (Training) Epoch: 9. Total loss: 1.615. Value loss: 0.422. Policy accuracy: 0.744
+2025-01-31 15:54:42,606 (Training) Epoch: 10. Total loss: 1.613. Value loss: 0.421. Policy accuracy: 0.744
+2025-01-31 16:04:16,870 (Evaluation) Win rate: 0.48
+2025-01-31 16:04:16,870 (Evaluation) Model 1 wins: 13. Draws: 13. Model 2 wins: 24
+2025-01-31 16:04:17,340 (Evaluation) Rejecting new model...
+2025-01-31 16:06:23,299 (Experiment) Win rate (random): 1.0
+2025-01-31 16:11:23,960 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-01-31 16:11:23,961 
+
+2025-01-31 16:11:23,962 Iteration 57
