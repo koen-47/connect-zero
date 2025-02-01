@@ -1231,3 +1231,406 @@
 2025-01-31 16:11:23,961 
 
 2025-01-31 16:11:23,962 Iteration 57
+2025-01-31 16:49:46,788 (Self-play) Number of new training examples: 13754
+2025-01-31 16:49:46,789 (Self-play) Number of total training examples: 736938
+2025-01-31 16:49:46,789 (Self-play) Number of total unique state-reward pairs: 518025
+2025-01-31 16:49:46,789 (Self-play) Model 1 wins: 117. Draws: 21. Model 2 wins: 112
+2025-01-31 16:54:51,106 (Training) Epoch: 1. Total loss: 1.637. Value loss: 0.436. Policy accuracy: 0.739
+2025-01-31 16:57:39,102 (Training) Epoch: 2. Total loss: 1.634. Value loss: 0.434. Policy accuracy: 0.741
+2025-01-31 17:00:26,441 (Training) Epoch: 3. Total loss: 1.629. Value loss: 0.431. Policy accuracy: 0.741
+2025-01-31 17:03:16,173 (Training) Epoch: 4. Total loss: 1.627. Value loss: 0.430. Policy accuracy: 0.742
+2025-01-31 17:06:06,492 (Training) Epoch: 5. Total loss: 1.626. Value loss: 0.429. Policy accuracy: 0.741
+2025-01-31 17:08:51,139 (Training) Epoch: 6. Total loss: 1.625. Value loss: 0.428. Policy accuracy: 0.743
+2025-01-31 17:11:33,090 (Training) Epoch: 7. Total loss: 1.622. Value loss: 0.426. Policy accuracy: 0.742
+2025-01-31 17:14:15,756 (Training) Epoch: 8. Total loss: 1.619. Value loss: 0.425. Policy accuracy: 0.743
+2025-01-31 17:17:01,114 (Training) Epoch: 9. Total loss: 1.616. Value loss: 0.423. Policy accuracy: 0.743
+2025-01-31 17:19:49,573 (Training) Epoch: 10. Total loss: 1.615. Value loss: 0.422. Policy accuracy: 0.744
+2025-01-31 17:29:13,836 (Evaluation) Win rate: 0.28
+2025-01-31 17:29:13,836 (Evaluation) Model 1 wins: 23. Draws: 13. Model 2 wins: 14
+2025-01-31 17:29:14,483 (Evaluation) Rejecting new model...
+2025-01-31 17:31:13,534 (Experiment) Win rate (random): 1.0
+2025-01-31 17:36:20,711 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-01-31 17:36:20,711 
+
+2025-01-31 17:36:20,713 Iteration 58
+2025-01-31 18:14:27,409 (Self-play) Number of new training examples: 13998
+2025-01-31 18:14:27,409 (Self-play) Number of total training examples: 750936
+2025-01-31 18:14:27,409 (Self-play) Number of total unique state-reward pairs: 527659
+2025-01-31 18:14:27,409 (Self-play) Model 1 wins: 119. Draws: 17. Model 2 wins: 114
+2025-01-31 18:19:25,436 (Training) Epoch: 1. Total loss: 1.640. Value loss: 0.440. Policy accuracy: 0.739
+2025-01-31 18:22:11,053 (Training) Epoch: 2. Total loss: 1.636. Value loss: 0.437. Policy accuracy: 0.740
+2025-01-31 18:24:59,754 (Training) Epoch: 3. Total loss: 1.635. Value loss: 0.435. Policy accuracy: 0.741
+2025-01-31 18:27:47,702 (Training) Epoch: 4. Total loss: 1.631. Value loss: 0.433. Policy accuracy: 0.741
+2025-01-31 18:30:34,698 (Training) Epoch: 5. Total loss: 1.626. Value loss: 0.430. Policy accuracy: 0.742
+2025-01-31 18:33:21,296 (Training) Epoch: 6. Total loss: 1.622. Value loss: 0.428. Policy accuracy: 0.742
+2025-01-31 18:36:08,383 (Training) Epoch: 7. Total loss: 1.622. Value loss: 0.427. Policy accuracy: 0.743
+2025-01-31 18:38:53,708 (Training) Epoch: 8. Total loss: 1.620. Value loss: 0.426. Policy accuracy: 0.743
+2025-01-31 18:41:38,069 (Training) Epoch: 9. Total loss: 1.617. Value loss: 0.424. Policy accuracy: 0.744
+2025-01-31 18:44:19,917 (Training) Epoch: 10. Total loss: 1.614. Value loss: 0.422. Policy accuracy: 0.743
+2025-01-31 18:54:02,771 (Evaluation) Win rate: 0.28
+2025-01-31 18:54:02,771 (Evaluation) Model 1 wins: 12. Draws: 24. Model 2 wins: 14
+2025-01-31 18:54:03,257 (Evaluation) Rejecting new model...
+2025-01-31 18:55:55,152 (Experiment) Win rate (random): 1.0
+2025-01-31 19:01:20,697 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-01-31 19:01:20,697 
+
+2025-01-31 19:01:20,698 Iteration 59
+2025-01-31 19:51:29,804 (Self-play) Number of new training examples: 14478
+2025-01-31 19:51:29,805 (Self-play) Number of total training examples: 765414
+2025-01-31 19:51:29,805 (Self-play) Number of total unique state-reward pairs: 537782
+2025-01-31 19:51:29,805 (Self-play) Model 1 wins: 117. Draws: 26. Model 2 wins: 107
+2025-01-31 19:57:29,527 (Training) Epoch: 1. Total loss: 1.641. Value loss: 0.441. Policy accuracy: 0.740
+2025-01-31 20:02:48,499 (Training) Epoch: 2. Total loss: 1.638. Value loss: 0.438. Policy accuracy: 0.741
+2025-01-31 20:07:46,945 (Training) Epoch: 3. Total loss: 1.633. Value loss: 0.435. Policy accuracy: 0.742
+2025-01-31 20:12:40,962 (Training) Epoch: 4. Total loss: 1.629. Value loss: 0.432. Policy accuracy: 0.740
+2025-01-31 20:16:19,979 (Training) Epoch: 5. Total loss: 1.627. Value loss: 0.432. Policy accuracy: 0.741
+2025-01-31 20:20:38,687 (Training) Epoch: 6. Total loss: 1.623. Value loss: 0.429. Policy accuracy: 0.743
+2025-01-31 20:24:30,200 (Training) Epoch: 7. Total loss: 1.624. Value loss: 0.430. Policy accuracy: 0.744
+2025-01-31 20:28:08,981 (Training) Epoch: 8. Total loss: 1.617. Value loss: 0.426. Policy accuracy: 0.744
+2025-01-31 20:31:48,483 (Training) Epoch: 9. Total loss: 1.618. Value loss: 0.426. Policy accuracy: 0.744
+2025-01-31 20:36:12,869 (Training) Epoch: 10. Total loss: 1.612. Value loss: 0.423. Policy accuracy: 0.745
+2025-01-31 20:49:30,335 (Evaluation) Win rate: 0.1
+2025-01-31 20:49:30,336 (Evaluation) Model 1 wins: 24. Draws: 21. Model 2 wins: 5
+2025-01-31 20:49:31,799 (Evaluation) Rejecting new model...
+2025-01-31 20:52:06,497 (Experiment) Win rate (random): 1.0
+2025-01-31 20:59:37,323 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-01-31 20:59:37,323 
+
+2025-01-31 20:59:37,347 Iteration 60
+2025-01-31 22:05:19,034 (Self-play) Number of new training examples: 14096
+2025-01-31 22:05:19,043 (Self-play) Number of total training examples: 779510
+2025-01-31 22:05:19,043 (Self-play) Number of total unique state-reward pairs: 547366
+2025-01-31 22:05:19,043 (Self-play) Model 1 wins: 120. Draws: 17. Model 2 wins: 113
+2025-01-31 22:12:36,626 (Training) Epoch: 1. Total loss: 1.649. Value loss: 0.448. Policy accuracy: 0.740
+2025-01-31 22:16:59,725 (Training) Epoch: 2. Total loss: 1.641. Value loss: 0.442. Policy accuracy: 0.741
+2025-01-31 22:21:29,721 (Training) Epoch: 3. Total loss: 1.635. Value loss: 0.438. Policy accuracy: 0.741
+2025-01-31 22:25:46,503 (Training) Epoch: 4. Total loss: 1.631. Value loss: 0.436. Policy accuracy: 0.742
+2025-01-31 22:30:15,270 (Training) Epoch: 5. Total loss: 1.629. Value loss: 0.435. Policy accuracy: 0.743
+2025-01-31 22:33:31,643 (Training) Epoch: 6. Total loss: 1.624. Value loss: 0.431. Policy accuracy: 0.743
+2025-01-31 22:36:31,362 (Training) Epoch: 7. Total loss: 1.622. Value loss: 0.431. Policy accuracy: 0.744
+2025-01-31 22:39:32,633 (Training) Epoch: 8. Total loss: 1.620. Value loss: 0.429. Policy accuracy: 0.743
+2025-01-31 22:42:31,310 (Training) Epoch: 9. Total loss: 1.617. Value loss: 0.427. Policy accuracy: 0.744
+2025-01-31 22:45:29,331 (Training) Epoch: 10. Total loss: 1.618. Value loss: 0.428. Policy accuracy: 0.745
+2025-01-31 22:55:02,698 (Evaluation) Win rate: 0.22
+2025-01-31 22:55:02,698 (Evaluation) Model 1 wins: 15. Draws: 24. Model 2 wins: 11
+2025-01-31 22:55:04,018 (Evaluation) Rejecting new model...
+2025-01-31 22:56:50,614 (Experiment) Win rate (random): 1.0
+2025-01-31 23:02:00,337 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-01-31 23:02:00,338 
+
+2025-01-31 23:02:00,373 Iteration 61
+2025-01-31 23:43:34,377 (Self-play) Number of new training examples: 14072
+2025-01-31 23:43:34,377 (Self-play) Number of total training examples: 793582
+2025-01-31 23:43:34,378 (Self-play) Number of total unique state-reward pairs: 556880
+2025-01-31 23:43:34,378 (Self-play) Model 1 wins: 120. Draws: 25. Model 2 wins: 105
+2025-01-31 23:49:03,341 (Training) Epoch: 1. Total loss: 1.649. Value loss: 0.450. Policy accuracy: 0.740
+2025-01-31 23:52:07,190 (Training) Epoch: 2. Total loss: 1.640. Value loss: 0.443. Policy accuracy: 0.741
+2025-01-31 23:55:12,194 (Training) Epoch: 3. Total loss: 1.635. Value loss: 0.439. Policy accuracy: 0.742
+2025-01-31 23:58:15,295 (Training) Epoch: 4. Total loss: 1.631. Value loss: 0.437. Policy accuracy: 0.742
+2025-02-01 00:01:20,283 (Training) Epoch: 5. Total loss: 1.631. Value loss: 0.436. Policy accuracy: 0.742
+2025-02-01 00:04:20,070 (Training) Epoch: 6. Total loss: 1.628. Value loss: 0.434. Policy accuracy: 0.744
+2025-02-01 00:07:22,971 (Training) Epoch: 7. Total loss: 1.624. Value loss: 0.431. Policy accuracy: 0.744
+2025-02-01 00:10:27,840 (Training) Epoch: 8. Total loss: 1.622. Value loss: 0.430. Policy accuracy: 0.744
+2025-02-01 00:13:32,622 (Training) Epoch: 9. Total loss: 1.619. Value loss: 0.429. Policy accuracy: 0.744
+2025-02-01 00:16:37,622 (Training) Epoch: 10. Total loss: 1.618. Value loss: 0.428. Policy accuracy: 0.745
+2025-02-01 00:25:58,240 (Evaluation) Win rate: 0.24
+2025-02-01 00:25:58,241 (Evaluation) Model 1 wins: 29. Draws: 9. Model 2 wins: 12
+2025-02-01 00:25:58,817 (Evaluation) Rejecting new model...
+2025-02-01 00:27:55,603 (Experiment) Win rate (random): 1.0
+2025-02-01 00:33:19,280 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 00:33:19,281 
+
+2025-02-01 00:33:19,290 Iteration 62
+2025-02-01 01:20:05,508 (Self-play) Number of new training examples: 14566
+2025-02-01 01:20:05,522 (Self-play) Number of total training examples: 808148
+2025-02-01 01:20:05,522 (Self-play) Number of total unique state-reward pairs: 566768
+2025-02-01 01:20:05,522 (Self-play) Model 1 wins: 125. Draws: 32. Model 2 wins: 93
+2025-02-01 01:25:27,345 (Training) Epoch: 1. Total loss: 1.650. Value loss: 0.451. Policy accuracy: 0.741
+2025-02-01 01:28:27,054 (Training) Epoch: 2. Total loss: 1.640. Value loss: 0.445. Policy accuracy: 0.742
+2025-02-01 01:31:27,624 (Training) Epoch: 3. Total loss: 1.634. Value loss: 0.440. Policy accuracy: 0.742
+2025-02-01 01:34:28,042 (Training) Epoch: 4. Total loss: 1.631. Value loss: 0.438. Policy accuracy: 0.743
+2025-02-01 01:37:27,300 (Training) Epoch: 5. Total loss: 1.631. Value loss: 0.436. Policy accuracy: 0.742
+2025-02-01 01:40:21,767 (Training) Epoch: 6. Total loss: 1.627. Value loss: 0.434. Policy accuracy: 0.742
+2025-02-01 01:43:19,440 (Training) Epoch: 7. Total loss: 1.621. Value loss: 0.432. Policy accuracy: 0.744
+2025-02-01 01:46:18,099 (Training) Epoch: 8. Total loss: 1.620. Value loss: 0.431. Policy accuracy: 0.744
+2025-02-01 01:49:15,871 (Training) Epoch: 9. Total loss: 1.617. Value loss: 0.430. Policy accuracy: 0.745
+2025-02-01 01:52:11,485 (Training) Epoch: 10. Total loss: 1.614. Value loss: 0.428. Policy accuracy: 0.746
+2025-02-01 02:01:25,636 (Evaluation) Win rate: 0.54
+2025-02-01 02:01:25,636 (Evaluation) Model 1 wins: 14. Draws: 9. Model 2 wins: 27
+2025-02-01 02:01:26,045 (Evaluation) Rejecting new model...
+2025-02-01 02:03:33,702 (Experiment) Win rate (random): 1.0
+2025-02-01 02:08:21,636 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 02:08:21,636 
+
+2025-02-01 02:08:21,637 Iteration 63
+2025-02-01 02:45:16,450 (Self-play) Number of new training examples: 13330
+2025-02-01 02:45:16,450 (Self-play) Number of total training examples: 821478
+2025-02-01 02:45:16,450 (Self-play) Number of total unique state-reward pairs: 575570
+2025-02-01 02:45:16,450 (Self-play) Model 1 wins: 133. Draws: 14. Model 2 wins: 103
+2025-02-01 02:50:32,313 (Training) Epoch: 1. Total loss: 1.650. Value loss: 0.452. Policy accuracy: 0.740
+2025-02-01 02:53:28,308 (Training) Epoch: 2. Total loss: 1.643. Value loss: 0.447. Policy accuracy: 0.741
+2025-02-01 02:56:23,844 (Training) Epoch: 3. Total loss: 1.635. Value loss: 0.441. Policy accuracy: 0.742
+2025-02-01 02:59:19,037 (Training) Epoch: 4. Total loss: 1.633. Value loss: 0.440. Policy accuracy: 0.742
+2025-02-01 03:02:13,856 (Training) Epoch: 5. Total loss: 1.631. Value loss: 0.438. Policy accuracy: 0.743
+2025-02-01 03:05:09,578 (Training) Epoch: 6. Total loss: 1.625. Value loss: 0.435. Policy accuracy: 0.745
+2025-02-01 03:08:05,307 (Training) Epoch: 7. Total loss: 1.623. Value loss: 0.433. Policy accuracy: 0.744
+2025-02-01 03:11:01,692 (Training) Epoch: 8. Total loss: 1.622. Value loss: 0.432. Policy accuracy: 0.745
+2025-02-01 03:13:57,170 (Training) Epoch: 9. Total loss: 1.617. Value loss: 0.430. Policy accuracy: 0.745
+2025-02-01 03:16:53,055 (Training) Epoch: 10. Total loss: 1.618. Value loss: 0.430. Policy accuracy: 0.745
+2025-02-01 03:26:41,261 (Evaluation) Win rate: 0.18
+2025-02-01 03:26:41,261 (Evaluation) Model 1 wins: 12. Draws: 29. Model 2 wins: 9
+2025-02-01 03:26:41,601 (Evaluation) Rejecting new model...
+2025-02-01 03:28:41,162 (Experiment) Win rate (random): 1.0
+2025-02-01 03:33:29,857 (Experiment) Win rate (alpha-beta pruning with depth 5): 0.96
+2025-02-01 03:33:29,857 
+
+2025-02-01 03:33:29,858 Iteration 64
+2025-02-01 04:12:13,921 (Self-play) Number of new training examples: 14042
+2025-02-01 04:12:13,922 (Self-play) Number of total training examples: 835520
+2025-02-01 04:12:13,922 (Self-play) Number of total unique state-reward pairs: 584969
+2025-02-01 04:12:13,922 (Self-play) Model 1 wins: 119. Draws: 20. Model 2 wins: 111
+2025-02-01 04:17:35,701 (Training) Epoch: 1. Total loss: 1.652. Value loss: 0.455. Policy accuracy: 0.741
+2025-02-01 04:20:32,971 (Training) Epoch: 2. Total loss: 1.641. Value loss: 0.447. Policy accuracy: 0.741
+2025-02-01 04:23:31,094 (Training) Epoch: 3. Total loss: 1.637. Value loss: 0.444. Policy accuracy: 0.743
+2025-02-01 04:26:28,461 (Training) Epoch: 4. Total loss: 1.634. Value loss: 0.441. Policy accuracy: 0.743
+2025-02-01 04:29:27,233 (Training) Epoch: 5. Total loss: 1.627. Value loss: 0.438. Policy accuracy: 0.744
+2025-02-01 04:32:25,435 (Training) Epoch: 6. Total loss: 1.628. Value loss: 0.437. Policy accuracy: 0.744
+2025-02-01 04:35:23,925 (Training) Epoch: 7. Total loss: 1.623. Value loss: 0.434. Policy accuracy: 0.745
+2025-02-01 04:38:22,239 (Training) Epoch: 8. Total loss: 1.620. Value loss: 0.432. Policy accuracy: 0.746
+2025-02-01 04:41:20,295 (Training) Epoch: 9. Total loss: 1.618. Value loss: 0.432. Policy accuracy: 0.746
+2025-02-01 04:44:18,744 (Training) Epoch: 10. Total loss: 1.619. Value loss: 0.431. Policy accuracy: 0.745
+2025-02-01 04:53:26,720 (Evaluation) Win rate: 0.22
+2025-02-01 04:53:26,720 (Evaluation) Model 1 wins: 22. Draws: 17. Model 2 wins: 11
+2025-02-01 04:53:27,096 (Evaluation) Rejecting new model...
+2025-02-01 04:55:11,926 (Experiment) Win rate (random): 1.0
+2025-02-01 05:00:07,877 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 05:00:07,877 
+
+2025-02-01 05:00:07,878 Iteration 65
+2025-02-01 05:37:52,197 (Self-play) Number of new training examples: 13430
+2025-02-01 05:37:52,197 (Self-play) Number of total training examples: 848950
+2025-02-01 05:37:52,197 (Self-play) Number of total unique state-reward pairs: 593863
+2025-02-01 05:37:52,198 (Self-play) Model 1 wins: 123. Draws: 24. Model 2 wins: 103
+2025-02-01 05:43:20,235 (Training) Epoch: 1. Total loss: 1.654. Value loss: 0.457. Policy accuracy: 0.741
+2025-02-01 05:46:21,264 (Training) Epoch: 2. Total loss: 1.646. Value loss: 0.450. Policy accuracy: 0.741
+2025-02-01 05:49:22,793 (Training) Epoch: 3. Total loss: 1.637. Value loss: 0.445. Policy accuracy: 0.742
+2025-02-01 05:52:22,534 (Training) Epoch: 4. Total loss: 1.634. Value loss: 0.442. Policy accuracy: 0.743
+2025-02-01 05:55:23,734 (Training) Epoch: 5. Total loss: 1.630. Value loss: 0.439. Policy accuracy: 0.744
+2025-02-01 05:58:26,114 (Training) Epoch: 6. Total loss: 1.625. Value loss: 0.437. Policy accuracy: 0.745
+2025-02-01 06:01:27,392 (Training) Epoch: 7. Total loss: 1.623. Value loss: 0.436. Policy accuracy: 0.744
+2025-02-01 06:04:28,619 (Training) Epoch: 8. Total loss: 1.624. Value loss: 0.436. Policy accuracy: 0.746
+2025-02-01 06:07:29,531 (Training) Epoch: 9. Total loss: 1.620. Value loss: 0.433. Policy accuracy: 0.745
+2025-02-01 06:10:29,896 (Training) Epoch: 10. Total loss: 1.616. Value loss: 0.431. Policy accuracy: 0.746
+2025-02-01 06:20:23,705 (Evaluation) Win rate: 0.22
+2025-02-01 06:20:23,705 (Evaluation) Model 1 wins: 15. Draws: 24. Model 2 wins: 11
+2025-02-01 06:20:24,044 (Evaluation) Rejecting new model...
+2025-02-01 06:22:13,653 (Experiment) Win rate (random): 1.0
+2025-02-01 06:27:02,972 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 06:27:02,973 
+
+2025-02-01 06:27:02,974 Iteration 66
+2025-02-01 07:05:19,506 (Self-play) Number of new training examples: 13746
+2025-02-01 07:05:19,506 (Self-play) Number of total training examples: 862696
+2025-02-01 07:05:19,507 (Self-play) Number of total unique state-reward pairs: 603214
+2025-02-01 07:05:19,507 (Self-play) Model 1 wins: 123. Draws: 21. Model 2 wins: 106
+2025-02-01 07:10:40,197 (Training) Epoch: 1. Total loss: 1.655. Value loss: 0.459. Policy accuracy: 0.741
+2025-02-01 07:13:44,250 (Training) Epoch: 2. Total loss: 1.647. Value loss: 0.451. Policy accuracy: 0.741
+2025-02-01 07:16:49,566 (Training) Epoch: 3. Total loss: 1.638. Value loss: 0.446. Policy accuracy: 0.743
+2025-02-01 07:19:54,765 (Training) Epoch: 4. Total loss: 1.635. Value loss: 0.444. Policy accuracy: 0.743
+2025-02-01 07:22:59,858 (Training) Epoch: 5. Total loss: 1.632. Value loss: 0.441. Policy accuracy: 0.744
+2025-02-01 07:26:04,409 (Training) Epoch: 6. Total loss: 1.629. Value loss: 0.440. Policy accuracy: 0.745
+2025-02-01 07:29:08,917 (Training) Epoch: 7. Total loss: 1.625. Value loss: 0.438. Policy accuracy: 0.745
+2025-02-01 07:32:12,859 (Training) Epoch: 8. Total loss: 1.624. Value loss: 0.437. Policy accuracy: 0.746
+2025-02-01 07:35:17,499 (Training) Epoch: 9. Total loss: 1.619. Value loss: 0.433. Policy accuracy: 0.746
+2025-02-01 07:38:22,148 (Training) Epoch: 10. Total loss: 1.619. Value loss: 0.433. Policy accuracy: 0.746
+2025-02-01 07:47:04,176 (Evaluation) Win rate: 0.46
+2025-02-01 07:47:04,177 (Evaluation) Model 1 wins: 22. Draws: 5. Model 2 wins: 23
+2025-02-01 07:47:04,568 (Evaluation) Rejecting new model...
+2025-02-01 07:48:50,515 (Experiment) Win rate (random): 1.0
+2025-02-01 07:54:11,761 (Experiment) Win rate (alpha-beta pruning with depth 5): 0.94
+2025-02-01 07:54:11,761 
+
+2025-02-01 07:54:11,762 Iteration 67
+2025-02-01 08:32:16,859 (Self-play) Number of new training examples: 13684
+2025-02-01 08:32:16,860 (Self-play) Number of total training examples: 876380
+2025-02-01 08:32:16,860 (Self-play) Number of total unique state-reward pairs: 612391
+2025-02-01 08:32:16,860 (Self-play) Model 1 wins: 118. Draws: 20. Model 2 wins: 112
+2025-02-01 08:37:52,549 (Training) Epoch: 1. Total loss: 1.658. Value loss: 0.462. Policy accuracy: 0.741
+2025-02-01 08:40:59,994 (Training) Epoch: 2. Total loss: 1.647. Value loss: 0.453. Policy accuracy: 0.742
+2025-02-01 08:44:06,931 (Training) Epoch: 3. Total loss: 1.640. Value loss: 0.449. Policy accuracy: 0.744
+2025-02-01 08:47:15,568 (Training) Epoch: 4. Total loss: 1.639. Value loss: 0.447. Policy accuracy: 0.744
+2025-02-01 08:50:22,234 (Training) Epoch: 5. Total loss: 1.631. Value loss: 0.441. Policy accuracy: 0.744
+2025-02-01 08:53:30,321 (Training) Epoch: 6. Total loss: 1.631. Value loss: 0.441. Policy accuracy: 0.745
+2025-02-01 08:56:37,899 (Training) Epoch: 7. Total loss: 1.625. Value loss: 0.437. Policy accuracy: 0.745
+2025-02-01 08:59:45,376 (Training) Epoch: 8. Total loss: 1.620. Value loss: 0.435. Policy accuracy: 0.746
+2025-02-01 09:02:52,942 (Training) Epoch: 9. Total loss: 1.619. Value loss: 0.435. Policy accuracy: 0.746
+2025-02-01 09:06:01,054 (Training) Epoch: 10. Total loss: 1.619. Value loss: 0.434. Policy accuracy: 0.747
+2025-02-01 09:14:57,998 (Evaluation) Win rate: 0.18
+2025-02-01 09:14:57,998 (Evaluation) Model 1 wins: 16. Draws: 25. Model 2 wins: 9
+2025-02-01 09:14:58,382 (Evaluation) Rejecting new model...
+2025-02-01 09:16:49,381 (Experiment) Win rate (random): 1.0
+2025-02-01 09:21:31,919 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 09:21:31,920 
+
+2025-02-01 09:21:31,922 Iteration 68
+2025-02-01 10:00:50,516 (Self-play) Number of new training examples: 13994
+2025-02-01 10:00:50,516 (Self-play) Number of total training examples: 890374
+2025-02-01 10:00:50,516 (Self-play) Number of total unique state-reward pairs: 621870
+2025-02-01 10:00:50,516 (Self-play) Model 1 wins: 119. Draws: 22. Model 2 wins: 109
+2025-02-01 10:06:36,368 (Training) Epoch: 1. Total loss: 1.657. Value loss: 0.462. Policy accuracy: 0.741
+2025-02-01 10:09:46,780 (Training) Epoch: 2. Total loss: 1.644. Value loss: 0.453. Policy accuracy: 0.744
+2025-02-01 10:12:58,320 (Training) Epoch: 3. Total loss: 1.641. Value loss: 0.450. Policy accuracy: 0.744
+2025-02-01 10:16:09,350 (Training) Epoch: 4. Total loss: 1.636. Value loss: 0.446. Policy accuracy: 0.743
+2025-02-01 10:19:20,644 (Training) Epoch: 5. Total loss: 1.632. Value loss: 0.443. Policy accuracy: 0.744
+2025-02-01 10:22:30,837 (Training) Epoch: 6. Total loss: 1.627. Value loss: 0.440. Policy accuracy: 0.745
+2025-02-01 10:25:40,911 (Training) Epoch: 7. Total loss: 1.623. Value loss: 0.439. Policy accuracy: 0.747
+2025-02-01 10:28:50,792 (Training) Epoch: 8. Total loss: 1.623. Value loss: 0.438. Policy accuracy: 0.746
+2025-02-01 10:32:01,599 (Training) Epoch: 9. Total loss: 1.620. Value loss: 0.436. Policy accuracy: 0.747
+2025-02-01 10:35:11,199 (Training) Epoch: 10. Total loss: 1.617. Value loss: 0.433. Policy accuracy: 0.747
+2025-02-01 10:44:53,612 (Evaluation) Win rate: 0.34
+2025-02-01 10:44:53,612 (Evaluation) Model 1 wins: 11. Draws: 22. Model 2 wins: 17
+2025-02-01 10:44:54,000 (Evaluation) Rejecting new model...
+2025-02-01 10:46:44,351 (Experiment) Win rate (random): 1.0
+2025-02-01 10:51:41,835 (Experiment) Win rate (alpha-beta pruning with depth 5): 0.96
+2025-02-01 10:51:41,835 
+
+2025-02-01 10:51:41,836 Iteration 69
+2025-02-01 11:30:48,051 (Self-play) Number of new training examples: 13704
+2025-02-01 11:30:48,051 (Self-play) Number of total training examples: 904078
+2025-02-01 11:30:48,051 (Self-play) Number of total unique state-reward pairs: 631060
+2025-02-01 11:30:48,051 (Self-play) Model 1 wins: 106. Draws: 18. Model 2 wins: 126
+2025-02-01 11:36:19,759 (Training) Epoch: 1. Total loss: 1.660. Value loss: 0.464. Policy accuracy: 0.741
+2025-02-01 11:39:31,393 (Training) Epoch: 2. Total loss: 1.648. Value loss: 0.455. Policy accuracy: 0.743
+2025-02-01 11:42:42,896 (Training) Epoch: 3. Total loss: 1.642. Value loss: 0.451. Policy accuracy: 0.743
+2025-02-01 11:45:55,155 (Training) Epoch: 4. Total loss: 1.639. Value loss: 0.447. Policy accuracy: 0.744
+2025-02-01 11:49:07,659 (Training) Epoch: 5. Total loss: 1.631. Value loss: 0.444. Policy accuracy: 0.746
+2025-02-01 11:52:20,317 (Training) Epoch: 6. Total loss: 1.627. Value loss: 0.440. Policy accuracy: 0.745
+2025-02-01 11:55:32,326 (Training) Epoch: 7. Total loss: 1.625. Value loss: 0.439. Policy accuracy: 0.746
+2025-02-01 11:58:45,317 (Training) Epoch: 8. Total loss: 1.622. Value loss: 0.437. Policy accuracy: 0.747
+2025-02-01 12:01:56,991 (Training) Epoch: 9. Total loss: 1.621. Value loss: 0.436. Policy accuracy: 0.747
+2025-02-01 12:05:09,693 (Training) Epoch: 10. Total loss: 1.616. Value loss: 0.434. Policy accuracy: 0.748
+2025-02-01 12:14:32,417 (Evaluation) Win rate: 0.26
+2025-02-01 12:14:32,418 (Evaluation) Model 1 wins: 11. Draws: 26. Model 2 wins: 13
+2025-02-01 12:14:32,799 (Evaluation) Rejecting new model...
+2025-02-01 12:16:25,854 (Experiment) Win rate (random): 1.0
+2025-02-01 12:21:46,112 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 12:21:46,113 
+
+2025-02-01 12:21:46,114 Iteration 70
+2025-02-01 13:01:18,391 (Self-play) Number of new training examples: 14092
+2025-02-01 13:01:18,391 (Self-play) Number of total training examples: 918170
+2025-02-01 13:01:18,391 (Self-play) Number of total unique state-reward pairs: 640493
+2025-02-01 13:01:18,391 (Self-play) Model 1 wins: 128. Draws: 20. Model 2 wins: 102
+2025-02-01 13:07:11,767 (Training) Epoch: 1. Total loss: 1.660. Value loss: 0.466. Policy accuracy: 0.741
+2025-02-01 13:10:27,397 (Training) Epoch: 2. Total loss: 1.649. Value loss: 0.456. Policy accuracy: 0.742
+2025-02-01 13:13:46,071 (Training) Epoch: 3. Total loss: 1.643. Value loss: 0.451. Policy accuracy: 0.743
+2025-02-01 13:17:04,484 (Training) Epoch: 4. Total loss: 1.638. Value loss: 0.449. Policy accuracy: 0.745
+2025-02-01 13:20:21,095 (Training) Epoch: 5. Total loss: 1.634. Value loss: 0.445. Policy accuracy: 0.744
+2025-02-01 13:23:38,130 (Training) Epoch: 6. Total loss: 1.628. Value loss: 0.443. Policy accuracy: 0.745
+2025-02-01 13:26:55,143 (Training) Epoch: 7. Total loss: 1.625. Value loss: 0.440. Policy accuracy: 0.746
+2025-02-01 13:30:12,195 (Training) Epoch: 8. Total loss: 1.622. Value loss: 0.438. Policy accuracy: 0.747
+2025-02-01 13:33:29,424 (Training) Epoch: 9. Total loss: 1.618. Value loss: 0.436. Policy accuracy: 0.747
+2025-02-01 13:36:44,907 (Training) Epoch: 10. Total loss: 1.618. Value loss: 0.436. Policy accuracy: 0.748
+2025-02-01 13:45:52,035 (Evaluation) Win rate: 0.5
+2025-02-01 13:45:52,035 (Evaluation) Model 1 wins: 5. Draws: 20. Model 2 wins: 25
+2025-02-01 13:45:52,400 (Evaluation) Rejecting new model...
+2025-02-01 13:47:42,167 (Experiment) Win rate (random): 1.0
+2025-02-01 13:52:43,103 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 13:52:43,103 
+
+2025-02-01 13:52:43,105 Iteration 71
+2025-02-01 14:31:58,921 (Self-play) Number of new training examples: 13780
+2025-02-01 14:31:58,921 (Self-play) Number of total training examples: 931950
+2025-02-01 14:31:58,921 (Self-play) Number of total unique state-reward pairs: 649520
+2025-02-01 14:31:58,921 (Self-play) Model 1 wins: 132. Draws: 21. Model 2 wins: 97
+2025-02-01 14:37:46,758 (Training) Epoch: 1. Total loss: 1.661. Value loss: 0.468. Policy accuracy: 0.742
+2025-02-01 14:41:24,751 (Training) Epoch: 2. Total loss: 1.650. Value loss: 0.459. Policy accuracy: 0.743
+2025-02-01 14:44:57,732 (Training) Epoch: 3. Total loss: 1.641. Value loss: 0.452. Policy accuracy: 0.745
+2025-02-01 14:48:28,624 (Training) Epoch: 4. Total loss: 1.639. Value loss: 0.449. Policy accuracy: 0.745
+2025-02-01 14:52:00,002 (Training) Epoch: 5. Total loss: 1.631. Value loss: 0.445. Policy accuracy: 0.745
+2025-02-01 14:55:29,606 (Training) Epoch: 6. Total loss: 1.628. Value loss: 0.443. Policy accuracy: 0.747
+2025-02-01 14:58:55,132 (Training) Epoch: 7. Total loss: 1.626. Value loss: 0.442. Policy accuracy: 0.747
+2025-02-01 15:02:19,930 (Training) Epoch: 8. Total loss: 1.622. Value loss: 0.439. Policy accuracy: 0.747
+2025-02-01 15:05:45,056 (Training) Epoch: 9. Total loss: 1.619. Value loss: 0.437. Policy accuracy: 0.748
+2025-02-01 15:09:10,411 (Training) Epoch: 10. Total loss: 1.617. Value loss: 0.436. Policy accuracy: 0.748
+2025-02-01 15:18:34,188 (Evaluation) Win rate: 0.24
+2025-02-01 15:18:34,188 (Evaluation) Model 1 wins: 18. Draws: 20. Model 2 wins: 12
+2025-02-01 15:18:34,895 (Evaluation) Rejecting new model...
+2025-02-01 15:20:22,799 (Experiment) Win rate (random): 1.0
+2025-02-01 15:25:30,511 (Experiment) Win rate (alpha-beta pruning with depth 5): 0.96
+2025-02-01 15:25:30,511 
+
+2025-02-01 15:25:30,551 Iteration 72
+2025-02-01 16:05:17,016 (Self-play) Number of new training examples: 13914
+2025-02-01 16:05:17,023 (Self-play) Number of total training examples: 945864
+2025-02-01 16:05:17,023 (Self-play) Number of total unique state-reward pairs: 658945
+2025-02-01 16:05:17,023 (Self-play) Model 1 wins: 111. Draws: 16. Model 2 wins: 123
+2025-02-01 16:11:45,372 (Training) Epoch: 1. Total loss: 1.664. Value loss: 0.470. Policy accuracy: 0.742
+2025-02-01 16:15:20,396 (Training) Epoch: 2. Total loss: 1.649. Value loss: 0.459. Policy accuracy: 0.743
+2025-02-01 16:18:55,568 (Training) Epoch: 3. Total loss: 1.643. Value loss: 0.454. Policy accuracy: 0.744
+2025-02-01 16:22:32,890 (Training) Epoch: 4. Total loss: 1.635. Value loss: 0.448. Policy accuracy: 0.745
+2025-02-01 16:26:07,712 (Training) Epoch: 5. Total loss: 1.634. Value loss: 0.447. Policy accuracy: 0.746
+2025-02-01 16:29:41,324 (Training) Epoch: 6. Total loss: 1.631. Value loss: 0.445. Policy accuracy: 0.747
+2025-02-01 16:33:18,829 (Training) Epoch: 7. Total loss: 1.626. Value loss: 0.442. Policy accuracy: 0.747
+2025-02-01 16:36:53,176 (Training) Epoch: 8. Total loss: 1.624. Value loss: 0.441. Policy accuracy: 0.747
+2025-02-01 16:40:19,820 (Training) Epoch: 9. Total loss: 1.620. Value loss: 0.438. Policy accuracy: 0.748
+2025-02-01 16:43:45,097 (Training) Epoch: 10. Total loss: 1.615. Value loss: 0.436. Policy accuracy: 0.749
+2025-02-01 16:53:25,854 (Evaluation) Win rate: 0.1
+2025-02-01 16:53:25,854 (Evaluation) Model 1 wins: 22. Draws: 23. Model 2 wins: 5
+2025-02-01 16:53:26,752 (Evaluation) Rejecting new model...
+2025-02-01 16:55:39,771 (Experiment) Win rate (random): 1.0
+2025-02-01 17:00:49,622 (Experiment) Win rate (alpha-beta pruning with depth 5): 0.98
+2025-02-01 17:00:49,623 
+
+2025-02-01 17:00:49,637 Iteration 73
+2025-02-01 17:43:48,460 (Self-play) Number of new training examples: 14604
+2025-02-01 17:43:48,460 (Self-play) Number of total training examples: 960468
+2025-02-01 17:43:48,460 (Self-play) Number of total unique state-reward pairs: 668901
+2025-02-01 17:43:48,460 (Self-play) Model 1 wins: 106. Draws: 27. Model 2 wins: 117
+2025-02-01 17:50:02,651 (Training) Epoch: 1. Total loss: 1.663. Value loss: 0.470. Policy accuracy: 0.741
+2025-02-01 17:53:36,002 (Training) Epoch: 2. Total loss: 1.648. Value loss: 0.459. Policy accuracy: 0.744
+2025-02-01 17:57:04,980 (Training) Epoch: 3. Total loss: 1.642. Value loss: 0.454. Policy accuracy: 0.745
+2025-02-01 18:00:33,887 (Training) Epoch: 4. Total loss: 1.636. Value loss: 0.450. Policy accuracy: 0.746
+2025-02-01 18:04:03,217 (Training) Epoch: 5. Total loss: 1.633. Value loss: 0.447. Policy accuracy: 0.746
+2025-02-01 18:07:30,735 (Training) Epoch: 6. Total loss: 1.626. Value loss: 0.444. Policy accuracy: 0.748
+2025-02-01 18:10:59,179 (Training) Epoch: 7. Total loss: 1.625. Value loss: 0.442. Policy accuracy: 0.748
+2025-02-01 18:14:40,308 (Training) Epoch: 8. Total loss: 1.621. Value loss: 0.440. Policy accuracy: 0.748
+2025-02-01 18:18:20,993 (Training) Epoch: 9. Total loss: 1.619. Value loss: 0.439. Policy accuracy: 0.748
+2025-02-01 18:22:01,969 (Training) Epoch: 10. Total loss: 1.616. Value loss: 0.437. Policy accuracy: 0.749
+2025-02-01 18:32:10,880 (Evaluation) Win rate: 0.32
+2025-02-01 18:32:10,880 (Evaluation) Model 1 wins: 16. Draws: 18. Model 2 wins: 16
+2025-02-01 18:32:31,554 (Evaluation) Rejecting new model...
+2025-02-01 18:34:32,913 (Experiment) Win rate (random): 1.0
+2025-02-01 18:39:40,196 (Experiment) Win rate (alpha-beta pruning with depth 5): 1.0
+2025-02-01 18:39:40,197 
+
+2025-02-01 18:39:40,548 Iteration 74
+2025-02-01 19:23:36,004 (Self-play) Number of new training examples: 13818
+2025-02-01 19:23:36,004 (Self-play) Number of total training examples: 974286
+2025-02-01 19:23:36,004 (Self-play) Number of total unique state-reward pairs: 678056
+2025-02-01 19:23:36,005 (Self-play) Model 1 wins: 129. Draws: 27. Model 2 wins: 94
+2025-02-01 19:30:11,429 (Training) Epoch: 1. Total loss: 1.664. Value loss: 0.473. Policy accuracy: 0.743
+2025-02-01 19:33:43,717 (Training) Epoch: 2. Total loss: 1.648. Value loss: 0.460. Policy accuracy: 0.745
+2025-02-01 19:37:16,302 (Training) Epoch: 3. Total loss: 1.644. Value loss: 0.455. Policy accuracy: 0.744
+2025-02-01 19:40:49,955 (Training) Epoch: 4. Total loss: 1.635. Value loss: 0.450. Policy accuracy: 0.746
+2025-02-01 19:44:22,609 (Training) Epoch: 5. Total loss: 1.632. Value loss: 0.447. Policy accuracy: 0.747
+2025-02-01 19:47:54,388 (Training) Epoch: 6. Total loss: 1.629. Value loss: 0.445. Policy accuracy: 0.748
+2025-02-01 19:51:34,008 (Training) Epoch: 7. Total loss: 1.624. Value loss: 0.442. Policy accuracy: 0.748
+2025-02-01 19:55:11,840 (Training) Epoch: 8. Total loss: 1.622. Value loss: 0.440. Policy accuracy: 0.748
+2025-02-01 19:58:50,617 (Training) Epoch: 9. Total loss: 1.618. Value loss: 0.439. Policy accuracy: 0.749
+2025-02-01 20:02:30,195 (Training) Epoch: 10. Total loss: 1.616. Value loss: 0.437. Policy accuracy: 0.750
+2025-02-01 20:12:04,546 (Evaluation) Win rate: 0.54
+2025-02-01 20:12:04,546 (Evaluation) Model 1 wins: 8. Draws: 15. Model 2 wins: 27
+2025-02-01 20:12:06,049 (Evaluation) Rejecting new model...
+2025-02-01 20:13:54,943 (Experiment) Win rate (random): 1.0
+2025-02-01 20:18:57,503 (Experiment) Win rate (alpha-beta pruning with depth 5): 0.98
+2025-02-01 20:18:57,503 
+
+2025-02-01 20:18:57,552 Iteration 75
+2025-02-01 21:01:03,139 (Self-play) Number of new training examples: 14726
+2025-02-01 21:01:03,139 (Self-play) Number of total training examples: 989012
+2025-02-01 21:01:03,139 (Self-play) Number of total unique state-reward pairs: 688125
+2025-02-01 21:01:03,139 (Self-play) Model 1 wins: 121. Draws: 21. Model 2 wins: 108
+2025-02-01 21:07:45,218 (Training) Epoch: 1. Total loss: 1.665. Value loss: 0.474. Policy accuracy: 0.742
+2025-02-01 21:11:26,011 (Training) Epoch: 2. Total loss: 1.650. Value loss: 0.462. Policy accuracy: 0.743
+2025-02-01 21:15:07,528 (Training) Epoch: 3. Total loss: 1.643. Value loss: 0.456. Policy accuracy: 0.745

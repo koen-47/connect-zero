@@ -36,7 +36,7 @@ def main():
     elif is_experimenting:
         experiment = Experiment(model_experiment)
         # experiment.run(n_games_experiment, log_losses=True)
-        experiment.plot_result_curves_v2()
+        experiment.plot_result_curves()
 
 
 if __name__ == "__main__":

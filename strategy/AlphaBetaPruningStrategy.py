@@ -55,7 +55,6 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
             if a < beta:
                 next_state, next_player = self.game.get_next_state(board, opponent, move)
                 score = self.maximize_alpha(next_state, depth - 1, a, beta, player, opponent)
-
             if score < beta:
                 beta = score
         return beta
