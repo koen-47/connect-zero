@@ -1,5 +1,6 @@
 data
 tests
+demo/node_modules
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

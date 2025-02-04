@@ -1,0 +1,13 @@
+@import "./sass-utils/variables";
+@import "./sass-utils/functions";
+
+// BASE
+@import "./base/base.scss";
+
+// LAYOUTS
+@import "./layouts/main.scss";
+
+// COMPONENTS
+@import "./components/board_player_info.scss";
+@import "./components/board.scss";
+@import "./components/game-container.scss";
