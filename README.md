@@ -11,8 +11,40 @@ combination of deep reinforcement learning and tree search algorithms
 
 ## Installation
 
-[WORK IN PROGRESS]
+Create a conda environment with a name of your choice with Python version 3.12:
 
+
+```shell
+conda create -n [env_name] python=3.12
+```
+
+Activate it and install all necessary libraries:
+
+```shell
+pip install -r requirements.txt
+```
+
+### Playing against ConnectZero
+
+To play against ConnectZero, use the following command:
+```shell
+python main.py --play [starter]
+```
+
+The `[starter]` parameter determines the starting player: `1` indicates that you start first, while `2` means you go second.
+
+
+### Reproducing the Results
+
+To reproduce the experiments discussed below, use the following command:
+
+```shell
+python main.py --experiment [n_games]
+```
+
+The `[n_games]` parameter (positive non-zero integer) specifies the number of games played during the
+experiment. For fairness, an even number is recommended to ensure both 
+players have an equal number of games in each half.
 
 ## Methodology
 
@@ -168,4 +200,28 @@ over time, albeit to a lesser extent.
 
 #### Benchmarking
 
-[WORK IN PROGRESS]
+The following shows the [benchmarking results](./experiment/logs/saved) against a [random opponent](./strategy/RandomStrategy.py) and an 
+[alpha-beta pruning opponent](./strategy/AlphaBetaPruningStrategy.py) across various search depths. The reward function used for the 
+alpha-beta pruning is +1 for a win and -1 for a loss (vice versa for the minimizing player).
+The hyperparameters for ConnectZero remain the same as those used during training.
+
+<div align="center">
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./experiment/plots/benchmark_results_plot_dark.png">
+    <img alt="" src="./experiment/plots/benchmark_results_plot_light.png" />
+</picture>
+</div>
+
+Overall, ConnectZero performs strongly with close to a 100% win rate across 
+all opponents. The few recorded losses occur exclusively in the second half, when ConnectZero is at a disadvantage due to starting second.
+
+
+# References
+
+Below are list of resources that I consulted to build ConnectZero:
+
+- Paper: [Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm](https://arxiv.org/abs/1712.01815)
+- Paper: [Mastering the Game of Go without Human Knowledge](https://discovery.ucl.ac.uk/id/eprint/10045895/1/agz_unformatted_nature.pdf)
+- Repository: [alpha-zero-general](https://github.com/suragnair/alpha-zero-general/tree/master) - helped with implementing MCTS and parts of the model network + game logic.
+- Repository: [AlphaZero.jl](https://jonathan-laurent.github.io/AlphaZero.jl/dev/tutorial/connect_four/) - helped provide some initial insight into which hyperparameters might be effective.
+- Repository: [Connect4](https://github.com/AbdallahReda/Connect4/blob/master/minimaxAlphaBeta.py) - helped with implementing the alpha-beta pruning opponent.

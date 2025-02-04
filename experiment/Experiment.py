@@ -2,6 +2,7 @@ import json
 import re
 
 import matplotlib
+import numpy as np
 import torch
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
@@ -56,56 +57,6 @@ class Experiment:
                                           to_experiment=True)
                         self.__logger.log(f"Action: {action}. Policy: {policy}", to_experiment=True)
                         self.__logger.log(f"{Game().display(state)}", to_experiment=True)
-
-    def plot_result_curves_v1(self, path="./logs/recent", dark_mode=False):
-        results_per_iteration = self.__parse_log_summary_file(path)
-        value_losses = [result["value_loss"] for result in results_per_iteration]
-        policy_accuracies = [result["policy_accuracy"] for result in results_per_iteration]
-        model_acceptances = [result["is_accepted"] for result in results_per_iteration]
-
-        fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 3))
-        color = "#0d1117" if not dark_mode else "#F0F6FC"
-
-        iterations = range(1, len(results_per_iteration) + 1)
-        value_loss_line, = axes[0].plot(iterations, value_losses, label="Value loss", color="#459abd", alpha=0.6)
-        for i, (x, y) in enumerate(zip(iterations, value_losses)):
-            marker = r"$\checkmark$" if model_acceptances[i] else r"$\times$"
-            marker_color = "#43b97f" if model_acceptances[i] else "#ff4747"
-            axes[0].scatter(x - 0.1, y, marker=marker, color=marker_color, s=100, zorder=2)
-
-        policy_acc_line, = axes[1].plot(iterations, policy_accuracies, label="Policy accuracy", color="#459abd",
-                                        alpha=0.6)
-        for i, (x, y) in enumerate(zip(iterations, policy_accuracies)):
-            marker = r"$\checkmark$" if model_acceptances[i] else r"$\times$"
-            marker_color = "#43b97f" if model_acceptances[i] else "#ff4747"
-            axes[1].scatter(x - 0.1, y, marker=marker, color=marker_color, s=100, zorder=2)
-
-        checkmark_legend = mlines.Line2D([], [], color="#43b97f", marker=r"$\checkmark$", linestyle="None",
-                                         markersize=10, label="Model accepted")
-        cross_legend = mlines.Line2D([], [], color="#ff4747", marker=r"$\times$", linestyle="None",
-                                     markersize=10, label="Model rejected")
-
-        for ax in axes:
-            ax.spines["bottom"].set_color(color)
-            ax.spines["left"].set_color(color)
-            ax.spines["right"].set_visible(False)
-            ax.spines["top"].set_visible(False)
-            ax.get_xaxis().tick_bottom()
-            ax.get_yaxis().tick_left()
-            ax.xaxis.label.set_color(color)
-            ax.yaxis.label.set_color(color)
-            ax.tick_params(axis="x", colors=color)
-            ax.tick_params(axis="y", colors=color)
-            ax.grid(False)
-            ax.set_xlabel("Iteration")
-
-        axes[0].legend(handles=[value_loss_line, checkmark_legend, cross_legend], frameon=False, labelcolor=color)
-        axes[1].legend(handles=[policy_acc_line, checkmark_legend, cross_legend], frameon=False, labelcolor=color)
-        axes[0].set_ylabel("MSE Loss")
-        axes[1].set_ylabel("Accuracy (%)")
-
-        plt.tight_layout()
-        plt.show()
 
     def plot_result_curves(self, path="./logs/recent", dark_mode=False):
         results_per_iteration = self.__parse_log_summary_file(path)
@@ -188,7 +139,47 @@ class Experiment:
                     transparent=True)
         plt.show()
 
-    def __parse_log_summary_file(self, path="./logs/recent"):
+    def plot_experiment_results(self, path="./experiment/logs/saved", dark_mode=True):
+        benchmark_results = self.__parse_experiment_files(path)
+
+        matplotlib.rcParams.update({"font.size": 12})
+        fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(11, 5))
+        color = "#0d1117" if not dark_mode else "#F0F6FC"
+
+        x = ["Random"] + [result.split("_")[1] for result in list(benchmark_results.keys())[1:]]
+        y = np.array([result["win_rate"] for result in benchmark_results.values()]) * 100
+
+        ax.text(0.55, -0.2, "Alpha-Beta pruning depth", ha="center", transform=ax.transAxes, color=color)
+        ax.text(0.5, -0.3, "Opponent", ha="center", transform=ax.transAxes, fontweight="bold", color=color)
+
+        ax.bar(x, y, color="#43b97f")
+
+        lengths = [-0.2, -0.2] + [-0.1] * 8 + [-0.2]
+        for x_pos, length in zip(np.linspace(0,1,11), lengths):
+            line = plt.Line2D([x_pos, x_pos], [0, length], transform=ax.transAxes, color=color, linewidth=1.)
+            line.set_clip_on(False)
+            ax.add_line(line)
+
+        ax.margins(x=0.01)
+        ax.spines["bottom"].set_color(color)
+        ax.spines["left"].set_color(color)
+        ax.spines["right"].set_visible(False)
+        ax.spines["top"].set_visible(False)
+        ax.get_xaxis().tick_bottom()
+        ax.get_yaxis().tick_left()
+        ax.xaxis.label.set_color(color)
+        ax.yaxis.label.set_color(color)
+        ax.tick_params(axis="x", colors=color)
+        ax.tick_params(axis="y", colors=color)
+        ax.grid(False)
+        ax.set_ylabel("Win rate (%)", fontdict=dict(weight="bold"))
+
+        plt.tight_layout()
+        plt.savefig(f"./experiment/plots/benchmark_results_plot_{'dark' if dark_mode else 'light'}.png",
+                    transparent=True)
+        plt.show()
+
+    def __parse_log_summary_file(self, path="./logs/saved"):
         with open(f"{path}/log_summary", "r") as file:
             results_per_iteration, current_iteration_log = [], ""
             for line in file:
@@ -214,4 +205,19 @@ class Experiment:
                     current_iteration_log += f", {line.strip()}"
             return results_per_iteration
 
-
+    def __parse_experiment_files(self, path="./experiment/logs/saved"):
+        file_names = [f"experiment_{name}" for name in ["random"] + [f"alphabeta_{i}" for i in range(2, 11)]]
+        results = {}
+        for name in file_names:
+            result_type = "_".join(name.split("_")[1:])
+            current_experiment_log = ""
+            with open(f"{path}/{name}", "r") as file:
+                for line in file:
+                    current_experiment_log += line
+                win_rate = float(re.search(r"Win rate: (\d+\.\d+)", current_experiment_log).group(1))
+                n_wins = int(re.search(r"Wins: (\d+).", current_experiment_log).group(1))
+                n_draws = int(re.search(r"Draws: (\d+).", current_experiment_log).group(1))
+                n_losses = int(re.search(r"Losses: (\d+).", current_experiment_log).group(1))
+                results[result_type] = {"win_rate": win_rate, "n_wins": n_wins,
+                                        "n_draws": n_draws, "n_losses": n_losses}
+        return results

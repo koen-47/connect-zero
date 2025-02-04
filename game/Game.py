@@ -1,6 +1,3 @@
-import numpy
-from termcolor import colored
-
 from .Board import Board
 
 
