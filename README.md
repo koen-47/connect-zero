@@ -1,10 +1,13 @@
-# ConnectZero
+<div align="center">
+<h1>ConnectZero</h1>
   
 Implementing DeepMind’s AlphaZero model for Connect Four through a
-combination of deep reinforcement learning and tree search algorithms.
-
+combination of deep reinforcement learning and tree search algorithms. 
+\
+\
 [**🎮 Demo**](https://connect-zero.onrender.com/) 
 
+</div>
 
 ## Installation
 
