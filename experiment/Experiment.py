@@ -58,7 +58,7 @@ class Experiment:
                         self.__logger.log(f"Action: {action}. Policy: {policy}", to_experiment=True)
                         self.__logger.log(f"{Game().display(state)}", to_experiment=True)
 
-    def plot_result_curves(self, path="./logs/recent", dark_mode=False):
+    def plot_result_curves(self, path="./logs/saved", dark_mode=True):
         results_per_iteration = self.__parse_log_summary_file(path)
         value_losses = [result["value_loss"] for result in results_per_iteration]
         policy_accuracies = [result["policy_accuracy"] for result in results_per_iteration]
@@ -70,7 +70,7 @@ class Experiment:
         fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
         color = "#0d1117" if not dark_mode else "#F0F6FC"
         patch_width = 1.
-        marker_size = 3
+        marker_size = 2
 
         iterations = range(1, len(results_per_iteration) + 1)
         value_loss_line, = axes[0].plot(iterations, value_losses, label="Value loss", color="#459abd", marker="o",

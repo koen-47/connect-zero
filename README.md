@@ -86,7 +86,7 @@ tuned manually.
     <tr>
         <td rowspan="4"><a href="./brain/AlphaZero.py">Training loop</a></td>
         <td># iterations</td>
-        <td colspan="3">80</td>
+        <td colspan="3">75</td>
     </tr>
     <tr>
         <td># self-play episodes</td>
@@ -173,6 +173,10 @@ tuned manually.
 ### Results
 
 #### Training
+
+After [training for all iterations](./logs/saved), a total of 989,012 state-policy-reward triplets were
+collected with 688,125 unique state-reward pairs. There were 13 occassions where
+the new model was accepted.
 
 The following plots illustrate the value loss, policy accuracy, 
 and win rate across all iterations, evaluated against both a random 
