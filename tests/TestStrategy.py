@@ -1,20 +1,21 @@
 import unittest
 
+import numpy as np
 import torch
 
-from v2.brain.Evaluator import Evaluator
-from v2.brain.MCTS import MCTS
+from brain.Evaluator import Evaluator
+from brain.MCTS import MCTS
 from game.Game import Game
 from game.Player import Player
-from v2.models.pytorch.DualResidualNetwork import DualResidualNetwork
-from v2.strategy.AlphaBetaPruningStrategy import AlphaBetaPruningStrategy
-from v2.strategy.ManualStrategy import ManualStrategy
-from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2
+from models.DualResidualNetwork import DualResidualNetwork
+from strategy.AlphaBetaPruningStrategy import AlphaBetaPruningStrategy
+from strategy.ManualStrategy import ManualStrategy
+from strategy.AlphaZeroStrategy import AlphaZeroStrategy
 
 
 class TestStrategy(unittest.TestCase):
     def test_alpha_beta_pruning_strategy_p1(self):
-        player_1 = Player(1, strategy=AlphaBetaPruningStrategy(depth=4))
+        player_1 = Player(1, strategy=AlphaBetaPruningStrategy(depth=1))
         player_2 = Player(-1, strategy=ManualStrategy())
         evaluator = Evaluator(player_1, player_2)
         evaluator.play_game(display=True)
@@ -24,6 +25,16 @@ class TestStrategy(unittest.TestCase):
         player_2 = Player(-1, strategy=AlphaBetaPruningStrategy(depth=4))
         evaluator = Evaluator(player_1, player_2)
         evaluator.play_game(display=True)
+
+    def test_alpha_beta_reward(self):
+        strategy = AlphaBetaPruningStrategy(depth=1)
+        board = np.array([[ 0,  0,  0,  0,  0,  0,  0],
+                          [ 0,  0,  0,  0,  0,  0,  0],
+                          [ 0,  1,  0, -1,  0,  0,  0],
+                          [ 0,  1,  0,  1, -1,  0,  0],
+                          [ 0,  1,  0,  1,  1, -1,  0],
+                          [ 1,  1,  0,  1,  1, -1, -1]])
+        strategy.reward(board, 1)
 
     def test_alphazero_alphabeta_games(self):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

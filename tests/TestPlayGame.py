@@ -4,13 +4,13 @@ import torch
 
 from game.Game import Game
 from game.Player import Player
-from v2.brain.Evaluator import Evaluator
-from v2.models.pytorch.DualConvolutionalNetwork import DualConvolutionalNetwork
-from v2.strategy.ManualStrategy import ManualStrategy
-from v2.strategy.RandomStrategy import RandomStrategy
-from v2.strategy.AlphaZeroStrategyV2 import AlphaZeroStrategyV2
-from v2.brain.MCTS import MCTS
-from v2.models.pytorch.DualResidualNetwork import DualResidualNetwork
+from brain.Evaluator import Evaluator
+from strategy.ManualStrategy import ManualStrategy
+from strategy.RandomStrategy import RandomStrategy
+from strategy.AlphaZeroStrategy import AlphaZeroStrategy
+from strategy.AlphaBetaPruningStrategy import AlphaBetaPruningStrategy
+from brain.MCTS import MCTS
+from models.DualResidualNetwork import DualResidualNetwork
 
 
 class TestPlayGame(unittest.TestCase):
@@ -44,12 +44,12 @@ class TestPlayGame(unittest.TestCase):
 
     def test_play_manual_random_p1(self):
         player_1 = Player(1, strategy=ManualStrategy())
-        player_2 = Player(-1, strategy=RandomStrategy())
+        player_2 = Player(-1, strategy=AlphaBetaPruningStrategy(depth=5))
         evaluator = Evaluator(player_1, player_2)
         evaluator.play_game(display=True)
 
     def test_play_manual_random_p2(self):
-        player_1 = Player(1, strategy=RandomStrategy())
+        player_1 = Player(1, strategy=AlphaBetaPruningStrategy(depth=5))
         player_2 = Player(-1, strategy=ManualStrategy())
         evaluator = Evaluator(player_1, player_2)
         evaluator.play_game(display=True)

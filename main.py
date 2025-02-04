@@ -14,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--train", action="store_true")
     parser.add_argument("--experiment", action="store_true")
-    parser.add_argument("--model", type=str, default="./models/recent/resnet_v4_128_5.pth")
+    parser.add_argument("--model", type=str, default="./models/saved/resnet_v4_128_5.pth")
     parser.add_argument("--n_games", type=int, default=100)
 
     # Parsing arguments
@@ -35,8 +35,8 @@ def main():
     # Experiment with trained model (or default model resnet_v2_512_2.pth) for a specified number of games
     elif is_experimenting:
         experiment = Experiment(model_experiment)
-        # experiment.run(n_games_experiment, log_losses=True)
-        experiment.plot_result_curves()
+        experiment.run(n_games_experiment, log_losses=True)
+        # experiment.plot_result_curves()
 
 
 if __name__ == "__main__":

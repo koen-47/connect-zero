@@ -12,7 +12,6 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
         self.game = Game()
 
     def calculate_move(self, board, player_id):
-        # FIX ISSUE WHERE PLAYER 1 AND 2 STRATEGY ARE NOT PERFORMING THE SAME
         return self.start_minimax(board, depth=self.depth, player=1)
 
     def start_minimax(self, board, depth, player):
@@ -46,10 +45,7 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
         if depth == 0 or len(valid_moves) == 0 or game_status != 0:
             return self.__constant_reward(player, game_status)
 
-        valid_moves = self.game.get_valid_moves(board)
-        valid_moves = np.where(np.array(valid_moves) == 1)[0]
         beta = b
-
         for move in valid_moves:
             score = float("inf")
             if a < beta:
@@ -67,7 +63,6 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
             return self.__constant_reward(player, game_status)
 
         alpha = a
-
         for move in valid_moves:
             score = float("-inf")
             if alpha < b:
@@ -87,3 +82,39 @@ class AlphaBetaPruningStrategy(ABC, Strategy):
         elif game_status == -1 and player_id == -1:
             return 1
         return 0.
+
+    def __seq_count_reward(self, board, player):
+        n_rows, n_cols = 6, 7
+        n_player_sequences = [0] * 3
+        n_opponent_sequences = [0] * 3
+        opponent = -player
+
+        def evaluate(window):
+            n_player_pieces = window.count(player)
+            if n_player_pieces >= 2:
+                n_player_sequences[n_player_pieces - 2] += 1
+            n_opponent_pieces = window.count(opponent)
+            if n_opponent_pieces >= 2:
+                n_opponent_sequences[n_opponent_pieces - 2] += 1
+
+        for r in range(n_rows):
+            row_array = [int(i) for i in list(board[r, :])]
+            for c in range(n_cols - 3):
+                evaluate(row_array[c:c + 4])
+
+        for c in range(n_cols):
+            col_array = [int(i) for i in list(board[:, c])]
+            for r in range(n_rows - 3):
+                evaluate(col_array[r:r + 4])
+
+        for r in range(n_rows - 3):
+            for c in range(n_cols - 3):
+                evaluate([board[r + i][c + i] for i in range(4)])
+
+        for r in range(3, n_rows):
+            for c in range(n_cols - 3):
+                evaluate([board[r - i][c + i] for i in range(4)])
+
+        player_score = sum([weight * count for weight, count in zip([1, 10, 100], n_player_sequences)])
+        opponent_score = sum([weight * count for weight, count in zip([1, 10, 100], n_opponent_sequences)])
+        return player_score - opponent_score

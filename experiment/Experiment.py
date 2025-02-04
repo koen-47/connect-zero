@@ -22,13 +22,14 @@ class Experiment:
     def __init__(self, model):
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model_ = DualResidualNetwork(num_channels=128, num_res_blocks=5).to(device)
-        model_.load_state_dict(torch.load(model))
+        model_.load_state_dict(torch.load(model, weights_only=True))
         model_.eval()
-        self.__mcts = MCTS(game=Game(), model=model_, device=device, num_sims=500, c_puct=2., dir_e=0)
+        self.__mcts = MCTS(game=Game(), model=model_, device=device, num_sims=100, c_puct=2.0, dir_e=0)
         self.__logger = Logger()
 
     def run(self, n_games, log_losses=True):
         strategies = {"random": RandomStrategy()}
+        # strategies = {}
         for i in range(2, 11):
             strategies[f"alphabeta_{i}"] = AlphaBetaPruningStrategy(depth=i)
 
@@ -42,7 +43,7 @@ class Experiment:
             print(win_rate, results)
 
             if log_losses:
-                self.__logger.set_log_experiment_file(name, f"../experiment/logs/recent/experiment_{name}")
+                self.__logger.set_log_experiment_file(name, f"./experiment/logs/recent/experiment_{name}")
                 self.__logger.log(f"Win rate: {win_rate}", to_experiment=True)
                 self.__logger.log(f"Wins: {n_player_1_wins}. Draws: {n_draws}. Losses: {n_player_2_wins}.\n",
                                   to_experiment=True)
@@ -192,14 +193,14 @@ class Experiment:
             results_per_iteration, current_iteration_log = [], ""
             for line in file:
                 if line == "\n":
-                    losses = re.search("Epoch: 10.*?Value loss: (\d+\.\d+).*?Policy accuracy: (\d+\.\d+)",
+                    losses = re.search(r"Epoch: 10.*?Value loss: (\d+\.\d+).*?Policy accuracy: (\d+\.\d+)",
                                        current_iteration_log)
                     value_loss = float(losses.group(1))
                     policy_accuracy = float(losses.group(2))
                     is_accepted = bool(re.search("Accepting new model...", current_iteration_log) is not None)
 
-                    win_rate_random = float(re.search("Win rate \(random\): (\d+\.\d+)", current_iteration_log).group(1))
-                    win_rate_alpha_beta = float(re.search("Win rate \(alpha-beta pruning with depth 5\): (\d+\.\d+)",
+                    win_rate_random = float(re.search(r"Win rate \(random\): (\d+\.\d+)", current_iteration_log).group(1))
+                    win_rate_alpha_beta = float(re.search(r"Win rate \(alpha-beta pruning with depth 5\): (\d+\.\d+)",
                                                 current_iteration_log).group(1))
                     results_per_iteration.append({
                         "value_loss": value_loss,
@@ -212,3 +213,5 @@ class Experiment:
                 else:
                     current_iteration_log += f", {line.strip()}"
             return results_per_iteration
+
+

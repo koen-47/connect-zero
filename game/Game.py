@@ -39,15 +39,15 @@ class Game:
     def get_canonical_form(self, board, player):
         return board * player
 
-    def display(self, board, color=True):
+    def display(self, board):
         board_str = "\n"
         for i in range(len(board)):
             for j in range(len(board[0])):
                 cell_str = "- "
                 if board[i][j] == 1:
-                    cell_str = colored("X ", "red") if color is True else "X "
+                    cell_str = "X "
                 elif board[i][j] == -1:
-                    cell_str = colored("O ", "yellow") if color is True else "O "
+                    cell_str = "O "
                 board_str += cell_str
             board_str += "\n"
         return board_str
