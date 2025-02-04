@@ -1,0 +1,131 @@
+#board-container {
+    position: absolute;
+    // border: 1px solid red;
+    height: 80%;
+    width: 50%;
+    top: 350px;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+#board {
+    border-collapse: separate;
+    border-spacing: 2px 2px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    height: 100%;
+    // width: 100%;
+    // border: 1px solid blue;
+
+    td {
+        padding: 12px;
+        text-align: center;
+        background-color: _palette(bg-1-darken);
+            
+        .board-cell {
+            height: 40px;
+            width: 40px;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            position: relative;
+            border-radius: 100px;
+            background-color: _palette(bg-1);
+
+            @supports (-moz-appearance:none) {
+                & { 
+                    transform: translate(-50%, 0%);
+                } 
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        .board-cell-p1 {
+            background-color: _palette(accent-1);
+            transition: background-color 0.5s;
+        }
+    
+        .board-cell-p2 {
+            background-color: _palette(accent-3);
+            transition: background-color 0.5s;
+        }
+    }
+
+    .board-cell-top-left {
+        border-top-left-radius: 30px;
+    }
+
+    .board-cell-top-right {
+        border-top-right-radius: 30px;
+    }
+
+    .board-cell-bottom-left {
+        border-bottom-left-radius: 30px;
+    }
+
+    .board-cell-bottom-right {
+        border-bottom-right-radius: 30px;
+    }
+
+    .board-cell-highlight-p1 {
+        background-color: _palette(bg-1-darker);
+        transition: background-color 0.25s;
+    }
+    
+    .board-cell-highlight-p2 {
+        background-color: _palette(bg-1-darker);
+        transition: background-color 0.25s;
+    }
+}
+
+#board-info-container {
+    position: relative;
+    top: 110%;
+    height: 20%;
+    width: 100%;
+}
+
+.connect-four {
+    opacity: 1;
+}
+
+.not-connect-four {
+    opacity: 0.3;
+    transition: opacity 0.5s;
+}
+
+
+
+@media (max-width: 600px) {
+    // #board-container {
+    //     width: 100px;
+    //     height: 100px;
+    // }
+
+    #board {
+        height: 100px;
+        width: 50px !important;
+        top: 250px;
+    }
+
+    td {
+        padding: 10px !important;
+        .board-cell {
+            height: 25px !important;
+            width: 25px !important;
+            transform: translate(-50%, -0%) !important;
+        }
+    }
+}
+
+.disabled {
+    opacity: 0.75;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
